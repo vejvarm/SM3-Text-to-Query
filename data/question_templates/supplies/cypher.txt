@@ -1,0 +1,15 @@
+MATCH (s:Supply {{code: '$supply_code'}}) RETURN DISTINCT s.description;
+MATCH (s:Supply {{code: '$supply_code'}}) RETURN DISTINCT s.quantity;
+MATCH (p:Patient)-[:IS_ORDERED_FOR]->(s:Supply {{code: '$supply_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(s:Supply {{code: '$supply_code'}}) RETURN DISTINCT e.description;
+MATCH (s:Supply {{code: '$supply_code'}}) RETURN DISTINCT s.quantity;
+MATCH (p:Patient)-[:IS_ORDERED_FOR]->(s:Supply {{code: '$supply_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(s:Supply {{code: '$supply_code'}}) RETURN DISTINCT e.description;
+MATCH (s:Supply {{description: '$supply_name'}}) RETURN DISTINCT s.quantity;
+MATCH (s:Supply {{description: '$supply_name'}}) RETURN s.date;
+MATCH (s:Supply {{description: '$supply_name'}}) RETURN DISTINCT s.code;
+MATCH (p:Patient)-[:IS_ORDERED_FOR]->(s:Supply {{description: '$supply_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(s:Supply {{description: '$supply_name'}}) RETURN DISTINCT e.description;
+MATCH (s:Supply {{description: '$supply_name'}}) RETURN DISTINCT s.quantity;
+MATCH (p:Patient)-[:IS_ORDERED_FOR]->(s:Supply {{description: '$supply_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(s:Supply {{description: '$supply_name'}}) RETURN DISTINCT e.description;

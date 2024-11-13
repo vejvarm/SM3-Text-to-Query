@@ -1,0 +1,17 @@
+SELECT DISTINCT p.first, p.last FROM patients p LEFT JOIN careplans c ON c.patient=p.id WHERE c.code='$careplan_code';
+SELECT start FROM careplans WHERE code='$careplan_code';
+SELECT start FROM careplans WHERE code='$careplan_code';
+SELECT reasondescription FROM careplans WHERE code='$careplan_code';
+SELECT DISTINCT e.description FROM careplans c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.code='$careplan_code';
+SELECT DISTINCT encounter FROM careplans WHERE code='$careplan_code';
+SELECT DISTINCT e.description FROM careplans c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.code='$careplan_code';
+SELECT DISTINCT p.first, p.last FROM careplans c LEFT JOIN patients p ON c.patient=p.id WHERE c.code='$careplan_code';
+SELECT reasondescription FROM careplans WHERE code='$careplan_code';
+SELECT DISTINCT p.first, p.last FROM patients p LEFT JOIN careplans c ON c.patient=p.id WHERE c.description='$careplan_name';
+SELECT start FROM careplans WHERE description='$careplan_name';
+SELECT start FROM careplans WHERE description='$careplan_name';
+SELECT reasondescription FROM careplans WHERE description='$careplan_name';
+SELECT DISTINCT e.description FROM careplans c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.description='$careplan_name';
+SELECT DISTINCT e.description FROM careplans c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.description='$careplan_name';
+SELECT DISTINCT p.first, p.last FROM patients p LEFT JOIN careplans c ON c.patient=p.id WHERE c.description='$careplan_name';
+SELECT reasondescription FROM careplans WHERE description='$careplan_name';

@@ -1,0 +1,13 @@
+SELECT amount FROM claims_transactions WHERE id='$claim_t_id';
+SELECT chargeid FROM claims_transactions WHERE id='$claim_t_id';
+SELECT claimid FROM claims_transactions WHERE id='$claim_t_id';
+SELECT procedurecode FROM claims_transactions WHERE id='$claim_t_id';
+SELECT type FROM claims_transactions WHERE id='$claim_t_id';
+SELECT DISTINCT p.first, p.last FROM claims_transactions clt LEFT JOIN patients p ON clt.patientid=p.id WHERE clt.id='$claim_t_id';
+SELECT DISTINCT pr.name FROM claims_transactions clt LEFT JOIN providers pr ON clt.providerid=pr.id WHERE clt.id='$claim_t_id';
+SELECT amount FROM claims_transactions WHERE id='$claim_t_id';
+SELECT chargeid FROM claims_transactions WHERE id='$claim_t_id';
+SELECT claimid FROM claims_transactions WHERE id='$claim_t_id';
+SELECT procedurecode FROM claims_transactions WHERE id='$claim_t_id';
+SELECT DISTINCT p.first, p.last FROM claims_transactions clt LEFT JOIN patients p ON clt.patientid=p.id WHERE clt.id='$claim_t_id';
+SELECT pr.name FROM claims_transactions clt LEFT JOIN providers pr ON clt.providerid=pr.id WHERE clt.id='$claim_t_id';

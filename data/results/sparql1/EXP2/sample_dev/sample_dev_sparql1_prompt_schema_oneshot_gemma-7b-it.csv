@@ -1,0 +1,1946 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?specialty
+WHERE {
+  ?provider a syn:Provider ;
+           syn:name 'Crystle668 McCullough561' .
+  ?provider syn:specialty ?specialty .
+}
+```",5.298763036727905
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?bodySiteCode ?bodySiteDescription WHERE {
+  ?imagingStudy a syn:ImagingStudy ;
+           syn:id 'ee88b224-1f91-8c6a-493a-46e8004c4331'^^uuid: .
+  ?imagingStudy syn:bodySiteCode ?bodySiteCode .
+  ?imagingStudy syn:bodySiteDescription ?bodySiteDescription .
+}
+```",5.509067058563232
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT DISTINCT ?patientId
+WHERE {
+  ?patient a syn:Patient;
+        syn:immunization ?immunization.
+  ?immunization syn:code 'Influenza, seasonal, injectable, preservative free'^^snomed:SNOMED-CT.
+  ?patient syn:id ?patientId.
+}
+```",7.247514963150024
+What is the description of the device with code 170615005?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?description
+WHERE {
+  ?device a syn:Device;
+        syn:code '170615005' .
+  ?device syn:description ?description .
+}
+```",9.273047924041748
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?supply a syn:Supply .
+  ?supply syn:code ?code .
+  FILTER ( str(?code) = ""Continuous positive airway pressure nasal oxygen cannula"" )
+}
+```",6.5432257652282715
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+  ?encounter syn:id '79942d67-05c5-5c61-336d-4be332d76720'.
+  ?encounter syn:reasonCode ?reasonCode.
+  ?reasonCode syn:description ?reasonDescription.
+}
+```",5.339185953140259
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?payer syn:id '0133f751-9229-3cfd-815f-b6d4979bdd6a'.
+  ?payer syn:payerId ?patientId.
+}
+```",4.325227975845337
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?medication ?successRate
+WHERE {
+  ?medication a syn:Medication;
+        syn:code 'Simvastatin 10 MG Oral Tablet';
+        syn:successRate ?successRate.
+}
+```",4.201803922653198
+Which patient had the allergy House dust mite (organism)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?patient a syn:Patient;
+        syn:condition ?condition.
+  FILTER (syn:code(?condition) = 'snomed:SNOMED-CT|12345')
+}
+```",4.198592901229858
+Please provide me the patients treated with the procedure of code 710841007.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?patientId
+WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode '710841007'^^snomed:SNOMED-CT.
+  ?claim syn:patientId ?patientId.
+}
+```",4.330302953720093
+What kind of allergy has the code 84489001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?allergyName WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '84489001'^^syn:snomed:SNOMED-CT.
+  ?allergy rdfs:label ?allergyName.
+}
+```",5.235755920410156
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?count
+WHERE {
+  ?payer syn:id 'b046940f-1664-3047-bca7-dfa76be352a4'.
+  ?payer syn:payerDataProperty ?pd.
+  ?pd syn:uniqueCustomers ?count.
+}
+```",5.4895179271698
+What code does observation Body Height have?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?observation a syn:Observation .
+  ?observation syn:code ?code .
+  FILTER (syn:code = ""Body Height"")
+}
+```",5.857838153839111
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?specialty
+WHERE {
+  ?provider a syn:Provider;
+           syn:id '301f9141-3dbc-38f3-bca9-7c909a84caa9'^^uuid:UUID .
+  ?provider syn:specialty ?specialty .
+}
+```",6.00482702255249
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?cost
+WHERE {
+  ?medication a syn:Medication;
+        syn:code 'Warfarin Sodium 5 MG Oral Tablet' .
+  ?medication syn:totalCost ?cost .
+}
+```",5.401263236999512
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthLocation
+WHERE {
+  ?patient a syn:Patient;
+        syn:id 'c17a5539-74aa-4805-e623-fdaf4a31dfd9'^^uuid:UUID;
+        syn:birthLocation ?birthLocation.
+}
+```",6.311085939407349
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT COUNT(DISTINCT ?procedure)
+WHERE {
+  ?claim a syn:Claim;
+        syn:payerId 'd31fccc3-1767-390d-966a-22a5156f4219'^^udi:UDI.
+  ?claim syn:procedure ?procedure.
+}
+```",7.4776771068573
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?encounter) AS ?count)
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:payer ?payerId.
+  ?payer a syn:Payer;
+        syn:payerCode 'NO_INSURANCE'.
+  FILTER (NOT EXISTS { ?encounter syn:payer ?payerId2 . FILTER ( ?payerId2 = ?payerId ) })
+}
+```",5.958646059036255
+What is the state of residence of the patient named Carin553 Jerde200?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?state
+WHERE {
+  ?patient a syn:Patient ;
+         syn:name 'Carin553 Jerde200' .
+  ?patient syn:state ?state .
+}
+```",6.994840860366821
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?modalityCode
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:id '7d52afa5-9282-64ef-e08c-c66f1a53e7f2'^^uuid: .
+  ?imagingStudy syn:procedureCode ?modalityCode.
+}
+```",8.596143960952759
+Please provide me the patient with the supply with the code 972002.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?patient
+WHERE {
+  ?supply a syn:Supply;
+        syn:code '972002' .
+  ?supply syn:patient ?patient .
+}
+```",8.152835845947266
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?date
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:seriesUid '1.2.840.99999999.1.97267088.1424332927924'.
+  ?imagingStudy syn:startYear ?date.
+}
+```",6.327294111251831
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?date WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:seriesUid '1.2.840.99999999.1.93465008.1702305862410'.
+  ?imagingStudy syn:startYear ?date.
+}
+```",5.466068983078003
+When did the allergy with the code 84489001 end?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?end WHERE {
+  ?allergy a syn:Allergy ;
+           syn:code '84489001' ;
+           syn:end ?end .
+}
+```",4.8726160526275635
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?patientId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:seriesUid '1.2.840.99999999.1.30162925.1683721997276'^^syn:dicom:UID.
+  ?imagingStudy syn:patientId ?patientId.
+}
+```",4.722321033477783
+What is the marital status of Kermit56 Rutherford999?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?maritalStatus
+WHERE {
+  ?patient a syn:Patient;
+        syn:name 'Kermit56 Rutherford999' .
+  ?patient syn:maritalStatus ?maritalStatus .
+}
+```",6.773237943649292
+In which encounter was a procedure with code 10383002 performed?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounter
+WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode '10383002'.
+  ?claim syn:encounterId ?encounter.
+}
+```",6.426731824874878
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?modality
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:id '8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa'^^uuid:UUID;
+           syn:procedureCode ?procedureCode.
+  ?procedureCode syn:hasModality ?modality.
+}
+```",4.845851898193359
+What is the address of the patient named Stefania815 West559?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address WHERE {
+  ?patient a syn:Patient ;
+         syn:name 'Stefania815 West559' .
+  ?patient syn:address ?address .
+}
+```",4.768701791763306
+What is the base cost of the medication with the code 197604?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?cost
+WHERE {
+  ?medication a syn:Medication;
+             syn:code '197604'.
+  ?medication syn:totalCost ?cost.
+}
+```",4.812733888626099
+Please provide me the patient with the supply with the code 409534002.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?patient WHERE {
+  ?supply a syn:Supply;
+        syn:code '409534002' .
+  ?supply syn:patient ?patient .
+}
+```",4.657395839691162
+Can you tell me when the observation with the code QALY was recorded?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?date WHERE {
+  ?observation a syn:Observation ;
+           syn:code 'QALY' ;
+           syn:recordedDate ?date .
+}
+```",4.689846992492676
+What is the address of the patient named Margie619 Strosin214?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?patient a syn:Patient;
+        syn:name 'Margie619 Strosin214' .
+  ?patient syn:address ?address .
+}
+```",5.523200035095215
+Who is the patient associated with the supply with the code 463659001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?patientId
+WHERE {
+  ?supply a syn:Supply;
+        syn:code '463659001' .
+  ?supply syn:patientId ?patientId.
+}
+```",3.8831231594085693
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?claimTransaction a syn:ClaimTransaction ;
+                 syn:id '576550eb-d73b-1996-b14a-f68254146bf8'^^uuid: .
+  ?claimTransaction syn:procedureCode ?code .
+}
+```",3.48427414894104
+Which encounter is related to the allergy with the code 84489001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounter
+WHERE {
+  ?allergy a syn:Allergy ;
+           syn:code '84489001' .
+  ?allergy syn:relatedTo ?encounter .
+}
+```",3.91770076751709
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?payerName
+WHERE {
+  ?claim a syn:Claim;
+        syn:medication ?medication.
+  ?medication syn:name 'Digoxin 0.125 MG Oral Tablet'.
+  ?claim syn:payer ?payer.
+  ?payer rdfs:label ?payerName.
+}
+```",5.763181924819946
+Who has been treated for the condition with code 706893006?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?patient a syn:Patient;
+        syn:condition ?condition.
+  ?condition syn:code '706893006'.
+  ?patient syn:id ?patientId.
+}
+```",6.190292835235596
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientId
+WHERE {
+  ?medication syn:code 'amLODIPine 2.5 MG Oral Tablet' .
+  ?medication syn:prescribedBy ?prescription .
+  ?prescription syn:patientId ?patientId .
+}
+```",5.05339503288269
+Please provide me the encounters which are related to the observation DALY.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:hasObservation ?observation.
+  ?observation a syn:Observation;
+        syn:code 'DALY'^^xsd:string.
+}
+```",4.802940368652344
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?condition
+WHERE {
+  ?claim a syn:Claim;
+        syn:id '68140758-17f3-541c-8d04-e2d06b91e442'^^uuid: .
+  ?claim syn:condition ?condition .
+}
+```",6.0976457595825195
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounterId
+WHERE {
+  ?supply a syn:Supply ;
+        syn:code 'CPAP/BPAP oral mask' .
+  ?supply syn:associatedWith ?encounter .
+  ?encounter a syn:Encounter .
+}
+```",4.169656038284302
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?bodySiteCode WHERE {
+  ?imagingStudy a syn:ImagingStudy ;
+           syn:id '781242f7-dd9c-8a26-181a-65898eb64eb4'^^uuid: .
+  ?imagingStudy syn:procedureCode ?bodySiteCode .
+}
+```",6.907454967498779
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?payerName
+WHERE {
+  ?encounter syn:id '148005b7-cfc4-feb7-9860-3d2afde95c82'^^uuid:UUID .
+  ?encounter syn:payer ?payerId.
+  ?payer syn:name ?payerName.
+}
+```",5.336956262588501
+Can you tell me when the allergy with the code 419199007 was recorded?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?date WHERE {
+  ?allergy a syn:Allergy;
+             syn:code '419199007';
+             syn:recordedDate ?date.
+}
+```",4.674433946609497
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?encounter
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code 'Musculoskeletal care' .
+  ?carePlan syn:hasEncounter ?encounter .
+  ?encounter a syn:Encounter .
+}
+```",4.992116928100586
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?claimId WHERE {
+  ?claim a syn:Claim;
+        syn:id 'e964b40d-7106-0a64-69b5-8c18493de4f2'^^uuid:UUID .
+  ?claim syn:serviceDate ?claimDate.
+}
+```",5.851866006851196
+What are the typical symptoms of the allergy described as House dust mite (organism)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?symptom
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code 'House dust mite' .
+  ?allergy syn:symptom ?symptom .
+}
+```",5.715938091278076
+How many procedures are covered by the payer Aetna?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT COUNT(DISTINCT ?procedure)
+WHERE {
+  ?claim a syn:Claim;
+        syn:payer ""Aetna"" .
+  ?claim syn:procedure ?procedure.
+}
+```",5.837386846542358
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?successRate
+WHERE {
+  ?medication syn:code 'NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector'.
+  ?medication syn:successRate ?successRate.
+}
+```",6.437993288040161
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?totalClaimCost
+WHERE {
+  ?claim a syn:Claim;
+        syn:id 'eeb3c5ce-d328-49a1-1abb-9396da4163fd'^^uuid: .
+  ?claim syn:totalClaimCost ?totalClaimCost.
+}
+```",4.42000412940979
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?organization a syn:Organization;
+             syn:name 'BAYADA HOME HEALTH CARE  INC.' .
+  ?organization syn:address ?address .
+}
+```",4.508800029754639
+Please provide me the patients receiving aid under the care plan with code 225358003.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientId
+WHERE {
+  ?carePlan a syn:CarePlan;
+        syn:code '225358003';
+        syn:patientId ?patientId.
+  ?patient a syn:Patient.
+}
+```",4.322481155395508
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthYear
+WHERE {
+  ?patient a syn:Patient;
+        syn:id 'a8c144a7-9e79-fccc-1f57-4035b2aa9fea'.
+  ?patient syn:birthdate ?birthdate.
+  BIND(YEAR(?birthdate) AS ?birthYear)
+}
+```",4.165571212768555
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientName
+WHERE {
+  ?patient a syn:Patient;
+        syn:patientOrganization ?organizationId.
+  ?organization rdfs:id '8e3ca57f-6f74-3d61-9803-ab1424290216'.
+  ?patient rdfs:label ?patientName.
+}
+```",4.063036918640137
+Give me the encounters that are related to the immunization Hep B  adult.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:condition ?condition.
+  ?condition/syn:code/syn:snomed:SNOMED-CT ""20351-8"".
+}
+```",5.2638678550720215
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?firstName WHERE {
+  ?patient a syn:Patient;
+         syn:id '8d636878-c54c-3fcf-6300-b65c2a9e0dc9'^^uuid:;
+         syn:firstName ?firstName .
+}
+```",5.742073059082031
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+            syn:seriesUid '1.2.840.99999999.1.54352820.1609167132933'.
+  ?imagingStudy syn:encounterId ?encounterId.
+}
+```",3.6624231338500977
+What procedures did the patient named Margot418 Rolfson709 undergo?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?procedureCode
+WHERE {
+  ?patient a syn:Patient ;
+         syn:name 'Margot418 Rolfson709' .
+  ?patient syn:procedure ?procedure .
+  ?procedure syn:code ?procedureCode .
+}
+```",6.930922985076904
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?payerCount
+WHERE {
+  ?payer a syn:Payer;
+        syn:id '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'.
+  ?payer syn:uniqueCustomers ?payerCount.
+}
+```",5.82155179977417
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthDate WHERE {
+  ?patient a syn:Patient;
+         syn:id '51c2d782-1f36-657d-5618-42df22e39681'^^uuid:;
+         syn:birthdate ?birthDate.
+}
+```",7.590451002120972
+Please provide me the number of medications uncovered by the payer Humana.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?medication) AS ?count)
+WHERE {
+  ?payer a syn:Payer;
+        syn:payerName 'Humana'.
+  ?claim ?claimId;
+        syn:payer ?payer.
+  ?medication ?medicationId;
+        syn:claim ?claimId.
+  FILTER (NOT EXISTS { ?claim cl:claimTransaction ?claimTransaction; cl:claimTransactionType 'PAYMENT' } )
+}
+```",6.685461044311523
+In which encounter was a procedure with code 428211000124100 performed?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:procedureCode '428211000124100';
+        ?encounterId syn:id ?encounterId.
+}
+```",6.457392930984497
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?state
+WHERE {
+  ?patient a syn:Patient;
+         syn:id 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a'^^uuid:;
+         syn:state ?state.
+}
+```",4.880860805511475
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?patientId WHERE {
+  ?claim a syn:Claim;
+        syn:id 'cca769d0-09e0-72f9-23aa-e6ddb2200792'^^uuid: .
+  ?claim syn:patientId ?patientId.
+}
+```",4.945766925811768
+What is the description of the allergy with the code 3718001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?description
+WHERE {
+  ?allergy a syn:Allergy;
+            syn:code '3718001' .
+  ?allergy syn:description ?description .
+}
+```",4.838051795959473
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?person
+WHERE {
+  ?organization syn:id '844a8cb2-4164-35b2-88b8-dffa2889a738'^^uuid:UUID .
+  ?organization syn:associatedPerson ?person .
+}
+```",4.365839242935181
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?medication) AS ""uncoveredMedications"")
+WHERE {
+  ?payer a syn:Payer;
+        syn:payerDataProperty ?payerData.
+  ?payerData syn:uncoveredMedications ?uncoveredMedications.
+  FILTER ( ?payer = 'NO_INSURANCE' )
+}
+```",4.0195300579071045
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?payerName
+WHERE {
+  ?claim a syn:Claim;
+        syn:medication ?medication.
+  ?medication syn:name 'Alendronic acid 10 MG Oral Tablet'.
+  ?claim syn:payer ?payer.
+  ?payer rdfs:label ?payerName.
+}
+```",5.295877933502197
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?sopCode
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:seriesUid '1.2.840.99999999.1.57895833.1595237299924'.
+  ?imagingStudy syn:procedureCode ?sopCode.
+}
+```",5.681662082672119
+Please provide me a reason for the use of the care plan with code 134435003.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code '134435003' ;
+           syn:reasonCode ?reasonCode .
+}
+```",5.5522401332855225
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientName
+WHERE {
+  ?patient a syn:Patient;
+        syn:patientOrganization ?organizationId.
+  ?organization rdfs:id '2befa435-3070-3350-a15c-e43ac1e84b24'.
+  ?patient rdfs:label ?patientName .
+}
+```",3.5579299926757812
+In which city is the provider named Lynsey2 Lemke654 located?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?city
+WHERE {
+  ?provider a syn:Provider ;
+             syn:name 'Lynsey2 Lemke654' .
+  ?provider syn:location ?location.
+  ?location syn:city ?city .
+}
+```",4.072908878326416
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthdate
+WHERE {
+  ?patient a syn:Patient;
+        syn:id 'cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d'^^uuid:UUID .
+  ?patient syn:birthdate ?birthdate .
+}
+```",4.8395562171936035
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?payerName
+WHERE {
+  ?encounter syn:id '707c24b4-b715-02aa-5f9b-1712d336b98e'^^uuid:UUID .
+  ?encounter syn:payer ?payerId.
+  ?payer syn:name ?payerName.
+}
+```",6.238792896270752
+What encounter is associated with the supply with the code 713779008?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounterId
+WHERE {
+  ?supply a syn:Supply;
+        syn:code '713779008' .
+  ?supply syn:associatedWith ?encounterId.
+}
+```",5.407846212387085
+What is the name of allergy with the code 782576004?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?name WHERE {
+  ?allergy a syn:Allergy;
+            syn:code '782576004'.
+  ?allergy rdfs:label ?name.
+}
+```",7.0967841148376465
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?bodySiteCode WHERE {
+  ?imagingStudy a syn:ImagingStudy ;
+           syn:id '5ad9a317-b195-585e-c638-29e057061c9e'^^uuid: .
+  ?imagingStudy syn:bodySiteCode ?bodySiteCode .
+}
+```",6.767370939254761
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?count
+WHERE {
+  ?payer syn:payerId 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid:UUID .
+  ?payer syn:uncoveredEncounters ?count .
+}
+```",4.669412136077881
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?city
+WHERE {
+  ?organization syn:name 'NANTUCKET COTTAGE HOSPITAL'.
+  ?organization rdfs:hasLocation ?location.
+  ?location rdfs:label ?city .
+  FILTER (lang(?city) = 'en')
+}
+```",6.037616014480591
+When was the patient named Micah422 Buckridge80 born?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthdate
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Micah422 Buckridge80' .
+  ?patient syn:birthdate ?birthdate .
+}
+```",4.161262035369873
+Please provide me the number of immunizations uncovered by the payer Anthem.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT (COUNT(syn:uncoveredImmunizations) AS ""Number of Uncovered Immunizations"")
+WHERE {
+  ?payer a syn:Payer;
+        syn:payerName ""Anthem"" .
+  ?payer syn:uncoveredImmunizations ?count.
+  COUNT(?count) AS ""Number of Uncovered Immunizations"".
+}
+```",3.8490469455718994
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?payer
+WHERE {
+  ?encounter syn:encounterId 'd9415cfe-d6b7-b89d-b0f8-a763566d7c88'^^uuid:UUID .
+  ?encounter syn:payer ?payer .
+}
+```",6.670337200164795
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?encounter syn:id '669895f1-6552-f541-6faf-4a89f43b429d'^^uuid:UUID .
+  ?encounter syn:code ?code .
+}
+```",4.29022216796875
+What kind of allergy has the code 5640?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT ?allergyName
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '5640'^^syn:snomed:SNOMED-CT.
+  ?allergy rdfs:label ?allergyName.
+}
+```",4.448300838470459
+What is the address of the provider named Katelynn452 Ledner144?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?provider a syn:Provider ;
+         syn:name 'Katelynn452 Ledner144' .
+  ?provider syn:address ?address .
+}
+```",3.296675205230713
+Please provide me the encounters that were related to the allergy Mold (organism).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:condition ?condition.
+  ?condition a syn:Allergy;
+        syn:code ""Mold""^^snomed:SNOMED-CT.
+}
+```",4.474900007247925
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+  ?encounter syn:id '10a48862-79c6-036e-e572-f80160131cd0'^^uuid: .
+  ?encounter syn:hasReasonCode ?reasonCode .
+  ?reasonCode rdfs:label ?reasonDescription .
+}
+```",4.797072887420654
+What is the description of the allergy with the code 419199007?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?description
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '419199007'^^syn:snomed:SNOMED-CT.
+  ?allergy syn:description ?description.
+}
+```",4.954860210418701
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+        syn:seriesUid '1.2.840.99999999.1.60733233.1559399876087'.
+  ?imagingStudy syn:encounterId ?encounterId.
+}
+```",5.574792146682739
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?revenue
+WHERE {
+  ?payer syn:id 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid:UUID .
+  ?payer syn:payerDataProperty ?dataProperty.
+  ?dataProperty syn:value ?revenue.
+  FILTER ( datatype(?revenue) = xsd:float )
+}
+```",4.849179983139038
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?organization a syn:Organization;
+             syn:name 'MIDDLETON FAMILY MEDICINE URGENT CARE  LLC';
+             syn:address ?address .
+}
+```",3.9305100440979004
+What is the reason for using the care plan with code 53950000?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode
+WHERE {
+  ?carePlan a syn:CarePlan;
+           syn:code '53950000';
+           syn:reasonCode ?reasonCode.
+}
+```",4.685564994812012
+What is the marital status of Tabatha105 Fisher429?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?maritalStatus
+WHERE {
+  ?patient a syn:Patient;
+        syn:name 'Tabatha105 Fisher429'.
+  ?patient syn:maritalStatus ?maritalStatus.
+}
+```",4.802860975265503
+Which ethnicity does patient Marcie463 have?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?ethnicity
+WHERE {
+  ?patient a syn:Patient ;
+        syn:id 'Marcie463' .
+  ?patient syn:ethnicity ?ethnicity .
+}
+```",4.80482292175293
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT COUNT(syn:medicationDataProperty)
+WHERE {
+  ?payer syn:payerId '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'^^uuid:UUID .
+  ?payer syn:payerDataProperty ?dataProperty .
+  FILTER ( datatype(?dataProperty) = xsd:string && substring(str(?dataProperty), 1, 12) = ""uncoveredMedications"")
+}
+```",5.257720708847046
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?person
+WHERE {
+  ?organization a syn:Organization ;
+             syn:name 'SERENITY HILL NURSING CENTER'.
+  ?organization syn:associatedPerson ?person.
+}
+```",4.118149042129517
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?organization a syn:Organization;
+                 syn:id '9d0e702d-50a0-3f4c-9126-0951d560fd4b'^^uuid:;
+                 syn:address ?address .
+}
+```",4.806404113769531
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?city
+WHERE {
+  ?organization a syn:Organization ;
+             syn:location ?location.
+  ?location rdfs:label ?city .
+}
+```",3.7199528217315674
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT ?date
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code 'Influenza, seasonal, injectable, preservative free'^^snomed:SNOMED-CT.
+  ?immunization syn:date ?date.
+}
+```",5.231216907501221
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT ?code
+WHERE {
+  ?encounter syn:id '8602cd94-fcbe-0506-b4c0-f25e5e6619de'^^uuid:UUID .
+  ?encounter syn:code ?code .
+}
+```",3.79020619392395
+What is the start date of the care plan with code 385691007?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT ?startDate WHERE {
+  ?carePlan a syn:CarePlan;
+           syn:code '385691007';
+           syn:startDate ?startDate .
+}
+```",5.199042797088623
+What is the stop date of the condition with code 73595000?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?stopDate WHERE {
+  ?condition a syn:Condition;
+           syn:code '73595000';
+           syn:stopDate ?stopDate.
+}
+```",3.987051010131836
+What is the type of the allergy with the code 264287008?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?type
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '264287008'.
+  ?allergy rdfs:type ?type .
+}
+```",4.542435169219971
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?organizationName
+WHERE {
+  ?encounter syn:id '1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689'^^uuid:;
+  ?encounter syn:organization ?organization.
+  ?organization syn:name ?organizationName.
+}
+```",3.932827949523926
+Please provide me the type of an observation with the code 89204-2.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?type
+WHERE {
+  ?observation a syn:Observation;
+            syn:code '89204-2' .
+  ?observation syn:type ?type .
+}
+```",4.705875873565674
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?cost
+WHERE {
+  ?claim a syn:ClaimTransaction;
+        syn:claimTransactionType 'CHARGE';
+        syn:code 'Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed'.
+  ?claim syn:totalCost ?cost.
+}
+```",3.6468119621276855
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?coverage
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Ora550 Luettgen772'.
+  ?patient syn:hasHealthInsurance ?coverage .
+}
+```",4.449139833450317
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?encounter a syn:Procedure ;
+        syn:code 'Assessment of health and social care needs'^^syn:snomed:SNOMED-CT.
+}
+```",3.5860979557037354
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientName
+WHERE {
+  ?patient a syn:Patient;
+        syn:organization ?organization.
+  ?organization rdfs:label 'LEOMINSTER COMUNITY HEALTH CENTER' .
+  ?patient syn:name ?patientName.
+}
+```",5.47004508972168
+How many immunizations are covered by the payer NO_INSURANCE?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT COUNT(syn:immunization)
+WHERE {
+  ?payer syn:payer 'NO_INSURANCE' .
+  ?payer syn:covers ?immunization .
+  ?immunization a syn:Immunization .
+}
+```",10.453201055526733
+In which encounter is the medication with the code 313782 administered?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId WHERE {
+  ?claim a syn:Claim;
+        syn:claimTransactionType 'CHARGE';
+        syn:procedureCode '313782'.
+  ?claim syn:encounterId ?encounterId.
+}
+```",4.168765068054199
+What is the udi code for the device with code 336621006?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?udi
+WHERE {
+  ?device a syn:Device;
+        syn:code '336621006';
+        syn:udi ?udi .
+}
+```",14.389256954193115
+Please provide me the encounters that are related to the medication with the code 314076.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?medication syn:code '314076'^^syn:snomed:SNOMED-CT.
+  ?medication syn:relatedTo ?encounter.
+}
+```",3.746586322784424
+What is the type of the observation with the code 8867-4?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?type
+WHERE {
+  ?observation a syn:Observation;
+           syn:code '8867-4' .
+  ?observation syn:type ?type .
+}
+```",13.137233257293701
+What is the total number of member months of the payer Medicaid?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (SUM(syn:utilization) WHERE { ?payer a syn:Payer; syn:payerType 'Medicaid'. })
+```",4.175987005233765
+What is the encounter associated with the immunization with code 140?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT ?encounterId
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code '140'^^syn:snomed:SNOMED-CT.
+  ?immunization syn:associatedWith ?encounterId.
+}
+```",3.855699300765991
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode
+WHERE {
+  ?encounter syn:id '6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783'^^uuid:;
+  ?encounter syn:reasonCode ?reasonCode.
+}
+```",11.16577672958374
+Which ethnicity does the patient named Zboncak558 have?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?ethnicity
+WHERE {
+  ?patient a syn:Patient;
+        syn:name 'Zboncak558'.
+  ?patient syn:ethnicity ?ethnicity .
+}
+```",3.9064042568206787
+What is the reason for using the care plan with code 384758001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode
+WHERE {
+  ?carePlan a syn:CarePlan;
+           syn:code '384758001';
+           syn:reasonCode ?reasonCode.
+}
+```",5.350611925125122
+Where was the patient named Isaac321 Rempel203 born?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthPlace
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Isaac321 Rempel203' .
+  ?patient syn:birthPlace ?birthPlace .
+}
+```",3.9059829711914062
+Please provide me the patients with the condition Part-time employment (finding).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?patientId ?patientName
+WHERE {
+  ?patient a syn:Patient;
+        syn:id ?patientId.
+  ?patient syn:condition ?condition.
+  ?condition syn:code 'snomed:SNOMED-CT|24874-8'.
+}
+```",4.9000279903411865
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT COUNT(DISTINCT ?procedure)
+WHERE {
+  ?claim a syn:Claim;
+        syn:payer ""UnitedHealthcare"" .
+  ?claim syn:procedure ?procedure.
+}
+```",4.520069122314453
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?encounter) AS ?count)
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:payer ?payerId.
+  ?payer a syn:Payer;
+        syn:payerCode 'NO_INSURANCE'.
+  FILTER (NOT EXISTS { ?encounter syn:payer ?payerId2 . FILTER ( ?payerId2 = ?payerId ) })
+}
+```",4.566387891769409
+Please provide me the encounters that were related to the allergy Lisinopril.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounter
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:condition ?condition;
+        FILTER (syn:code(?condition) = 'snomed:C07953003')
+}
+```",5.070123910903931
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(DISTINCT ?month) AS ?totalMonths)
+WHERE {
+  ?payer syn:id 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid:UUID.
+  ?payer syn:payerTransition ?pt.
+  ?pt syn:startMonth ?month.
+}
+```",3.9345099925994873
+What is the reason for using the care plan with code 443402002?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode
+WHERE {
+  ?carePlan a syn:CarePlan;
+           syn:code '443402002';
+           syn:reasonCode ?reasonCode.
+}
+```",6.536632061004639
+Can you tell me when the observation Heart rate was recorded?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?obsTime
+WHERE {
+  ?obs a syn:Observation .
+  ?obs syn:code 'numeric' .
+  ?obs syn:code 'Heart rate' .
+  ?obs syn:time ?obsTime .
+}
+```",3.8298189640045166
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT ?cost
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code 'Influenza, seasonal, injectable, preservative free'^^snomed:SNOMED-CT.
+  ?immunization syn:baseCost ?cost.
+}
+```",4.926936149597168
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?payerName
+WHERE {
+  ?claim a syn:Claim;
+        syn:medication ?medication.
+  ?medication syn:name 'Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet'.
+  ?claim syn:payer ?payer.
+  ?payer rdfs:label ?payerName.
+}
+```",3.453834056854248
+What is the reaction code of the allergy with the code 84489001?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT ?reactionCode
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '84489001' .
+  ?allergy syn:reactionCode ?reactionCode .
+}
+```",3.784121036529541
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?departmentId
+WHERE {
+  ?claim a syn:Claim;
+        syn:id '2bbdb236-5c11-f4e9-9a40-33fb408555f6'^^uuid:UUID .
+  ?claim syn:claimTransaction ?claimTransaction.
+  ?claimTransaction syn:claimId ?claimId.
+  ?claimTransaction syn:departmentId ?departmentId.
+}
+```",4.41119909286499
+In which encounter was a procedure with code 713106006 performed?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:procedureCode '713106006'^^syn:snomed:SNOMED-CT.
+}
+```",4.638846158981323
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?claim a syn:ClaimTransaction;
+        syn:id 'a3dedfb9-4a55-2c3f-0690-371a8af4a966'^^uuid:UUID .
+  ?claim syn:procedureCode ?code .
+}
+```",3.4220879077911377
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+  ?encounter syn:id '867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb'.
+  ?encounter syn:reasonCode ?reasonCode.
+  ?reasonCode syn:description ?reasonDescription.
+}
+```",3.6956870555877686
+When was the care plan Head injury rehabilitation used?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?code WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code ?code .
+}
+```",12.710580110549927
+Please provide me the udi code related to the device Home nebulizer (physical object).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?udi
+WHERE {
+  ?device a syn:Device;
+        syn:code 'Home nebulizer';
+        syn:udi ?udi .
+}
+```",18.91095495223999
+Please provide me the encounters that are related to the observation with the code 785-6.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounter
+WHERE {
+  ?observation a syn:Observation ;
+           syn:code '785-6' ;
+           rdfs:subject ?encounter .
+}
+```",4.044141054153442
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?claim a syn:ClaimTransaction;
+        syn:id 'f4595e16-3adb-0e82-19f3-62cb0a7638ed'^^uuid:UUID .
+  ?claim syn:procedureCode ?code .
+}
+```",15.228263854980469
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?organization a syn:Organization;
+             syn:id '34f0b10a-5e29-31de-a75e-e0bb03c0c0d4'^^uuid:;
+             syn:address ?address .
+}
+```",4.00139594078064
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?state
+WHERE {
+  ?patient a syn:Patient;
+        syn:id '96d6e446-5d05-8df3-eff5-b4af55d138bb'^^uuid:;
+        syn:state ?state.
+}
+```",4.670006036758423
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address
+WHERE {
+  ?organization a syn:Organization;
+                 syn:id '880fad59-9c38-3a21-a39f-ccc801502ab3'^^uuid:;
+                 syn:address ?address .
+}
+```",4.400996923446655
+Please provide me the udi code related to the device with code 702172008.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT ?udi
+WHERE {
+  ?device a syn:Device;
+        syn:code '702172008'.
+  ?device syn:udi ?udi .
+}
+```",5.6220080852508545
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT AVG(syn:qualityScore)
+WHERE {
+  ?payer syn:payerId 'd18ef2e6-ef40-324c-be54-34a5ee865625'^^uuid:UUID .
+  ?payer syn:hasPatient ?patient .
+  ?patient syn:hasQualityScore ?qualityScore .
+}
+```",5.324903964996338
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?organizationName
+WHERE {
+  ?encounter syn:Encounter 'ea22dd39-a110-c7cd-5903-071327281613'^^uuid: .
+  ?encounter syn:organization ?organization .
+  ?organization rdfs:label ?organizationName .
+}
+```",3.8507168292999268
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT DISTINCT ?patientId
+WHERE {
+  ?payer syn:payerId 'd18ef2e6-ef40-324c-be54-34a5ee865625'^^udi:UDI.
+  ?claim syn:payer ?payer.
+  ?claim syn:patientId ?patientId.
+}
+```",10.012839078903198
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?encounter) AS ?count)
+WHERE {
+  ?payer syn:payerId 'df166300-5a78-3502-a46a-832842197811'^^uuid:UUID .
+  ?encounter syn:payer ?payer .
+  ?encounter syn:code ?code .
+  FILTER (syn:payerDataProperty(?code) && syn:payerDataProperty/rdfs:domain=syn:Encounter)
+}
+```",4.498785018920898
+Please provide me the udi code related to the device with code 337414009.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT ?udi
+WHERE {
+  ?device a syn:Device;
+        syn:code '337414009';
+        syn:udi ?udi .
+}
+```",3.719954013824463
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?udi
+WHERE {
+  ?device a syn:Device;
+        syn:udi ?udi .
+  FILTER (syn:code(?device) = ""Oxygen concentrator"")
+}
+```",4.71567702293396
+Please provide me the encounters that are related to the device with code 91537007.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounter
+WHERE {
+  ?encounter a syn:Encounter;
+        syn:device ?device .
+  ?device syn:code '91537007' .
+}
+```",4.5385332107543945
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code ?code.
+  FILTER ( str(syn:code) = ""Allergy to substance (finding)"" )
+}
+```",3.3812270164489746
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?seriesUid
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id '71ee50dd-ea7c-3415-e8d9-8b3a950cf731'.
+  ?imagingStudy syn:seriesUid ?seriesUid.
+}
+```",3.840580940246582
+Please provide me the encounters that are related to the allergy with the code 264287008.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '264287008' .
+  ?allergy syn:relatedTo ?encounter.
+  ?encounter a syn:Encounter .
+}
+```",3.6463100910186768
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?count
+WHERE {
+  ?payer syn:payerId '0133f751-9229-3cfd-815f-b6d4979bdd6a'^^uuid:UUID .
+  ?payer syn:payerDataProperty ?pd.
+  ?pd syn:uncoveredEncounters ?count.
+}
+```",3.7720446586608887
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?last
+WHERE {
+  ?patient a syn:Patient;
+        syn:id '35a38de9-c363-17a5-b2c4-c28f3b1c2ac0'^^uuid:;
+        syn:last ?last.
+}
+```",4.562784194946289
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?claimId
+WHERE {
+  ?claim a syn:Claim;
+        syn:id 'e9434fb3-0c47-4b84-ca56-c55fb315b772'^^uuid:UUID .
+  ?claim syn:claimId ?claimId .
+}
+```",4.873702049255371
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?payer syn:id 'b046940f-1664-3047-bca7-dfa76be352a4'.
+  ?payer syn:patientCount ?count.
+  FILTER ( ?count > 0 )
+  ?patient syn:id ?patientId.
+}
+```",4.947053909301758
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT (COUNT(?immunization) AS ?count)
+WHERE {
+  ?payer syn:payerId '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'^^uuid:UUID .
+  ?payer syn:payerDataProperty ?dataProperty.
+  ?dataProperty syn:covers ?immunization.
+  ?immunization a syn:Immunization.
+}
+```",3.72530198097229
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?ethnicity
+WHERE {
+  ?patient a syn:Patient ;
+         syn:name 'Argelia29 Altenwerth646' .
+  ?patient syn:ethnicity ?ethnicity .
+}
+```",4.057833909988403
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthdate
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Rebeca548 Hansen121' .
+  ?patient syn:birthdate ?birthdate .
+}
+```",4.166287183761597
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?seriesUid
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id 'd3fa7d2e-1bca-65f1-74ae-d326343ab849'^^uuid:UUID;
+             syn:seriesUid ?seriesUid.
+}
+```",3.6299610137939453
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?modality
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id '820778b8-5a19-9acf-9dbd-a3be1a1b4a47'^^uuid:;
+             syn:procedureCode ?procedureCode.
+  ?procedureCode syn:hasModality ?modality.
+}
+```",3.9457340240478516
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?bodySiteCode
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id '9bda6d29-00c0-24ea-6d31-09c04803fff4'^^uuid:UUID;
+             syn:bodySiteCode ?bodySiteCode.
+}
+```",4.524286985397339
+What kind of allergy is described as Mold (organism)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?allergy
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code 'Mold'^^syn:snomed:SNOMED-CT.
+}
+```",4.062977075576782
+How many patients have the allergy described as Fish (substance)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT COUNT(DISTINCT ?patient)
+WHERE {
+  ?patient a syn:Patient;
+        syn:hasAllergy ?allergy.
+  ?allergy syn:code 'Fish'^^syn:snomed:SNOMED-CT.
+}
+```",3.4640262126922607
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?sopCode
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id '65ff28ac-082f-ef59-ca11-baacc7302868'^^uuid:UUID;
+             syn:sopCode ?sopCode.
+}
+```",4.610478162765503
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?procedureCode
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Caleb651 Dickinson688'.
+  ?patient syn:procedure ?procedure.
+  ?procedure syn:code ?procedureCode.
+}
+```",3.9020001888275146
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT ?patientId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:seriesUid '1.2.840.99999999.1.63663889.1660767155882'.
+  ?imagingStudy syn:patientId ?patientId.
+}
+```",4.335314989089966
+Can you provide the count of patients suffering from Allergy to substance (finding)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT COUNT(DISTINCT ?patient)
+WHERE {
+  ?patient a syn:Patient .
+  ?patient syn:hasCondition ?condition .
+  ?condition syn:code ?code .
+  FILTER (regex(?code, ""Substance"", ""i""))
+}
+```",3.6510939598083496
+What are the survival chances of allgery House dust mite (organism)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?allergy ?survivalChance
+WHERE {
+  ?allergy a syn:Allergy ;
+           syn:code 'House dust mite' .
+  ?allergy syn:survivalChance ?survivalChance .
+}
+```",3.848337173461914
+Please provide me the encounters that are related to the observation with the code 9279-1.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounter
+WHERE {
+  ?observation a syn:Observation ;
+           syn:code '9279-1' ;
+           rdfs:subject ?encounter .
+}
+```",4.399435043334961
+Please provide me the patients treated with the procedure of code 866148006.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?claim a syn:Procedure;
+        syn:code '866148006'^^syn:snomed:SNOMED-CT.
+  ?claim syn:patientId ?patientId.
+}
+```",5.686154127120972
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(DISTINCT ?payerMonth) AS ?totalMonths)
+WHERE {
+  ?payer syn:id 'd31fccc3-1767-390d-966a-22a5156f4219'^^uuid: .
+  ?payer syn:payerTransition ?payerTransition .
+  ?payerTransition syn:startDate ?startDate .
+  ?payerTransition syn:endDate ?endDate .
+  BIND(MONTH( ?startDate ) AS ?month)
+  FILTER ( MONTH( ?endDate ) >= MONTH( ?startDate ) )
+  GROUP BY ?month
+  HAVING COUNT(DISTINCT ?payer) > 0
+}
+```",3.774409055709839
+What is the base cost of the immunization with code 133?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?cost
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code '133';
+        syn:baseCost ?cost.
+}
+```",4.2737860679626465
+Please provide me the patients treated with the procedure Colonoscopy.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode '44444'^^syn:snomed:SNOMED-CT.
+  ?claim syn:patientId ?patientId.
+}
+```",3.8719072341918945
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?bodySiteCode WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+           syn:seriesUid '1.2.840.99999999.1.30413319.1650275698924'.
+  ?imagingStudy syn:procedureCode ?procedureCode.
+  ?procedureCode syn:code ?bodySiteCode.
+}
+```",3.5034587383270264
+Who has been treated with the procedure of code 710841007?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode '710841007'^^syn:snomed:SNOMED-CT.
+  ?claim syn:patientId ?patientId.
+}
+```",5.726698160171509
+Who has been treated with the procedure of code 430193006?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode '430193006'^^syn:snomed:SNOMED-CT.
+  ?claim syn:patientId ?patientId.
+}
+```",3.7906367778778076
+When did the allergy with the code 3718001 start?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?startYear
+WHERE {
+  ?allergy a syn:Allergy;
+            syn:code '3718001';
+            syn:startYear ?startYear.
+}
+```",4.696890115737915
+Please provide me the number of encounters uncovered by the payer Medicare.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT (COUNT(?encounter) AS ?count)
+WHERE {
+  ?payer ?payerId.
+  ?payer syn:payerDataProperty ?data.
+  ?data syn:payer ""Medicare"" .
+  ?encounter syn:payer ?payerId.
+  ?encounter syn:uncoveredEncounters ?count.
+}
+```",3.999006986618042
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?address WHERE {
+  ?organization a syn:Organization;
+             syn:id '7f32dd7d-5c35-3ddb-839b-8fbbb930d412'^^uuid:;
+             syn:address ?address .
+}
+```",3.450411081314087
+What is the type of allergy has the description Latex (substance)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?allergyType
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code ?code .
+  FILTER (regex(?code, ""Latex""))
+}
+```",5.797765016555786
+Where was the patient named Qiana980 Okuneva707 born?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?birthPlace
+WHERE {
+  ?patient a syn:Patient ;
+        syn:name 'Qiana980 Okuneva707' .
+  ?patient syn:birthPlace ?birthPlace .
+}
+```",7.49650502204895
+What is the most promising procedure for a patient with Mold (organism)?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?procedureCode
+WHERE {
+  ?claim a syn:Claim;
+        syn:procedureCode ?procedureCode.
+  ?procedure a syn:Procedure;
+        syn:code ?procedureCode.
+  ?procedure syn:code 'MOLD'^^snomed:SNOMED-CT.
+  ORDER BY COUNT(*) DESC
+  LIMIT 1
+}
+```",6.637521028518677
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?firstName WHERE {
+  ?patient a syn:Patient;
+         syn:id 'f07f2e96-d323-1db8-c28f-9d06b112f557'^^uuid:;
+         syn:firstName ?firstName .
+}
+```",3.462721109390259
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?bodySiteDescription
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:seriesUid '1.2.840.99999999.1.60733233.1559399876087'.
+  ?imagingStudy syn:bodySiteCode ?bodySiteCode.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language ""[AUTO_LANGUAGE],en"". }
+  VALUES ?bodySiteCode { syn:snomed:BODY_SITE }
+}
+```",5.6628968715667725
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT ?encounterId
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code 'Influenza  seasonal  injectable  preservative free'^^snomed:SNOMED-CT.
+  ?immunization syn:associatedEncounter ?encounterId.
+}
+```",4.860283851623535
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?code
+WHERE {
+  ?encounter syn:id '40c90d37-a246-601a-7edf-983a88a0936d'^^uuid:;
+  ?encounter syn:code ?code.
+}
+```",4.904390811920166
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?modalityDescription
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+             syn:id 'ca21a429-bec9-35a5-17ba-0d012491d4c4'^^uuid:UUID .
+  ?imagingStudy syn:procedureCode ?procedureCode.
+  ?procedureCode syn:description ?modalityDescription.
+}
+```",3.4179880619049072
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?payer ?payerName WHERE {
+  ?patient a syn:Patient ;
+         syn:patientName 'Wilfred787 Schamberger479' .
+  ?patient syn:payer ?payer .
+  ?payer rdfs:label ?payerName .
+}
+```",4.386355400085449
+When was the observation with the code 72514-3 recorded?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?date WHERE {
+  ?observation syn:code '72514-3' .
+  ?observation syn:code ?code .
+  ?observation syn:date ?date .
+}
+```",3.6252758502960205
+How many patients have or had the allergy with the code 419199007?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT COUNT(DISTINCT ?patient)
+WHERE {
+  ?patient a syn:Patient;
+        syn:hasAllergy ?allergy.
+  ?allergy syn:code '419199007'.
+}
+```",3.926949977874756
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT DISTINCT ?patientId WHERE {
+  ?supply a syn:Supply ;
+        syn:code 'Blood glucose testing strips' .
+  ?supply syn:patient ?patientId .
+}
+```",4.485624074935913
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?count
+WHERE {
+  ?payer syn:id '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'^^uuid:UUID .
+  ?payer syn:uncoveredImmunizations ?count .
+}
+```",4.252580165863037
+What encounter is associated with the supply with the code 419343004?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounterId
+WHERE {
+  ?supply a syn:Supply;
+        syn:code '419343004' .
+  ?supply syn:associatedWith ?encounterId.
+}
+```",3.5813848972320557
+What is the description of the device with code 706180003?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?description
+WHERE {
+  ?device a syn:Device;
+        syn:code '706180003'.
+  ?device syn:description ?description.
+}
+```",3.3661081790924072
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?patientId
+WHERE {
+  ?claimTransaction a syn:ClaimTransaction ;
+                 syn:claimTransactionId 'fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2'^^uuid:UUID .
+  ?claimTransaction syn:patientId ?patientId .
+}
+```",4.372348785400391
+What is the type of the allergy with the code 256277009?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?type
+WHERE {
+  ?allergy a syn:Allergy;
+        syn:code '256277009'.
+  ?allergy rdfs:type ?type .
+}
+```",3.822500228881836
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+SELECT ?encounterId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+        syn:seriesUid '1.2.840.99999999.1.94906246.1703949012410';
+        syn:encounterId ?encounterId.
+}
+```",3.278313159942627
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"```sparql
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT ?cost
+WHERE {
+  ?immunization a syn:Immunization;
+        syn:code 'Influenza, seasonal, injectable, preservative free'^^snomed:SNOMED-CT.
+  ?immunization syn:baseCost ?cost.
+}
+```",4.0339391231536865

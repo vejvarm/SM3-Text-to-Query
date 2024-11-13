@@ -1,0 +1,45 @@
+When was the imaging study with the ID $imaging_studies_id conducted?
+Who is the patient associated with the imaging study with the ID $imaging_studies_id?
+Which patient ID is associated with the imaging study with the ID $imaging_studies_id?
+What is the body site code of the imaging study with the ID $imaging_studies_id?
+What is the body site code and description of the imaging study with the ID $imaging_studies_id?
+What is the body site description of the imaging study with the ID $imaging_studies_id?
+What is the modality code of the imaging study with the ID $imaging_studies_id?
+What is the modality code and description of the imaging study with the ID $imaging_studies_id?
+What is the modality description of the imaging study with the ID $imaging_studies_id?
+What is the series UID of the imaging study with the ID $imaging_studies_id?
+What is the SOP code of the imaging study with the ID $imaging_studies_id?
+What is the SOP code and description of the imaging study with the ID $imaging_studies_id?
+What is the SOP description of the imaging study with the ID $imaging_studies_id?
+Which encounter was related to the imaging study with the ID $imaging_studies_id?
+Please provide me the modality description of the imaging study with the ID $imaging_studies_id.
+Please provide me the SOP code of the imaging study with the ID $imaging_studies_id.
+Please provide me the patient associated with the imaging study with the ID $imaging_studies_id.
+Please provide me the patient ID associated with the imaging study with the ID $imaging_studies_id.
+Please provide me the body site code of the imaging study with the ID $imaging_studies_id.
+Please provide me the body site code and description of the imaging study with the ID $imaging_studies_id.
+Please provide me the body site description of the imaging study with the ID $imaging_studies_id.
+Please provide me the modality code of the imaging study with the ID $imaging_studies_id.
+Please provide me the modality code and description of the imaging study with the ID $imaging_studies_id.
+Please provide me the modality description of the imaging study with the ID $imaging_studies_id.
+Please provide me the series UID of the imaging study with the ID $imaging_studies_id.
+Please provide me the SOP code of the imaging study with the ID $imaging_studies_id.
+Please provide me the SOP code and description of the imaging study with the ID $imaging_studies_id.
+Please provide me the SOP description of the imaging study with the ID $imaging_studies_id.
+Please provide me the encounters that are related to the imaging study with the ID $imaging_studies_id.
+Which patient ID is associated with the imaging study with series UID $is_studies_uid?
+Who is the patient associated with the imaging study with series UID $is_studies_uid?
+When was the imaging study with series UID $is_studies_uid conducted?
+What is the date of the imaging study with series UID $is_studies_uid?
+What is the body site code for the imaging study with series UID $is_studies_uid?
+What is the body site description for the imaging study with series UID $is_studies_uid?
+What is the modality code for the imaging study with series UID $is_studies_uid?
+What is the modality description for the imaging study with series UID $is_studies_uid?
+What is the procedure code for the imaging study with series UID $is_studies_uid?
+What is the SOP code for the imaging study with series UID $is_studies_uid?
+What is the SOP description for the imaging study with series UID $is_studies_uid?
+In which encounter was the imaging study with the series UID $is_studies_uid conducted?
+Please provide me the patient associated with the imaging study entailing series UID $is_studies_uid.
+Please provide me the encounters that are related to the imaging study with series UID $is_studies_uid.
+Please provide me the body site code related to the imaging study with series UID $is_studies_uid.
+Provide me the modality description related to the imaging study with series UID $is_studies_uid.

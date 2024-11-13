@@ -1,0 +1,46 @@
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.firstName, p.lastName;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.birthDate;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.firstName;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.lastName;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.gender;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.birthplace;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.address;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.city;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.state;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.county;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN DISTINCT p.healthcareCoverage;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN DISTINCT p.income;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.birthDate;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.birthplace;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.state;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.birthplace;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.firstName, p.lastName;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.gender;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN p.address;
+MATCH (p:Patient {{id: '$patient_id'}}) RETURN DISTINCT p.income;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.birthDate;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.gender;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.birthplace;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.address;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.city;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.state;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.county;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.healthcareCoverage;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.income;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.birthDate;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.birthplace;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.state;
+MATCH (p:Patient {{lastName: '$last_name'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{firstName:'$first_name'}}) RETURN p.ethnicity;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.ethnicity;
+MATCH (a:Allergy)-[:IS_ABOUT]->(p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN a.description;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}})-[:HAS_HISTORY_OF]->(pr:Procedure) RETURN pr.description;
+MATCH (pr:Procedure)-[:IS_ORDERED_FOR]->(p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN pr.code;
+MATCH (c:Condition)-[:IS_ABOUT]->(p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN c.description;
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.birthDate
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.ethnicity
+MATCH (p:Patient {{firstName:'$first_name',lastName: '$last_name'}}) RETURN p.gender

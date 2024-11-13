@@ -1,0 +1,940 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"SELECT DISTINCT pr.specialty
+FROM providers pr
+JOIN people pe ON pr.doctorid = pe.id
+WHERE pe.firstname = 'Crystle668' AND pe.lastname = 'McCullough561';",3.0173392295837402
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"SELECT DISTINCT i.body_site_code, i.body_site_description
+FROM imaging_studies i
+WHERE i.id = 'ee88b224-1f91-8c6a-493a-46e8004c4331';",2.774322748184204
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"Here is the SQL query for the given question:
+
+[SQL]: SELECT DISTINCT p.first, p.last FROM patients p
+JOIN immunizations i ON p.id = i.patient\_id
+JOIN vaccines v ON i.vaccine\_id = v.id
+WHERE v.name = 'Influenza seasonal injectable preservative free';",3.951944589614868
+What is the description of the device with code 170615005?,SELECT DISTINCT dev.description FROM devices dev WHERE dev.devicecode='170615005';,2.1960763931274414
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,SELECT DISTINCT sup.code FROM supplies sup WHERE sup.name = 'Continuous positive airway pressure nasal oxygen cannula (physical object)';,1.7873024940490723
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"SELECT DISTINCT r.code, r.description
+FROM encounters e
+LEFT JOIN codes c ON e.codeid = c.id
+LEFT JOIN reasons r ON c.reasonid = r.id
+WHERE e.id = '79942d67-05c5-5c61-336d-4be332d76720';",2.7007484436035156
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN payers py ON p.payerid = py.id
+WHERE py.id = '0133f751-9229-3cfd-815f-b6d4979bdd6a';",2.6461193561553955
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"SELECT ROUND(COUNT(DISTINCT mr.id) * 100.0 / (SELECT COUNT(DISTINCT mr2.id) FROM medication_records mr2 WHERE mr2.medicationid = mr.medicationid), 2) AS success_rate
+FROM medication_records mr
+JOIN medications med ON mr.medicationid = med.id
+WHERE med.name = 'Simvastatin 10 MG Oral Tablet' AND mr.outcome = 'Success';",2.757749080657959
+Which patient had the allergy House dust mite (organism)?,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN patientallergies pa ON p.id = pa.patientid
+JOIN allergies a ON pa.allergyid = a.id
+WHERE a.name = 'House dust mite (organism)';",3.2350966930389404
+Please provide me the patients treated with the procedure of code 710841007.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN procedures pro ON p.id = pro.patientid
+WHERE pro.code = '710841007';",1.7110280990600586
+What kind of allergy has the code 84489001?,"SELECT DISTINCT a.name FROM allergies a
+JOIN condition_codes cc ON a.id = cc.allergy\_id
+WHERE cc.code = '84489001';",2.9620237350463867
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"SELECT COUNT(DISTINCT c.customerid)
+FROM customers c
+JOIN payers p
+ON c.payerid = p.id
+WHERE p.id = 'b046940f-1664-3047-bca7-dfa76be352a4';",2.713503122329712
+What code does observation Body Height have?,SELECT DISTINCT code FROM observations o JOIN codes c ON o.codeid = c.id WHERE o.name = 'Body Height';,3.188717842102051
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,SELECT DISTINCT pr.speciality FROM providers pr WHERE pr.id = '301f9141-3dbc-38f3-bca9-7c909a84caa9';,4.858934640884399
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,"In order to answer this question, we would need to know the table and column names for the medication name and cost. However, based on typical database design for a medical claims system, I will assume that the medication name and cost are located in the ""medications"" table, with the medication name in a column called ""name"" and the cost in a column called ""cost"".
+
+With this assumption, the following query would provide the cost of the medication Warfarin Sodium 5 MG Oral Tablet:
+
+SELECT DISTINCT cost FROM medications WHERE name = 'Warfarin Sodium 5 MG Oral Tablet';
+
+Please note that this query is just an educated guess based on the information provided and the assumed table and column names may not be accurate.",4.449767351150513
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"SELECT DISTINCT p.birthlocation
+FROM patients p
+WHERE p.id = 'c17a5539-74aa-4805-e623-fdaf4a31dfd9';",4.5924742221832275
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"SELECT COUNT(DISTINCT pr.procedureid)
+FROM procedures pr
+JOIN claims cl ON pr.claimid = cl.id
+JOIN payers py ON cl.payerid = py.id
+WHERE py.id = 'd31fccc3-1767-390d-966a-22a5156f4219';",6.644219398498535
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"SELECT COUNT(DISTINCT e.id) 
+FROM encounters e
+JOIN payers p ON e.payer\_id = p.id
+WHERE p.name = 'NO\_INSURANCE';",7.516125202178955
+What is the state of residence of the patient named Carin553 Jerde200?,"SELECT DISTINCT p.state
+FROM patients p
+JOIN address ad ON p.id = ad.patient\_id
+WHERE p.first = 'Carin553' AND p.last = 'Jerde200';",11.863965034484863
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,"SELECT DISTINCT i.modalitycode
+FROM imagingstudies i
+WHERE i.id = '7d52afa5-9282-64ef-e08c-c66f1a53e7f2';",7.1168742179870605
+Please provide me the patient with the supply with the code 972002.,"SELECT DISTINCT p.first, p.last, s.code, s.quantity FROM supplies s 
+JOIN patients p ON s.patientid = p.id 
+JOIN claims c ON s.claimid = c.id 
+WHERE s.code = '972002';",11.396979808807373
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,"SELECT DISTINCT i.study_date
+FROM imaging_studies i
+JOIN series s ON i.id = s.imaging\_study\_id
+WHERE s.series_uid = '1.2.840.99999999.1.97267088.1424332927924';",5.502407550811768
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,"SELECT DISTINCT i.study_date
+FROM imaging_studies i
+JOIN series s ON i.id = s.imaging\_study\_id
+WHERE s.series_uid = '1.2.840.99999999.1.93465008.1702305862410';",8.410301446914673
+When did the allergy with the code 84489001 end?,"SELECT DISTINCT a.end_date 
+FROM allergies a 
+WHERE a.code = '84489001';",5.489968299865723
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN imaging\_studies i ON p.id = i.patient\_id
+WHERE i.series\_uid = '1.2.840.99999999.1.30162925.1683721997276';",3.301668405532837
+What is the marital status of Kermit56 Rutherford999?,"SELECT p.marital\_status
+FROM patients p
+WHERE CONCAT(p.first, ' ', p.last) = 'Kermit56 Rutherford999';",1.9151430130004883
+In which encounter was a procedure with code 10383002 performed?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN procedurecodes pc ON e.id = pc.encounterid
+WHERE pc.procedurecode = '10383002';",3.504589319229126
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"SELECT DISTINCT i.modalitydescription
+FROM imagingstudies i
+WHERE i.id = '8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa';",6.202678918838501
+What is the address of the patient named Stefania815 West559?,"SELECT DISTINCT p.address FROM patients p
+JOIN identities i ON p.id = i.patientid
+WHERE i.identity = 'Stefania815' AND p.last = 'West559';
+
+Explanation:
+
+The question asks for the address of a patient with the name 'Stefania815 West559'. Since the name is given in two parts, first and last, we can assume that the last name is 'West559'. The first name is 'Stefania815'.
+
+To find the address of the patient, we need to join the 'patients' table with the 'identities' table using the patientid foreign key. We then filter the results based on the first and last names of the patient.
+
+The SELECT statement includes only the 'address' column from the 'patients' table, as that is what the question asks for. The DISTINCT keyword is used to ensure that we get only one result, as the patient's address should be unique.",5.106920003890991
+What is the base cost of the medication with the code 197604?,"SELECT DISTINCT m.base_cost 
+FROM medications m 
+JOIN claims c ON m.id = c.medicationid 
+WHERE m.code = '197604';",2.703294038772583
+Please provide me the patient with the supply with the code 409534002.,"SELECT DISTINCT p.first, p.last, s.code, s.description
+FROM supplies s
+JOIN claim\_supplies cs ON s.id = cs.supplyid
+JOIN claims cl ON cs.claimid = cl.id
+JOIN patients p ON cl.patientid = p.id
+WHERE s.code = '409534002';",3.351409673690796
+Can you tell me when the observation with the code QALY was recorded?,"SELECT DISTINCT o.recorded_at
+FROM observations o
+JOIN codes c ON o.code_id = c.id
+WHERE c.code = 'QALY';",3.4562695026397705
+What is the address of the patient named Margie619 Strosin214?,"SELECT DISTINCT p.address FROM patients p
+JOIN users u ON p.userid = u.id
+WHERE u.username = 'Margie619 Strosin214';",4.165650129318237
+Who is the patient associated with the supply with the code 463659001?,"SELECT DISTINCT p.first, p.last
+FROM supplies s
+LEFT JOIN claim\_items ci ON s.id = ci.supplyid
+LEFT JOIN claims cl ON ci.claimid = cl.id
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE s.code = '463659001';",2.12931752204895
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"SELECT DISTINCT tr.procedurecode
+FROM claimstransactions tr
+JOIN claims cl ON tr.claimid = cl.id
+WHERE cl.id = '576550eb-d73b-1996-b14a-f68254146bf8';",2.461517095565796
+Which encounter is related to the allergy with the code 84489001?,"SELECT DISTINCT e.id, e.name
+FROM encounters e
+JOIN has_allergy ha ON e.id = ha.encounterid
+JOIN allergy a ON ha.allergyid = a.id
+WHERE a.code = '84489001';",1.8200583457946777
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,"SELECT DISTINCT p.name FROM payers p
+JOIN payer_medications pm ON p.id = pm.payerid
+JOIN medications m ON pm.medicationid = m.id
+WHERE m.name = 'Digoxin 0.125 MG Oral Tablet';",3.0123260021209717
+Who has been treated for the condition with code 706893006?,"SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN procedures pro ON p.id = pro.patientid 
+JOIN conditioncodes cc ON pro.conditioncodeid = cc.id 
+WHERE cc.code = '706893006';",1.4240424633026123
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"SELECT DISTINCT p.first, p.last 
+FROM patients p
+JOIN prescriptions pr ON p.id = pr.patient\_id
+JOIN medications med ON pr.medication\_id = med.id
+WHERE med.name = 'amLODIPine 2.5 MG Oral Tablet';",0.9454922676086426
+Please provide me the encounters which are related to the observation DALY.,"SELECT DISTINCT e.* 
+FROM encounters e 
+JOIN observations o ON e.id = o.encounterid 
+WHERE o.name = 'DALY';",1.692655086517334
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"SELECT DISTINCT diagnosis FROM claims cl
+JOIN diagnosis d ON cl.id = d.claimid
+WHERE cl.id = '68140758-17f3-541c-8d04-e2d06b91e442';",0.7824225425720215
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,"SELECT DISTINCT e.id, e.encounter_type, e.date
+FROM encounters e
+JOIN supply_encounter se ON e.id = se.encounter_id
+JOIN supplies s ON se.supply_id = s.id
+WHERE s.name = 'CPAP/BPAP oral mask (physical object)';",1.2202494144439697
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"SELECT DISTINCT i.body\_site\_code
+FROM imaging\_studies i
+WHERE i.id = '781242f7-dd9c-8a26-181a-65898eb64eb4';",2.12463116645813
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"SELECT DISTINCT payer FROM encounters e
+JOIN
+payerpayments pp
+ON e.id = pp.encounterid
+WHERE e.id = '148005b7-cfc4-feb7-9860-3d2afde95c82';",1.446300983428955
+Can you tell me when the allergy with the code 419199007 was recorded?,"SELECT DISTINCT al.recorded_date
+FROM allergies al
+WHERE al.code = '419199007';",0.6139698028564453
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN careplans cp ON e.careplanid = cp.id
+WHERE cp.name = 'Musculoskeletal care';",0.4404945373535156
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"SELECT cl.service_date
+FROM claims cl
+WHERE cl.id = 'e964b40d-7106-0a64-69b5-8c18493de4f2';",0.5472633838653564
+What are the typical symptoms of the allergy described as House dust mite (organism)?,"Based on the given question, it seems that you want to get information about the symptoms of a specific allergy. However, the question doesn't provide a direct relationship to the database. Therefore, I'll make an assumption that we have a database schema with tables `allergies`, `symptoms`, and `allergy_symptom` to represent the many-to-many relationship between allergies and symptoms.
+
+Here's the SQL query to get the symptoms related to the House dust mite allergy:
+
+```sql
+SELECT s.name
+FROM allergies a
+JOIN allergy_symptom ass ON a.id = ass.allergy_id
+JOIN symptoms s ON ass.symptom_id = s.id
+WHERE a.name = 'House dust mite (organism)';
+```
+
+This query will return the names of the symptoms associated with the House dust mite (organism) allergy.",0.7182881832122803
+How many procedures are covered by the payer Aetna?,"SELECT COUNT(DISTINCT pr.id) 
+FROM procedures pr
+JOIN claims cl ON pr.claimid = cl.id
+JOIN payers py ON cl.payerid = py.id
+WHERE py.name = 'Aetna';",0.9826462268829346
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"To answer this question, we need to know what the ""success rate"" is defined as in the context of the database. However, assuming that it is defined as the number of successful treatments divided by the total number of treatments using that medication, we can write a query to find the total number of treatments and the number of successful treatments for that medication.
+
+Let's assume that the ""treatments"" table has a column called ""medicationid"" that is a foreign key to the ""medications"" table, and that the ""medications"" table has a column called ""name"" that stores the medication name. We will also assume that there is a column in the ""treatments"" table called ""success"" that indicates whether the treatment was successful (e.g. 1 for success, 0 for failure).
+
+Here is the SQL query:
+```sql
+SELECT
+  COUNT(*) AS total_treatments,
+  SUM(success) AS successful_treatments
+FROM
+  treatments t
+JOIN
+  medications m ON t.medicationid = m.id
+WHERE
+  m.name = 'NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector';
+```
+This query will return a single row with two columns: ""total\_treatments"" and ""successful\_treatments"". The ""total\_treatments"" column will contain the total number of treatments that used the specified medication, and the ""successful\_treatments"" column will contain the number of successful treatments using that medication.
+
+To calculate the success rate, you can divide the ""successful\_treatments"" column by the ""total\_treatments"" column. For example, if the query returns ""100"" for ""total\_treatments"" and ""80"" for ""successful\_treatments"", the success rate would be 0.8 (80%).",1.6260342597961426
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,SELECT SUM(cl.cost) FROM claims cl WHERE cl.encounterid = 'eeb3c5ce-d328-49a1-1abb-9396da4163fd';,4.206419944763184
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"SELECT DISTINCT org.address, org.city, org.state, org.zipcode
+FROM organizations org
+WHERE org.name = 'BAYADA HOME HEALTH CARE  INC.';",1.2173128128051758
+Please provide me the patients receiving aid under the care plan with code 225358003.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN careplans cp ON p.id = cp.patientid
+JOIN aidcodes ac ON cp.aidcodeid = ac.id
+WHERE ac.code = '225358003';",0.9202582836151123
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"SELECT DISTINCT b.city, b.state FROM patients p 
+JOIN births b ON p.id = b.patientid 
+WHERE p.id = 'a8c144a7-9e79-fccc-1f57-4035b2aa9fea';",0.8767337799072266
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN organizations o ON p.organizationid = o.id
+WHERE o.id = '8e3ca57f-6f74-3d61-9803-ab1424290216';",0.609337568283081
+Give me the encounters that are related to the immunization Hep B  adult.,"SELECT DISTINCT e.id, e.code, e.description 
+FROM encounters e 
+JOIN vaccines v ON e.vaccineid = v.id 
+WHERE v.name = 'Hep B adult';",0.47975754737854004
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,"SELECT DISTINCT p.first 
+FROM patients p 
+WHERE p.id = '8d636878-c54c-3fcf-6300-b65c2a9e0dc9';",0.5409042835235596
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN imaging_studies i ON e.id = i.encounterid
+WHERE i.series_uid = '1.2.840.99999999.1.54352820.1609167132933';",0.5110282897949219
+What procedures did the patient named Margot418 Rolfson709 undergo?,"SELECT DISTINCT pr.name 
+FROM patients p 
+JOIN procedures pr ON p.id = pr.patientid 
+WHERE p.first = 'Margot418' AND p.last = 'Rolfson709';",0.4566042423248291
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"Sure, I can help you with that! Based on your question, here's the SQL query to get the number of unique customers for the payer with ID `8fa6c185-e44e-3e34-8bd8-39be8694f4ce`:
+```sql
+SELECT COUNT(DISTINCT c.id)
+FROM payers py
+JOIN payer_customers pc ON py.id = pc.payer_id
+JOIN customers c ON pc.customer_id = c.id
+WHERE py.id = '8fa6c185-e44e-3e34-8bd8-39be8694f4ce';
+```
+Explanation:
+
+* We start by selecting the count of distinct customer IDs (`c.id`) from the `customers` table.
+* We then join the `payers` table to the `payer_customers` table using the `id` column in both tables.
+* Next, we join the `payer_customers` table to the `customers` table using the `customer_id` column in the `payer_customers` table and the `id` column in the `customers` table.
+* Finally, we filter the results to only include the payer with the ID `8fa6c185-e44e-3e34-8bd8-39be8694f4ce` by adding a `WHERE` clause at the end of the query.
+
+This query should give you the number of unique customers for the specified payer.",1.1481926441192627
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"SELECT DISTINCT b.city, b.state FROM patients p LEFT JOIN births b ON p.id = b.patientid WHERE p.id = '51c2d782-1f36-657d-5618-42df22e39681';",0.5624063014984131
+Please provide me the number of medications uncovered by the payer Humana.,"Here is the SQL query for the given question:
+
+[SQL]: SELECT COUNT(DISTINCT m.name) FROM medications m LEFT JOIN claims c ON m.id = c.medicationid LEFT JOIN payers p ON c.payerid = p.id WHERE p.name = 'Humana' AND c.coverage = 'No';
+
+Explanation:
+
+1. We need to count the number of unique medications that are not covered by the Humana payer.
+2. We start by selecting the DISTINCT names of the medications (m.name) from the medications table (medications).
+3. We then LEFT JOIN the claims table (c) on the medication id (m.id) and the medicationid column in the claims table (c.medicationid).
+4. Next, we LEFT JOIN the payers table (p) on the payerid column in the claims table (c.payerid) and the id column in the payers table (p.id).
+5. We then filter the results to only include the rows where the payer name is 'Humana' (p.name = 'Humana') and the coverage is 'No' (c.coverage = 'No').
+6. Finally, we count the number of unique medication names (COUNT(DISTINCT m.name)) that meet the above conditions.",0.9072661399841309
+In which encounter was a procedure with code 428211000124100 performed?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN procedurecodes pc ON e.id = pc.encounterid
+WHERE pc.procedurecode = '428211000124100';",0.4898855686187744
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"SELECT DISTINCT p.state
+FROM patients p
+WHERE p.id = 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a';
+
+Explanation:
+
+1. We are asked to find the state of residence of a patient, so we will select from the ""patients"" table.
+2. The patient is identified by the ID 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a', so we will filter the results using a WHERE clause.
+3. Since the patient can only have one state of residence, we don't need to use DISTINCT or GROUP BY.
+4. The question asks for the state of the patient, so we will select the ""state"" column from the ""patients"" table.",2.0880143642425537
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"SELECT DISTINCT p.first, p.last
+FROM claims cl
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE cl.id = 'cca769d0-09e0-72f9-23aa-e6ddb2200792';",0.5077145099639893
+What is the description of the allergy with the code 3718001?,SELECT DISTINCT a.description FROM allergies a WHERE a.code = '3718001';,0.9297947883605957
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN members m ON p.id = m.patientid
+JOIN organizations o ON m.organizationid = o.id
+WHERE o.id = '844a8cb2-4164-35b2-88b8-dffa2889a738';",2.723618745803833
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"SELECT COUNT(DISTINCT med.id) 
+FROM medications med
+LEFT JOIN coverages cov ON med.id = cov.medicationid
+WHERE cov.payer = 'NO_INSURANCE' AND cov.coverage = 'uncovered';",2.7658660411834717
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,"SELECT DISTINCT p.name
+FROM payments pa
+JOIN claims cl ON pa.claimid = cl.id
+JOIN medication_orders mo ON cl.id = mo.claimid
+JOIN medications med ON mo.medicationid = med.id
+JOIN payers p ON pa.payerid = p.id
+WHERE med.name = 'Alendronic acid 10 MG Oral Tablet';",2.763030529022217
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"SELECT DISTINCT i.sop_code
+FROM imaging_studies isd
+JOIN imaging_series isrs ON isd.id = isrs.study_id
+JOIN imaging is ON isrs.id = is.series_id
+WHERE isrs.series_uid = '1.2.840.99999999.1.57895833.1595237299924';",3.7595338821411133
+Please provide me a reason for the use of the care plan with code 134435003.,"SELECT DISTINCT r.name 
+FROM careplans cp 
+JOIN reasonsforuse r ON cp.reasonid = r.id 
+WHERE cp.code = '134435003';",3.335599899291992
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN organizations o ON p.organizationid = o.id
+WHERE o.id = '2befa435-3070-3350-a15c-e43ac1e84b24';",3.1895413398742676
+In which city is the provider named Lynsey2 Lemke654 located?,"SELECT DISTINCT city FROM providers pr
+JOIN people p ON pr.personid = p.id
+WHERE p.first = 'Lynsey2' AND p.last = 'Lemke654';",1.730614423751831
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,SELECT p.birthdate FROM patients p WHERE p.id = 'cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d';,1.645876169204712
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"SELECT DISTINCT payer.name
+FROM encounters e
+LEFT JOIN payers payer ON e.payer\_id = payer.id
+WHERE e.id = '707c24b4-b715-02aa-5f9b-1712d336b98e';",2.684999942779541
+What encounter is associated with the supply with the code 713779008?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN supply_encounter se ON e.id = se.encounterid
+JOIN supply s ON se.supplyid = s.id
+WHERE s.code = '713779008';",2.6794352531433105
+What is the name of allergy with the code 782576004?,"SELECT DISTINCT a.name 
+FROM allergies a 
+WHERE a.code = '782576004';",3.051285743713379
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"SELECT DISTINCT i.body_site_code
+FROM imaging_studies i
+WHERE i.id = '5ad9a317-b195-585e-c638-29e057061c9e';",2.7340869903564453
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"Here is the SQL query for the given question:
+```vbnet
+SELECT COUNT(DISTINCT e.id)
+FROM encounters e
+JOIN payers p ON e.payer_id = p.id
+WHERE p.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496' AND e.covered = false;
+```
+Explanation:
+
+* We need to count the number of encounters that are not covered by a specific payer, so we start by selecting from the `encounters` table.
+* We then join the `payers` table using the `payer_id` foreign key in the `encounters` table.
+* We filter the results to only include the payer with the specified ID using the `WHERE` clause.
+* We further filter the results to only include encounters that are not covered using the `covered` column in the `encounters` table.
+* Finally, we use the `COUNT` function with `DISTINCT` to count the number of unique encounters.",2.9915711879730225
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,"SELECT DISTINCT orgs.city 
+FROM organizations orgs 
+WHERE orgs.name = 'NANTUCKET COTTAGE HOSPITAL';",2.698306083679199
+When was the patient named Micah422 Buckridge80 born?,"SELECT DISTINCT p.birthdate 
+FROM patients p 
+WHERE p.first = 'Micah422' AND p.last = 'Buckridge80';",2.625295639038086
+Please provide me the number of immunizations uncovered by the payer Anthem.,"SELECT COUNT(DISTINCT i.id) 
+FROM immunizations i
+JOIN claims c ON i.claimid = c.id
+JOIN payers p ON c.payerid = p.id
+WHERE p.name = 'Anthem';",3.2599117755889893
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"SELECT DISTINCT payer.name
+FROM encounters e
+LEFT JOIN payer ON e.payer\_id = payer.id
+WHERE e.id = 'd9415cfe-d6b7-b89d-b0f8-a763566d7c88';",1.6952018737792969
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"SELECT DISTINCT e.encounter\_type
+FROM encounters e
+WHERE e.id = '669895f1-6552-f541-6faf-4a89f43b429d';",2.7619128227233887
+What kind of allergy has the code 5640?,"SELECT DISTINCT a.name 
+FROM allergies a 
+JOIN codes c ON a.codeid = c.id 
+WHERE c.code = '5640';",2.6772186756134033
+What is the address of the provider named Katelynn452 Ledner144?,"SELECT DISTINCT pr.address FROM providers pr
+JOIN claims cl ON pr.id = cl.providerid
+JOIN patients p ON cl.patientid = p.id
+WHERE p.first = 'Katelynn452' AND p.last = 'Ledner144';",3.2055420875549316
+Please provide me the encounters that were related to the allergy Mold (organism).,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN encounterallergies ea ON e.id = ea.encounterid
+JOIN allergies a ON ea.allergyid = a.id
+WHERE a.name = 'Mold (organism)';",2.2035269737243652
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"SELECT DISTINCT r.code, r.description
+FROM encounters e
+LEFT JOIN codes c ON e.codeid = c.id
+LEFT JOIN reasons r ON c.reasonid = r.id
+WHERE e.id = '10a48862-79c6-036e-e572-f80160131cd0';",2.5725831985473633
+What is the description of the allergy with the code 419199007?,SELECT DISTINCT a.description FROM allergies a WHERE a.code = '419199007';,2.143110513687134
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN imaging\_studies i ON e.id = i.encounter\_id
+JOIN series s ON i.id = s.imaging\_study\_id
+WHERE s.series\_uid = '1.2.840.99999999.1.60733233.1559399876087';",3.6550605297088623
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"SELECT SUM(cl.revenue) FROM claims cl
+JOIN payers py ON cl.payer\_id = py.id
+WHERE py.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496';",1.705935001373291
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,SELECT org.address FROM organizations org WHERE org.name = 'MIDDLETON FAMILY MEDICINE URGENT CARE  LLC';,3.8058552742004395
+What is the reason for using the care plan with code 53950000?,"SELECT DISTINCT careplans.reason FROM careplans 
+JOIN careplanitems ON careplans.id = careplanitems.careplanid 
+WHERE careplanitems.code = '53950000';",2.3789007663726807
+What is the marital status of Tabatha105 Fisher429?,"To answer this question, we need to find the patient with the name ""Tabatha105 Fisher429"" and then get their marital status. Based on the given examples, we can assume that the `patients` table has the `first` and `last` columns for the first and last names of the patients. However, the marital status is not explicitly mentioned. Assuming that there is a column called `marital_status` in the `patients` table, the SQL query would be:
+```vbnet
+SELECT marital_status 
+FROM patients 
+WHERE CONCAT(first, ' ', last) = 'Tabatha105 Fisher429';
+```
+Note that we use the `CONCAT` function to concatenate the first and last names of the patient. If the marital status is stored in a different table, then we would need to use a join to get the marital status.",2.0099599361419678
+Which ethnicity does patient Marcie463 have?,"SELECT DISTINCT e.ethnicity 
+FROM patients p 
+JOIN patient\_details pd ON p.id = pd.patient\_id 
+JOIN ethnicities e ON pd.ethnicity\_id = e.id 
+WHERE p.first = 'Marcie463';",6.705932378768921
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"SELECT COUNT(DISTINCT med.name)
+FROM medications med
+LEFT JOIN coverages cov ON med.id = cov.medicationid
+WHERE cov.payerid = '26aab0cd-6aba-3e1b-ac5b-05c8867e762c' AND cov.coverage = 'false';",2.8448922634124756
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"Based on the given question, I'm assuming we need to find the names of the patients or possibly the healthcare providers associated with the organization ""SERENITY HILL NURSING CENTER"". I'll provide you with a query that includes both possibilities.
+
+First, let's find the organization_id for ""SERENITY HILL NURSING CENTER"" from the organizations table. I assume there is a foreign key in the patients and/or healthcare_providers table that references the organizations table.
+
+```sql
+WITH org_id AS (
+  SELECT id FROM organizations
+  WHERE name = 'SERENITY HILL NURSING CENTER'
+)
+
+-- Patients
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN organizations o ON p.organization_id = o.id
+WHERE o.id IN (SELECT id FROM org_id);
+
+-- Healthcare Providers
+SELECT DISTINCT hcp.first, hcp.last
+FROM healthcare_providers hcp
+JOIN organizations o ON hcp.organization_id = o.id
+WHERE o.id IN (SELECT id FROM org_id);
+```
+
+This query first finds the organization_id for ""SERENITY HILL NURSING CENTER"" and then uses it to find the associated patients and healthcare providers. If the foreign key has a different name, please replace ""organization\_id"" with the appropriate column name in the patients and healthcare\_providers tables. If the question only refers to patients or healthcare providers, you can remove the unneeded part of the query.",2.639091968536377
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,SELECT org.address FROM organizations org WHERE org.id = '9d0e702d-50a0-3f4c-9126-0951d560fd4b';,2.3310625553131104
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,"To answer this question, we need to find the organization 'ARBOUR-FULLER HOSPITAL' in the organizations table and get the city in which it is located. Here is the SQL query for this:
+
+```sql
+SELECT city FROM organizations 
+WHERE name = 'ARBOUR-FULLER HOSPITAL';
+```
+
+This query will return the city name for the organization 'ARBOUR-FULLER HOSPITAL'.",1.3566925525665283
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"I would need more information to provide an accurate SQL query. Specifically, I need to know the names of the tables and columns that contain the necessary data. However, I can provide a general idea of what the query might look like based on the given question.
+
+Assuming we have a table called `immunizations` with columns `name`, `type`, `manufacturer`, and `date`, and a table called `vaccines` with columns `name` and `type`, the query might look something like this:
+```sql
+SELECT immunizations.date
+FROM immunizations
+JOIN vaccines ON immunizations.name = vaccines.name
+WHERE vaccines.name = 'Influenza' AND vaccines.type = 'seasonal' AND immunizations.type = 'injectable' AND immunizations.manufacturer = 'preservative free';
+```
+This query selects the `date` column from the `immunizations` table, joins it with the `vaccines` table on the `name` column, and filters the results based on the given criteria.
+
+Note that this is just a rough example and may not work as-is. The actual query will depend on the specific structure and contents of your database.",1.2336814403533936
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"SELECT DISTINCT e.encounter\_type
+FROM encounters e
+JOIN claims c ON e.claim\_id = c.id
+WHERE c.id = '8602cd94-fcbe-0506-b4c0-f25e5e6619de';",1.6965081691741943
+What is the start date of the care plan with code 385691007?,"SELECT DISTINCT cp.startdate
+FROM careplans cp
+WHERE cp.code = '385691007';",2.862795114517212
+What is the stop date of the condition with code 73595000?,"SELECT DISTINCT conditionentry.stopdate 
+FROM conditionentry 
+JOIN conditiondiagnosis ON conditionentry.id = conditiondiagnosis.conditionentryid 
+WHERE conditiondiagnosis.conditioncode = '73595000';",3.172952890396118
+What is the type of the allergy with the code 264287008?,"SELECT DISTINCT a.type FROM allergies a WHERE a.code='264287008';
+
+Explanation:
+
+1. We are asked to find the type of allergy with a specific code.
+2. We are only concerned with the allergies table, so no JOIN is necessary.
+3. We use the DISTINCT keyword to ensure we only get unique types (in case there are duplicates).
+4. We filter the results by the code column, using the equality operator (=) and the provided code value.",1.8692002296447754
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,"SELECT DISTINCT org.name 
+FROM encounters e 
+JOIN patients p ON e.patientid = p.id 
+JOIN organizations org ON p.organizationid = org.id 
+WHERE e.id = '1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689';",2.9773571491241455
+Please provide me the type of an observation with the code 89204-2.,"SELECT DISTINCT o.observationtype
+FROM observations o
+WHERE o.code = '89204-2';",2.924177646636963
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"SELECT cost FROM vaccines
+WHERE name = 'Immunization Td (adult) 5 Lf tetanus toxoid preservative free adsorbed';
+
+The question asks for the cost of a specific vaccine, so we can select the cost directly from the vaccines table where the name matches the one given in the question.",2.6994471549987793
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"SELECT DISTINCT p.coverage_status
+FROM patients p
+WHERE CONCAT(p.first, ' ', p.last) = 'Ora550 Luettgen772';",2.953577995300293
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN procedures p ON e.procedureid = p.id
+WHERE p.name = 'Assessment of health and social care needs';",4.205125093460083
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN org_patients op ON p.id = op.patientid
+JOIN organizations o ON op.orgid = o.id
+WHERE o.name = 'LEOMINSTER COMUNITY HEALTH CENTER';",0.9182882308959961
+How many immunizations are covered by the payer NO_INSURANCE?,"SELECT COUNT(DISTINCT i.id) 
+FROM immunizations i
+JOIN claims c ON i.claimid = c.id
+JOIN payers p ON c.payerid = p.id
+WHERE p.name = 'NO_INSURANCE';",3.386747121810913
+In which encounter is the medication with the code 313782 administered?,"SELECT DISTINCT e.id, e.name 
+FROM encounters e 
+JOIN medications med ON e.id = med.encounterid 
+WHERE med.code = '313782';",3.1180059909820557
+What is the udi code for the device with code 336621006?,"SELECT DISTINCT d.udi FROM devices d
+JOIN device_models dm ON d.modelid = dm.id
+WHERE dm.code = '336621006';",1.605236291885376
+Please provide me the encounters that are related to the medication with the code 314076.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN medicationitems mi ON e.id = mi.encounterid
+WHERE mi.code = '314076';",3.7372055053710938
+What is the type of the observation with the code 8867-4?,"SELECT DISTINCT o.observation\_type
+FROM observations o
+WHERE o.code = '8867-4';",2.5860345363616943
+What is the total number of member months of the payer Medicaid?,"SELECT SUM(mm.months) FROM membermonths mm
+JOIN payers p ON mm.payerid = p.id
+WHERE p.name = 'Medicaid';",2.118807077407837
+What is the encounter associated with the immunization with code 140?,"SELECT DISTINCT e.id, e.code, e.description 
+FROM encounters e 
+JOIN immunizations i ON e.id = i.encounterid 
+WHERE i.code = '140';",2.6901144981384277
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,SELECT DISTINCT r.reason FROM encounters e JOIN reasons r ON e.reasonid = r.id WHERE e.id = '6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783';,2.759269952774048
+Which ethnicity does the patient named Zboncak558 have?,"SELECT DISTINCT p.ethnicity
+FROM patients p
+WHERE p.first || ' ' || p.last = 'Zboncak558';",3.338139533996582
+What is the reason for using the care plan with code 384758001?,"Based on the given question, it seems that you want to retrieve the reason for using the care plan with a specific code. However, the example schema and the table names are not provided in the notes. Therefore, I will provide a general SQL query for a hypothetical schema.
+
+Let's assume we have two tables: `care_plans` and `care_plan_reasons`. The `care_plans` table has columns `code` and `id`, and the `care_plan_reasons` table has columns `care_plan_id`, `code`, and `description`.
+
+Here's the SQL query for the given question:
+
+```sql
+SELECT r.description
+FROM care_plans cp
+JOIN care_plan_reasons r ON cp.id = r.care_plan_id
+WHERE cp.code = '384758001';
+```
+
+This query will return the description of the reason for using the care plan with code '384758001'. Please replace the table and column names with the actual ones in your schema to get the correct result.",2.9767048358917236
+Where was the patient named Isaac321 Rempel203 born?,"Based on the given question, it seems that we need to find the birthplace of the patient named ""Isaac321 Rempel203"". However, the example schema does not include a direct column for the patient's birthplace. I will assume that the birthplace can be determined by the hospital where the patient was born. If we have a table called 'births' that records which hospital a patient was born in, the query would look like this:
+
+```sql
+SELECT DISTINCT h.name
+FROM births b
+JOIN hospitals h ON b.hospital_id = h.id
+JOIN patients p ON b.patient_id = p.id
+WHERE p.first = 'Isaac321' AND p.last = 'Rempel203';
+```
+
+This query first joins the 'births', 'hospitals', and 'patients' tables based on their respective foreign keys. Then, it filters the results to only include the hospital name where the patient ""Isaac321 Rempel203"" was born.",3.295677423477173
+Please provide me the patients with the condition Part-time employment (finding).,"SELECT DISTINCT p.first, p.last 
+FROM patients p
+JOIN patient_conditions pc ON p.id = pc.patientid
+JOIN conditions c ON pc.conditionid = c.id
+WHERE c.name = 'Part-time employment';",0.4914517402648926
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"SELECT COUNT(DISTINCT pr.procedureid) 
+FROM procedures pr
+JOIN claims cl ON pr.claimid = cl.id
+JOIN payers py ON cl.payerid = py.id
+WHERE py.name = 'UnitedHealthcare';",2.666144371032715
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"SELECT COUNT(DISTINCT e.id) 
+FROM encounters e
+JOIN payers p ON e.payer\_id = p.id
+WHERE p.name = 'NO\_INSURANCE';",2.619140863418579
+Please provide me the encounters that were related to the allergy Lisinopril.,"SELECT DISTINCT e.id, e.encounter_datetime FROM encounters e
+JOIN allergy_reactions ar ON e.id = ar.encounterid
+JOIN allergies a ON ar.allergyid = a.id
+WHERE a.name = 'Lisinopril';",3.4705750942230225
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"SELECT COUNT(DISTINCT m.month) AS total_months
+FROM members m
+JOIN payers p ON m.payerid = p.id
+WHERE p.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496';",2.470670461654663
+What is the reason for using the care plan with code 443402002?,"Based on the given question, it seems that we need to find the reason for using the care plan with a specific code. However, the example tables and schema were not provided. Therefore, I will assume a simple schema for demonstration purposes.
+
+Let's assume we have two tables: `care_plans` and `care_plan_reasons`. The `care_plans` table has columns `code` and `id`, while the `care_plan_reasons` table has columns `care_plan_id`, `reason`, and `id`.
+
+Here's the SQL query for the given question:
+
+```sql
+SELECT DISTINCT reason
+FROM care_plans cp
+JOIN care_plan_reasons cpr ON cp.id = cpr.care_plan_id
+WHERE cp.code = '443402002';
+```
+
+This query will return the distinct reasons for using the care plan with the code '443402002'. Please note that the table and column names used here are illustrative and might differ in your actual schema.",1.9814939498901367
+Can you tell me when the observation Heart rate was recorded?,"SELECT DISTINCT o.recorded\_at
+FROM observations o
+JOIN codes c ON o.code\_id = c.id
+WHERE c.code = 'Heart rate';",2.600008964538574
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"SELECT DISTINCT bc.cost
+FROM billingcodes bc
+JOIN services s ON bc.id = s.billingcodeid
+WHERE s.name = 'Influenza seasonal injectable preservative free';",2.6356618404388428
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,"SELECT DISTINCT p.name
+FROM payments pay
+JOIN medications med ON pay.medicationid = med.id
+JOIN patients p ON pay.payerid = p.id
+WHERE med.name = 'Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet';",2.9859302043914795
+What is the reaction code of the allergy with the code 84489001?,"SELECT DISTINCT r.code
+FROM reactions r
+JOIN allergies a ON r.id = a.reactionid
+WHERE a.code = '84489001';",2.634108066558838
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"SELECT DISTINCT cl.departmentid
+FROM claims cl
+WHERE cl.id = '2bbdb236-5c11-f4e9-9a40-33fb408555f6';",4.188133239746094
+In which encounter was a procedure with code 713106006 performed?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN procedurecodes pc ON e.id = pc.encounterid
+WHERE pc.procedurecode = '713106006';",0.49916911125183105
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"SELECT DISTINCT tr.procedurecode
+FROM claimstransactions tr
+JOIN claims cl ON tr.claimid = cl.id
+WHERE cl.id = 'a3dedfb9-4a55-2c3f-0690-371a8af4a966';",2.7186219692230225
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"SELECT DISTINCT re.code, re.description
+FROM encounters e
+LEFT JOIN reasoncodes re ON e.reasoncodeid = re.id
+WHERE e.id = '867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb';",2.991809368133545
+When was the care plan Head injury rehabilitation used?,"SELECT DISTINCT cl.date_of_service
+FROM careplans cp
+LEFT JOIN careplan\_services cs ON cp.id = cs.careplanid
+LEFT JOIN services s ON cs.serviceid = s.id
+LEFT JOIN claims cl ON s.claimid = cl.id
+WHERE s.name = 'Head injury rehabilitation';",2.6496965885162354
+Please provide me the udi code related to the device Home nebulizer (physical object).,SELECT DISTINCT d.udi FROM devices d JOIN device_models dm ON d.modelid = dm.id WHERE dm.name = 'Home nebulizer (physical object)';,3.186781406402588
+Please provide me the encounters that are related to the observation with the code 785-6.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN observations o ON e.id = o.encounterid
+WHERE o.code = '785-6';",2.203059434890747
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"SELECT DISTINCT ct.procedurecode
+FROM claimstransactions ct
+JOIN claims c ON ct.claimid = c.id
+WHERE c.id = 'f4595e16-3adb-0e82-19f3-62cb0a7638ed';",3.7030773162841797
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,SELECT org.address FROM organizations org WHERE org.id = '34f0b10a-5e29-31de-a75e-e0bb03c0c0d4';,1.697021245956421
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"SELECT DISTINCT p.state 
+FROM patients p 
+WHERE p.id = '96d6e446-5d05-8df3-eff5-b4af55d138bb';",2.6426761150360107
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,SELECT org.address FROM organizations org WHERE org.id = '880fad59-9c38-3a21-a39f-ccc801502ab3';,2.665666103363037
+Please provide me the udi code related to the device with code 702172008.,"SELECT DISTINCT udi FROM devices d
+JOIN deviceudis du ON d.id = du.deviceid
+WHERE d.devicecode = '702172008';",3.6021816730499268
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"SELECT AVG(qol.score)
+FROM quality\_of\_life qol
+JOIN patients pat ON qol.patient\_id = pat.id
+JOIN payers pay ON pat.payer\_id = pay.id
+WHERE pay.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625';",2.7619218826293945
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,"SELECT DISTINCT org.name
+FROM encounters e
+LEFT JOIN organizations org ON e.organizationid = org.id
+WHERE e.id = 'ea22dd39-a110-c7cd-5903-071327281613';",1.7024774551391602
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN payers_payees pp ON p.id = pp.patientid
+JOIN payers pyr ON pp.payerid = pyr.id
+WHERE pyr.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625';",2.7254834175109863
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"SELECT COUNT(DISTINCT e.id) 
+FROM encounters e
+JOIN payers p ON e.payer\_id = p.id
+WHERE p.id = 'df166300-5a78-3502-a46a-832842197811';",2.796745777130127
+Please provide me the udi code related to the device with code 337414009.,"SELECT DISTINCT udi FROM devices d
+JOIN deviceudis du ON d.id = du.deviceid
+WHERE d.code = '337414009';",2.6062567234039307
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,"SELECT DISTINCT d.udi FROM devices d JOIN device_models dm ON d.modelid = dm.id WHERE dm.name = 'Oxygen concentrator';
+
+Explanation:
+
+1. We are looking for the udi code (udi column) related to the device named 'Oxygen concentrator' (WHERE clause).
+2. To get the device information, we join the devices table with the device\_models table using the modelid foreign key (JOIN clause).
+3. Since the udi code might not be unique for each device, we use DISTINCT to ensure we get only one udi code per device.",2.7753427028656006
+Please provide me the encounters that are related to the device with code 91537007.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN device_encounter de ON e.id = de.encounterid
+JOIN devices d ON de.deviceid = d.id
+WHERE d.code = '91537007';",4.722461700439453
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,"SELECT DISTINCT snomed_code FROM allergies a
+JOIN concept c ON a.concept_id = c.concept_id
+WHERE c.concept_name ILIKE 'Allergy to substance (finding)';",1.582167625427246
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,"SELECT DISTINCT i.seriesuid
+FROM imagingstudies i
+WHERE i.id = '71ee50dd-ea7c-3415-e8d9-8b3a950cf731';",2.7462637424468994
+Please provide me the encounters that are related to the allergy with the code 264287008.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN problem_list pl ON e.id = pl.encounterid
+JOIN problem_concept pc ON pl.conceptid = pc.problemconceptid
+WHERE pc.conceptcode = '264287008';",1.694911003112793
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"SELECT COUNT(DISTINCT e.id)
+FROM encounters e
+JOIN payers p ON e.payer\_id = p.id
+WHERE p.id = '0133f751-9229-3cfd-815f-b6d4979bdd6a' AND e.covered = false;",3.093651056289673
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,"SELECT DISTINCT p.last 
+FROM patients p 
+WHERE p.id = '35a38de9-c363-17a5-b2c4-c28f3b1c2ac0';",2.746243953704834
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"SELECT DISTINCT cl.departmentid
+FROM claims cl
+WHERE cl.id = 'e9434fb3-0c47-4b84-ca56-c55fb315b772';",3.18414306640625
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN payers pa ON p.payerid = pa.id
+WHERE pa.id = 'b046940f-1664-3047-bca7-dfa76be352a4';",1.6742503643035889
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"SELECT COUNT(DISTINCT i.id) 
+FROM immunizations i
+JOIN claims c ON i.claimid = c.id
+JOIN payers p ON c.payerid = p.id
+WHERE p.id = '26aab0cd-6aba-3e1b-ac5b-05c8867e762c';",3.6042609214782715
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"SELECT DISTINCT p.ethnicity
+FROM patients p
+JOIN people pe ON p.personid = pe.id
+WHERE CONCAT(pe.first, pe.last) = 'Argelia29 Altenwerth646';",1.657411813735962
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"SELECT DISTINCT p.birthdate 
+FROM patients p 
+WHERE p.first = 'Rebeca548' AND p.last = 'Hansen121';",2.6443400382995605
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"SELECT DISTINCT i.seriesuid
+FROM imagingstudies isl
+LEFT JOIN imaging i ON isl.id = i.imagingstudyid
+WHERE isl.id = 'd3fa7d2e-1bca-65f1-74ae-d326343ab849';",2.6966309547424316
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"SELECT DISTINCT modalitydescription 
+FROM imagingstudies isd 
+JOIN modalities md ON isd.modalityid = md.id 
+WHERE isd.id = '820778b8-5a19-9acf-9dbd-a3be1a1b4a47';",2.7643966674804688
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"SELECT DISTINCT i.body_site_description
+FROM imaging_studies i
+WHERE i.id = '9bda6d29-00c0-24ea-6d31-09c04803fff4';",2.6748998165130615
+What kind of allergy is described as Mold (organism)?,"Based on the given question, it seems that there is a misunderstanding as the question is related to medical information about allergies, while the provided database schema contains tables related to patients and their claims. Therefore, it's not possible to provide an accurate SQL query to answer the question.
+
+However, I will provide an example SQL query based on the given schema to select the type of allergy described as 'Mold (organism)' if the schema contained the relevant information.
+
+Assuming there is a table called 'allergies' with columns 'id' (unique identifier for each allergy), 'name' (name of the allergy), and 'description' (description of the allergy), the SQL query would look like this:
+
+SELECT id, name FROM allergies WHERE description LIKE '%Mold (organism)%';
+
+This query would return the id and name of the allergy that has 'Mold (organism)' in its description.",2.924286127090454
+How many patients have the allergy described as Fish (substance)?,"SELECT COUNT(DISTINCT p.id)
+FROM patients p
+JOIN allergies a ON p.id = a.patient\_id
+WHERE a.substance = 'Fish';",2.6754536628723145
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,SELECT DISTINCT i.sopcode FROM imagingstudies i WHERE i.id = '65ff28ac-082f-ef59-ca11-baacc7302868';,2.7345845699310303
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"SELECT DISTINCT pr.name 
+FROM patients p 
+JOIN procedures pr ON p.id = pr.patientid 
+WHERE p.first = 'Caleb651' AND p.last = 'Dickinson688';",2.684723138809204
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN imaging\_studies i ON p.id = i.patient\_id
+JOIN series s ON i.id = s.imaging\_study\_id
+WHERE s.series\_uid = '1.2.840.99999999.1.63663889.1660767155882';",2.7943289279937744
+Can you provide the count of patients suffering from Allergy to substance (finding)?,"SELECT COUNT(DISTINCT p.id) 
+FROM patients p
+JOIN findings f ON p.id = f.patientid
+WHERE f.finding = 'Allergy to substance';",2.672218084335327
+What are the survival chances of allgery House dust mite (organism)?,"I'm sorry for the confusion, but the question seems to be missing some context. In order to provide a SQL query, I need to know the structure of the tables in the database, including the names of the tables and the names and data types of the columns. Additionally, the question mentions ""survival chances"" which is a biological concept and might not be directly queryable from a database without the appropriate data and calculations.
+
+However, I can give you an example of a SQL query that would be used to join two tables together, which may be a starting point for what you're looking for.
+
+For example, if you have a table called ""organisms"" with a column called ""id"" and another table called ""survival_rates"" with columns ""organism_id"" and ""survival_chance"", the following query would give you the survival chances for all organisms in the ""organisms"" table:
+
+```
+SELECT o.name, s.survival_chance
+FROM organisms o
+LEFT JOIN survival_rates s ON o.id = s.organism_id;
+```
+
+This query would return a result set with two columns: ""name"" (the name of the organism) and ""survival\_chance"" (the survival chance of the organism).
+
+Please let me know if you have more information or if there's something specific you're looking for.",3.063955307006836
+Please provide me the encounters that are related to the observation with the code 9279-1.,"SELECT DISTINCT e.*
+FROM encounters e
+JOIN observations o ON e.id = o.encounterid
+WHERE o.code = '9279-1';",2.608044147491455
+Please provide me the patients treated with the procedure of code 866148006.,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN procedures pro ON p.id = pro.patientid
+WHERE pro.procedurecode = '866148006';",2.7038495540618896
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"SELECT COUNT(DISTINCT m.month) AS total_months
+FROM memberships m
+JOIN payers p ON m.payerid = p.id
+WHERE p.id = 'd31fccc3-1767-390d-966a-22a5156f4219';",3.4391415119171143
+What is the base cost of the immunization with code 133?,SELECT bc.cost FROM basecosts bc WHERE bc.code = '133' AND bc.type = 'immunization';,1.700251817703247
+Please provide me the patients treated with the procedure Colonoscopy.,"SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN procedures pr ON p.id = pr.patientid 
+JOIN procedurecodes pc ON pr.procedurecodeid = pc.id 
+WHERE pc.code = 'Colonoscopy';",3.0592684745788574
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"SELECT DISTINCT bs.code
+FROM imaging_studies isd
+JOIN imaging_series iss ON isd.id = iss.imaging_study_id
+JOIN body_sites bs ON iss.body_site_id = bs.id
+WHERE iss.series_uid = '1.2.840.99999999.1.30413319.1650275698924';",2.7687735557556152
+Who has been treated with the procedure of code 710841007?,"SELECT DISTINCT p.first, p.last
+FROM procedures pr
+LEFT JOIN claims cl ON pr.claimid = cl.id
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE pr.procedurecode = '710841007';",2.7171249389648438
+Who has been treated with the procedure of code 430193006?,"SELECT DISTINCT p.first, p.last
+FROM procedures pr
+LEFT JOIN claims cl ON pr.claimid = cl.id
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE pr.procedurecode = '430193006';",2.6901354789733887
+When did the allergy with the code 3718001 start?,"SELECT DISTINCT a.start_date
+FROM allergies a
+WHERE a.code = '3718001';",2.8962862491607666
+Please provide me the number of encounters uncovered by the payer Medicare.,"SELECT COUNT(DISTINCT e.id) 
+FROM encounters e
+JOIN payers p ON e.payer\_id = p.id
+WHERE p.name = 'Medicare';",2.6793267726898193
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,SELECT org.address FROM organizations org WHERE org.id = '7f32dd7d-5c35-3ddb-839b-8fbbb930d412';,2.6387779712677
+What is the type of allergy has the description Latex (substance)?,"SELECT DISTINCT a.type 
+FROM allergies a 
+JOIN substances s ON a.substanceid = s.id 
+WHERE s.description = 'Latex (substance)';",2.587665557861328
+Where was the patient named Qiana980 Okuneva707 born?,"Based on the given question, it seems that we need to find the birthplace of the patient named ""Qiana980 Okuneva707"". However, the example and the notes provided do not indicate any table or column that stores the birthplace of the patients. Therefore, it is not possible to generate a correct SQL query to answer this question based on the given input.
+
+To provide a correct SQL query, we would need more information about the table and column names that contain the necessary data. For example, if we have a table called ""patients"" with columns ""first\_name"", ""last\_name"", and ""birthplace"", we could use the following SQL query to answer the question:
+```sql
+SELECT birthplace 
+FROM patients 
+WHERE first_name = 'Qiana980' AND last_name = 'Okuneva707';
+```
+However, without this information, it is not possible to generate a correct SQL query. Therefore, my answer is:
+
+No answer possible based on given input.",2.943391799926758
+What is the most promising procedure for a patient with Mold (organism)?,"Based on the given question, it seems that we need to find the procedure that has the highest success rate for patients with the organism ""Mold"". However, there is not enough information provided to write an accurate SQL query.
+
+In order to provide a query, we would need to know the name of the table that contains information about the procedures and their success rates, as well as the name of the table that contains information about the organisms associated with each patient.
+
+Assuming that we have two tables, `procedures` and `patient_organisms`, with the following columns:
+
+- `procedures`: id, name, success\_rate
+- `patient_organisms`: patient\_id, procedure\_id, organism, success
+
+We can write a query that joins these two tables and groups by the organism and procedure, then orders by the success rate in descending order to find the most promising procedure for a patient with Mold:
+```sql
+SELECT p.name AS procedure, AVG(po.success) AS success_rate
+FROM procedures p
+JOIN patient_organisms po ON p.id = po.procedure_id
+WHERE po.organism = 'Mold'
+GROUP BY p.name
+ORDER BY success_rate DESC
+LIMIT 1;
+```
+This query will return the name of the most promising procedure and its average success rate for patients with the organism ""Mold"". Note that the query assumes that the `success` column in the `patient_organisms` table is a numeric value representing the success of the procedure for a given patient.",3.1259500980377197
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"SELECT DISTINCT p.first 
+FROM patients p 
+WHERE p.id='f07f2e96-d323-1db8-c28f-9d06b112f557';",2.653562307357788
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"SELECT DISTINCT bs.description FROM imaging_studies isd
+JOIN series ser ON isd.id = ser.studyid
+JOIN imaging_services isvc ON ser.serviceid = isvc.id
+JOIN body_sites bs ON isvc.bodysiteid = bs.id
+WHERE ser.uid = '1.2.840.99999999.1.60733233.1559399876087';",2.7670462131500244
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,"SELECT DISTINCT e.id, e.encounter_type, e.date
+FROM encounters e
+JOIN immunizations i ON e.id = i.encounterid
+JOIN vaccines v ON i.vaccineid = v.id
+WHERE v.name = 'Influenza seasonal injectable preservative free';",2.644899606704712
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"SELECT DISTINCT e.encounter\_type
+FROM encounters e
+WHERE e.id = '40c90d37-a246-601a-7edf-983a88a0936d';",2.639458179473877
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"SELECT DISTINCT modality.description
+FROM imaging_studies st LEFT JOIN modality ON st.modality\_id = modality.id
+WHERE st.id = 'ca21a429-bec9-35a5-17ba-0d012491d4c4';",2.7076289653778076
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"SELECT DISTINCT p.healthcarecoverage 
+FROM patients p 
+JOIN claims c ON p.id = c.patientid 
+WHERE CONCAT(p.first, ' ', p.last) = 'Wilfred787 Schamberger479';",2.7071444988250732
+When was the observation with the code 72514-3 recorded?,"SELECT DISTINCT o.recorded_date
+FROM observations o
+JOIN codes c ON o.code_id = c.id
+WHERE c.code = '72514-3';",2.659532070159912
+How many patients have or had the allergy with the code 419199007?,"SELECT COUNT(DISTINCT p.id)
+FROM patients p
+JOIN patientallergies pa ON p.id = pa.patientid
+JOIN allergies a ON pa.allergyid = a.id
+WHERE a.code = '419199007';",2.6888091564178467
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN orders o ON p.id = o.patientid
+JOIN supply s ON o.supplyid = s.id
+WHERE s.name = 'Blood glucose testing strips (physical object)';",2.819849729537964
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"Here is the SQL query for the given question:
+```vbnet
+SELECT COUNT(DISTINCT i.id)
+FROM immunizations i
+LEFT JOIN claims c ON i.claimid = c.id
+LEFT JOIN payers p ON c.payerid = p.id
+WHERE p.id = '8fa6c185-e44e-3e34-8bd8-39be8694f4ce' AND i.covered = false;
+```
+Explanation:
+
+* We need to count the number of immunizations that are not covered by a specific payer, so we start by selecting the `id` column from the `immunizations` table.
+* We use `COUNT(DISTINCT i.id)` to count the number of unique immunization records.
+* We then join the `claims` table using the `claimid` foreign key in the `immunizations` table.
+* We also join the `payers` table using the `payerid` foreign key in the `claims` table.
+* We filter the results to only include records where the payer ID matches the one given in the question and where the `covered` column in the `immunizations` table is `false`.
+
+Note: The query assumes that the `covered` column in the `immunizations` table indicates whether the immunization is covered by the payer or not. If this is not the case, the query may need to be modified accordingly.",3.170139789581299
+What encounter is associated with the supply with the code 419343004?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN encounter\_supplies es ON e.id = es.encounter\_id
+JOIN supplies s ON es.supply\_id = s.id
+WHERE s.code = '419343004';",2.1471338272094727
+What is the description of the device with code 706180003?,SELECT DISTINCT dev.description FROM devices dev WHERE dev.devicecode='706180003';,2.596578359603882
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"SELECT DISTINCT p.first, p.last 
+FROM claims cl 
+LEFT JOIN patients p ON cl.patientid = p.id 
+WHERE cl.id = 'fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2';",2.732003927230835
+What is the type of the allergy with the code 256277009?,SELECT DISTINCT a.type FROM allergies a WHERE a.code = '256277009';,2.8043618202209473
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,"SELECT DISTINCT e.id, e.encounter_datetime
+FROM encounters e
+JOIN imaging\_studies i ON e.id = i.encounter\_id
+JOIN series s ON i.id = s.imaging\_study\_id
+WHERE s.series\_uid = '1.2.840.99999999.1.94906246.1703949012410';",2.7825629711151123
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"SELECT DISTINCT bc.cost
+FROM billingcodes bc
+JOIN services s ON bc.id = s.billingcodeid
+WHERE s.name = 'Influenza seasonal injectable preservative free';",2.670069932937622

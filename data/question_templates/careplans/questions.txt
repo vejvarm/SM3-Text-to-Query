@@ -1,0 +1,17 @@
+Who has been treated with the care plan with the code $careplan_code?
+What is the start date of the care plan with code $careplan_code?
+When was the care plan with the code $careplan_code used?
+What is the reason for using the care plan with code $careplan_code?
+In which encounter was the care plan with code $careplan_code administered?
+In which encounter ID was the care plan with code $careplan_code used?
+Please provide me the encounters that were related to the care plan with code $careplan_code.
+Please provide me the patients receiving aid under the care plan with code $careplan_code.
+Please provide me a reason for the use of the care plan with code $careplan_code.
+Who has been treated with the care plan $careplan_name?
+What is the start date of the care plan $careplan_name?
+When was the care plan $careplan_name used?
+What is the reason for the use of the care plan $careplan_name?
+In which encounter was the care plan $careplan_name administered?
+Please provide me the encounters that are related to the care plan $careplan_name.
+Please provide me the patients with the care plan $careplan_name.
+Please provide me the reason for the use of the care plan $careplan_name.

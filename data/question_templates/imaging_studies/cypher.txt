@@ -1,0 +1,45 @@
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.date;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(i:ImagingStudy {{id: '$imaging_studies_id'}}) RETURN p.firstName, p.lastName;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.patientId;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteCode,i.bodySiteDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityCode,i.modalityDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.seriesUid;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopCode, i.sopDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopDescription;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(i:ImagingStudy {{id: '$imaging_studies_id'}}) RETURN e.description
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopCode;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(i:ImagingStudy {{id: '$imaging_studies_id'}}) RETURN p.firstName, p.lastName;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.patientId;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteCode,i.bodySiteDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.bodySiteDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityCode,i.modalityDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.modalityDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.seriesUid;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopCode;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopCode, i.sopDescription;
+MATCH (i:ImagingStudy {{id: '$imaging_studies_id'}})RETURN i.sopDescription;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(i:ImagingStudy {{id: '$imaging_studies_id'}}) RETURN e.description
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.patientId;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(i:ImagingStudy {{seriesUid: '$is_studies_uid'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.date;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.date;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.bodySiteCode;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.bodySiteDescription;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.modalityCode;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.modalityDescription;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.procedureCode;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.sopCode;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.sopDescription;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(i:ImagingStudy {{seriesUid: '$is_studies_uid'}}) RETURN DISTINCT e.description
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(i:ImagingStudy {{seriesUid: '$is_studies_uid'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(i:ImagingStudy {{seriesUid: '$is_studies_uid'}}) RETURN DISTINCT e.description;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.bodySiteCode;
+MATCH (i:ImagingStudy {{seriesUid: '$is_studies_uid'}})RETURN i.modalityDescription;

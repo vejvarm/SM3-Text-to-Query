@@ -1,0 +1,15 @@
+MATCH (i:Immunization {{code: '$immunization_code'}}) RETURN i.description;
+MATCH (i:Immunization {{code: '$immunization_code'}}) RETURN i.date;
+MATCH (i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT i.baseCost;
+MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_FOR]->(i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (p:Patient)-[:HAS_HISTORY_FOR]->(i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT e.description;
+MATCH (i:Immunization {{code: '$immunization_code'}}) RETURN DISTINCT i.baseCost;
+MATCH (i:Immunization {{description: '$immunization_name'}}) RETURN i.date;
+MATCH (i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT i.baseCost;
+MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_FOR]->(i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (p:Patient)-[:HAS_HISTORY_FOR]->(i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT e.description;
+MATCH (i:Immunization {{description: '$immunization_name'}}) RETURN DISTINCT i.baseCost;

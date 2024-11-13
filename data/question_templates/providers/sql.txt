@@ -1,0 +1,17 @@
+SELECT name FROM providers WHERE id='$provider_id';
+SELECT address FROM providers WHERE id='$provider_id';
+SELECT gender FROM providers WHERE id='$provider_id';
+SELECT city FROM providers WHERE id='$provider_id';
+SELECT speciality FROM providers WHERE id='$provider_id';
+SELECT org.name FROM providers pr LEFT JOIN organizations org ON pr.organization=org.id WHERE pr.id='$provider_id';
+SELECT org.name FROM providers pr LEFT JOIN organizations org ON pr.organization=org.id WHERE pr.id='$provider_id';
+SELECT speciality FROM providers WHERE id='$provider_id';
+SELECT address FROM providers WHERE id='$provider_id';
+SELECT address FROM providers pr WHERE name='$provider_name';
+SELECT gender FROM providers pr WHERE name='$provider_name';
+SELECT city FROM providers pr WHERE name='$provider_name';
+SELECT speciality FROM providers pr WHERE name='$provider_name';
+SELECT org.name FROM providers pr LEFT JOIN organizations org ON pr.organization=org.id WHERE pr.name='$provider_name';
+SELECT org.name FROM providers pr LEFT JOIN organizations org ON pr.organization=org.id WHERE pr.name='$provider_name';
+SELECT speciality FROM providers pr WHERE name='$provider_name';
+SELECT address FROM providers pr WHERE name='$provider_name';

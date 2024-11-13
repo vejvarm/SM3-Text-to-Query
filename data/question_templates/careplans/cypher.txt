@@ -1,0 +1,17 @@
+MATCH (p:Patient)-[:HAS_CAREPLAN]->(c:CarePlan {{code: '$careplan_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (c:CarePlan {{code: '$careplan_code'}}) RETURN c.start;
+MATCH (c:CarePlan {{code: '$careplan_code'}}) RETURN c.start;
+MATCH (c:CarePlan {{code: '$careplan_code'}}) RETURN c.reasondescription;
+MATCH (e:Encounter)-[:IS_ORDERED_DURING]->(c:CarePlan {{code: '$careplan_code'}}) RETURN DISTINCT e.description;
+MATCH (c:CarePlan {{code: '$careplan_code'}}) RETURN DISTINCT c.encounterId;
+MATCH (e:Encounter)-[:IS_ORDERED_DURING]->(c:CarePlan {{code: '$careplan_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_CAREPLAN]->(c:CarePlan {{code: '$careplan_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (c:CarePlan {{code: '$careplan_code'}}) RETURN c.reasondescription;
+MATCH (p:Patient)-[:HAS_CAREPLAN]->(c:CarePlan {{description: '$careplan_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (c:CarePlan {{description: '$careplan_name'}}) RETURN c.start;
+MATCH (c:CarePlan {{description: '$careplan_name'}}) RETURN c.start;
+MATCH (c:CarePlan {{description: '$careplan_name'}}) RETURN c.reasondescription;
+MATCH (e:Encounter)-[:IS_ORDERED_DURING]->(c:CarePlan {{description: '$careplan_name'}}) RETURN DISTINCT e.description;
+MATCH (e:Encounter)-[:IS_ORDERED_DURING]->(c:CarePlan {{description: '$careplan_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_CAREPLAN]->(c:CarePlan {{description: '$careplan_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (c:CarePlan {{description: '$careplan_name'}}) RETURN c.reasondescription;

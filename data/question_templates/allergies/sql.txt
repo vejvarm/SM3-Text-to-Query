@@ -1,0 +1,46 @@
+SELECT DISTINCT code FROM allergies WHERE description='$allergy_description';
+SELECT start FROM allergies WHERE description='$allergy_description';
+SELECT start FROM allergies WHERE description='$allergy_description';
+SELECT start FROM allergies WHERE description='$allergy_description';
+SELECT stop FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT type FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT type FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT type FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT category FROM allergies WHERE description='$allergy_description'
+SELECT DISTINCT category FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT description1, description2 FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT description1, description2 FROM allergies WHERE description='$allergy_description';
+SELECT reaction1,reaction2 FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT p.first, p.last FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.description='$allergy_description';
+SELECT DISTINCT e.description FROM encounters e LEFT JOIN allergies a ON a.encounter = e.id  WHERE a.description='$allergy_description';
+SELECT DISTINCT p.first, p.last FROM patients p LEFT JOIN allergies a ON a.patient = p.id  WHERE a.description='$allergy_description';
+SELECT COUNT(*) as count_allergic_patients FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.description='$allergy_description';
+SELECT COUNT(*) as count_allergic_patients FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.description='$allergy_description';
+SELECT DISTINCT code FROM allergies WHERE description='$allergy_description';
+SELECT start FROM allergies WHERE description='$allergy_description';
+SELECT DISTINCT e.description FROM encounters e LEFT JOIN allergies a ON a.encounter = e.id  WHERE a.description='$allergy_description';
+SELECT DISTINCT p.first, p.last FROM patients p LEFT JOIN allergies a ON a.patient = p.id  WHERE a.description='$allergy_description';
+SELECT COUNT(p.id) as number_patients_affected FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.description='$allergy_description';
+SELECT start  FROM allergies WHERE code='$allergy_code';
+SELECT start  FROM allergies WHERE code='$allergy_code';
+SELECT start  FROM allergies WHERE code='$allergy_code';
+SELECT stop  FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT description FROM allergies WHERE code='$allergy_code'
+SELECT DISTINCT description  FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT type  FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT type  FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT category FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT category  FROM allergies WHERE code='$allergy_code'
+SELECT DISTINCT description1, description2  FROM allergies WHERE code='$allergy_code';
+SELECT reaction1, reaction2 FROM allergies WHERE code='$allergy_code';
+SELECT start FROM allergies WHERE code='$allergy_code';
+SELECT stop  FROM allergies WHERE code='$allergy_code';
+SELECT DISTINCT p.first, p.last FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';
+SELECT DISTINCT e.description FROM allergies a LEFT JOIN encounters e ON a.patient = e.id WHERE a.code='$allergy_code';
+SELECT DISTINCT p.first, p.last FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';
+SELECT COUNT(p.*) as numberofpatientswithallergycode FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';
+SELECT DISTINCT code FROM allergies a WHERE code='$allergy_code';
+SELECT a.start FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';
+SELECT DISTINCT e.description FROM allergies a LEFT JOIN encounters e ON a.encounter = e.id WHERE a.code='$allergy_code';
+SELECT DISTINCT p.first, p.last FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';
+SELECT COUNT(p.*) as numberofpatientswithallergycode FROM allergies a LEFT JOIN patients p ON a.patient = p.id WHERE a.code='$allergy_code';

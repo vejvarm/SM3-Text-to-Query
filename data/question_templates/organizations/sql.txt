@@ -1,0 +1,15 @@
+SELECT name FROM organizations WHERE id='$organization_id';
+SELECT DISTINCT p.first, p.last FROM organizations org LEFT JOIN encounters e ON org.id=e.organization JOIN patients p ON e.patient=p.id WHERE org.id='$organization_id';
+SELECT DISTINCT e.description FROM organizations org LEFT JOIN encounters e ON e.organization=org.id WHERE org.id='$organization_id';
+SELECT address FROM organizations WHERE id='$organization_id';
+SELECT city FROM organizations WHERE id='$organization_id';
+SELECT DISTINCT e.description FROM organizations org LEFT JOIN encounters e ON e.organization=org.id WHERE org.id='$organization_id';
+SELECT DISTINCT p.first, p.last FROM organizations org LEFT JOIN encounters e ON org.id=e.organization JOIN patients p ON e.patient=p.id WHERE org.id='$organization_id';
+SELECT name FROM organizations WHERE id='$organization_id';
+SELECT DISTINCT p.first, p.last FROM organizations org LEFT JOIN encounters e ON org.id=e.organization LEFT JOIN patients p ON e.patient=p.id WHERE org.name='$organization_name';
+SELECT DISTINCT e.description FROM organizations org LEFT JOIN encounters e ON e.organization=org.id WHERE org.name='$organization_name';
+SELECT address FROM organizations WHERE name='$organization_name';
+SELECT city FROM organizations WHERE name='$organization_name';
+SELECT DISTINCT e.description FROM organizations org LEFT JOIN encounters e ON e.organization=org.id WHERE org.name='$organization_name';
+SELECT DISTINCT p.first, p.last FROM organizations org LEFT JOIN encounters e ON org.id=e.organization LEFT JOIN patients p ON e.patient=p.id WHERE org.name='$organization_name';
+SELECT address FROM organizations WHERE name='$organization_name';

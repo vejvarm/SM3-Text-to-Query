@@ -1,0 +1,15 @@
+SELECT DISTINCT description FROM supplies s WHERE code='$supply_code';
+SELECT DISTINCT quantity FROM supplies s WHERE code='$supply_code';
+SELECT DISTINCT p.first, p.last FROM supplies s LEFT JOIN patients p ON s.patient=p.id WHERE s.code='$supply_code';
+SELECT DISTINCT e.description FROM supplies s LEFT JOIN encounters e ON s.encounter=e.id WHERE s.code='$supply_code';
+SELECT DISTINCT quantity FROM supplies s WHERE code='$supply_code';
+SELECT DISTINCT p.first, p.last FROM supplies s LEFT JOIN patients p ON s.patient=p.id WHERE s.code='$supply_code';
+SELECT DISTINCT e.description FROM supplies s LEFT JOIN encounters e ON s.encounter=e.id WHERE s.code='$supply_code';
+SELECT DISTINCT quantity FROM supplies s WHERE description='$supply_name';
+SELECT DISTINCT date FROM supplies WHERE description='$supply_name';
+SELECT DISTINCT code FROM supplies WHERE description='$supply_name';
+SELECT DISTINCT p.first, p.last FROM supplies s LEFT JOIN patients p ON s.patient=p.id WHERE s.description='$supply_name';
+SELECT DISTINCT e.description FROM supplies s LEFT JOIN encounters e ON s.encounter=e.id WHERE s.code='$supply_code';
+SELECT DISTINCT quantity FROM supplies s WHERE description='$supply_name';
+SELECT DISTINCT p.first, p.last FROM supplies s LEFT JOIN patients p ON s.patient=p.id WHERE s.description='$supply_name';
+SELECT DISTINCT enc.description FROM supplies s LEFT JOIN encounters enc ON s.encounter=enc.id WHERE s.description='$supply_name';

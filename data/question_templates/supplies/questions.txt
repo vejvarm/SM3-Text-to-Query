@@ -1,0 +1,15 @@
+What is the name of the supply with the code $supply_code?
+What is the quality of the supply with the code $supply_code?
+Who is the patient associated with the supply with the code $supply_code?
+What encounter is associated with the supply with the code $supply_code?
+Please provide me the quality for the supply with the code $supply_code.
+Please provide me the patient with the supply with the code $supply_code.
+Please provide me the encounters that were related to the supply with the code $supply_code.
+What is the quality of the supply named $supply_name?
+When was the supply $supply_name recorded?
+What is the code of the supply named $supply_name?
+Who is the patient associated with the supply named $supply_name?
+What encounter is associated with the supply named $supply_name?
+Please provide me the quantity of the supply named $supply_name.
+Please provide me the patients associated with the supply named $supply_name.
+Please provide me the encounters that were related to the supply named $supply_name.

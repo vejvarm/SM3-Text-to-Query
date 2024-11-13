@@ -1,0 +1,16 @@
+SELECT p.first, p.last FROM patients p LEFT JOIN encounters e ON e.patient = p.id WHERE e.id='$encounter_id';
+SELECT code FROM encounters WHERE id='$encounter_id';
+SELECT encounterclass FROM encounters WHERE id='$encounter_id';
+SELECT start FROM encounters WHERE id='$encounter_id';
+SELECT description FROM encounters WHERE id='$encounter_id';
+SELECT total_claim_cost FROM encounters WHERE id='$encounter_id';
+SELECT reasondescription FROM encounters WHERE id='$encounter_id';
+SELECT reasondescription FROM encounters WHERE id='$encounter_id';
+SELECT reasoncode, reasondescription FROM encounters WHERE id='$encounter_id';
+SELECT organization FROM encounters WHERE id='$encounter_id';
+SELECT provider FROM encounters WHERE id='$encounter_id';
+SELECT payer FROM encounters WHERE id='$encounter_id';
+SELECT provider FROM encounters WHERE id='$encounter_id';
+SELECT payer FROM encounters WHERE id='$encounter_id';
+SELECT organization FROM encounters WHERE id='$encounter_id';
+SELECT reasoncode, reasondescription FROM encounters WHERE id='$encounter_id';

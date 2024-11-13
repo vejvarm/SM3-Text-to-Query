@@ -1,0 +1,15 @@
+MATCH (o:Organization {{id: '$organization_id'}}) RETURN o.name;
+MATCH (o:Organization {{id: '$organization_id'}})-[:IS_PERFOMED_AT]->(e:Encounter)<-[:HAS_ENCOUNTER]-(p:Patient) RETURN p.firstName, p.lastName
+MATCH (e:Encounter)-[:IS_RESPONSIBLE_FOR]->(o:Organization {{id: '$organization_id'}}) RETURN DISTINCT e.description;
+MATCH (o:Organization {{id: '$organization_id'}}) RETURN o.address;
+MATCH (o:Organization {{id: '$organization_id'}}) RETURN o.city;
+MATCH (e:Encounter)-[:IS_RESPONSIBLE_FOR]->(o:Organization {{id: '$organization_id'}}) RETURN DISTINCT e.description;
+MATCH (o:Organization {{id: '$organization_id'}})-[:IS_PERFOMED_AT]->(e:Encounter)<-[:HAS_ENCOUNTER]-(p:Patient) RETURN DISTINCT p.firstName, p.lastName
+MATCH (o:Organization {{id: '$organization_id'}}) RETURN o.name;
+MATCH (o:Organization {{name: '$organization_name'}})-[:IS_PERFOMED_AT]->(e:Encounter)<-[:HAS_ENCOUNTER]-(p:Patient) RETURN DISTINCT p.firstName, p.lastName
+MATCH (e:Encounter)-[:IS_RESPONSIBLE_FOR]->(o:Organization {{name: '$organization_name'}}) RETURN DISTINCT e.description;
+MATCH (o:Organization {{name: '$organization_name'}}) RETURN o.address;
+MATCH (o:Organization {{name: '$organization_name'}}) RETURN o.city;
+MATCH (e:Encounter)-[:IS_RESPONSIBLE_FOR]->(o:Organization {{name: '$organization_name'}}) RETURN DISTINCT e.description;
+MATCH (o:Organization {{name: '$organization_name'}})-[:IS_PERFOMED_AT]->(e:Encounter)<-[:HAS_ENCOUNTER]-(p:Patient) RETURN DISTINCT p.firstName, p.lastName
+MATCH (o:Organization {{name: '$organization_name'}}) RETURN o.address;

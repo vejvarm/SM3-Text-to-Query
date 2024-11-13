@@ -1,0 +1,17 @@
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.name;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.adress;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.gender;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.city;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.speciality;
+MATCH (o:Organization)-[:IS_PERFORMED_AT]->(p:Provider {{id: '$provider_id'}}) RETURN o.name;
+MATCH (o:Organization)-[:IS_PERFORMED_AT]->(p:Provider {{id: '$provider_id'}}) RETURN o.name;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.speciality;
+MATCH (p:Provider {{id: '$provider_id'}}) RETURN p.adress;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.adress;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.gender;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.city;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.speciality;
+MATCH (o:Organization)-[:IS_PERFORMED_AT]->(p:Provider {{name: '$provider_name'}}) RETURN o.name;
+MATCH (o:Organization)-[:IS_PERFORMED_AT]->(p:Provider {{name: '$provider_name'}}) RETURN o.name;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.speciality;
+MATCH (p:Provider {{name: '$provider_name'}}) RETURN p.adress;

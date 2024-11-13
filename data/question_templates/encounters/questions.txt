@@ -1,0 +1,16 @@
+Which patient is linked to encounter $encounter_id?
+What is the SNOMED code of the encounter $encounter_id?
+What type of encounter is encounter $encounter_id?
+When did the encounter $encounter_id occur?
+What is the description of encounter $encounter_id?
+What is the total claim cost encounter $encounter_id?
+What is the reason for encounter $encounter_id?
+What is the reason description for encounter $encounter_id?
+What is the reason code and description of the encounter $encounter_id?
+Which organization is linked to the encounter $encounter_id?
+Which provider is linked to the encounter $encounter_id?
+Which payer is linked to the encounter $encounter_id?
+Please provide me the name of the provider associated with the encounter $encounter_id.
+Please provide me the name of the payer associated with the encounter $encounter_id.
+Please provide me the name of the organization associated with encounter $encounter_id.
+Please provide the reason code and description for the encounter $encounter_id.

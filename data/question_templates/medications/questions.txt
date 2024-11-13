@@ -1,0 +1,19 @@
+What is the start date of medication with the code $medication_code?
+What is the description of the medication with code $medication_code?
+For which patient was the medication with the code $medication_code prescribed?
+What is the base cost of the medication with the code $medication_code?
+What is the total cost of the medication with the code $medication_code?
+In which encounter is the medication with the code $medication_code administered?
+Please provide me the encounters that are related to the medication with the code $medication_code.
+Please provide me the patients prescribed the medication with the code $medication_code.
+Please provide me the cost of the medication with the code $medication_code.
+What is the first date of use of the medication $medication_name?
+Which patients were prescribed the medication $medication_name?
+What is the base cost of medication $medication_name?
+What is the total cost of the medication $medication_name?
+In which encounter was the medication $medication_name administered?
+Please provide me the encounters that are related to the medication $medication_name.
+Please provide me the patients who are taking the medication $medication_name.
+Please provide me the cost of the medication $medication_name.
+Which payer paid for the medication $medication_name?
+Please provide me the payer that paid for the medication $medication_name.

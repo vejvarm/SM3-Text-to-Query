@@ -1,0 +1,26 @@
+question,answers,time_taken
+Please provide names of the patients that are linked with the organization ROYAL OF FAIRHAVEN NURSING CENTER.,"SELECT DISTINCT p.first, p.last FROM patients p
+JOIN encounters e ON p.id = e.patient
+JOIN organizations o ON e.organization = o.id
+WHERE o.name = 'ROYAL OF FAIRHAVEN NURSING CENTER';",10.337555408477783
+Who is the patient associated with the claim cee532fb-f8c6-2ebc-308a-0d973da4e5a7?,"SELECT p.first, p.last FROM patients p LEFT JOIN claims c ON p.id = c.pATIENTID WHERE c.id = 'cee532fb-f8c6-2ebc-308a-0d973da4e5a7';",2.9463706016540527
+Please provide me the number of medications covered by the payer Cigna Health.,"SELECT COUNT(DISTINCT medication.code)
+FROM medications
+JOIN payers ON medications.payer = payers.id
+WHERE payers.name = 'Cigna Health';",3.4940929412841797
+Is Sithu2412 Siva2309 a donor?,"SELECT DISTINCT patients.first, patients.last FROM patients LEFT JOIN allergies ON patients.id = allergies.patient WHERE patients.first = 'Sithu2412' AND patients.last = 'Siva2309' AND allergies.code IS NULL;",5.1258225440979
+What is the ethnicity of the patient named Britany225 Deckow585?,SELECT ethnicity FROM patients WHERE first = 'Britany225' AND last = 'Deckow585';,4.300458192825317
+How much revenue does the payer NO_INSURANCE generate?,SELECT SUM(revenue) FROM payers WHERE name = 'NO_INSURANCE';,3.7908520698547363
+What is the modality code and description of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"SELECT modality_code, modality_description FROM imaging_studies WHERE id='781242f7-dd9c-8a26-181a-65898eb64eb4';",2.2265212535858154
+What is the description of the procedure with the code 274804006?,SELECT description FROM procedures WHERE code='274804006';,2.7182140350341797
+Please provide me the organization affiliated with the provider with the ID 6a4daf97-7f0d-3ae8-994e-b4c49b10970b.,SELECT org.name FROM providers pr LEFT JOIN organizations org ON pr.organization=org.id WHERE pr.id='6a4daf97-7f0d-3ae8-994e-b4c49b10970b';,6.0449159145355225
+Please provide me the payer that paid for the medication amLODIPine 2.5 MG Oral Tablet.,"SELECT DISTINCT payers.name
+FROM medications
+JOIN payers ON medications.payer = payers.id
+WHERE medications.description = 'amLODIPine 2.5 MG Oral Tablet';",6.137364149093628
+What is the date of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,SELECT DISTINCT immunizations.date FROM immunizations WHERE immunizations.description = 'Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed';,3.369137763977051
+What is the total claim cost encounter 79994ee1-4f23-21e2-9961-29f865b5aac8?,"SELECT SUM(t.amount)
+FROM claims_transactions t
+JOIN claims c ON t.claimid = c.id
+JOIN encounters e ON c.encounter = e.id
+WHERE e.id = '79994ee1-4f23-21e2-9961-29f865b5aac8';",2.92141056060791

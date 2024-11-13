@@ -1,0 +1,15 @@
+What is the description of the immunization with code $immunization_code?
+What is the date of the immunization with code $immunization_code?
+What is the base cost of the immunization with code $immunization_code?
+What is the encounter associated with the immunization with code $immunization_code?
+Who has received the immunization with code $immunization_code?
+Please provide me the patients who have received the immunization with code $immunization_code.
+Please provide me the encounters that are related to the immunization with code $immunization_code.
+Please provide me the base cost of the immunization with code $immunization_code.
+What is the date of the immunization $immunization_name?
+What is the cost of the immunization $immunization_name?
+What is the encounter associated with the immunization $immunization_name?
+Who has received the immunization $immunization_name?
+Give me the patients who have received the immunization $immunization_name.
+Give me the encounters that are related to the immunization $immunization_name.
+Give me the base cost of the immunization $immunization_name.

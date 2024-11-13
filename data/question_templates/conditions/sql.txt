@@ -1,0 +1,13 @@
+SELECT DISTINCT description FROM conditions WHERE code='$condition_code';
+SELECT start FROM conditions WHERE code='$condition_code';
+SELECT stop FROM conditions WHERE code='$condition_code';
+SELECT DISTINCT e.description FROM conditions c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.code='$condition_code';
+SELECT DISTINCT  p.first, p.last FROM conditions c LEFT JOIN patients p ON c.patient=p.id WHERE c.code='$condition_code';
+SELECT DISTINCT e.description FROM conditions c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.code='$condition_code';
+SELECT p.first, p.last FROM conditions c LEFT JOIN patients p ON c.patient=p.id WHERE c.code='$condition_code';
+SELECT start FROM conditions WHERE description='$condition_name';
+SELECT stop FROM conditions WHERE description='$condition_name';
+SELECT DISTINCT e.description FROM conditions c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.description='$condition_name';
+SELECT p.first, p.last FROM conditions c LEFT JOIN patients p ON c.patient=p.id WHERE c.description='$condition_name';
+SELECT DISTINCT e.description FROM conditions c LEFT JOIN encounters e ON c.encounter=e.id WHERE c.description='$condition_name';
+SELECT DISTINCT p.first, p.last FROM conditions c LEFT JOIN patients p ON c.patient=p.id WHERE c.description='$condition_name';

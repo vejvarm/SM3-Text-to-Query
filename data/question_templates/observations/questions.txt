@@ -1,0 +1,20 @@
+What is the description of the observation with the code $observation_code?
+When was the observation with the code $observation_code recorded?
+What is the type of the observation with the code $observation_code?
+What is the value of the observation with the code $observation_code?
+Which patients have the observation with the code $observation_code?
+What encounter is associated with the observation with the code $observation_code?
+Please provide me the type of an observation with the code $observation_code.
+Can you tell me when the observation with the code $observation_code was recorded?
+Please provide me the encounters that are related to the observation with the code $observation_code.
+Please provide me the patient with the observation entailing the code $observation_code.
+What code does observation $observation_name have?
+When was the observation $observation_name recorded?
+What type of observation is $observation_name?
+What value does observation $observation_name have?
+Which patients have the observation $observation_name?
+What encounter is associated with the observation $observation_name?
+Please provide me the type of the observation $observation_name.
+Can you tell me when the observation $observation_name was recorded?
+Please provide me the encounters which are related to the observation $observation_name.
+Please provide me patients with the observation $observation_name.

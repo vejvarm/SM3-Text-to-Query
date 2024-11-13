@@ -1,0 +1,9 @@
+exp,split,query_language,model,prompt,acc,ves
+EXP6,dev,mql,gpt-3.5-turbo,0schema_bm25,0.6435,0.6714460475200626
+EXP6,dev,mql,gpt-3.5-turbo,schema_bm25,0.7895,0.8083734828901497
+EXP6,test,mql,gpt-3.5-turbo,0schema_bm25,0.641,0.6710189120928354
+EXP6,test,mql,gpt-3.5-turbo,schema_bm25,0.787,0.8093124949433993
+EXP7,dev,mql,gpt-3.5-turbo,0schema_bm25_with_template,0.7525,0.7812558481408343
+EXP7,dev,mql,gpt-3.5-turbo,schema_bm25_with_template,0.823,0.839861737617344
+EXP7,test,mql,gpt-3.5-turbo,0schema_bm25_with_template,0.743,0.8144168763560492
+EXP7,test,mql,gpt-3.5-turbo,schema_bm25_with_template,0.827,0.8882780499138658

@@ -1,0 +1,11 @@
+On which date did the illness associated to the claim ID $claim_id occur?
+What is the department id of the claim with the ID $claim_id?
+What is the diagnosis of the claim with the ID $claim_id?
+When was the service date of the claim with the ID $claim_id?
+Who is the patient associated with the claim $claim_id?
+Which provider is associated with the claim of ID $claim_id?
+Please provide me the department id of the claim with ID $claim_id.
+Please provide me the diagnosis of the claim with ID $claim_id.
+Please provide me the service date of the claim with ID $claim_id.
+Please provide me the patients with the claim ID $claim_id.
+Please provide me the provider associated with the claim of ID $claim_id.

@@ -1,0 +1,11 @@
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.currentIllnessDate;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.departmentId;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.diagnosis1,c.diagnosis2,c.diagnosis3,c.diagnosis4;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.serviceDate;
+MATCH (p:Patient)-[:HAS_CLAIM]->(c:Claim {{id: '$claim_id'}}) RETURN DISTINCT p.firstName,p.lastName;
+MATCH (p:Provider)-[:HAS_FILED]->(c:Claim {{id: '$claim_id'}}) RETURN DISTINCT p.name;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.currentIllnessDate;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.diagnosis1,c.diagnosis2,c.diagnosis3,c.diagnosis4;
+MATCH (c:Claim {{id: '$claim_id'}}) RETURN c.serviceDate;
+MATCH (p:Patient)-[:HAS_CLAIM]->(c:Claim {{id: '$claim_id'}}) RETURN DISTINCT p.firstName,p.lastName;
+MATCH (p:Provider)-[:HAS_FILED]->(c:Claim {{id: '$claim_id'}}) RETURN DISTINCT p.name;

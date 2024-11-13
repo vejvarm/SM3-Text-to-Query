@@ -1,0 +1,2531 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?speciality
+WHERE {
+  ?provider a syn:Provider;
+            syn:name 'Crystle668 McCullough561'^^pl:;
+            syn:speciality ?speciality.
+}",4.128919363021851
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteCode ?bodySiteDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id 'ee88b224-1f91-8c6a-493a-46e8004c4331'^^uuid:;
+ syn:bodySiteCode ?bodySiteCode;
+ syn:bodySiteDescription ?bodySiteDescription.
+}",3.4101791381835938
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?immunization a syn:Immunization;
+                  syn:description 'Influenza  seasonal  injectable  preservative free'^^pl:;
+                  syn:patientId ?patientid.
+    ?patient a syn:Patient;
+              syn:id ?patientid;
+              syn:first ?first;
+              syn:last ?last.
+}",3.058223247528076
+What is the description of the device with code 170615005?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?description
+WHERE {
+ ?device a syn:Device;
+ ct:code '170615005'^^xsd:string;
+ syn:description ?description.
+}",3.6965816020965576
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT ?code
+WHERE {
+  ?supply a syn:Supply;
+          syn:description 'Continuous positive airway pressure nasal oxygen cannula (physical object)'^^pl:;
+          syn:code ?code.
+}",3.338759422302246
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '79942d67-05c5-5c61-336d-4be332d76720'^^uuid:;
+ syn:reasonCode ?reasonCode;
+ syn:reasonDescription ?reasonDescription.
+}",3.5381319522857666
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?payer a syn:Payer;
+ syn:id '0133f751-9229-3cfd-815f-b6d4979bdd6a'^^uuid:;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:id ?encounterId;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",33.70900774002075
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?successRate WHERE {
+?medication a syn:Medication .
+?medication syn:code ct:Simvastatin+10+MG+Oral+Tablet .
+?medication syn:successRate ?successRate .
+}",4.603307008743286
+Which patient had the allergy House dust mite (organism)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?patientId ?first ?last
+WHERE {
+  ?allergy a syn:Allergy ;
+          syn:description 'House dust mite (organism)'^^pl: ;
+          syn:patientId ?patientId.
+  ?patient a syn:Patient;
+            syn:id ?patientId;
+            syn:first ?first;
+            syn:last ?last.
+}",3.2279436588287354
+Please provide me the patients treated with the procedure of code 710841007.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureCode loinc:710841007;
+             syn:patientId ?patientId.
+  ?patient a syn:Patient;
+           syn:id ?patientId;
+           syn:first ?first;
+           syn:last ?last.
+}",2.5628366470336914
+What kind of allergy has the code 84489001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?allergy a syn:Allergy ;
+         snomed:code 84489001 ;
+         syn:type ?type .
+}",4.230563163757324
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?patientId) AS ?uniqueCustomers)
+WHERE {
+  ?payer a syn:Payer ;
+         syn:id 'b046940f-1664-3047-bca7-dfa76be352a4'^^uuid: ;
+         syn:covered_encounters ?encounter .
+  ?encounter syn:patientId ?patientId .
+}",5.6977293491363525
+What code does observation Body Height have?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?code
+WHERE {
+  ?observation a syn:Observation ;
+               loinc:code ?code ;
+               snomed:description 'Body Height' .
+}",4.065366744995117
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?speciality
+WHERE {
+ ?provider a syn:Provider;
+ syn:id '301f9141-3dbc-38f3-bca9-7c909a84caa9'^^xsd:UUID;
+ syn:speciality ?speciality.
+}",31.648533821105957
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?cost
+WHERE {
+ ?medication a syn:Medication ;
+ syn:code ct:315315 ; # Warfarin Sodium 5 MG Oral Tablet
+ syn:baseCost ?cost.
+}",2.8128700256347656
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?birthPlace
+WHERE {
+ ?patient a syn:Patient;
+ syn:id 'c17a5539-74aa-4805-e623-fdaf4a31dfd9'^^uuid:;
+ syn:birthplace ?birthPlace.
+}",56.51240539550781
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?procedure) AS ?numProcedures)
+WHERE {
+ ?payer a syn:Payer;
+ syn:id 'd31fccc3-1767-390d-966a-22a5156f4219'^^uuid:;
+ syn:covered_procedures ?encounter.
+ ?encounter syn:procedure ?procedure.
+}",3.6847000122070312
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?encounter) AS ?numberOfEncounters)
+WHERE {
+?payer a syn:Payer ;
+syn:id 'NO_INSURANCE'^^xsd:string ;
+syn:encounterId ?encounter .
+?encounter a syn:Encounter .
+}",8.436045169830322
+What is the state of residence of the patient named Carin553 Jerde200?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?state WHERE {
+ ?patient a syn:Patient;
+ syn:first 'Carin553'^^xsd:string;
+ syn:last 'Jerde200'^^xsd:string;
+ syn:state ?state.
+}",39.90840554237366
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?modalityCode
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '7d52afa5-9282-64ef-e08c-c66f1a53e7f2'^^uuid:;
+ syn:modalityCode ?modalityCode.
+}",56.217151165008545
+Please provide me the patient with the supply with the code 972002.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+?supply a syn:Supply;
+syn:code cvx:972002;
+syn:patientId ?patientid.
+?patient a syn:Patient;
+syn:id ?patientid;
+syn:first ?first;
+syn:last ?last.
+}",47.941527366638184
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?date WHERE {
+?imagingStudy a syn:ImagingStudy;
+syn:seriesUid ""1.2.840.99999999.1.97267088.1424332927924""^^xsd:string;
+syn:date ?date.
+}",1.9944267272949219
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?date WHERE {
+?imagingStudy a syn:ImagingStudy;
+syn:seriesUid ""1.2.840.99999999.1.93465008.1702305862410""^^xsd:string;
+syn:date ?date.
+}",3.0994412899017334
+When did the allergy with the code 84489001 end?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?end
+WHERE {
+ ?allergy a syn:Allergy;
+         syn:code '84489001'^^xsd:string;
+         syn:stop ?end.
+}",52.34173393249512
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?patientId ?first ?last
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+    syn:seriesUid '1.2.840.99999999.1.30162925.1683721997276'^^xsd:string;
+    syn:patientId ?patientId.
+  ?patient a syn:Patient;
+    syn:id ?patientId;
+    syn:first ?first;
+    syn:last ?last.
+}",56.10123944282532
+What is the marital status of Kermit56 Rutherford999?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?marital
+WHERE {
+ ?patient a syn:Patient;
+          syn:id 'Kermit56 Rutherford999';
+          syn:marital ?marital.
+}",12.908778667449951
+In which encounter was a procedure with code 10383002 performed?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureCode loinc:10383002;
+             syn:id ?encounterId.
+}",42.031235218048096
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?modalityDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa'^^uuid:;
+ syn:modalityDescription ?modalityDescription.
+}",7.355772018432617
+What is the address of the patient named Stefania815 West559?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?address
+WHERE {
+ ?patient a syn:Patient;
+ syn:id 'Stefania815'^^xsd:string;
+ syn:address ?address.
+}",9.976558923721313
+What is the base cost of the medication with the code 197604?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?baseCost
+WHERE {
+ ?medication a syn:Medication;
+ ct:code '197604'^^xsd:string;
+ syn:baseCost ?baseCost.
+}",8.308462142944336
+Please provide me the patient with the supply with the code 409534002.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+?supply a syn:Supply;
+syn:code cvx:409534002;
+syn:patientId ?patientId.
+?patient a syn:Patient;
+syn:id ?patientId;
+syn:first ?first;
+syn:last ?last.
+}",6.780979871749878
+Can you tell me when the observation with the code QALY was recorded?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?date
+WHERE {
+ ?observation a syn:Observation;
+              loinc:hasCode 'QALY'^^xsd:string;
+              syn:date ?date.
+}",43.027918338775635
+What is the address of the patient named Margie619 Strosin214?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?address
+WHERE {
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first 'Margie'^^pl:;
+ syn:last 'Strosin'^^pl:;
+ syn:address ?address.
+}",10.147490501403809
+Who is the patient associated with the supply with the code 463659001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?supply a syn:Supply;
+ cvx:code '463659001'^^xsd:string;
+ syn:patientId ?patientid.
+ ?patient a syn:Patient;
+ syn:id ?patientid;
+ syn:first ?first;
+ syn:last ?last.
+}",10.51756501197815
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?procedureCode
+WHERE {
+ ?claimTransaction a syn:ClaimTransaction;
+ syn:id '576550eb-d73b-1996-b14a-f68254146bf8'^^uuid:;
+ syn:procedureCode ?procedureCode.
+}",7.454546928405762
+Which encounter is related to the allergy with the code 84489001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?allergy a syn:Allergy ;
+           snomed:SCTID ""84489001""^^xsd:string ;
+           syn:encounter ?encounter .
+  ?encounter a syn:Encounter ;
+             syn:id ?encounterId .
+}",5.640012264251709
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+PREFIX payer: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#payer:>
+
+SELECT DISTINCT ?payerName
+WHERE {
+ ?medication a syn:Medication;
+ syn:code ct:316322;
+ syn:payerId ?payerId.
+ ?payer a payer:Payer;
+ syn:id ?payerId;
+ syn:name ?payerName.
+}",36.831823110580444
+Who has been treated for the condition with code 706893006?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?patient a syn:Patient;
+             snomed:hasCondition ?condition.
+    ?condition snomed:code 706893006.
+    ?patient snomed:hasFirstName ?first;
+              snomed:hasLastName ?last.
+}",2.4365506172180176
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?medication a syn:Medication;
+ syn:code ct:315311^^xsd:string;
+ syn:patientId ?patientid.
+ ?patient a syn:Patient;
+ syn:id ?patientid;
+ syn:first ?first;
+ syn:last ?last.
+}",2.3609447479248047
+Please provide me the encounters which are related to the observation DALY.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?observation a syn:Observation;
+               syn:code loinc:55284-4;
+               syn:encounterId ?encounterId.
+}",2.1045145988464355
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?diagnosis1 ?diagnosis2 ?diagnosis3 ?diagnosis4
+WHERE {
+ ?claim a syn:Claim;
+ syn:id '68140758-17f3-541c-8d04-e2d06b91e442'^^uuid:;
+ syn:diagnosis1 ?diagnosis1;
+ syn:diagnosis2 ?diagnosis2;
+ syn:diagnosis3 ?diagnosis3;
+ syn:diagnosis4 ?diagnosis4.
+}",6.255316257476807
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?description
+WHERE {
+    ?supply a syn:Supply;
+            syn:description 'CPAP/BPAP oral mask (physical object)'^^pl:;
+            syn:encounterId ?encounterid.
+    ?encounter a syn:Encounter;
+                syn:id ?encounterid;
+                syn:description ?description.
+}",3.4314184188842773
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteCode
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '781242f7-dd9c-8a26-181a-65898eb64eb4'^^uuid:;
+ syn:bodySiteCode ?bodySiteCode.
+}",38.91965579986572
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?payerId ?payerName
+WHERE {
+  ?encounter a syn:Encounter;
+    syn:id '148005b7-cfc4-feb7-9860-3d2afde95c82'^^uuid:;
+    syn:payerId ?payerId.
+  ?payer a syn:Payer;
+    syn:id ?payerId;
+    syn:name ?payerName.
+}",2.2680068016052246
+Can you tell me when the allergy with the code 419199007 was recorded?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?start
+WHERE {
+ ?allergy a syn:Allergy;
+ snomed:code '419199007'^^xsd:string;
+ syn:start ?start.
+}",1.8388309478759766
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:id ?carePlanId ;
+           syn:description 'Musculoskeletal care' ;
+           syn:encounterId ?encounterId.
+}",3.1088707447052
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?serviceDate
+WHERE {
+ ?claim a syn:Claim;
+ syn:id 'e964b40d-7106-0a64-69b5-8c18493de4f2'^^uuid:;
+ syn:serviceDate ?serviceDate.
+}",2.4777231216430664
+What are the typical symptoms of the allergy described as House dust mite (organism)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?reaction ?description
+WHERE {
+  ?allergy a syn:Allergy ;
+           syn:description 'House dust mite (organism)'^^pl: ;
+           syn:reaction1 ?reaction .
+  ?reaction syn:description ?description .
+}",2.4187262058258057
+How many procedures are covered by the payer Aetna?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT COUNT(DISTINCT ?procedure)
+WHERE {
+?payer a syn:Payer ;
+syn:name ""Aetna""^^pl: ;
+syn:covered_procedures ?coveredProcedures .
+?coveredProcedures syn:procedure ?procedure .
+}",1.7452905178070068
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?successrate WHERE {
+?medication a syn:Medication ;
+ct:has_ingredient/ct:has_strength ?ingredientStrength .
+?ingredientStrength ct:has_ingredient ct:NDA020800 ;
+ct:has_strength ?strength .
+?strength ct:has_amount ""0.3""^^xsd:decimal ;
+ct:has_unit ""ML""^^xsd:string ;
+ct:has_substance ct:Epinephrine ;
+ct:has_form ""1 MG/ML Auto-Injector""^^xsd:string .
+?medication ct:has_success_rate ?successrate .
+}",1.9806690216064453
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?claimCost
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id 'eeb3c5ce-d328-49a1-1abb-9396da4163fd'^^uuid:;
+ syn:claimCost ?claimCost.
+}",10.013478517532349
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?address
+WHERE {
+ ?organization a syn:Organization;
+ syn:name 'BAYADA HOME HEALTH CARE  INC.'^^pl:;
+ syn:address ?address.
+}",2.1450350284576416
+Please provide me the patients receiving aid under the care plan with code 225358003.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+  ?carePlan a syn:CarePlan;
+            syn:code '225358003'^^xsd:string;
+            syn:patientId ?patientId.
+  ?patient a syn:Patient;
+            syn:id ?patientId;
+            syn:first ?first;
+            syn:last ?last.
+}",2.1014206409454346
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?birthDate
+WHERE {
+ ?patient a syn:Patient;
+ syn:id 'a8c144a7-9e79-fccc-1f57-4035b2aa9fea'^^uuid:;
+ syn:birthDate ?birthDate.
+}",2.3746848106384277
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?organization a syn:Organization;
+ syn:id '8e3ca57f-6f74-3d61-9803-ab1424290216'^^uuid:;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",32.86721897125244
+Give me the encounters that are related to the immunization Hep B  adult.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?encounterId ?encounterDescription
+WHERE {
+ ?immunization a syn:Immunization;
+ syn:code 'Hep B adult'^^pl:;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:id ?encounterId;
+ syn:description ?encounterDescription.
+}",1.607539415359497
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first
+WHERE {
+ ?patient a syn:Patient;
+ syn:id '8d636878-c54c-3fcf-6300-b65c2a9e0dc9'^^uuid:;
+ syn:first ?first;
+}",3.5940980911254883
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?encounterId WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+    syn:seriesUid ""1.2.840.99999999.1.54352820.1609167132933""^^xsd:string;
+    syn:encounterId ?encounterId.
+}",62.644787549972534
+What procedures did the patient named Margot418 Rolfson709 undergo?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?procedure
+WHERE {
+ ?patient a syn:Patient;
+ syn:first 'Margot418'^^pl:;
+ syn:last 'Rolfson709'^^pl:.
+ ?encounter a syn:Encounter;
+ syn:patientId ?patientId;
+ syn:procedure ?procedure.
+}",43.86441469192505
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?patientId) AS ?uniqueCustomers)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'^^uuid:;
+         syn:covered_encounters ?encounter.
+  ?encounter a syn:Encounter;
+             syn:patientId ?patientId.
+}",12.131249904632568
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?birthDate
+WHERE {
+ ?patient a syn:Patient;
+ syn:id '51c2d782-1f36-657d-5618-42df22e39681'^^uuid:;
+ syn:birthDate ?birthDate.
+}",5.117941856384277
+Please provide me the number of medications uncovered by the payer Humana.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX payer: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#payer:>
+
+SELECT (COUNT(DISTINCT ?medication) AS ?uncovered_medications)
+WHERE {
+?payer a syn:Payer ;
+syn:name ""Humana""^^pl: ;
+syn:uncovered_medications ?uncovered_medications .
+?uncovered_medications syn:medication ?medication .
+}",35.034446239471436
+In which encounter was a procedure with code 428211000124100 performed?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?encounterId ?encounterDescription
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id ?encounterId;
+ syn:procedure [
+ loinc:code '428211000124100'^^xsd:string
+ ].
+ ?encounter syn:description ?encounterDescription.
+}",4.908850908279419
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?state WHERE {
+ ?patient a syn:Patient;
+ syn:id 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a'^^xsd:string;
+ syn:state ?state.
+}",8.165021181106567
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?claim a syn:Claim;
+ syn:id 'cca769d0-09e0-72f9-23aa-e6ddb2200792'^^uuid:;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",39.05054259300232
+What is the description of the allergy with the code 3718001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?description
+WHERE {
+ ?allergy a syn:Allergy;
+ snomed:code 3718001;
+ syn:description ?description.
+}",55.52662777900696
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?name
+WHERE {
+ ?organization a syn:Organization;
+ syn:id '844a8cb2-4164-35b2-88b8-dffa2889a738'^^uuid:;
+ syn:name ?name.
+}",4.505974054336548
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX payer: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#NO_INSURANCE>
+
+SELECT (COUNT(DISTINCT ?medication) AS ?uncovered_medications)
+WHERE {
+ ?medication a syn:Medication .
+ ?encounter a syn:Encounter ;
+ syn:payer payer: ;
+ syn:medication ?medication .
+ FILTER(!bound(?encounter#coveredAmount))
+}",49.778565645217896
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT DISTINCT ?payerId ?payerName
+WHERE {
+ ?medication a syn:Medication ;
+ syn:code ct:315322 ; # Alendronic acid 10 MG Oral Tablet
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter ;
+ syn:payerId ?payerId ;
+ syn:id ?encounterId.
+ ?payer a syn:Payer ;
+ syn:id ?payerId ;
+ syn:name ?payerName.
+}",55.5279643535614
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?sopCode
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+    syn:seriesUid ""1.2.840.99999999.1.57895833.1595237299924""^^xsd:string;
+    syn:sopCode ?sopCode.
+}",59.58237433433533
+Please provide me a reason for the use of the care plan with code 134435003.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?reasonDescription
+WHERE {
+  ?carePlan a syn:CarePlan ;
+    syn:code '134435003'^^xsd:string ;
+    syn:reasonDescription ?reasonDescription.
+}",8.193110227584839
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+?organization a syn:Organization;
+syn:id '2befa435-3070-3350-a15c-e43ac1e84b24'^^uuid:;
+syn:patientId ?patientid.
+?patient a syn:Patient;
+syn:id ?patientid;
+syn:first ?first;
+syn:last ?last.
+}",17.547729969024658
+In which city is the provider named Lynsey2 Lemke654 located?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?city
+WHERE {
+ ?provider a syn:Provider ;
+ syn:name 'Lynsey2 Lemke654'^^pl: ;
+ syn:city ?city.
+}",10.214655637741089
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?birthDate
+WHERE {
+ ?patient a syn:Patient;
+         syn:id cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d^^uuid:;
+         syn:birthDate ?birthDate.
+}",15.832512617111206
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?name
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '707c24b4-b715-02aa-5f9b-1712d336b98e'^^uuid:;
+ syn:payerId ?payerid.
+ ?payer a syn:Payer;
+ syn:id ?payerid;
+ syn:name ?name.
+}",11.728190898895264
+What encounter is associated with the supply with the code 713779008?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounterId WHERE {
+ ?supply a syn:Supply;
+ syn:code '713779008'^^xsd:string;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter.
+}",4.564215183258057
+What is the name of allergy with the code 782576004?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?name
+WHERE {
+ ?allergy a syn:Allergy;
+ snomed:code 782576004;
+ syn:name ?name.
+}",3.84161114692688
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteCode
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '5ad9a317-b195-585e-c638-29e057061c9e'^^uuid:;
+ syn:bodySiteCode ?bodySiteCode.
+}",4.352083444595337
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT COUNT(DISTINCT ?encounter)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid:;
+         syn:uncovered_encounters ?encounter.
+}",3.2811524868011475
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX org: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxCUI>
+
+SELECT DISTINCT ?city
+WHERE {
+ ?organization a syn:Organization;
+ syn:name 'NANTUCKET COTTAGE HOSPITAL'^^xsd:string;
+ syn:city ?city.
+}",2.8516666889190674
+When was the patient named Micah422 Buckridge80 born?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT ?birthDate
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Micah422'^^pl:;
+           syn:last 'Buckridge80'^^pl:;
+           syn:birthDate ?birthDate.
+}",2.296287775039673
+Please provide me the number of immunizations uncovered by the payer Anthem.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?immunization) AS ?uncovered_immunizations)
+WHERE {
+ ?payer a syn:Payer ;
+ syn:id 'Anthem'^^xsd:string .
+ ?immunization a syn:Immunization .
+ ?encounter a syn:Encounter ;
+ syn:payer ?payer ;
+ syn:id ?encounter_id .
+ ?immunization syn:encounter ?encounter .
+ FILTER NOT EXISTS {
+ ?claim a syn:Claim ;
+ syn:encounter ?encounter ;
+ syn:payer ?payer ;
+ syn:coveredAmount ?covered_amount .
+ FILTER (?covered_amount > 0)
+ }
+}",2.6807727813720703
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?payerId ?payerName
+WHERE {
+  ?encounter a syn:Encounter;
+    syn:id 'd9415cfe-d6b7-b89d-b0f8-a763566d7c88'^^uuid:;
+    syn:payerId ?payerId.
+  ?payer a syn:Payer;
+    syn:id ?payerId;
+    syn:name ?payerName.
+}",1.6088106632232666
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?encounterType
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '669895f1-6552-f541-6faf-4a89f43b429d'^^uuid:;
+ syn:encounterType ?encounterType.
+}",4.0714497566223145
+What kind of allergy has the code 5640?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?type
+WHERE {
+  ?allergy a syn:Allergy ;
+           snomed:code 5640 ;
+           syn:type ?type .
+}",35.20461916923523
+What is the address of the provider named Katelynn452 Ledner144?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?address
+WHERE {
+    ?provider a syn:Provider;
+              syn:name 'Katelynn452 Ledner144'^^pl:;
+              syn:address ?address.
+}",3.0635628700256348
+Please provide me the encounters that were related to the allergy Mold (organism).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?allergy a syn:Allergy ;
+          syn:description 'Mold (organism)'^^pl: ;
+          syn:encounter ?encounter .
+  ?encounter a syn:Encounter ;
+             syn:id ?encounterId .
+}",49.037073612213135
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '10a48862-79c6-036e-e572-f80160131cd0'^^uuid:;
+ syn:reasonCode ?reasonCode;
+ syn:reasonDescription ?reasonDescription.
+}",1.7246677875518799
+What is the description of the allergy with the code 419199007?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?description
+WHERE {
+ ?allergy a syn:Allergy;
+ snomed:code 419199007;
+ syn:description ?description.
+}",2.6843695640563965
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+    syn:seriesUid ""1.2.840.99999999.1.60733233.1559399876087""^^xsd:string;
+    syn:encounterId ?encounterId.
+}",1.3680152893066406
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?revenue
+WHERE {
+ ?payer a syn:Payer ;
+ syn:id 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid: ;
+ syn:revenue ?revenue.
+}",1.8114228248596191
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT ?address
+WHERE {
+ ?organization a syn:Organization;
+ syn:name 'MIDDLETON FAMILY MEDICINE URGENT CARE LLC'^^pl:;
+ syn:address ?address.
+}",1.576969861984253
+What is the reason for using the care plan with code 53950000?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?reasonCode ?reasonDescription
+WHERE {
+  ?carePlan a syn:CarePlan ;
+    syn:code '53950000'^^xsd:string ;
+    syn:reasoncode ?reasonCode ;
+    syn:reasondescription ?reasonDescription.
+}",3.329610824584961
+What is the marital status of Tabatha105 Fisher429?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT ?marital
+WHERE {
+  ?patient a syn:Patient;
+           syn:id 'Tabatha105'^^xsd:string;
+           syn:marital ?marital.
+}",42.444281339645386
+Which ethnicity does patient Marcie463 have?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?ethnicity
+WHERE {
+  ?patient a syn:Patient;
+           syn:id 'Marcie463'^^xsd:string;
+           syn:ethnicity ?ethnicity.
+}",3.9461679458618164
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT COUNT(?medication) AS ?uncovered_medications
+WHERE {
+ ?payer a syn:Payer;
+ syn:id '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'^^uuid:;
+ syn:uncovered_medications ?uncovered_medications.
+ ?uncovered_medications syn:medication ?medication.
+}",2.249049186706543
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?organization a syn:Organization ;
+                  syn:name 'SERENITY HILL NURSING CENTER'^^pl: ;
+                  syn:providerId ?providerId .
+    ?provider a syn:Provider ;
+              syn:id ?providerId ;
+              syn:first ?first ;
+              syn:last ?last .
+}",3.6440505981445312
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?address
+WHERE {
+ ?organization a syn:Organization;
+ syn:id '9d0e702d-50a0-3f4c-9126-0951d560fd4b'^^uuid:;
+ syn:address ?address.
+}",43.58043074607849
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?city
+WHERE {
+ ?organization a syn:Organization ;
+ syn:name 'ARBOUR-FULLER HOSPITAL'^^pl: ;
+ syn:city ?city.
+}",3.4436440467834473
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?date
+WHERE {
+?immunization a syn:Immunization ;
+snomed:hasCode cvx:17336 ;
+syn:date ?date.
+}",49.16559720039368
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?encounterType
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '8602cd94-fcbe-0506-b4c0-f25e5e6619de'^^uuid:;
+ syn:encounterType ?encounterType.
+}",2.2321135997772217
+What is the start date of the care plan with code 385691007?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?startDate
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code '385691007'^^xsd:string ;
+           syn:start ?startDate.
+}",1.6605675220489502
+What is the stop date of the condition with code 73595000?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?stop
+WHERE {
+ ?condition a syn:Condition.
+ ?condition syn:code '73595000'^^xsd:string.
+ ?condition syn:stop ?stop.
+}",2.1568429470062256
+What is the type of the allergy with the code 264287008?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?allergy a syn:Allergy ;
+         snomed:code 264287008 ;
+         syn:type ?type .
+}",2.250396966934204
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?name
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:id '1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689'^^uuid:;
+             syn:organizationId ?orgid.
+  ?organization a syn:Organization;
+                syn:id ?orgid;
+                syn:name ?name.
+}",1.7507915496826172
+Please provide me the type of an observation with the code 89204-2.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?observation a syn:Observation;
+loinc:code 89204-2;
+syn:type ?type.
+}",1.699897050857544
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?cost
+WHERE {
+ ?immunization a syn:Immunization;
+ cvx:code '102'^^xsd:string;
+ ct:code '111111'^^xsd:string;
+ syn:baseCost ?cost.
+}",1.752795696258545
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?healthcareCoverage
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Ora550'^^pl:;
+           syn:last 'Luettgen772'^^pl:;
+           syn:healthcareCoverage ?healthcareCoverage.
+}",4.677242755889893
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounterId ?encounterDescription
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureId ?procedureId.
+  ?procedure a syn:Procedure;
+              syn:code 'Assessment of health and social care needs (procedure)'^^xsd:string;
+              syn:id ?procedureId.
+  ?encounter syn:id ?encounterId;
+             syn:description ?encounterDescription.
+}",7.902831077575684
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?organization a syn:Organization ;
+                  syn:name ""LEOMINSTER COMUNITY HEALTH CENTER""^^pl: ;
+                  syn:encounterId ?encounterId .
+    ?encounter a syn:Encounter ;
+                syn:patientId ?patientId ;
+                syn:id ?encounterId .
+    ?patient a syn:Patient ;
+              syn:id ?patientId ;
+              syn:first ?first ;
+              syn:last ?last .
+}",5.842543840408325
+How many immunizations are covered by the payer NO_INSURANCE?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT COUNT(DISTINCT ?immunization)
+WHERE {
+  ?payer a syn:Payer ;
+         syn:id 'NO_INSURANCE'^^xsd:string ;
+         syn:covered_immunizations/syn:immunization ?immunization .
+}",7.468574047088623
+In which encounter is the medication with the code 313782 administered?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?medication a syn:Medication;
+              syn:code ct:313782;
+              syn:encounterId ?encounterId.
+}",4.985596418380737
+What is the udi code for the device with code 336621006?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?udiCode
+WHERE {
+ ?device a syn:Device ;
+ cvx:code '336621006' ;
+ udi:udiCode ?udiCode .
+}",8.002666234970093
+Please provide me the encounters that are related to the medication with the code 314076.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+ ?encounter a syn:Encounter.
+ ?encounter syn:medicationId ?medicationId.
+ ?medication a syn:Medication.
+ ?medication syn:code ct:314076.
+ ?encounter syn:id ?encounterId.
+}",3.3846218585968018
+What is the type of the observation with the code 8867-4?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?observation a syn:Observation ;
+             loinc:code 8867-4 ;
+             syn:type ?type .
+}",7.585307359695435
+What is the total number of member months of the payer Medicaid?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT (SUM(xsd:integer(?member_months)) AS ?total_member_months)
+WHERE {
+  ?payer a syn:Payer ;
+         syn:name ""Medicaid""^^pl: ;
+         syn:member_months ?member_months .
+}",7.475306034088135
+What is the encounter associated with the immunization with code 140?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+ ?immunization a syn:Immunization;
+ syn:code cvx:140;
+ syn:encounterId ?encounterId.
+}",4.549484968185425
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?reasonDescription
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783'^^uuid:;
+ syn:reasonDescription ?reasonDescription.
+}",2.082639455795288
+Which ethnicity does the patient named Zboncak558 have?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?ethnicity
+WHERE {
+  ?patient a syn:Patient;
+           syn:id 'Zboncak558'^^xsd:string;
+           syn:ethnicity ?ethnicity.
+}",32.396769523620605
+What is the reason for using the care plan with code 384758001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?reasonCode ?reasonDescription
+WHERE {
+  ?carePlan a syn:CarePlan ;
+    syn:code '384758001'^^xsd:string ;
+    syn:reasoncode ?reasonCode ;
+    syn:reasondescription ?reasonDescription.
+}",4.483490943908691
+Where was the patient named Isaac321 Rempel203 born?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?birthPlace
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Isaac321'^^pl:;
+           syn:last 'Rempel203'^^pl:;
+           syn:birthplace ?birthPlace.
+}",2.9574625492095947
+Please provide me the patients with the condition Part-time employment (finding).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?condition a syn:Condition;
+                syn:code snomed:260412009;
+                syn:patientId ?patientId.
+    ?patient a syn:Patient;
+             syn:id ?patientId;
+             syn:first ?first;
+             syn:last ?last.
+}",58.38708472251892
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?procedure) AS ?numProcedures)
+WHERE {
+ ?payer a syn:Payer ;
+ syn:id 'UnitedHealthcare'^^xsd:string ;
+ syn:covered_procedures ?encounter .
+ ?encounter a syn:Encounter ;
+ syn:procedure ?procedure .
+}",8.438735961914062
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?encounter) AS ?numberOfEncounters)
+WHERE {
+?payer a syn:Payer ;
+syn:id 'NO_INSURANCE'^^xsd:string ;
+syn:encounterId ?encounter .
+?encounter a syn:Encounter .
+}",4.932797193527222
+Please provide me the encounters that were related to the allergy Lisinopril.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?allergy a syn:Allergy;
+          syn:code 'Lisinopril'^^xsd:string;
+          syn:encounterId ?encounterId.
+}",7.974488735198975
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?memberMonth) AS ?totalMonths)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id 'e03e23c9-4df1-3eb6-a62d-f70f02301496'^^uuid:;
+         syn:member_months ?memberMonth.
+}",5.319081544876099
+What is the reason for using the care plan with code 443402002?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?reasonDescription
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code '443402002'^^xsd:string ;
+           syn:reasonDescription ?reasonDescription.
+}",35.91427421569824
+Can you tell me when the observation Heart rate was recorded?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?date
+WHERE {
+ ?observation a syn:Observation ;
+              loinc:heartRate ?heartRate ;
+              syn:date ?date.
+}",3.758396863937378
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT ?baseCost
+WHERE {
+ ?immunization a syn:Immunization;
+ syn:code cvx:35002;
+ syn:baseCost ?baseCost.
+}",5.440732479095459
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?payerId ?payerName
+WHERE {
+ ?medication a syn:Medication;
+ syn:code ct:315325;
+ syn:payerId ?payerId.
+ ?payer a syn:Payer;
+ syn:id ?payerId;
+ syn:name ?payerName.
+}",2.676673650741577
+What is the reaction code of the allergy with the code 84489001?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?reactionCode
+WHERE {
+ ?allergy a syn:Allergy;
+ snomed:code 84489001;
+ snomed:reactionCode ?reactionCode.
+}",3.1197023391723633
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?departmentId
+WHERE {
+  ?claim a syn:Claim;
+         syn:id '2bbdb236-5c11-f4e9-9a40-33fb408555f6'^^uuid:;
+         syn:departmentId ?departmentId.
+}",3.0023598670959473
+In which encounter was a procedure with code 713106006 performed?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureCode loinc:713106006;
+             syn:id ?encounterId.
+}",38.50146436691284
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?procedureCode
+WHERE {
+ ?claimTransaction a syn:ClaimTransaction;
+ syn:id 'a3dedfb9-4a55-2c3f-0690-371a8af4a966'^^uuid:;
+ syn:procedureCode ?procedureCode.
+}",6.192330360412598
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?reasonCode ?reasonDescription
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:id '867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb'^^uuid:;
+ syn:reasonCode ?reasonCode;
+ syn:reasonDescription ?reasonDescription.
+}",1.9163014888763428
+When was the care plan Head injury rehabilitation used?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?start
+WHERE {
+  ?carePlan a syn:CarePlan ;
+           syn:code 'Head injury rehabilitation' ;
+           syn:start ?start .
+}",2.2838475704193115
+Please provide me the udi code related to the device Home nebulizer (physical object).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT DISTINCT ?udiCode
+WHERE {
+ ?device a syn:Device ;
+ udi:udiCode ?udiCode ;
+ syn:description 'Home nebulizer (physical object)'^^xsd:string .
+}",4.506221055984497
+Please provide me the encounters that are related to the observation with the code 785-6.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?observation a syn:Observation;
+    loinc:code '785-6'^^xsd:string;
+    syn:encounterId ?encounterId.
+}",3.3453383445739746
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+PREFIX ct: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:RxNorm>
+
+SELECT ?procedureCode
+WHERE {
+ ?claimTransaction a syn:ClaimTransaction;
+ syn:id 'f4595e16-3adb-0e82-19f3-62cb0a7638ed'^^uuid:;
+ syn:procedureCode ?procedureCode.
+}",1.853513479232788
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?address
+WHERE {
+ ?organization a syn:Organization;
+ syn:id '34f0b10a-5e29-31de-a75e-e0bb03c0c0d4'^^uuid:;
+ syn:address ?address.
+}",3.61562442779541
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?state WHERE {
+ ?patient a syn:Patient;
+ syn:id '96d6e446-5d05-8df3-eff5-b4af55d138bb'^^xsd:string;
+ syn:state ?state.
+}",3.5001015663146973
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?address WHERE {
+ ?organization a syn:Organization;
+ syn:id '880fad59-9c38-3a21-a39f-ccc801502ab3'^^uuid:;
+ syn:address ?address.
+}",5.001985788345337
+Please provide me the udi code related to the device with code 702172008.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?udiCode
+WHERE {
+ ?device a syn:Device;
+ cvx:code '702172008'^^xsd:string;
+ udi:udiCode ?udiCode.
+}",37.08691692352295
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT AVG(?qols_avg) AS ?average_qols
+WHERE {
+ ?payer a syn:Payer;
+ syn:id 'd18ef2e6-ef40-324c-be54-34a5ee865625'^^uuid:;
+ syn:unique_customers ?customer_count;
+ syn:qols_avg ?qols_avg.
+}",5.686774969100952
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?name
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:id 'ea22dd39-a110-c7cd-5903-071327281613'^^uuid:;
+             syn:organizationId ?organizationId.
+  ?organization a syn:Organization;
+                syn:id ?organizationId;
+                syn:name ?name.
+}",3.327831983566284
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?payer a syn:Payer;
+ syn:id 'd18ef2e6-ef40-324c-be54-34a5ee865625'^^uuid:;
+ syn:covered_encounters ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",3.867260217666626
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?encounter) AS ?numberOfEncounters)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id 'df166300-5a78-3502-a46a-832842197811'^^uuid:;
+         syn:covered_encounters ?encounter.
+  ?encounter a syn:Encounter.
+}",7.746429681777954
+Please provide me the udi code related to the device with code 337414009.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?udiCode
+WHERE {
+ ?device a syn:Device ;
+ cvx:code '337414009'^^xsd:string ;
+ udi:udiCode ?udiCode .
+}",33.14022421836853
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT DISTINCT ?udiCode
+WHERE {
+ ?device a syn:Device ;
+ udi:udiCode ?udiCode ;
+ syn:description 'Oxygen concentrator (physical object)'^^pl: .
+}",1.7296876907348633
+Please provide me the encounters that are related to the device with code 91537007.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX udi: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#fda:UDI>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+ ?device a syn:Device ;
+ syn:code udi:91537007 ;
+ syn:encounterId ?encounterId.
+}",3.908923625946045
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?code
+WHERE {
+  ?allergy a syn:Allergy ;
+          snomed:SNOMED-CT ?code ;
+          syn:description 'Allergy to substance (finding)' ;
+}",2.4894745349884033
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?seriesUid
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '71ee50dd-ea7c-3415-e8d9-8b3a950cf731'^^uuid:;
+ syn:seriesUid ?seriesUid.
+}",47.4693238735199
+Please provide me the encounters that are related to the allergy with the code 264287008.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+  ?allergy a syn:Allergy;
+           snomed:code '264287008'^^xsd:string.
+  ?allergy syn:encounterId ?encounterId.
+}",2.223393440246582
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?encounter) AS ?uncovered_encounters)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id '0133f751-9229-3cfd-815f-b6d4979bdd6a'^^uuid:;
+         syn:uncovered_encounters ?set.
+  ?encounter a syn:Encounter;
+             syn:id ?id.
+  FILTER (?set contains ?id)
+}",72.04445433616638
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?last
+WHERE {
+ ?patient a syn:Patient;
+ syn:id '35a38de9-c363-17a5-b2c4-c28f3b1c2ac0'^^uuid:;
+ syn:last ?last
+}",42.40860986709595
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?departmentId
+WHERE {
+ ?claim a syn:Claim;
+ syn:id 'e9434fb3-0c47-4b84-ca56-c55fb315b772'^^uuid:;
+ syn:departmentId ?departmentId.
+}",14.26136827468872
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?payer a syn:Payer;
+ syn:id 'b046940f-1664-3047-bca7-dfa76be352a4'^^uuid:;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",17.662919521331787
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?immunization) AS ?numberOfImmunizations)
+WHERE {
+ ?payer a syn:Payer;
+ syn:id '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'^^uuid:;
+ syn:covered_immunizations ?immunization.
+ ?immunization a syn:Immunization.
+}",25.114789485931396
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?ethnicity
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Argelia29'^^pl:;
+           syn:last 'Altenwerth646'^^pl:;
+           syn:ethnicity ?ethnicity.
+}",15.699498176574707
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT ?birthDate
+WHERE {
+ ?patient a syn:Patient;
+ syn:first 'Rebeca548'^^pl:;
+ syn:last 'Hansen121'^^pl:;
+ syn:birthDate ?birthDate.
+}",13.000139236450195
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?seriesUid
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id 'd3fa7d2e-1bca-65f1-74ae-d326343ab849'^^uuid:;
+ syn:seriesUid ?seriesUid.
+}",12.325379848480225
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?modalityDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '820778b8-5a19-9acf-9dbd-a3be1a1b4a47'^^uuid:;
+ syn:modalityDescription ?modalityDescription.
+}",11.776383638381958
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '9bda6d29-00c0-24ea-6d31-09c04803fff4'^^uuid:;
+ syn:bodySiteDescription ?bodySiteDescription.
+}",5.070891618728638
+What kind of allergy is described as Mold (organism)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?type WHERE {
+  ?allergy a syn:Allergy ;
+          syn:description 'Mold (organism)'^^pl: ;
+          syn:type ?type .
+}",6.577654123306274
+How many patients have the allergy described as Fish (substance)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT COUNT(DISTINCT ?patient) AS ?count
+WHERE {
+  ?allergy a syn:Allergy ;
+          syn:description 'Fish (substance)'^^pl: ;
+          syn:patientId ?patient .
+}",4.076222896575928
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?sopCode
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id '65ff28ac-082f-ef59-ca11-baacc7302868'^^uuid:;
+ syn:sopCode ?sopCode.
+}",4.719814300537109
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?procedure_description
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Caleb651'^^pl:;
+           syn:last 'Dickinson688'^^pl:.
+  ?encounter a syn:Encounter;
+             syn:patientId ?patientId;
+             syn:procedureId ?procedureId.
+  ?procedure a syn:Procedure;
+              syn:id ?procedureId;
+              syn:description ?procedure_description.
+}",3.1343417167663574
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?patientId ?first ?last
+WHERE {
+  ?imagingStudy a syn:ImagingStudy;
+    syn:seriesUid ""1.2.840.99999999.1.63663889.1660767155882""^^xsd:string;
+    syn:patientId ?patientId.
+  ?patient a syn:Patient;
+    syn:id ?patientId;
+    syn:first ?first;
+    syn:last ?last.
+}",5.222132682800293
+Can you provide the count of patients suffering from Allergy to substance (finding)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT (COUNT(DISTINCT ?patient) AS ?count)
+WHERE {
+  ?allergy a syn:Allergy ;
+           syn:code snomed:22298006 ; # Allergy to substance (finding)
+           syn:patient ?patient .
+}",2.9725682735443115
+What are the survival chances of allgery House dust mite (organism)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?survivalChances WHERE {
+?allergy a syn:Allergy ;
+syn:description 'House dust mite (organism)'^^pl: ;
+syn:survivalChances ?survivalChances .
+}",33.76111650466919
+Please provide me the encounters that are related to the observation with the code 9279-1.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+
+SELECT DISTINCT ?encounterId
+WHERE {
+ ?observation a syn:Observation;
+              loinc:code 9279-1;
+              syn:encounterId ?encounterId.
+}",2.2347047328948975
+Please provide me the patients treated with the procedure of code 866148006.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?encounter a syn:Encounter;
+ syn:procedureCode loinc:866148006;
+ syn:patientId ?patientid.
+ ?patient a syn:Patient;
+ syn:id ?patientid;
+ syn:first ?first;
+ syn:last ?last.
+}",1.8766014575958252
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT (COUNT(DISTINCT ?memberMonth) AS ?totalMonths)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id 'd31fccc3-1767-390d-966a-22a5156f4219'^^uuid:;
+         syn:member_months ?memberMonth.
+}",7.494327068328857
+What is the base cost of the immunization with code 133?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT ?baseCost
+WHERE {
+ ?immunization a syn:Immunization;
+ cvx:code 133;
+ syn:baseCost ?baseCost.
+}",45.28996443748474
+Please provide me the patients treated with the procedure Colonoscopy.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureId ?procedureId.
+  ?procedure a syn:Procedure;
+              syn:code 'Colonoscopy'^^xsd:string.
+  ?encounter syn:patientId ?patientId.
+  ?patient a syn:Patient;
+            syn:id ?patientId;
+            syn:first ?first;
+            syn:last ?last.
+}",4.918450355529785
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteCode
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:seriesUid ""1.2.840.99999999.1.30413319.1650275698924""^^xsd:string;
+ syn:bodySiteCode ?bodySiteCode.
+}",2.4966742992401123
+Who has been treated with the procedure of code 710841007?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?patientFirst ?patientLast
+WHERE {
+  ?encounter a syn:Encounter;
+             syn:procedureId ?procedureId.
+  ?procedure a snomed:Procedure;
+             snomed:code '710841007'^^xsd:string.
+  ?encounter syn:patientId ?patientId.
+  ?patient a syn:Patient;
+           syn:id ?patientId;
+           syn:first ?patientFirst;
+           syn:last ?patientLast.
+}",2.5684053897857666
+Who has been treated with the procedure of code 430193006?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?encounter a syn:Encounter;
+                syn:procedureCode loinc:430193006;
+                syn:patientId ?patientId.
+    ?patient a syn:Patient;
+                syn:id ?patientId;
+                syn:first ?first;
+                syn:last ?last.
+}",41.13719034194946
+When did the allergy with the code 3718001 start?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?start
+WHERE {
+  ?allergy a syn:Allergy;
+          syn:code '3718001'^^xsd:string;
+          syn:start ?start.
+}",54.63789367675781
+Please provide me the number of encounters uncovered by the payer Medicare.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+PREFIX payer: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#umls:CMS-1500-Payer>
+
+SELECT (COUNT(DISTINCT ?encounter) AS ?uncovered_encounters)
+WHERE {
+ ?encounter a syn:Encounter.
+ ?encounter syn:payerId ?payer_id.
+ ?payer a payer:Medicare.
+ ?payer syn:id ?payer_id.
+ ?encounter syn:coveredAmount 0.
+}",1.9921610355377197
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?address
+WHERE {
+ ?organization a syn:Organization;
+ syn:id '7f32dd7d-5c35-3ddb-839b-8fbbb930d412'^^uuid:;
+ syn:address ?address.
+}",2.7843689918518066
+What is the type of allergy has the description Latex (substance)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?allergy a syn:Allergy ;
+syn:description 'Latex (substance)'^^pl: ;
+syn:type ?type ;
+}",2.2657947540283203
+Where was the patient named Qiana980 Okuneva707 born?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?birthPlace
+WHERE {
+  ?patient a syn:Patient;
+           syn:first 'Qiana980'^^pl:;
+           syn:last 'Okuneva707'^^pl:;
+           syn:birthplace ?birthPlace.
+}",2.473374128341675
+What is the most promising procedure for a patient with Mold (organism)?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?procedureDescription
+WHERE {
+  ?allergy a syn:Allergy ;
+          syn:description 'Mold (organism)'^^pl: ;
+          syn:patientId ?patientId .
+  ?procedure a syn:Procedure ;
+             syn:description ?procedureDescription ;
+             syn:patientId ?patientId .
+}
+ORDER BY DESC(COUNT(?procedureDescription))
+LIMIT 1",1.7287979125976562
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first
+WHERE {
+ ?patient a syn:Patient;
+ syn:id 'f07f2e96-d323-1db8-c28f-9d06b112f557'^^uuid:;
+ syn:first ?first;
+}",2.683178663253784
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?bodySiteDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:seriesUid ""1.2.840.99999999.1.60733233.1559399876087""^^xsd:string;
+ syn:bodySiteDescription ?bodySiteDescription.
+}",1.9418408870697021
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?encounterId ?description
+WHERE {
+ ?immunization a syn:Immunization;
+ syn:description 'Influenza  seasonal  injectable  preservative free'^^pl:;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:id ?encounterId;
+ syn:description ?description.
+}",1.8854460716247559
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT ?encounterType
+WHERE {
+ ?encounter a syn:Encounter;
+            syn:id '40c90d37-a246-601a-7edf-983a88a0936d'^^xsd:string;
+            syn:encounterType ?encounterType.
+}",1.3456311225891113
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT ?modalityDescription
+WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:id 'ca21a429-bec9-35a5-17ba-0d012491d4c4'^^uuid:;
+ syn:modalityDescription ?modalityDescription.
+}",3.3276538848876953
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?coverage
+WHERE {
+?patient a syn:Patient;
+syn:first 'Wilfred787'^^pl:;
+syn:last 'Schamberger479'^^pl:;
+syn:healthcareCoverage ?coverage.
+}",39.73460412025452
+When was the observation with the code 72514-3 recorded?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX loinc: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#loinc:LOINC>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?date
+WHERE {
+ ?observation a syn:Observation ;
+             loinc:code '72514-3' ;
+             syn:date ?date.
+}",67.3049144744873
+How many patients have or had the allergy with the code 419199007?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT COUNT(DISTINCT ?patientId)
+WHERE {
+  ?allergy a syn:Allergy ;
+           snomed:code 419199007 .
+  ?allergy syn:patientId ?patientId .
+}",11.004868268966675
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX pl: <http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+    ?supply a syn:Supply;
+            syn:description 'Blood glucose testing strips (physical object)'^^pl:;
+            syn:patientId ?patientid.
+    ?patient a syn:Patient;
+             syn:id ?patientid;
+             syn:first ?first;
+             syn:last ?last.
+}",9.74955153465271
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT COUNT(?immunization)
+WHERE {
+  ?payer a syn:Payer;
+         syn:id '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'^^uuid:;
+         syn:uncovered_immunizations ?uncovered_immunizations.
+  ?immunization a syn:Immunization;
+                  ?uncovered_immunizations ?immunization.
+}",36.52486228942871
+What encounter is associated with the supply with the code 419343004?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT DISTINCT ?encounterId WHERE {
+ ?supply a syn:Supply;
+ syn:code cvx:419343004;
+ syn:encounterId ?encounterId.
+ ?encounter a syn:Encounter;
+ syn:id ?encounterId.
+}",5.478697299957275
+What is the description of the device with code 706180003?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT ?description
+WHERE {
+ ?device a syn:Device;
+ cvx:code '706180003'^^xsd:string;
+ syn:description ?description.
+}",1.5622267723083496
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?first ?last
+WHERE {
+ ?claimTransaction a syn:ClaimTransaction;
+ syn:id 'fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2'^^uuid:;
+ syn:claimId ?claimId.
+ ?claim a syn:Claim;
+ syn:id ?claimId;
+ syn:patientId ?patientId.
+ ?patient a syn:Patient;
+ syn:id ?patientId;
+ syn:first ?first;
+ syn:last ?last.
+}",43.2763557434082
+What is the type of the allergy with the code 256277009?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX snomed: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#snomed:SNOMED-CT>
+
+SELECT DISTINCT ?type
+WHERE {
+ ?allergy a syn:Allergy ;
+         snomed:SNOMED-CT ""256277009""^^xsd:string ;
+         syn:type ?type .
+}",1.9442479610443115
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX uuid: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#urn:uuid>
+
+SELECT DISTINCT ?encounterId WHERE {
+ ?imagingStudy a syn:ImagingStudy;
+ syn:seriesUid ""1.2.840.99999999.1.94906246.1703949012410""^^xsd:string;
+ syn:encounterId ?encounterId.
+}",3.079702854156494
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX cvx: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#hl7:CVX>
+
+SELECT ?baseCost
+WHERE {
+ ?immunization a syn:Immunization;
+ syn:code cvx:35002;
+ syn:baseCost ?baseCost.
+}",2.9250290393829346

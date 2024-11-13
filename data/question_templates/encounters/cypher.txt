@@ -1,0 +1,16 @@
+MATCH (p:Patient)-[:HAS_ENCOUNTER]->(e:Encounter {{id: '$encounter_id'}}) RETURN p.firstName, p.lastName;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.code;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.class;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.date;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.description;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.claimCost;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.reasonDescription;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.reasonDescription;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.reasonCode, e.reasonDescription;
+MATCH (o:Organization)-[:IS_PERFOMED_AT]->(e:Encounter {{id: '$encounter_id'}}) RETURN o.name;
+MATCH (p:Provider)-[:HAS_ENCOUNTER]->(e:Encounter {{id: '$encounter_id'}}) RETURN p.name;
+MATCH (p:Payer)-[:HAS_COVERED]->(e:Encounter {{id: '$encounter_id'}}) RETURN p.name;
+MATCH (p:Provider)-[:HAS_ENCOUNTER]->(e:Encounter {{id: '$encounter_id'}}) RETURN p.name;
+MATCH (p:Payer)-[:HAS_COVERED]->(e:Encounter {{id: '$encounter_id'}}) RETURN p.name;
+MATCH (o:Organization)-[:IS_PERFOMED_AT]->(e:Encounter {{id: '$encounter_id'}}) RETURN o.name;
+MATCH (e:Encounter {{id: '$encounter_id'}}) RETURN e.reasonCode, e.reasonDescription;

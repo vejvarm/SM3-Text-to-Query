@@ -1,0 +1,17 @@
+SELECT DISTINCT description FROM devices WHERE code='$device_code';
+SELECT start FROM devices WHERE code='$device_code';
+SELECT udi FROM devices WHERE code='$device_code';
+SELECT DISTINCT e.description FROM devices d LEFT JOIN encounters e ON d.encounter=e.id WHERE d.code='$device_code';
+SELECT DISTINCT p.first, p.last FROM devices d LEFT JOIN patients p ON d.patient=p.id WHERE d.code='$device_code';
+SELECT DISTINCT e.description FROM devices d LEFT JOIN encounters e ON d.encounter=e.id WHERE d.code='$device_code';
+SELECT DISTINCT p.first, p.last FROM devices d LEFT JOIN patients p ON d.patient=p.id WHERE d.code='$device_code';
+SELECT udi FROM devices WHERE code='$device_code';
+SELECT start FROM devices WHERE description='$device_name';
+SELECT udi FROM devices WHERE description='$device_name';
+SELECT DISTINCT e.description FROM devices d LEFT JOIN encounters e ON d.encounter=e.id WHERE d.description='$device_name';
+SELECT DISTINCT p.first, p.last FROM devices d LEFT JOIN patients p ON d.patient=p.id WHERE d.description='$device_name';
+SELECT DISTINCT e.description FROM devices d LEFT JOIN encounters e ON d.encounter=e.id WHERE d.description='$device_name';
+SELECT DISTINCT p.first, p.last FROM devices d LEFT JOIN patients p ON d.patient=p.id WHERE d.description='$device_name';
+SELECT udi FROM devices WHERE description='$device_name';
+SELECT description FROM devices WHERE udi='$device_udi';
+SELECT code FROM devices WHERE udi='$device_udi';

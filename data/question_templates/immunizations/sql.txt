@@ -1,0 +1,15 @@
+SELECT DISTINCT description FROM immunizations WHERE code='$immunization_code';
+SELECT date FROM immunizations WHERE code='$immunization_code';
+SELECT DISTINCT base_cost FROM immunizations WHERE code='$immunization_code';
+SELECT DISTINCT e.description FROM immunizations im LEFT JOIN encounters e ON im.encounter=e.id WHERE im.code='$immunization_code';
+SELECT DISTINCT p.first, p.last FROM immunizations im LEFT JOIN patients p ON im.patient=p.id WHERE im.code='$immunization_code';
+SELECT DISTINCT p.first, p.last FROM immunizations im LEFT JOIN patients p ON im.patient=p.id WHERE im.code='$immunization_code';
+SELECT DISTINCT e.description FROM immunizations im LEFT JOIN encounters e ON im.encounter=e.id WHERE im.code='$immunization_code';
+SELECT DISTINCT base_cost FROM immunizations WHERE code='$immunization_code';
+SELECT date FROM immunizations WHERE description='$immunization_name';
+SELECT DISTINCT base_cost FROM immunizations WHERE description='$immunization_name';
+SELECT DISTINCT e.description FROM immunizations im LEFT JOIN encounters e ON im.encounter=e.id WHERE im.description='$immunization_name';
+SELECT DISTINCT p.first, p.last FROM immunizations im LEFT JOIN patients p ON im.patient=p.id WHERE im.description='$immunization_name';
+SELECT DISTINCT p.first, p.last FROM immunizations im LEFT JOIN patients p ON im.patient=p.id WHERE im.description='$immunization_name';
+SELECT DISTINCT e.description FROM immunizations im LEFT JOIN encounters e ON im.encounter=e.id WHERE im.description='$immunization_name';
+SELECT DISTINCT base_cost FROM immunizations WHERE description='$immunization_name';

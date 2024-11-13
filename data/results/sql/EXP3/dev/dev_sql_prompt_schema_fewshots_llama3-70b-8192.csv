@@ -1,0 +1,19 @@
+question,answers,time_taken
+Please provide names of the patients that are linked with the organization ROYAL OF FAIRHAVEN NURSING CENTER.,"Here is the SQL query to answer the question:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN organizations o ON e.organization = o.id 
+WHERE o.name = 'ROYAL OF FAIRHAVEN NURSING CENTER';
+```
+
+This query joins the `patients`, `encounters`, and `organizations` tables based on their respective foreign keys. It then filters the results to only include patients associated with the organization 'ROYAL OF FAIRHAVEN NURSING CENTER' and returns their first and last names.",1.4041242599487305
+Who is the patient associated with the claim cee532fb-f8c6-2ebc-308a-0d973da4e5a7?,"Based on the provided schema and notes, I can help you with the SQL query for the given question.
+
+[Q]: 'Who is the patient associated with the claim cee532fb-f8c6-2ebc-308a-0d973da4e5a7?'
+
+[SQL]: SELECT DISTINCT p.first, p.last FROM claims cl LEFT JOIN patients p ON cl.patientid= p.id WHERE cl.id='cee532fb-f8c6-2ebc-308a-0d973da4e5a7';
+
+This query joins the `claims` table with the `patients` table on the `patientid` column, and then selects the `first` and `last` names of the patient associated with the claim having the specified ID.",23.864689111709595

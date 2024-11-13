@@ -1,0 +1,13 @@
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.amount;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.chargeId;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.claimId;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.procedureCode;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.type;
+MATCH (p:Patient)-[:HAS_TRANSACTION]->(ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN DISTINCT p.firstName,p.lastName;
+MATCH (p:Provider)-[:HAS_TRANSACTION]->(ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN DISTINCT p.name;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.amount;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.chargeId;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.claimId;
+MATCH (ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN ct.procedureCode;
+MATCH (p:Patient)-[:HAS_TRANSACTION]->(ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN DISTINCT p.firstName,p.lastName;
+MATCH (p:Provider)-[:HAS_TRANSACTION]->(ct:ClaimTransaction {{id: '$claim_t_id'}}) RETURN DISTINCT p.name;

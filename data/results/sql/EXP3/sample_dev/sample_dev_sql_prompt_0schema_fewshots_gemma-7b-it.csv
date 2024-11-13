@@ -1,0 +1,1139 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"```sql
+SELECT DISTINCT p.specialty
+FROM providers p
+JOIN provider_specialties ps ON p.id = ps.provider_id
+WHERE p.name = 'Crystle668 McCullough561';
+```",0.8989839553833008
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"```sql
+SELECT im.body_site_code, im.description
+FROM imaging_studies im
+WHERE im.id = 'ee88b224-1f91-8c6a-493a-46e8004c4331';
+```",1.1351008415222168
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN immunizations i ON p.id = i.patient_id
+WHERE i.name = 'Influenza seasonal injectable preservative free';
+```",1.3606858253479004
+What is the description of the device with code 170615005?,"```sql
+SELECT d.description
+FROM devices d
+WHERE d.code = '170615005';
+```",1.1463749408721924
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,"```sql
+SELECT code
+FROM supplies
+WHERE description = 'Continuous positive airway pressure nasal oxygen cannula (physical object)';
+```",1.540926218032837
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"```sql
+SELECT r.reason_code, r.description
+FROM encounters e
+JOIN encounter_reasons er ON e.id = er.encounter_id
+JOIN reasons r ON er.reason_code = r.code
+WHERE e.id = '79942d67-05c5-5c61-336d-4be332d76720';
+```",1.1830170154571533
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN claims cl ON p.id = cl.patientid
+WHERE cl.payerid = '0133f751-9229-3cfd-815f-b6d4979bdd6a';
+```",0.862278938293457
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"```sql
+SELECT DISTINCT m.successrate
+FROM medications m
+JOIN medication_efficacy me ON m.id = me.medicationid
+WHERE m.name = 'Simvastatin 10 MG Oral Tablet';
+```",0.8708419799804688
+Which patient had the allergy House dust mite (organism)?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM allergies a
+LEFT JOIN patients p ON a.patientid = p.id
+WHERE a.description = 'House dust mite (organism)';
+```",1.1183271408081055
+Please provide me the patients treated with the procedure of code 710841007.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM procedures pr
+JOIN patient_procedures pp ON pr.id = pp.procedureid
+JOIN patients p ON pp.patientid = p.id
+WHERE pr.code = '710841007';
+```",0.7856431007385254
+What kind of allergy has the code 84489001?,"```sql
+SELECT description
+FROM allergies
+WHERE code = '84489001';
+```",0.6914432048797607
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"```sql
+SELECT COUNT(DISTINCT c.id)
+FROM customers c
+JOIN insurance_plans i ON c.insurance_plan_id = i.id
+WHERE i.payer_id = 'b046940f-1664-3047-bca7-dfa76be352a4';
+```",1.1723992824554443
+What code does observation Body Height have?,"```sql
+SELECT code
+FROM observations
+WHERE description = 'Body Height';
+```",0.825700044631958
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,"```sql
+SELECT DISTINCT s.specialty
+FROM providers p
+JOIN provider_specialties ps ON p.id = ps.provider_id
+JOIN specialities s ON ps.specialty_id = s.id
+WHERE p.id = '301f9141-3dbc-38f3-bca9-7c909a84caa9';
+```",0.9953286647796631
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,"```sql
+SELECT DISTINCT m.cost
+FROM medications m
+JOIN medication_prices mp ON m.id = mp.medication_id
+WHERE m.name = 'Warfarin Sodium 5 MG Oral Tablet';
+```",1.9708778858184814
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"```sql
+SELECT DISTINCT p.first, p.last, p.birth_location
+FROM patients p
+WHERE p.id = 'c17a5539-74aa-4805-e623-fdaf4a31dfd9';
+```",0.935002326965332
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"```sql
+SELECT COUNT(DISTINCT e.id)
+FROM procedures p
+JOIN claims cl ON p.claimid = cl.id
+JOIN payers pa ON cl.payerid = pa.id
+WHERE pa.id = 'd31fccc3-1767-390d-966a-22a5156f4219';
+```",0.9558308124542236
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+JOIN claims c ON e.id = c.encounter
+WHERE c.payer = 'NO_INSURANCE';
+```",1.1449778079986572
+What is the state of residence of the patient named Carin553 Jerde200?,"```sql
+SELECT DISTINCT p.state
+FROM patients p
+WHERE p.name='Carin553 Jerde200';
+```",1.0873887538909912
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,"```sql
+SELECT modality_code
+FROM imaging_studies
+WHERE id='7d52afa5-9282-64ef-e08c-c66f1a53e7f2';
+```",0.8931622505187988
+Please provide me the patient with the supply with the code 972002.,"```sql
+SELECT p.first, p.last
+FROM patients p
+LEFT JOIN supplies s ON p.id = s.patient
+WHERE s.code = '972002';
+```",0.7066950798034668
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,"```sql
+SELECT date FROM imaging_studies WHERE series_uid='1.2.840.99999999.1.97267088.1424332927924';
+```",1.2023789882659912
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,"```sql
+SELECT date FROM imaging_studies WHERE series_uid='1.2.840.99999999.1.93465008.1702305862410';
+```",0.798590898513794
+When did the allergy with the code 84489001 end?,"```sql
+SELECT end_date
+FROM allergies
+WHERE code = '84489001';
+```",0.8101089000701904
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"```sql
+SELECT p.first, p.last
+FROM imaging_studies is
+LEFT JOIN patients p ON is.patientid = p.id
+WHERE is.series_uid = '1.2.840.99999999.1.30162925.1683721997276';
+```",0.9729371070861816
+What is the marital status of Kermit56 Rutherford999?,"```sql
+SELECT DISTINCT m.marital_status
+FROM patients p
+JOIN marital_statuses m ON p.marital_status_id = m.id
+WHERE p.name = 'Kermit56 Rutherford999';
+```",0.952056884765625
+In which encounter was a procedure with code 10383002 performed?,"```sql
+SELECT e.description
+FROM procedures p
+JOIN encounters e ON p.encounter = e.id
+WHERE p.code = '10383002';
+```",1.2225167751312256
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"```sql
+SELECT m.description
+FROM imaging_studies is
+JOIN modalities m ON is.modality_id = m.id
+WHERE is.id = '8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa';
+```",1.3094608783721924
+What is the address of the patient named Stefania815 West559?,"```sql
+SELECT p.address
+FROM patients p
+WHERE p.name = 'Stefania815 West559';
+```",0.7577080726623535
+What is the base cost of the medication with the code 197604?,"```sql
+SELECT base_cost
+FROM medications
+WHERE code = '197604';
+```",0.9960949420928955
+Please provide me the patient with the supply with the code 409534002.,"```sql
+SELECT p.first, p.last
+FROM patients p
+JOIN claims cl ON p.id = cl.patientid
+JOIN supplies s ON cl.supplyid = s.id
+WHERE s.code = '409534002';
+```",2.0903749465942383
+Can you tell me when the observation with the code QALY was recorded?,"```sql
+SELECT observation_date
+FROM observations
+WHERE code = 'QALY';
+```",3.061677932739258
+What is the address of the patient named Margie619 Strosin214?,"```sql
+SELECT p.address
+FROM patients p
+WHERE p.name='Margie619 Strosin214';
+```",2.952031135559082
+Who is the patient associated with the supply with the code 463659001?,"```sql
+SELECT p.first, p.last
+FROM supplies s
+LEFT JOIN patients p ON s.patient = p.id
+WHERE s.code = '463659001';
+```",3.3438687324523926
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"```sql
+SELECT DISTINCT pc.code
+FROM claims c
+LEFT JOIN claim_procedures cp ON c.id = cp.claimid
+LEFT JOIN procedure_codes pc ON cp.procedurecodeid = pc.id
+WHERE c.id = '576550eb-d73b-1996-b14a-f68254146bf8';
+```",2.562121868133545
+Which encounter is related to the allergy with the code 84489001?,"```sql
+SELECT e.description
+FROM allergies a
+JOIN encounters e ON a.encounter = e.id
+WHERE a.code = '84489001';
+```",2.3489489555358887
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM medications m
+JOIN claims cl ON m.claimid = cl.id
+JOIN payers p ON cl.payerid = p.id
+WHERE m.name = 'Digoxin 0.125 MG Oral Tablet';
+```",2.0396828651428223
+Who has been treated for the condition with code 706893006?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+JOIN diagnoses d ON e.id = d.encounterid
+WHERE d.code = '706893006';
+```",3.2088050842285156
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"```sql
+SELECT p.first, p.last
+FROM medications m
+JOIN prescriptions pr ON m.id = pr.medicationid
+JOIN patients p ON pr.patientid = p.id
+WHERE m.name = 'amLODIPine 2.5 MG Oral Tablet';
+```",2.1760079860687256
+Please provide me the encounters which are related to the observation DALY.,"```sql
+SELECT e.id, e.description
+FROM observations o
+JOIN encounters e ON o.encounter = e.id
+WHERE o.description = 'DALY';
+```",3.0924599170684814
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"```sql
+SELECT DISTINCT d.diagnosis
+FROM claims c
+LEFT JOIN diagnoses d ON c.diagnosisid = d.id
+WHERE c.id = '68140758-17f3-541c-8d04-e2d06b91e442';
+```",3.247990131378174
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,"```sql
+SELECT DISTINCT e.description
+FROM supplies s
+LEFT JOIN encounters e ON s.encounter = e.id
+WHERE s.code = '409534003';
+```",3.074842691421509
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"```sql
+SELECT body_site_code
+FROM imaging_studies
+WHERE id='781242f7-dd9c-8a26-181a-65898eb64eb4';
+```",2.0550310611724854
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"```sql
+SELECT DISTINCT p.payer
+FROM encounters e
+LEFT JOIN claims cl ON e.id = cl.encounter
+LEFT JOIN payers p ON cl.payerid = p.id
+WHERE e.id = '148005b7-cfc4-feb7-9860-3d2afde95c82';
+```",3.8450708389282227
+Can you tell me when the allergy with the code 419199007 was recorded?,"```sql
+SELECT date_recorded
+FROM allergies
+WHERE code = '419199007';
+```",2.3826611042022705
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"```sql
+SELECT e.id, e.description
+FROM care_plans cp
+JOIN encounters e ON cp.encounter = e.id
+WHERE cp.name = 'Musculoskeletal care';
+```",1.9159607887268066
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"```sql
+SELECT service_date
+FROM claims
+WHERE id = 'e964b40d-7106-0a64-69b5-8c18493de4f2';
+```",3.4309170246124268
+What are the typical symptoms of the allergy described as House dust mite (organism)?,"```sql
+SELECT DISTINCT s.symptom
+FROM allergies a
+JOIN symptoms s ON a.id = s.allergyid
+WHERE a.description = 'House dust mite (organism)';
+```",2.256707191467285
+How many procedures are covered by the payer Aetna?,"```sql
+SELECT COUNT(DISTINCT p.id)
+FROM procedures p
+JOIN claims cl ON p.id = cl.procedureid
+JOIN payers pa ON cl.payerid = pa.id
+WHERE pa.name = 'Aetna';
+```",2.4831979274749756
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"```sql
+SELECT DISTINCT s.successrate
+FROM medications m
+JOIN studies s ON m.id = s.medicationid
+WHERE m.name = 'NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector';
+```",2.309697151184082
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,"```sql
+SELECT SUM(c.amount)
+FROM claims c
+JOIN encounters e ON c.encounter = e.id
+WHERE e.id = 'eeb3c5ce-d328-49a1-1abb-9396da4163fd';
+```",2.4490749835968018
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"```sql
+SELECT o.address
+FROM organizations o
+WHERE o.name = 'BAYADA HOME HEALTH CARE  INC.';
+```",2.1996660232543945
+Please provide me the patients receiving aid under the care plan with code 225358003.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM care_plans cp
+JOIN patients p ON cp.patient_id = p.id
+WHERE cp.code = '225358003';
+```",2.1803672313690186
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"```sql
+SELECT birthplace
+FROM patients
+WHERE id = 'a8c144a7-9e79-fccc-1f57-4035b2aa9fea';
+```",2.0362560749053955
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN organizations o ON p.organizationid = o.id
+WHERE o.id = '8e3ca57f-6f74-3d61-9803-ab1424290216';
+```",3.497614622116089
+Give me the encounters that are related to the immunization Hep B  adult.,"```sql
+SELECT e.id, e.description
+FROM encounters e
+JOIN immunizations i ON e.id = i.encounter
+WHERE i.name = 'Hep B adult';
+```",2.2000350952148438
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,"```sql
+SELECT first
+FROM patients
+WHERE id = '8d636878-c54c-3fcf-6300-b65c2a9e0dc9';
+```",2.241940975189209
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"```sql
+SELECT e.description
+FROM studies s
+JOIN encounters e ON s.encounter = e.id
+WHERE s.seriesuid = '1.2.840.99999999.1.54352820.1609167132933';
+```",2.392543315887451
+What procedures did the patient named Margot418 Rolfson709 undergo?,"```sql
+SELECT DISTINCT p.description
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+JOIN procedures pr ON e.id = pr.encounterid
+WHERE p.first = 'Margot' AND p.last = 'Rolfson' AND p.id = '418' AND p.last = '709';
+```",2.0355281829833984
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"```sql
+SELECT COUNT(DISTINCT c.id)
+FROM customers c
+JOIN claims cl ON c.id = cl.customerid
+WHERE cl.payerid = '8fa6c185-e44e-3e34-8bd8-39be8694f4ce';
+```",3.1259818077087402
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"```sql
+SELECT DISTINCT p. birthplace
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+WHERE e.id = '51c2d782-1f36-657d-5618-42df22e39681';
+```",3.34938907623291
+Please provide me the number of medications uncovered by the payer Humana.,"```sql
+SELECT COUNT(DISTINCT m.id)
+FROM medications m
+LEFT JOIN claims cl ON m.id = cl.medicationid
+WHERE cl.payer='Humana' AND cl.covered='N';
+```",2.123717784881592
+In which encounter was a procedure with code 428211000124100 performed?,"```sql
+SELECT e.description
+FROM procedures p
+JOIN encounters e ON p.encounter = e.id
+WHERE p.code = '428211000124100';
+```",2.946488857269287
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"```sql
+SELECT DISTINCT p.state
+FROM patients p
+JOIN claims c ON p.id = c.patientid
+WHERE c.id = 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a';
+```",3.0287928581237793
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM claims cl
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE cl.id = 'cca769d0-09e0-72f9-23aa-e6ddb2200792';
+```",4.388790845870972
+What is the description of the allergy with the code 3718001?,"```sql
+SELECT description
+FROM allergies
+WHERE code = '3718001';
+```",0.939551830291748
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM organizations o
+LEFT JOIN employees e ON o.id = e.organizationid
+LEFT JOIN patients p ON e.id = p.physicianid
+WHERE o.id = '844a8cb2-4164-35b2-88b8-dffa2889a738';
+```",3.062995195388794
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"```sql
+SELECT COUNT(DISTINCT m.id)
+FROM medications m
+LEFT JOIN claims cl ON m.claimid = cl.id
+WHERE cl.payer = 'NO_INSURANCE' AND cl.covered = false;
+```",3.038268804550171
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,"```sql
+SELECT DISTINCT p.payer
+FROM medications m
+JOIN claims cl ON m.claimid = cl.id
+JOIN patients p ON cl.patientid = p.id
+WHERE m.name = 'Alendronic acid 10 MG Oral Tablet';
+```",3.160658836364746
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"The provided context does not include information regarding tables, columns, or other database structures, so I am unable to generate a SQL query based on the given question.",3.2113728523254395
+Please provide me a reason for the use of the care plan with code 134435003.,"```sql
+SELECT DISTINCT r.reason
+FROM careplans c
+JOIN reasons r ON c.reasonid = r.id
+WHERE c.code = '134435003';
+```",2.7520313262939453
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN organizations o ON p.organizationid = o.id
+WHERE o.id = '2befa435-3070-3350-a15c-e43ac1e84b24';
+```",2.038792371749878
+In which city is the provider named Lynsey2 Lemke654 located?,"```sql
+SELECT DISTINCT p.city
+FROM providers p
+JOIN locations l ON p.locationid = l.id
+WHERE p.name = 'Lynsey2 Lemke654';
+```",3.4032909870147705
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,"```sql
+SELECT birthdate
+FROM patients
+WHERE id = 'cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d';
+```",2.7426071166992188
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"```sql
+SELECT DISTINCT p.payer_name
+FROM encounters e
+LEFT JOIN claims cl ON e.id = cl.encounter
+LEFT JOIN payers p ON cl.payerid = p.id
+WHERE e.id = '707c24b4-b715-02aa-5f9b-1712d336b98e';
+```",2.2456469535827637
+What encounter is associated with the supply with the code 713779008?,"```sql
+SELECT e.description
+FROM supplies s
+LEFT JOIN encounters e ON s.encounter = e.id
+WHERE s.code = '713779008';
+```",1.9369778633117676
+What is the name of allergy with the code 782576004?,"```sql
+SELECT DISTINCT a.description
+FROM allergies a
+WHERE code='782576004';
+```",3.2782158851623535
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"```sql
+SELECT body_site_code
+FROM imaging_studies
+WHERE id='5ad9a317-b195-585e-c638-29e057061c9e';
+```",2.0105957984924316
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+LEFT JOIN claims cl ON e.id = cl.encounter
+WHERE cl.payerid IS NULL AND cl.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496';
+```",3.0182957649230957
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,"```sql
+SELECT DISTINCT location
+FROM organizations
+WHERE name='NANTUCKET COTTAGE HOSPITAL';
+```",3.1288561820983887
+When was the patient named Micah422 Buckridge80 born?,The provided question cannot be answered with the given input as it does not contain any information regarding the birth date of the patient Micah422 Buckridge80.,4.296014070510864
+Please provide me the number of immunizations uncovered by the payer Anthem.,"```sql
+SELECT COUNT(DISTINCT i.id)
+FROM immunizations i
+LEFT JOIN claims c ON i.claimid = c.id
+WHERE c.payer = 'Anthem';
+```",1.5137889385223389
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"```sql
+SELECT DISTINCT p.payer
+FROM encounters e
+LEFT JOIN claims cl ON e.id = cl.encounter
+LEFT JOIN payers p ON cl.payerid = p.id
+WHERE e.id = 'd9415cfe-d6b7-b89d-b0f8-a763566d7c88';
+```",2.3645009994506836
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"```sql
+SELECT description
+FROM encounters
+WHERE id='669895f1-6552-f541-6faf-4a89f43b429d';
+```",2.3135459423065186
+What kind of allergy has the code 5640?,"```sql
+SELECT DISTINCT a.description
+FROM allergies a
+JOIN codes c ON a.id = c.allergyid
+WHERE c.code = '5640';
+```",2.494903087615967
+What is the address of the provider named Katelynn452 Ledner144?,"```sql
+SELECT p.address
+FROM providers p
+JOIN provider_addresses pa ON p.id = pa.provider_id
+WHERE p.name = 'Katelynn452 Ledner144';
+```",2.1301910877227783
+Please provide me the encounters that were related to the allergy Mold (organism).,"```sql
+SELECT DISTINCT e.description
+FROM allergies a
+JOIN encounters e ON a.id = e.allergyid
+WHERE a.description = 'Mold (organism)';
+```",3.294908046722412
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"```sql
+SELECT r.reason_code, r.description
+FROM encounters e
+JOIN encounter_reasons er ON e.id = er.encounter_id
+JOIN reasons r ON er.reason_id = r.id
+WHERE e.id = '10a48862-79c6-036e-e572-f80160131cd0';
+```",2.023500919342041
+What is the description of the allergy with the code 419199007?,"```sql
+SELECT description
+FROM allergies
+WHERE code = '419199007';
+```",3.2158048152923584
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"```sql
+SELECT e.description
+FROM studies s
+JOIN encounters e ON s.encounter = e.id
+WHERE s.seriesuid = '1.2.840.99999999.1.60733233.1559399876087';
+```",2.0684611797332764
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"```sql
+SELECT SUM(c.amount)
+FROM claims c
+JOIN payers p ON c.payerid = p.id
+WHERE p.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496';
+```",4.1947290897369385
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,"```sql
+SELECT address
+FROM organizations
+WHERE name = 'MIDDLETON FAMILY MEDICINE URGENT CARE  LLC';
+```",0.8033490180969238
+What is the reason for using the care plan with code 53950000?,"```sql
+SELECT DISTINCT cp.reason
+FROM careplans cp
+JOIN careplan_codes cc ON cp.id = cc.careplan_id
+WHERE cc.code = '53950000';
+```",2.9427547454833984
+What is the marital status of Tabatha105 Fisher429?,"```sql
+SELECT m.marital_status
+FROM patients p
+JOIN marital_statuses m ON p.marital_status_id = m.id
+WHERE p.id = 'Tabatha105 Fisher429';
+```",3.2536940574645996
+Which ethnicity does patient Marcie463 have?,"```sql
+SELECT e.ethnicity
+FROM patients p
+JOIN demographics d ON p.id = d.patient_id
+WHERE p.name = 'Marcie463';
+```",2.0260369777679443
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"```sql
+SELECT COUNT(DISTINCT m.id)
+FROM medications m
+LEFT JOIN claims cl ON m.claimid = cl.id
+LEFT JOIN payers p ON cl.payerid = p.id
+WHERE p.id = '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'
+AND m.covered = false;
+```",3.33725905418396
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM employees e
+JOIN organizations o ON e.organization = o.name
+WHERE o.name = 'SERENITY HILL NURSING CENTER';
+```",2.47310209274292
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"```sql
+SELECT o.address
+FROM organizations o
+WHERE o.id = '9d0e702d-50a0-3f4c-9126-0951d560fd4b';
+```",2.048332929611206
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,"```sql
+SELECT DISTINCT o.city
+FROM organizations o
+JOIN locations l ON o.locationid = l.id
+WHERE o.name = 'ARBOUR-FULLER HOSPITAL';
+```",3.743555784225464
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"```sql
+SELECT DISTINCT date_administered
+FROM immunizations
+WHERE description = 'Influenza seasonal injectable preservative free';
+```",2.304067850112915
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"```sql
+SELECT description
+FROM encounters
+WHERE id='8602cd94-fcbe-0506-b4c0-f25e5e6619de';
+```",2.1395483016967773
+What is the start date of the care plan with code 385691007?,"```sql
+SELECT startdate
+FROM careplans
+WHERE code = '385691007';
+```",3.2027390003204346
+What is the stop date of the condition with code 73595000?,"```sql
+SELECT stop_date
+FROM conditions
+WHERE code = '73595000';
+```",3.351914882659912
+What is the type of the allergy with the code 264287008?,"```sql
+SELECT DISTINCT a.type
+FROM allergies a
+JOIN allergy_codes ac ON a.id = ac.allergy_id
+WHERE ac.code = '264287008';
+```",1.3802382946014404
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,"```sql
+SELECT o.name
+FROM encounters e
+LEFT JOIN organizations o ON e.organizationid = o.id
+WHERE e.id = '1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689';
+```",2.1544671058654785
+Please provide me the type of an observation with the code 89204-2.,"```sql
+SELECT DISTINCT o.type
+FROM observations o
+WHERE o.code = '89204-2';
+```",3.324281930923462
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"```sql
+SELECT c.cost
+FROM immunizations i
+JOIN doses d ON i.id = d.immunizationid
+JOIN costs c ON d.id = c.doseid
+WHERE i.name = 'Td (adult) 5 Lf tetanus toxoid preservative free adsorbed';
+```",2.926961898803711
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"```sql
+SELECT DISTINCT c.coverage_status
+FROM patients p
+LEFT JOIN claims c ON p.id = c.patientid
+WHERE p.name = 'Ora550 Luettgen772';
+```",2.0823371410369873
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,"```sql
+SELECT e.id, e.description
+FROM procedures p
+JOIN encounters e ON p.id = e.procedureid
+WHERE p.code = '99383-2';
+```",3.1942601203918457
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN affiliations a ON p.id = a.patient_id
+WHERE a.organization = 'LEOMINSTER COMUNITY HEALTH CENTER';
+```",3.051625967025757
+How many immunizations are covered by the payer NO_INSURANCE?,"```sql
+SELECT COUNT(DISTINCT i.id)
+FROM immunizations i
+JOIN insurance_plans ip ON i.insurance_plan_id = ip.id
+WHERE ip.name = 'NO_INSURANCE';
+```",3.2921528816223145
+In which encounter is the medication with the code 313782 administered?,"```sql
+SELECT e.description
+FROM medications m
+JOIN encounters e ON m.encounter = e.id
+WHERE m.code = '313782';
+```",2.412653923034668
+What is the udi code for the device with code 336621006?,"```sql
+SELECT DISTINCT ud.udi_code
+FROM devices d
+LEFT JOIN udi_codes ud ON d.udi = ud.id
+WHERE d.code='336621006';
+```",1.973073959350586
+Please provide me the encounters that are related to the medication with the code 314076.,"```sql
+SELECT e.id, e.description
+FROM medications m
+JOIN encounters e ON m.encounter = e.id
+WHERE m.code = '314076';
+```",3.0396511554718018
+What is the type of the observation with the code 8867-4?,"```sql
+SELECT DISTINCT o.type
+FROM observations o
+WHERE o.code = '8867-4';
+```",3.0660061836242676
+What is the total number of member months of the payer Medicaid?,"```sql
+SELECT SUM(m.months)
+FROM members m
+JOIN plans p ON m.planid = p.id
+WHERE p.payer = 'Medicaid';
+```",3.034719944000244
+What is the encounter associated with the immunization with code 140?,"```sql
+SELECT e.description
+FROM immunizations i
+LEFT JOIN encounters e ON i.encounter = e.id
+WHERE i.code = '140';
+```",3.109636068344116
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,"```sql
+SELECT r.reason
+FROM encounters e
+JOIN reasons r ON e.reasonid = r.id
+WHERE e.id = '6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783';
+```",3.323547840118408
+Which ethnicity does the patient named Zboncak558 have?,"The provided text does not include any information regarding patients' ethnicity, so it is not possible to extract the requested data from the given context. Therefore, I am unable to generate the requested SQL query.",1.9391441345214844
+What is the reason for using the care plan with code 384758001?,"```sql
+SELECT DISTINCT cp.reason
+FROM careplans cp
+JOIN careplan_codes cc ON cp.id = cc.careplan_id
+WHERE cc.code = '384758001';
+```",3.028635263442993
+Where was the patient named Isaac321 Rempel203 born?,"The provided text does not include any information regarding the tables or columns in the database, so I am unable to generate a SQL query based on the given question.",3.1388349533081055
+Please provide me the patients with the condition Part-time employment (finding).,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN conditions c ON p.id = c.patient
+WHERE c.description = 'Part-time employment (finding)';
+```",3.177730083465576
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"```sql
+SELECT COUNT(DISTINCT c.id)
+FROM claims c
+JOIN payers p ON c.payerid = p.id
+WHERE p.name = 'UnitedHealthcare';
+```",2.274177074432373
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+JOIN claims c ON e.id = c.encounter
+WHERE c.payer = 'NO_INSURANCE';
+```",2.1085901260375977
+Please provide me the encounters that were related to the allergy Lisinopril.,"```sql
+SELECT e.description
+FROM allergies a
+JOIN encounters e ON a.id = e.allergyid
+WHERE a.name = 'Lisinopril';
+```",3.0203309059143066
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"```sql
+SELECT COUNT(DISTINCT m.month)
+FROM memberships m
+JOIN payers p ON m.payerid = p.id
+WHERE p.id = 'e03e23c9-4df1-3eb6-a62d-f70f02301496';
+```",3.4249427318573
+What is the reason for using the care plan with code 443402002?,"```sql
+SELECT DISTINCT cp.reason
+FROM careplans cp
+JOIN careplanreasons cr ON cp.id = cr.careplanid
+WHERE cp.code = '443402002';
+```",2.403691053390503
+Can you tell me when the observation Heart rate was recorded?,"```sql
+SELECT o.timestamp
+FROM observations o
+WHERE o.description = 'Heart rate';
+```",2.0334370136260986
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"```sql
+SELECT DISTINCT i.base_cost
+FROM immunizations i
+WHERE description = 'Influenza seasonal injectable preservative free';
+```",3.8859870433807373
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,"```sql
+SELECT DISTINCT p.payer
+FROM medications m
+JOIN claims cl ON m.claimid = cl.id
+JOIN patients p ON cl.patientid = p.id
+WHERE m.name = 'Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet';
+```",2.024174928665161
+What is the reaction code of the allergy with the code 84489001?,"```sql
+SELECT DISTINCT r.reaction_code
+FROM allergies a
+JOIN reactions r ON a.reaction_code = r.code
+WHERE a.code = '84489001';
+```",3.3068971633911133
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"```sql
+SELECT DISTINCT c.departmentid
+FROM claims c
+WHERE id='2bbdb236-5c11-f4e9-9a40-33fb408555f6';
+```",1.929596185684204
+In which encounter was a procedure with code 713106006 performed?,"```sql
+SELECT e.description
+FROM procedures p
+JOIN encounters e ON p.encounter = e.id
+WHERE p.code = '713106006';
+```",3.314749002456665
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"```sql
+SELECT DISTINCT pc.code
+FROM claims c
+LEFT JOIN claim_procedures cp ON c.id = cp.claimid
+LEFT JOIN procedure_codes pc ON cp.procedurecode = pc.id
+WHERE c.id = 'a3dedfb9-4a55-2c3f-0690-371a8af4a966';
+```",2.1172049045562744
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"```sql
+SELECT r.reason_code, r.description
+FROM encounters e
+JOIN encounter_reasons er ON e.id = er.encounter_id
+JOIN reasons r ON er.reason_code = r.code
+WHERE e.id = '867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb';
+```",3.121410846710205
+When was the care plan Head injury rehabilitation used?,"```sql
+SELECT DISTINCT c.date_used
+FROM care_plans cp
+JOIN encounters e ON cp.encounter = e.id
+WHERE cp.title = 'Head injury rehabilitation';
+```",3.1052091121673584
+Please provide me the udi code related to the device Home nebulizer (physical object).,"```sql
+SELECT DISTINCT d.udi_code
+FROM devices d
+LEFT JOIN device_codes dc ON d.id = dc.device_id
+WHERE d.description = 'Home nebulizer (physical object)';
+```",3.6062967777252197
+Please provide me the encounters that are related to the observation with the code 785-6.,"```sql
+SELECT e.id, e.description
+FROM observations o
+JOIN encounters e ON o.encounter = e.id
+WHERE o.code = '785-6';
+```",2.280595064163208
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"```sql
+SELECT DISTINCT p.code
+FROM claims cl
+LEFT JOIN procedure_claims pc ON cl.id = pc.claim_id
+LEFT JOIN procedures p ON pc.procedure_id = p.id
+WHERE cl.id = 'f4595e16-3adb-0e82-19f3-62cb0a7638ed';
+```",2.0996017456054688
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"```sql
+SELECT o.address
+FROM organizations o
+WHERE o.id = '34f0b10a-5e29-31de-a75e-e0bb03c0c0d4';
+```",3.296463966369629
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"```sql
+SELECT DISTINCT p.state
+FROM patients p
+WHERE p.id='96d6e446-5d05-8df3-eff5-b4af55d138bb';
+```",1.990792989730835
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,"```sql
+SELECT o.address
+FROM organizations o
+WHERE o.id='880fad59-9c38-3a21-a39f-ccc801502ab3';
+```",3.322661876678467
+Please provide me the udi code related to the device with code 702172008.,"```sql
+SELECT DISTINCT udi FROM devices WHERE code='702172008';
+```",2.173708915710449
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"```sql
+SELECT AVG(qol.score)
+FROM customers c
+JOIN quality_of_life qol ON c.id = qol.customer_id
+JOIN payers p ON c.payer_id = p.id
+WHERE p.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625';
+```",3.3390769958496094
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,"```sql
+SELECT o.name
+FROM encounters e
+LEFT JOIN organizations o ON e.organizationid = o.id
+WHERE e.id = 'ea22dd39-a110-c7cd-5903-071327281613';
+```",2.52386474609375
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN insurance_plans i ON p.insuranceid = i.id
+WHERE i.payerid = 'd18ef2e6-ef40-324c-be54-34a5ee865625';
+```",2.5445218086242676
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+JOIN claims cl ON e.id = cl.encounter
+JOIN payers p ON cl.payerid = p.id
+WHERE p.id = 'df166300-5a78-3502-a46a-832842197811';
+```",2.290795087814331
+Please provide me the udi code related to the device with code 337414009.,"```sql
+SELECT DISTINCT udi FROM devices WHERE code='337414009';
+```",3.103748083114624
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,"```sql
+SELECT DISTINCT d.udi_code
+FROM devices d
+WHERE d.description = 'Oxygen concentrator (physical object)';
+```",2.153028964996338
+Please provide me the encounters that are related to the device with code 91537007.,"```sql
+SELECT e.id, e.description
+FROM devices d
+JOIN encounters e ON d.encounter = e.id
+WHERE d.code = '91537007';
+```",3.312204122543335
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,"```sql
+SELECT DISTINCT a.snomedcode
+FROM allergies a
+WHERE description = 'Allergy to substance (finding)';
+```",1.9441730976104736
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,"```sql
+SELECT series_uid
+FROM imaging_studies
+WHERE id='71ee50dd-ea7c-3415-e8d9-8b3a950cf731';
+```",3.041933059692383
+Please provide me the encounters that are related to the allergy with the code 264287008.,"```sql
+SELECT e.id, e.description
+FROM allergies a
+JOIN encounters e ON a.id = e.allergyid
+WHERE a.code = '264287008';
+```",3.1040871143341064
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+LEFT JOIN claims cl ON e.id = cl.encounter
+WHERE cl.payerid = '0133f751-9229-3cfd-815f-b6d4979bdd6a'
+AND cl.payer IS NULL;
+```",3.6212658882141113
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,"```sql
+SELECT last FROM patients WHERE id='35a38de9-c363-17a5-b2c4-c28f3b1c2ac0';
+```",2.2945609092712402
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"```sql
+SELECT department_id
+FROM claims
+WHERE id = 'e9434fb3-0c47-4b84-ca56-c55fb315b772';
+```",2.08341383934021
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM patients p
+JOIN claims cl ON p.id = cl.patientid
+WHERE cl.payerid = 'b046940f-1664-3047-bca7-dfa76be352a4';
+```",3.0275139808654785
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"```sql
+SELECT COUNT(DISTINCT i.id)
+FROM immunizations i
+JOIN insurance_plans ip ON i.insurance_plan_id = ip.id
+WHERE ip.id = '26aab0cd-6aba-3e1b-ac5b-05c8867e762c';
+```",3.2950050830841064
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"```sql
+SELECT e.ethnicity
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+WHERE p.first = 'Argelia29' AND p.last = 'Alterwerth646';
+```",2.1158101558685303
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"```sql
+SELECT birthdate
+FROM patients
+WHERE name = 'Rebeca548 Hansen121';
+```",3.245173931121826
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"```sql
+SELECT DISTINCT study_uid
+FROM imaging_studies
+WHERE id='d3fa7d2e-1bca-65f1-74ae-d326343ab849';
+```",2.158306121826172
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"```sql
+SELECT m.description
+FROM imaging_studies is
+JOIN modalities m ON is.modality_id = m.id
+WHERE is.id = '820778b8-5a19-9acf-9dbd-a3be1a1b4a47';
+```",3.451151132583618
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"```sql
+SELECT DISTINCT b.description
+FROM imaging_studies i
+LEFT JOIN body_sites b ON i.body_site_id = b.id
+WHERE i.id = '9bda6d29-00c0-24ea-6d31-09c04803fff4';
+```",5.293774843215942
+What kind of allergy is described as Mold (organism)?,"```sql
+SELECT DISTINCT type
+FROM allergies
+WHERE description='Mold (organism)';
+```",3.542318820953369
+How many patients have the allergy described as Fish (substance)?,"```sql
+SELECT COUNT(DISTINCT p.id)
+FROM patients p
+JOIN allergies a ON p.id = a.patientid
+WHERE a.description = 'Fish (substance)';
+```",0.9722192287445068
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,"```sql
+SELECT distinct sop_code
+FROM imaging_studies
+WHERE id = '65ff28ac-082f-ef59-ca11-baacc7302868';
+```",1.4371662139892578
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"```sql
+SELECT DISTINCT p.description
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+JOIN procedures pr ON e.id = pr.encounterid
+WHERE p.first = 'Caleb651' AND p.last = 'Dickinson688';
+```",2.570596933364868
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,"```sql
+SELECT p.first, p.last
+FROM studies s
+LEFT JOIN patients p ON s.patient = p.id
+WHERE s.series_uid = '1.2.840.99999999.1.63663889.1660767155882';
+```",2.129913806915283
+Can you provide the count of patients suffering from Allergy to substance (finding)?,"```sql
+SELECT COUNT(DISTINCT p.id)
+FROM patients p
+JOIN allergies a ON p.id = a.patientid
+WHERE a.description = 'Allergy to substance (finding)';
+```",3.516350030899048
+What are the survival chances of allgery House dust mite (organism)?,"```sql
+SELECT s.survival_rate
+FROM allergies a
+LEFT JOIN studies s ON a.study_id = s.id
+WHERE a.description = 'House dust mite (organism)';
+```",2.2525696754455566
+Please provide me the encounters that are related to the observation with the code 9279-1.,"```sql
+SELECT e.id, e.description
+FROM observations o
+JOIN encounters e ON o.encounter = e.id
+WHERE o.code = '9279-1';
+```",2.255599021911621
+Please provide me the patients treated with the procedure of code 866148006.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM procedures pr
+JOIN patients p ON pr.patient = p.id
+WHERE pr.code = '866148006';
+```",2.328148126602173
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"```sql
+SELECT COUNT(DISTINCT m.month)
+FROM memberships m
+JOIN payers p ON m.payerid = p.id
+WHERE p.id = 'd31fccc3-1767-390d-966a-22a5156f4219';
+```",2.106574058532715
+What is the base cost of the immunization with code 133?,"```sql
+SELECT base_cost
+FROM immunizations
+WHERE code = '133';
+```",3.2764031887054443
+Please provide me the patients treated with the procedure Colonoscopy.,"```sql
+SELECT DISTINCT p.first, p.last
+FROM procedures pr
+JOIN patient_procedures pp ON pr.id = pp.procedureid
+JOIN patients p ON pp.patientid = p.id
+WHERE pr.description = 'Colonoscopy';
+```",2.160710096359253
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"The provided text does not include any information regarding tables, columns, or other database structures, so I am unable to generate a SQL query based on the given question.",3.32403826713562
+Who has been treated with the procedure of code 710841007?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM procedures pr
+JOIN encounters e ON pr.encounter = e.id
+JOIN patients p ON e.patientid = p.id
+WHERE pr.code = '710841007';
+```",2.1386282444000244
+Who has been treated with the procedure of code 430193006?,"```sql
+SELECT DISTINCT p.first, p.last
+FROM procedures pr
+JOIN encounters e ON pr.encounter = e.id
+JOIN patients p ON e.patientid = p.id
+WHERE pr.code = '430193006';
+```",2.2829301357269287
+When did the allergy with the code 3718001 start?,"```sql
+SELECT startdate
+FROM allergies
+WHERE code = '3718001';
+```",1.93013596534729
+Please provide me the number of encounters uncovered by the payer Medicare.,"```sql
+SELECT COUNT(e.id)
+FROM encounters e
+LEFT JOIN claims c ON e.id = c.encounter
+WHERE c.payer = 'Medicare' AND c.covered = false;
+```",2.955825090408325
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,"```sql
+SELECT o.address
+FROM organizations o
+WHERE o.id='7f32dd7d-5c35-3ddb-839b-8fbbb930d412';
+```",3.3226659297943115
+What is the type of allergy has the description Latex (substance)?,"```sql
+SELECT DISTINCT type
+FROM allergies
+WHERE description='Latex (substance)';
+```",2.420712947845459
+Where was the patient named Qiana980 Okuneva707 born?,"```sql
+SELECT birthplace
+FROM patients
+WHERE name = 'Qiana980 Okuneva707';
+```",2.029061794281006
+What is the most promising procedure for a patient with Mold (organism)?,"```sql
+SELECT p.first, p.last, pr.description
+FROM patients p
+JOIN encounters e ON p.id = e.patientid
+JOIN procedures pr ON e.procedureid = pr.id
+WHERE description = 'Mold (organism)'
+ORDER BY pr.promise DESC
+LIMIT 1;
+```",3.5540332794189453
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"```sql
+SELECT first
+FROM patients
+WHERE id = 'f07f2e96-d323-1db8-c28f-9d06b112f557';
+```",1.986915111541748
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"```sql
+SELECT DISTINCT b.description
+FROM studies s
+JOIN body_sites b ON s.bodiesiteid = b.id
+WHERE s.uid = '1.2.840.99999999.1.60733233.1559399876087';
+```",3.1995158195495605
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,"```sql
+SELECT e.description
+FROM immunizations i
+LEFT JOIN encounters e ON i.encounter = e.id
+WHERE i.name = 'Influenza seasonal injectable preservative free';
+```",2.9191811084747314
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"```sql
+SELECT description
+FROM encounters
+WHERE id='40c90d37-a246-601a-7edf-983a88a0936d';
+```",3.204430103302002
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"```sql
+SELECT m.description
+FROM imaging_studies is
+JOIN modalities m ON is.modality_id = m.id
+WHERE is.id = 'ca21a429-bec9-35a5-17ba-0d012491d4c4';
+```",2.375066041946411
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"```sql
+SELECT DISTINCT c.coverage_status
+FROM patients p
+LEFT JOIN claims c ON p.id = c.patientid
+WHERE p.first = 'Wilfred787' AND p.last = 'Schamberger479';
+```",2.4252400398254395
+When was the observation with the code 72514-3 recorded?,"```sql
+SELECT obs.date_recorded
+FROM observations obs
+JOIN observation_codes oc ON obs.id = oc.observation_id
+WHERE oc.code = '72514-3';
+```",2.1215269565582275
+How many patients have or had the allergy with the code 419199007?,"```sql
+SELECT COUNT(DISTINCT p.id)
+FROM patients p
+JOIN allergies a ON p.id = a.patientid
+WHERE a.code = '419199007';
+```",3.350454092025757
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"```sql
+SELECT DISTINCT p.first, p.last
+FROM supplies s
+LEFT JOIN patients p ON s.patient = p.id
+WHERE s.description = 'Blood glucose testing strips (physical object)';
+```",2.8351759910583496
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"```sql
+SELECT COUNT(DISTINCT i.id)
+FROM immunizations i
+LEFT JOIN claims cl ON i.claimid = cl.id
+WHERE cl.payerid = '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'
+AND cl.covered = false;
+```",2.852621078491211
+What encounter is associated with the supply with the code 419343004?,"```sql
+SELECT e.description
+FROM supplies s
+LEFT JOIN encounters e ON s.encounter = e.id
+WHERE s.code = '419343004';
+```",2.007758855819702
+What is the description of the device with code 706180003?,"```sql
+SELECT d.description
+FROM devices d
+WHERE d.code = '706180003';
+```",3.5828659534454346
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"```sql
+SELECT p.first, p.last
+FROM claims cl
+LEFT JOIN patients p ON cl.patientid = p.id
+WHERE cl.id = 'fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2';
+```",2.1643848419189453
+What is the type of the allergy with the code 256277009?,"```sql
+SELECT DISTINCT a.type
+FROM allergies a
+JOIN allergy_codes ac ON a.id = ac.allergy_id
+WHERE ac.code = '256277009';
+```",2.9747190475463867
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,"```sql
+SELECT e.description
+FROM studies s
+JOIN encounters e ON s.encounter = e.id
+WHERE s.seriesuid = '1.2.840.99999999.1.94906246.1703949012410';
+```",3.2536118030548096
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"```sql
+SELECT DISTINCT i.base_cost
+FROM immunizations i
+WHERE description = 'Influenza seasonal injectable preservative free';
+```",2.2967629432678223

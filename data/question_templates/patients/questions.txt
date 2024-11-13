@@ -1,0 +1,46 @@
+What is the name of the patient with the ID $patient_id?
+What is the birthdate of the patient with the ID $patient_id?
+What is the first name of the patient with the ID $patient_id?
+What is the last name of the patient with the ID $patient_id?
+What is the ethnicity of the patient with the ID $patient_id?
+What is the gender of the patient with the ID $patient_id?
+What is the birthplace of the patient with the ID $patient_id?
+What is the address of the patient with the ID $patient_id?
+What is the city of residence of the patient with the ID $patient_id?
+What is the state of residence of the patient with the ID $patient_id?
+What is the county of residence of the patient with the ID $patient_id?
+What is the health care coverage status of the patient with the ID $patient_id?
+What is the income status of the patient with the ID $patient_id?
+When was the patient with the ID $patient_id born?
+Where was the patient with the ID $patient_id born?
+From which state is the patient with the ID $patient_id?
+Which ethnicity does the patient with the ID $patient_id have?
+Can you provide information about the birth location of the patient with the ID $patient_id?
+Can you tell me the ethnic heritage of the patient whose ID matches $patient_id?
+Do you have the name of the patient corresponding to the ID $patient_id?
+Can you tell me the gender of the patient whose ID matches $patient_id?
+Could you specify the address of the patient with the ID $patient_id?
+Could you provide me with the income status of the patient whose ID matches $patient_id?
+What is the birthdate of the patient named $first_name $last_name?
+What is the ethnicity of the patient named $first_name $last_name?
+What is the gender of the patient named $first_name $last_name?
+What is the birthplace of the patient named $first_name $last_name?
+What is the address of the patient named $first_name $last_name?
+What is the city of residence of the patient named $first_name $last_name?
+What is the state of residence of the patient named $first_name $last_name?
+What is the county of residence of the patient named $first_name $last_name?
+What is the health care coverage status of the patient named $first_name $last_name?
+What is the income status of the patient named $first_name $last_name?
+When was the patient named $first_name $last_name born?
+Where was the patient named $first_name $last_name born?
+From which state is the patient named $first_name $last_name?
+Which ethnicity does the patient named $last_name have?
+Which ethnicity does patient $first_name have?
+Which ethnicity does the patient named $first_name $last_name have?
+Which allergies does the patient named $first_name $last_name have?
+What procedures did the patient named $first_name $last_name undergo?
+Which procedure codes did the patient named $first_name $last_name undergo?
+What condition did the patient named $first_name $last_name have?
+Can you tell me the birthdate of the patient named $first_name $last_name?
+Could you provide information about the ethnicity of the patient named $first_name $last_name?
+Could you provide information about the gender of the patient named $first_name $last_name?

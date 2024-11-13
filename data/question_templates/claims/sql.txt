@@ -1,0 +1,11 @@
+SELECT currentillnessdate FROM claims WHERE id='$claim_id';
+SELECT departmentid FROM claims WHERE id='$claim_id';
+SELECT diagnosis1, diagnosis2, diagnosis3, diagnosis4, diagnosis5, diagnosis6 FROM claims WHERE id='$claim_id';
+SELECT servicedate FROM claims WHERE id='$claim_id';
+SELECT DISTINCT p.first, p.last FROM claims cl LEFT JOIN patients p ON cl.patientid= p.id WHERE cl.id='$claim_id';
+SELECT DISTINCT pr.name FROM claims cl LEFT JOIN providers pr ON cl.providerid=pr.id WHERE cl.id='$claim_id';
+SELECT departmentid FROM claims WHERE id='$claim_id';
+SELECT diagnosis1, diagnosis2, diagnosis3, diagnosis4, diagnosis5, diagnosis6 departmentid FROM claims WHERE id='$claim_id';
+SELECT servicedate FROM claims WHERE id='$claim_id';
+SELECT DISTINCT p.first, p.last FROM claims cl LEFT JOIN patients p ON cl.patientid= p.id WHERE cl.id='$claim_id';
+SELECT DISTINCT pr.name FROM claims cl LEFT JOIN providers pr ON cl.providerid=pr.id WHERE cl.id='$claim_id';

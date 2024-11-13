@@ -1,0 +1,28 @@
+name: sm3
+dependencies:
+- python=3.11
+- pip
+- pip:
+  # Postgres dependencies
+  - psycopg2-binary
+  - sqlalchemy
+
+  # misc
+  - google-generativeai
+  - pandas
+  - requests
+  - openai
+  - groq
+  - vertexai
+  - google.cloud
+  - jupyterlab
+
+  # Mongo db dependencies
+  - pymongo
+
+# graph db
+  - synthea-rdf
+  - pathlib
+  - rdflib>=6.3.2
+  - rdflib-jsonld>=0.6.2
+  - requests.auth

@@ -1,0 +1,393 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"db.providers.aggregate([ { $match: { FIRST: ""Crystle668"", LAST: ""McCullough561"" } }, { $project: { _id: 0, SPECIALTY: 1 } } ]);",0.5899512767791748
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""ee88b224-1f91-8c6a-493a-46e8004c4331"" } }, { $project: { _id: 0, BODY_SITE_CODE: 1, DESCRIPTION: 1 } } ]);",1.2949140071868896
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"db.patients.aggregate([ 
+    { $unwind: ""$IMMUNIZATIONS"" }, 
+    { $match: { ""IMMUNIZATIONS.IMMUNIZATION_NAME"": ""Influenza seasonal injectable preservative free"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",1.02066969871521
+What is the description of the device with code 170615005?,"db.devices.find({ DEVICE_CODE: ""170615005"" }, { DESCRIPTION: 1, _id: 0 })",0.6328897476196289
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,"db.supplies.aggregate([ { $match: { NAME: ""Continuous positive airway pressure nasal oxygen cannula (physical object)"" } }, { $project: { _id: 0, CODE: 1 } } ]);",0.7722146511077881
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""79942d67-05c5-5c61-336d-4be332d76720"" } }, { $project: { _id: 0, REASON_CODE: 1, REASON_DESCRIPTION: 1 } } ]);",0.6641573905944824
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"db.patients.aggregate([ 
+    { $unwind: ""$PAYERS"" }, 
+    { $match: { ""PAYERS.PAYER_ID"": ""0133f751-9229-3cfd-815f-b6d4979bdd6a"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",6.310026168823242
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.MEDICATION"": ""Simvastatin 10 MG Oral Tablet"" } }, 
+    { $group: { _id: null, successCount: { $sum: { $eq: [""$CLAIMS.CLAIM_TRANSACTIONS.OUTCOME"", ""Success""] } }, totalCount: { $sum: 1 } } }, 
+    { $project: { _id: 0, successRate: { $divide: [""$successCount"", ""$totalCount""] } } } ]);",6.572273015975952
+Which patient had the allergy House dust mite (organism)?,"db.patients.aggregate([ { $match: { ""ALLERGIES.ALLERGY_NAME"": ""House dust mite (organism)"" } }, { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",0.6786229610443115
+Please provide me the patients treated with the procedure of code 710841007.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.CODE"": ""710841007"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",1.0591092109680176
+What kind of allergy has the code 84489001?,"db.allergies.find({ CODE: ""84489001"" }, { _id: 0, DESCRIPTION: 1 })",0.9105498790740967
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"db.patients.aggregate([ { $match: { ""INSURANCE.PAYER_ID"": ""b046940f-1664-3047-bca7-dfa76be352a4"" } }, { $group: { _id: ""$PATIENT_ID"" } }, { $count: ""unique_customers"" } ]);",1.2946805953979492
+What code does observation Body Height have?,"db.observations.aggregate([ { $match: { CODE: ""Body Height"" } }, { $project: { _id: 0, CODE: 1, OBSERVATION_CODE: 1 } } ]);",0.5454061031341553
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,"db.providers.aggregate([ { $match: { PROVIDER_ID: ""301f9141-3dbc-38f3-bca9-7c909a84caa9"" } }, { $project: { _id: 0, SPECIALTY: 1 } } ]);",0.6248946189880371
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,"db.claims.aggregate([ { $unwind: ""$CLAIM_ITEMS"" }, { $match: { ""CLAIM_ITEMS.MEDICATION"": ""Warfarin Sodium 5 MG Oral Tablet"" } }, { $project: { _id: 0, COST: ""$CLAIM_ITEMS.COST"" } } ]);",0.744809627532959
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"db.patients.find({PATIENT_ID: ""c17a5539-74aa-4805-e623-fdaf4a31dfd9""}, {BIRTH_CITY: 1, BIRTH_STATE: 1, BIRTH_COUNTRY: 1, _id: 0})",0.6719424724578857
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"db.procedures.aggregate([ { $match: { ""PAYER_ID"": ""d31fccc3-1767-390d-966a-22a5156f4219"" } }, { $group: { _id: null, count: { $sum: 1 } } } ]);",0.6519119739532471
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"db.encounters.aggregate([ { $match: { PAYER: ""NO_INSURANCE"" } }, { $count: ""COUNT"" } ]);",1.0219178199768066
+What is the state of residence of the patient named Carin553 Jerde200?,"db.patients.find({FIRST: ""Carin553"", LAST: ""Jerde200""}, {STATE: 1, _id: 0})",0.515214204788208
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""7d52afa5-9282-64ef-e08c-c66f1a53e7f2"" } }, { $project: { _id: 0, MODALITY_CODE: 1 } } ]);",0.5935204029083252
+Please provide me the patient with the supply with the code 972002.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES.CODE"": ""972002"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",0.9558568000793457
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,"db.imaging_studies.aggregate([ { $match: { ""SERIES_UID"": ""1.2.840.99999999.1.97267088.1424332927924"" } }, { $project: { _id: 0, STUDY_DATE: 1 } } ]);",0.5958266258239746
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,"db.imaging_studies.aggregate([ { $match: { ""SERIES_UID"": ""1.2.840.99999999.1.93465008.1702305862410"" } }, { $project: { _id: 0, STUDY_DATE: 1 } } ]);",0.6149356365203857
+When did the allergy with the code 84489001 end?,"db.patients.aggregate([ 
+    { $unwind: ""$ALLERGIES"" }, 
+    { $match: { ""ALLERGIES.CODE"": ""84489001"" } }, 
+    { $project: { _id: 0, END_DATE: ""$ALLERGIES.END_DATE"" } } ]);",0.7291576862335205
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"db.patients.aggregate([ 
+    { $unwind: ""$IMAGING_STUDIES"" }, 
+    { $unwind: ""$IMAGING_STUDIES.SERIES"" }, 
+    { $match: { ""IMAGING_STUDIES.SERIES.UID"": ""1.2.840.99999999.1.30162925.1683721997276"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",1.2635633945465088
+What is the marital status of Kermit56 Rutherford999?,"db.patients.find({FIRST: ""Kermit56"", LAST: ""Rutherford999""}, {MARITAL_STATUS: 1, _id: 0})",0.5332455635070801
+In which encounter was a procedure with code 10383002 performed?,"db.encounters.aggregate([ { $unwind: ""$PROCEDURES"" }, { $match: { ""PROCEDURES.CODE"": ""10383002"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",0.9332950115203857
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa"" } }, { $project: { _id: 0, MODALITY_DESCRIPTION: 1 } } ]);",0.7706577777862549
+What is the address of the patient named Stefania815 West559?,"db.patients.find({FIRST: ""Stefania"", LAST: ""West559""}, {ADDRESS: 1, _id: 0})",0.5123312473297119
+What is the base cost of the medication with the code 197604?,"db.medications.aggregate([ { $match: { CODE: ""197604"" } }, { $project: { _id: 0, BASE_COST: 1 } } ]);",0.5227015018463135
+Please provide me the patient with the supply with the code 409534002.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES.CODE"": ""409534002"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",0.8851668834686279
+Can you tell me when the observation with the code QALY was recorded?,"db.observations.aggregate([ { $match: { ""CODE"": ""QALY"" } }, { $project: { _id: 0, EFFECTIVE_DATE: 1 } } ]);",1.2523808479309082
+What is the address of the patient named Margie619 Strosin214?,"db.patients.find({FIRST: ""Margie619"", LAST: ""Strosin214""}, {ADDRESS: 1, _id: 0})",0.931912899017334
+Who is the patient associated with the supply with the code 463659001?,"db.patients.aggregate([ 
+    { $unwind: ""$SUPPLIES"" }, 
+    { $match: { ""SUPPLIES.SUPPLY_CODE"": ""463659001"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",0.9976482391357422
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"db.claims.aggregate([ { $unwind: ""$CLAIM_TRANSACTIONS"" }, { $match: { ""CLAIM_TRANSACTIONS.TRANSACTION_ID"": ""576550eb-d73b-1996-b14a-f68254146bf8"" } }, { $project: { _id: 0, PROCEDURE_CODE: ""$CLAIM_TRANSACTIONS.PROCEDURE_CODE"" } } ]);",1.9246294498443604
+Which encounter is related to the allergy with the code 84489001?,"db.patients.aggregate([ 
+    { $unwind: ""$ALLERGY_LIST"" }, 
+    { $match: { ""ALLERGY_LIST.CODE"": ""84489001"" } }, 
+    { $project: { _id: 0, ENCOUNTER: 1 } } ]);",3.061152219772339
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,"db.claims.aggregate([ 
+    { $unwind: ""$CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIM_TRANSACTIONS.TRANSACTION_ITEMS"" }, 
+    { $match: { ""CLAIM_TRANSACTIONS.TRANSACTION_ITEMS.MEDICATION"": ""Digoxin 0.125 MG Oral Tablet"" } }, 
+    { $project: { _id: 0, PAYER: ""$CLAIM_TRANSACTIONS.PAYER"" } }, 
+    { $group: { _id: ""$PAYER"" } }, 
+    { $project: { _id: 0, PAYER: ""$_id"" } } ]);",3.0888748168945312
+Who has been treated for the condition with code 706893006?,"db.patients.aggregate([ 
+    { $unwind: ""$CONDITIONS"" }, 
+    { $match: { ""CONDITIONS.CODE"": ""706893006"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",3.090235948562622
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"db.patients.aggregate([ 
+    { $unwind: ""$MEDICATIONS"" }, 
+    { $match: { ""MEDICATIONS.MEDICATION_NAME"": ""amLODIPine 2.5 MG Oral Tablet"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",4.095670461654663
+Please provide me the encounters which are related to the observation DALY.,"db.encounters.aggregate([ { $match: { ""OBSERVATIONS.OBSERVATION"": ""DALY"" } }, { $unwind: ""$OBSERVATIONS"" }, { $project: { _id: 0, ENCOUNTER_ID: 1, OBSERVATIONS: 1 } }, { $group: { _id: { ENCOUNTER_ID: ""$ENCOUNTER_ID"" } } }, { $project: { _id: 0, ENCOUNTER_ID: ""$_id.ENCOUNTER_ID"" } } ]);",6.603695631027222
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"db.claims.aggregate([ 
+    { $match: { CLAIM_ID: ""68140758-17f3-541c-8d04-e2d06b91e442"" } }, 
+    { $unwind: ""$DIAGNOSES"" }, 
+    { $project: { _id: 0, DIAGNOSIS: ""$DIAGNOSES.DIAGNOSIS"" } } ]);",0.7193207740783691
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,"db.encounters.aggregate([ { $unwind: ""$SUPPLIES"" }, { $match: { ""SUPPLIES.SUPPLY_NAME"": ""CPAP/BPAP oral mask (physical object)"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, SUPPLIES: { SUPPLY_NAME: 1 } } } ]);",1.5070757865905762
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""781242f7-dd9c-8a26-181a-65898eb64eb4"" } }, { $project: { _id: 0, BODY_SITE_CODE: 1 } } ]);",1.0707769393920898
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"db.encounters.aggregate([ { $match: { ""_id"": ""148005b7-cfc4-feb7-9860-3d2afde95c82"" } }, { $project: { PAYER: 1 } } ]);",4.897219657897949
+Can you tell me when the allergy with the code 419199007 was recorded?,"db.patients.aggregate([ { $unwind: ""$ALLERGIES"" }, { $match: { ""ALLERGIES.CODE"": ""419199007"" } }, { $project: { _id: 0, RECORD_DATE: ""$ALLERGIES.RECORD_DATE"" } } ]);",1.3870315551757812
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"db.encounters.aggregate([ { $match: { ""CARE_PLAN.CARE_PLAN_NAME"": ""Musculoskeletal care"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, CARE_PLAN: 1 } } ]);",4.308395147323608
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"db.claims.aggregate([ { $match: { CLAIM_ID: ""e964b40d-7106-0a64-69b5-8c18493de4f2"" } }, { $project: { _id: 0, SERVICE_DATE: 1 } } ]);",1.4659886360168457
+What are the typical symptoms of the allergy described as House dust mite (organism)?,"db.allergies.aggregate([ { $match: { NAME: ""House dust mite (organism)"" } }, { $project: { _id: 0, SYMPTOMS: 1 } } ]);",1.8373584747314453
+How many procedures are covered by the payer Aetna?,"db.procedures.aggregate([ { $match: { ""PAYERS.PAYER_NAME"": ""Aetna"" } }, { $unwind: ""$PAYERS"" }, { $project: { _id: 0, PROCEDURE_CODE: 1 } }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } } ]);",6.519477844238281
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.MEDICATION"": ""NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector"" } }, 
+    { $group: { _id: null, successCount: { $sum: { $eq: [""$CLAIMS.CLAIM_TRANSACTIONS.OUTCOME"", ""Success""] } }, totalCount: { $sum: 1 } } }, 
+    { $project: { _id: 0, successRate: { $divide: [""$successCount"", ""$totalCount""] } } } ]);",1.0938498973846436
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,"db.claims.aggregate([ { $match: { CLAIM_ID: ""eeb3c5ce-d328-49a1-1abb-9396da4163fd"" } }, { $project: { _id: 0, CLAIM_COST: 1 } } ]);",3.316648244857788
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"db.organizations.aggregate([ { $match: { NAME: ""BAYADA HOME HEALTH CARE  INC."" } }, { $project: { _id: 0, ADDRESS: 1 } } ]);",0.5663774013519287
+Please provide me the patients receiving aid under the care plan with code 225358003.,"db.patients.aggregate([ 
+    { $unwind: ""$CARE_PLANS"" }, 
+    { $match: { ""CARE_PLANS.CARE_PLAN_CODE"": ""225358003"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",3.101224899291992
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"db.patients.find({PATIENT_ID: ""a8c144a7-9e79-fccc-1f57-4035b2aa9fea""}, {BIRTH_PLACE: 1, _id: 0})",2.7458527088165283
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"db.patients.aggregate([{$match: {""ORGANIZATION_ID"": ""8e3ca57f-6f74-3d61-9803-ab1424290216""}}, {$project: {_id: 0, FIRST: 1, LAST: 1}}]);",2.776317596435547
+Give me the encounters that are related to the immunization Hep B  adult.,"db.encounters.aggregate([ { $match: { ""IMMUNIZATIONS.IMMUNIZATION_NAME"": ""Hep B adult"" } }, { $unwind: ""$IMMUNIZATIONS"" }, { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } ]);",3.0799357891082764
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,"db.patients.find({PATIENT_ID: ""8d636878-c54c-3fcf-6300-b65c2a9e0dc9""}, {FIRST: 1, _id: 0})",3.961257219314575
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"db.encounters.aggregate([ 
+    { $unwind: ""$IMAGING_STUDIES"" }, 
+    { $unwind: ""$IMAGING_STUDIES.SERIES"" }, 
+    { $match: { ""IMAGING_STUDIES.SERIES.SERIES_UID"": ""1.2.840.99999999.1.54352820.1609167132933"" } }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",1.9363012313842773
+What procedures did the patient named Margot418 Rolfson709 undergo?,"db.patients.aggregate([ { $match: { FIRST: ""Margot418"", LAST: ""Rolfson709"" } }, { $unwind: ""$CLAIMS"" }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" }, { $project: { _id: 0, PROCEDURE_CODE: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.PROCEDURE_CODE"" } }, { $group: { _id: { PROCEDURE_CODE: ""$PROCEDURE_CODE"" } } }, { $project: { _id: 0, PROCEDURE_CODE: ""$_id.PROCEDURE_CODE"" } } ]);",3.1095337867736816
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"db.payers.aggregate([ { $match: { PAYER_ID: ""8fa6c185-e44e-3e34-8bd8-39be8694f4ce"" } }, { $unwind: ""$CUSTOMERS"" }, { $group: { _id: ""$CUSTOMERS.CUSTOMER_ID"" } }, { $count: ""COUNT"" } ]);",2.9758927822113037
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"db.patients.find({PATIENT_ID: ""51c2d782-1f36-657d-5618-42df22e39681""}, {BIRTH_PLACE: 1, _id: 0})",2.844183921813965
+Please provide me the number of medications uncovered by the payer Humana.,"db.claims.aggregate([ { $match: { ""PAYER"": ""Humana"" } }, { $unwind: ""$MEDICATIONS"" }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } } ]);",2.8162171840667725
+In which encounter was a procedure with code 428211000124100 performed?,"db.encounters.aggregate([ 
+    { $unwind: ""$PROCEDURES"" }, 
+    { $match: { ""PROCEDURES.CODE"": ""428211000124100"" } }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",2.9065070152282715
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"db.patients.find({PATIENT_ID: ""c4d58109-7898-dd23-c4e9-b1ea0a6fe79a""}, {STATE_OF_RESIDENCE: 1, _id: 0})",3.4602296352386475
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"db.patients.aggregate([ 
+    { $match: { ""CLAIMS.CLAIM_ID"": ""cca769d0-09e0-72f9-23aa-e6ddb2200792"" } }, 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",2.083523750305176
+What is the description of the allergy with the code 3718001?,"db.allergies.find({ CODE: ""3718001"" }, { DESCRIPTION: 1, _id: 0 })",2.8353614807128906
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"db.organizations.aggregate([ { $match: { ""_id"": ""844a8cb2-4164-35b2-88b8-dffa2889a738"" } }, { $unwind: ""$ASSOCIATED_INDIVIDUALS"" }, { $project: { _id: 0, FIRST: ""$ASSOCIATED_INDIVIDUALS.FIRST"", LAST: ""$ASSOCIATED_INDIVIDUALS.LAST"" } } ]);",4.8356592655181885
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"db.patients.aggregate([ { $unwind: ""$CLAIMS"" }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, { $match: { ""CLAIMS.PAYER"": ""NO_INSURANCE"" } }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.MEDICATIONS"" }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } } ]);",1.2846362590789795
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,"db.claims.aggregate([ 
+    { $unwind: ""$CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIM_TRANSACTIONS.TRANSACTION_ITEMS"" }, 
+    { $match: { ""CLAIM_TRANSACTIONS.TRANSACTION_ITEMS.MEDICATION"": ""Alendronic acid 10 MG Oral Tablet"" } }, 
+    { $project: { _id: 0, PAYER: 1 } }, 
+    { $group: { _id: { PAYER: ""$PAYER"" } } }, 
+    { $project: { _id: 0, PAYER: ""$_id.PAYER"" } } ]);",2.0388808250427246
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"db.imaging_studies.aggregate([ { $match: { ""SERIES_UID"": ""1.2.840.99999999.1.57895833.1595237299924"" } }, { $project: { _id: 0, SOP_CODE: 1 } } ]);",2.9667999744415283
+Please provide me a reason for the use of the care plan with code 134435003.,"db.care_plans.aggregate([ 
+    { $match: { CODE: ""134435003"" } }, 
+    { $project: { _id: 0, REASON: 1 } } 
+]);",2.871663808822632
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"db.patients.aggregate([{$match: {""ORGANIZATION_ID"": ""2befa435-3070-3350-a15c-e43ac1e84b24""}}, {$project: {_id: 0, FIRST: 1, LAST: 1}}]);",3.1054461002349854
+In which city is the provider named Lynsey2 Lemke654 located?,"db.providers.aggregate([ { $match: { PROVIDER_NAME: ""Lynsey2 Lemke654"" } }, { $project: { _id: 0, PROVIDER_CITY: 1 } } ]);",3.01440691947937
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,"db.patients.find({ PATIENT_ID: ""cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d"" }, { BIRTHDATE: 1, _id: 0 });",2.7862610816955566
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""707c24b4-b715-02aa-5f9b-1712d336b98e"" } }, { $unwind: ""$PAYERS"" }, { $project: { _id: 0, PAYER_NAME: ""$PAYERS.PAYER_NAME"" } } ]);",2.949331045150757
+What encounter is associated with the supply with the code 713779008?,"db.supplies.aggregate([ { $match: { CODE: ""713779008"" } }, { $unwind: ""$ENCOUNTERS"" }, { $project: { _id: 0, ENCOUNTER_ID: ""$ENCOUNTERS.ENCOUNTER_ID"" } }, { $group: { _id: { ENCOUNTER_ID: ""$ENCOUNTER_ID"" } } }, { $project: { _id: 0, ENCOUNTER_ID: ""$_id.ENCOUNTER_ID"" } } ]);",3.0322296619415283
+What is the name of allergy with the code 782576004?,"db.allergies.find({ CODE: ""782576004"" }, { NAME: 1, _id: 0 })",2.7257239818573
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""5ad9a317-b195-585e-c638-29e057061c9e"" } }, { $project: { _id: 0, BODY_SITE_CODE: 1 } } ]);",2.7869036197662354
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"db.encounters.aggregate([ { $match: { ""PAYER_ID"": ""e03e23c9-4df1-3eb6-a62d-f70f02301496"", ""IS_COVERED"": false } }, { $count: ""uncovered_encounters"" } ]);",3.1089468002319336
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,"db.organizations.aggregate([ { $match: { NAME: ""NANTUCKET COTTAGE HOSPITAL"" } }, { $project: { _id: 0, CITY: 1 } } ]);",3.3217599391937256
+When was the patient named Micah422 Buckridge80 born?,"db.patients.find({ FIRST: ""Micah422"", LAST: ""Buckridge80"" }, { BIRTH_DATE: 1, _id: 0 })",1.7454657554626465
+Please provide me the number of immunizations uncovered by the payer Anthem.,"db.claims.aggregate([ { $match: { PAYER: ""Anthem"", CLAIM_TRANSACTIONS.SERVICE_CODE: ""IMMUNIZATION"" } }, { $group: { _id: null, count: { $sum: 1 } } } ]);",2.806662082672119
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"db.encounters.aggregate([ { $match: { ""_id"": ""d9415cfe-d6b7-b89d-b0f8-a763566d7c88"" } }, { $project: { _id: 0, PAYER: 1 } } ]);",2.9397809505462646
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""669895f1-6552-f541-6faf-4a89f43b429d"" } }, { $project: { _id: 0, ENCOUNTER_TYPE: 1 } } ]);",3.5087196826934814
+What kind of allergy has the code 5640?,"db.allergies.find({ CODE: ""5640"" }, { _id: 0, DESCRIPTION: 1 })",1.9317247867584229
+What is the address of the provider named Katelynn452 Ledner144?,"db.providers.aggregate([ { $match: { NAME: ""Katelynn452 Ledner144"" } }, { $project: { _id: 0, ADDRESS: 1 } } ]);",2.7685751914978027
+Please provide me the encounters that were related to the allergy Mold (organism).,"db.encounters.aggregate([ { $match: { ""ALLERGY.ID"": ""Mold (organism)"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } ]);",2.967613697052002
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""10a48862-79c6-036e-e572-f80160131cd0"" } }, { $unwind: ""$REASON_CODES"" }, { $project: { _id: 0, REASON_CODE: ""$REASON_CODES.CODE"", DESCRIPTION: ""$REASON_CODES.DESCRIPTION"" } } ]);",3.083339214324951
+What is the description of the allergy with the code 419199007?,"db.allergies.find({ CODE: ""419199007"" }, { DESCRIPTION: 1, _id: 0 })",3.0707716941833496
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"db.encounters.aggregate([ 
+    { $unwind: ""$IMAGING_STUDIES"" }, 
+    { $unwind: ""$IMAGING_STUDIES.SERIES"" }, 
+    { $match: { ""IMAGING_STUDIES.SERIES.SERIES_UID"": ""1.2.840.99999999.1.60733233.1559399876087"" } }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",4.444061040878296
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"db.claims.aggregate([ { $match: { PAYER_ID: ""e03e23c9-4df1-3eb6-a62d-f70f02301496"" } }, { $unwind: ""$CLAIM_TRANSACTIONS"" }, { $group: { _id: null, revenue: { $sum: ""$CLAIM_TRANSACTIONS.AMOUNT"" } } }, { $project: { _id: 0, revenue: 1 } } ]);",0.7260143756866455
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,"db.organizations.find({ NAME: ""MIDDLETON FAMILY MEDICINE URGENT CARE LLC"" }, { ADDRESS: 1, _id: 0 })",2.867426633834839
+What is the reason for using the care plan with code 53950000?,"db.care_plans.aggregate([ { $match: { CODE: ""53950000"" } }, { $project: { _id: 0, REASON: 1 } } ]);",2.720484495162964
+What is the marital status of Tabatha105 Fisher429?,"db.patients.aggregate([ { $match: { FIRST: ""Tabatha105"", LAST: ""Fisher429"" } }, { $project: { _id: 0, MARITAL_STATUS: 1 } } ]);",5.718864917755127
+Which ethnicity does patient Marcie463 have?,"db.patients.find({FIRST: ""Marcie463""}, {ETHNICITY: 1, _id: 0})",0.6962668895721436
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"db.claims.aggregate([ 
+    { $match: { ""PAYER_ID"": ""26aab0cd-6aba-3e1b-ac5b-05c8867e762c"" } }, 
+    { $unwind: ""$CLAIM_ITEMS"" }, 
+    { $match: { ""CLAIM_ITEMS.COVERAGE_TYPE"": ""UNCOVERED"" } }, 
+    { $group: { _id: null, count: { $sum: 1 } } }, 
+    { $project: { _id: 0, count: 1 } } ]);",3.0564770698547363
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"db.organizations.aggregate([ { $match: { NAME: ""SERENITY HILL NURSING CENTER"" } }, { $unwind: ""$ASSOCIATED_WITH"" }, { $project: { _id: 0, FIRST: ""$ASSOCIATED_WITH.FIRST"", LAST: ""$ASSOCIATED_WITH.LAST"" } } ]);",2.9284489154815674
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"db.organizations.find({ORGANIZATION_ID: ""9d0e702d-50a0-3f4c-9126-0951d560fd4b""}, {ADDRESS: 1, _id: 0})",3.1398720741271973
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,"db.organizations.aggregate([ { $match: { NAME: ""ARBOUR-FULLER HOSPITAL"" } }, { $project: { _id: 0, CITY: 1 } } ]);",3.2891030311584473
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"db.immunizations.aggregate([ { $match: { IMMUNIZATION: ""Influenza seasonal injectable preservative free"" } }, { $project: { _id: 0, DATE_ADMINISTERED: 1 } } ]);",1.7448770999908447
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""8602cd94-fcbe-0506-b4c0-f25e5e6619de"" } }, { $project: { _id: 0, ENCOUNTER_TYPE: 1 } } ]);",2.89681339263916
+What is the start date of the care plan with code 385691007?,"db.care_plans.aggregate([ { $match: { CODE: ""385691007"" } }, { $project: { _id: 0, START_DATE: 1 } } ]);",2.755838394165039
+What is the stop date of the condition with code 73595000?,"db.conditions.aggregate([ { $match: { CODE: ""73595000"" } }, { $project: { _id: 0, STOP_DATE: 1 } } ]);",2.72908091545105
+What is the type of the allergy with the code 264287008?,"db.allergies.find({ CODE: ""264287008"" }, { TYPE: 1, _id: 0 })",3.271050214767456
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,"db.organizations.aggregate([ { $unwind: ""$ENCOUNTERS"" }, { $match: { ""ENCOUNTERS.ENCOUNTER_ID"": ""1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689"" } }, { $project: { _id: 0, ORGANIZATION_NAME: 1 } } ]);",1.9480915069580078
+Please provide me the type of an observation with the code 89204-2.,"db.observations.aggregate([ { $match: { ""CODE"": ""89204-2"" } }, { $project: { _id: 0, TYPE: 1 } } ]);",2.8198883533477783
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"db.codes.aggregate([ { $match: { CODE: ""Td (adult) 5 Lf tetanus toxoid preservative free adsorbed"" } }, { $project: { _id: 0, COST: 1 } } ]);",3.147735595703125
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"db.patients.aggregate([ { $match: { FIRST: ""Ora550"", LAST: ""Luettgen772"" } }, { $unwind: ""$HEALTH_CARE_COVERAGE"" }, { $project: { _id: 0, HEALTH_CARE_COVERAGE_STATUS: ""$HEALTH_CARE_COVERAGE.STATUS"" } } ]);",2.9056386947631836
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,"db.encounters.aggregate([ { $match: { ""PROCEDURES.PROCEDURE_NAME"": ""Assessment of health and social care needs"" } }, { $unwind: ""$PROCEDURES"" }, { $project: { _id: 0, ENCOUNTER_ID: 1, PROCEDURES: { PROCEDURE_NAME: 1 } } } ]);",3.627284049987793
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"db.patients.aggregate([ { $match: { ""ORGANIZATION_NAME"": ""LEOMINSTER COMUNITY HEALTH CENTER"" } }, { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",3.2808310985565186
+How many immunizations are covered by the payer NO_INSURANCE?,"db.claims.aggregate([ { $match: { PAYER: ""NO_INSURANCE"", CLAIM_TRANSACTIONS: { $elemMatch: { TRANSACTION_CODE: ""IMMUNIZATION"" } } } }, { $count: ""IMMUNIZATION_COUNT"" } ]);",0.6058425903320312
+In which encounter is the medication with the code 313782 administered?,"db.encounters.aggregate([ { $unwind: ""$MEDICATIONS"" }, { $match: { ""MEDICATIONS.CODE"": ""313782"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",3.275954008102417
+What is the udi code for the device with code 336621006?,"db.devices.aggregate([ { $match: { DEVICE_CODE: ""336621006"" } }, { $project: { _id: 0, UDI_CODE: 1 } } ]);",3.0045015811920166
+Please provide me the encounters that are related to the medication with the code 314076.,"db.encounters.aggregate([ { $match: { ""MEDICATIONS.CODE"": ""314076"" } }, { $unwind: ""$MEDICATIONS"" }, { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } ]);",1.798060417175293
+What is the type of the observation with the code 8867-4?,"db.observations.find({ ""CODE"": ""8867-4"" }, { _id: 0, TYPE: 1 })",2.733182191848755
+What is the total number of member months of the payer Medicaid?,"db.patients.aggregate([ { $unwind: ""$CLAIMS"" }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, { $match: { ""CLAIMS.PAYER"": ""Medicaid"" } }, { $group: { _id: null, totalMemberMonths: { $sum: ""$CLAIMS.MEMBER_MONTHS"" } } }, { $project: { _id: 0, totalMemberMonths: 1 } } ]);",2.908862829208374
+What is the encounter associated with the immunization with code 140?,"db.immunizations.aggregate([ { $match: { ""IMMUNIZATION_CODE"": ""140"" } }, { $unwind: ""$ENCOUNTERS"" }, { $project: { _id: 0, ENCOUNTER_ID: ""$ENCOUNTERS.ENCOUNTER_ID"" } } ]);",3.8031673431396484
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783"" } }, { $project: { _id: 0, REASON_FOR_ENCOUNTER: 1 } } ]);",1.853792667388916
+Which ethnicity does the patient named Zboncak558 have?,"db.patients.find({ FIRST: ""Zboncak558"" }, { ETHNICITY: 1, _id: 0 })",3.5845234394073486
+What is the reason for using the care plan with code 384758001?,"db.care_plans.aggregate([ { $match: { CODE: ""384758001"" } }, { $project: { _id: 0, REASON: 1 } } ]);",2.2139816284179688
+Where was the patient named Isaac321 Rempel203 born?,"db.patients.find({FIRST: ""Isaac321"", LAST: ""Rempel203""}, {BIRTH_PLACE: 1, _id: 0})",1.704155445098877
+Please provide me the patients with the condition Part-time employment (finding).,"db.patients.aggregate([ { $unwind: ""$CONDITIONS"" }, { $match: { ""CONDITIONS.DESCRIPTION"": ""Part-time employment"" } }, { $project: { _id: 0, FIRST: 1, LAST: 1 } }, { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",3.063217878341675
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"db.procedures.aggregate([ { $match: { ""PAYER"": ""UnitedHealthcare"" } }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } } ]);",2.8155019283294678
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"db.encounters.aggregate([ { $match: { PAYER: ""NO_INSURANCE"" } }, { $count: ""COUNT"" } ]);",2.7054905891418457
+Please provide me the encounters that were related to the allergy Lisinopril.,"db.encounters.aggregate([ { $match: { ""ALLERGY_LIST.ALLERGY_NAME"": ""Lisinopril"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } ]);",3.7976417541503906
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"db.patients.aggregate([ { $match: { ""PAYER_ID"": ""e03e23c9-4df1-3eb6-a62d-f70f02301496"" } }, { $unwind: ""$MEMBERSHIPS"" }, { $group: { _id: null, total_months: { $sum: ""$MEMBERSHIPS.MONTHS_AS_MEMBER"" } } }, { $project: { _id: 0, total_months: 1 } } ]);",2.888317108154297
+What is the reason for using the care plan with code 443402002?,"db.care_plans.aggregate([ { $match: { CODE: ""443402002"" } }, { $project: { _id: 0, REASON: 1 } } ]);",1.8694400787353516
+Can you tell me when the observation Heart rate was recorded?,"db.observations.aggregate([ { $match: { OBSERVATION: ""Heart rate"" } }, { $project: { _id: 0, RECORD_DATE: 1 } } ]);",6.516437530517578
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"db.codes.aggregate([ { $match: { CODE: ""Influenza seasonal injectable preservative free"" } }, { $project: { _id: 0, BASE_COST: 1 } } ]);",2.2031211853027344
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,"db.claims.aggregate([ 
+    { $unwind: ""$CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIM_TRANSACTIONS.TRANSACTIONS"" }, 
+    { $match: { ""CLAIM_TRANSACTIONS.TRANSACTIONS.MEDICATION"": ""Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet"" } }, 
+    { $project: { _id: 0, PAYER: 1 } }, 
+    { $group: { _id: { PAYER: ""$PAYER"" } } }, 
+    { $project: { _id: 0, PAYER: ""$_id.PAYER"" } } ]);",0.8699150085449219
+What is the reaction code of the allergy with the code 84489001?,"db.allergies.aggregate([ { $match: { ""ALLERGY_CODE"": ""84489001"" } }, { $project: { _id: 0, REACTION_CODE: 1 } } ]);",0.5295484066009521
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"db.claims.aggregate([ { $match: { CLAIM_ID: ""2bbdb236-5c11-f4e9-9a40-33fb408555f6"" } }, { $project: { _id: 0, DEPARTMENT_ID: 1 } } ]);",2.938248634338379
+In which encounter was a procedure with code 713106006 performed?,"db.encounters.aggregate([ 
+    { $unwind: ""$PROCEDURES"" }, 
+    { $match: { ""PROCEDURES.CODE"": ""713106006"" } }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",2.848432779312134
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"db.claims.aggregate([ 
+    { $unwind: ""$CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIM_TRANSACTIONS.TRANSACTION_ID"": ""a3dedfb9-4a55-2c3f-0690-371a8af4a966"" } }, 
+    { $project: { _id: 0, PROCEDURE_CODE: ""$CLAIM_TRANSACTIONS.PROCEDURE_CODE"" } } ]);",2.9421753883361816
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb"" } }, { $project: { _id: 0, REASON_CODE: 1, REASON_DESCRIPTION: 1 } } ]);",4.443697690963745
+When was the care plan Head injury rehabilitation used?,"db.care_plans.aggregate([ { $match: { CARE_PLAN_NAME: ""Head injury rehabilitation"" } }, { $unwind: ""$CARE_PLAN_DATES"" }, { $project: { _id: 0, CARE_PLAN_NAME: 1, CARE_PLAN_DATES: 1 } } ]);",1.2182543277740479
+Please provide me the udi code related to the device Home nebulizer (physical object).,"db.devices.aggregate([ { $match: { DEVICE_NAME: ""Home nebulizer"" } }, { $project: { _id: 0, UDI: 1 } } ]);",1.7680983543395996
+Please provide me the encounters that are related to the observation with the code 785-6.,"db.encounters.aggregate([ 
+    { $match: { ""OBSERVATIONS.CODE"": ""785-6"" } }, 
+    { $unwind: ""$OBSERVATIONS"" }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } 
+]);",2.938760995864868
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"db.claims.aggregate([ 
+    { $unwind: ""$CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIM_TRANSACTIONS.TRANSACTION_ID"": ""f4595e16-3adb-0e82-19f3-62cb0a7638ed"" } }, 
+    { $project: { PROCEDURE_CODE: ""$CLAIM_TRANSACTIONS.PROCEDURE_CODE"" } } ]);",7.177373886108398
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"db.organizations.aggregate([ { $match: { ORGANIZATION_ID: ""34f0b10a-5e29-31de-a75e-e0bb03c0c0d4"" } }, { $project: { _id: 0, ADDRESS: 1 } } ]);",1.0902621746063232
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"db.patients.find({PATIENT_ID: ""96d6e446-5d05-8df3-eff5-b4af55d138bb""}, {STATE_OF_RESIDENCE: 1, _id: 0})",0.549959659576416
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,"db.organizations.aggregate([{$match: {""ORGANIZATION_ID"": ""880fad59-9c38-3a21-a39f-ccc801502ab3""}}, {$project: {_id: 0, ADDRESS: 1}}]);",2.8224904537200928
+Please provide me the udi code related to the device with code 702172008.,"db.devices.aggregate([ { $match: { DEVICE_CODE: ""702172008"" } }, { $project: { _id: 0, UDI_CODE: 1 } } ]);",2.716402053833008
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"db.patients.aggregate([ 
+    { $match: { ""INSURANCE.PAYER_ID"": ""d18ef2e6-ef40-324c-be54-34a5ee865625"" } }, 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $group: { _id: null, avgQualityOfLifeScore: { $avg: ""$QUALITY_OF_LIFE_SCORE"" } } }, 
+    { $project: { _id: 0, avgQualityOfLifeScore: 1 } } ]);",3.573770761489868
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,"db.encounters.aggregate([ { $match: { ""_id"": ""ea22dd39-a110-c7cd-5903-071327281613"" } }, { $lookup: { from: ""organizations"", localField: ""ORGANIZATION_ID"", foreignField: ""_id"", as: ""ORGANIZATION"" } }, { $unwind: ""$ORGANIZATION"" }, { $project: { _id: 0, ORGANIZATION_NAME: ""$ORGANIZATION.NAME"" } } ]);",5.6527769565582275
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"db.patients.aggregate([ 
+    { $match: { ""INSURANCE.PAYER_ID"": ""d18ef2e6-ef40-324c-be54-34a5ee865625"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",0.8550832271575928
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"db.encounters.aggregate([ { $match: { ""PAYER_ID"": ""df166300-5a78-3502-a46a-832842197811"" } }, { $count: ""COUNT"" } ]);",0.9417340755462646
+Please provide me the udi code related to the device with code 337414009.,"db.devices.aggregate([ { $match: { DEVICE_CODE: ""337414009"" } }, { $project: { _id: 0, UDI_CODE: 1 } } ]);",2.1606435775756836
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,"db.devices.aggregate([ { $match: { DEVICE_TYPE: ""Oxygen concentrator"" } }, { $project: { _id: 0, UDI: 1 } } ]);",2.729992389678955
+Please provide me the encounters that are related to the device with code 91537007.,"db.encounters.aggregate([ { $match: { ""DEVICE_ID.CODE"": ""91537007"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, DEVICE_ID: 1 } } ]);",3.3002309799194336
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,"db.allergies.aggregate([ { $match: { DESCRIPTION: ""Allergy to substance (finding)"" } }, { $project: { _id: 0, SNOMED_CODE: 1 } } ]);",1.800765037536621
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""71ee50dd-ea7c-3415-e8d9-8b3a950cf731"" } }, { $project: { _id: 0, SERIES_UID: 1 } } ]);",2.7894465923309326
+Please provide me the encounters that are related to the allergy with the code 264287008.,"db.encounters.aggregate([ { $match: { ""ALLERGY_ID"": ""264287008"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, PATIENT_ID: 1 } } ]);",3.0658061504364014
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"db.encounters.aggregate([ { $match: { ""PAYER_ID"": ""0133f751-9229-3cfd-815f-b6d4979bdd6a"", ""IS_COVERED"": false } }, { $count: ""uncovered_encounters"" } ]);",3.076977491378784
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,"db.patients.find({PATIENT_ID: ""35a38de9-c363-17a5-b2c4-c28f3b1c2ac0""}, {LAST: 1, _id: 0})",2.7612264156341553
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"db.claims.aggregate([ { $match: { CLAIM_ID: ""e9434fb3-0c47-4b84-ca56-c55fb315b772"" } }, { $project: { _id: 0, DEPARTMENT_ID: 1 } } ]);",4.036210060119629
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"db.patients.aggregate([ 
+    { $unwind: ""$PAYERS"" }, 
+    { $match: { ""PAYERS.PAYER_ID"": ""b046940f-1664-3047-bca7-dfa76be352a4"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } } ]);",2.5951383113861084
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"db.payers.aggregate([ { $match: { PAYER_ID: ""26aab0cd-6aba-3e1b-ac5b-05c8867e762c"" } }, { $unwind: ""$COVERAGES"" }, { $match: { ""COVERAGES.COVERAGE_TYPE"": ""IMMUNIZATION"" } }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } } ]);",1.9835193157196045
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"db.patients.find({ FIRST: ""Argelia29"", LAST: ""Altenwerth646"" }, { ETHNICITY: 1, _id: 0 })",2.7613425254821777
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"db.patients.find({ FIRST: ""Rebeca548"", LAST: ""Hansen121"" }, { BIRTHDATE: 1, _id: 0 })",4.009342908859253
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""d3fa7d2e-1bca-65f1-74ae-d326343ab849"" } }, { $project: { _id: 0, SERIES_UID: 1 } } ]);",1.8717617988586426
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""820778b8-5a19-9acf-9dbd-a3be1a1b4a47"" } }, { $project: { _id: 0, MODALITY_DESCRIPTION: 1 } } ]);",4.998178005218506
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""9bda6d29-00c0-24ea-6d31-09c04803fff4"" } }, { $project: { _id: 0, BODY_SITE_DESCRIPTION: 1 } } ]);",0.8883099555969238
+What kind of allergy is described as Mold (organism)?,"db.allergies.find({DESCRIPTION: ""Mold (organism)""}, {DESCRIPTION: 1, ALLERGY_NAME: 1})",3.4347963333129883
+How many patients have the allergy described as Fish (substance)?,"db.patients.aggregate([{ $unwind: ""$ALLERGIES"" }, { $match: { ""ALLERGIES.SUBSTANCE"": ""Fish"" } }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } }])",2.6123459339141846
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""65ff28ac-082f-ef59-ca11-baacc7302868"" } }, { $project: { _id: 0, SOP_CODE: 1 } } ]);",1.8228023052215576
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"db.patients.aggregate([ { $match: { FIRST: ""Caleb651"", LAST: ""Dickinson688"" } }, { $unwind: ""$CLAIMS"" }, { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, { $project: { _id: 0, PROCEDURES: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" } }, { $unwind: ""$PROCEDURES"" }, { $project: { _id: 0, PROCEDURES: 1 } } ]);",2.9784934520721436
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.IMAGING_STUDIES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.IMAGING_STUDIES.SERIES_UID"": ""1.2.840.99999999.1.63663889.1660767155882"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",3.5951716899871826
+Can you provide the count of patients suffering from Allergy to substance (finding)?,"db.patients.aggregate([{ $match: { FINDINGS: ""Allergy to substance"" } }, { $count: ""count"" }]);",1.6937861442565918
+What are the survival chances of allgery House dust mite (organism)?,"db.organisms.aggregate([ { $match: { NAME: ""House dust mite"" } }, { $unwind: ""$ALLERGY"" }, { $match: { ""ALLERGY.ALLERGY_TYPE"": ""allergy"" } }, { $project: { _id: 0, SURVIVAL_CHANCES: 1 } } ]);",2.82737398147583
+Please provide me the encounters that are related to the observation with the code 9279-1.,"db.encounters.aggregate([ 
+    { $match: { ""OBSERVATIONS.OBSERVATION_CODE"": ""9279-1"" } }, 
+    { $unwind: ""$OBSERVATIONS"" }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1, ENCOUNTER_DATE: 1 } } ]);",4.464601755142212
+Please provide me the patients treated with the procedure of code 866148006.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.CODE"": ""866148006"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",1.3458397388458252
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"db.patients.aggregate([ { $match: { ""PAYER_ID"": ""d31fccc3-1767-390d-966a-22a5156f4219"" } }, { $unwind: ""$MEMBERSHIPS"" }, { $group: { _id: null, total_months: { $sum: ""$MEMBERSHIPS.MONTHS"" } } }, { $project: { _id: 0, total_months: 1 } } ]);",2.041456460952759
+What is the base cost of the immunization with code 133?,"db.immunizations.aggregate([ { $match: { CODE: ""133"" } }, { $project: { _id: 0, BASE_COST: 1 } } ]);",3.9729835987091064
+Please provide me the patients treated with the procedure Colonoscopy.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.PROCEDURE_NAME"": ""Colonoscopy"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",2.3184473514556885
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"db.imaging_studies.aggregate([ { $match: { ""SERIES_UID"": ""1.2.840.99999999.1.30413319.1650275698924"" } }, { $project: { _id: 0, BODY_SITE_CODE: 1 } } ]);",2.599909543991089
+Who has been treated with the procedure of code 710841007?,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.CODE"": ""710841007"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",2.2783758640289307
+Who has been treated with the procedure of code 430193006?,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.PROCEDURES.CODE"": ""430193006"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",2.3620126247406006
+When did the allergy with the code 3718001 start?,"db.patients.aggregate([ { $unwind: ""$ALLERGIES"" }, { $match: { ""ALLERGIES.CODE"": ""3718001"" } }, { $project: { _id: 0, START_DATE: ""$ALLERGIES.START_DATE"" } } ]);",2.032841682434082
+Please provide me the number of encounters uncovered by the payer Medicare.,"db.encounters.aggregate([ { $match: { PAYER: ""Medicare"" } }, { $count: ""count"" } ]);",3.134901523590088
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,"db.organizations.aggregate([ { $match: { ORGANIZATION_ID: ""7f32dd7d-5c35-3ddb-839b-8fbbb930d412"" } }, { $project: { _id: 0, ADDRESS: 1 } } ]);",2.8150196075439453
+What is the type of allergy has the description Latex (substance)?,"db.allergies.find({DESCRIPTION: ""Latex (substance)""}, {TYPE: 1, _id: 0})",2.7105298042297363
+Where was the patient named Qiana980 Okuneva707 born?,"db.patients.find({FIRST: ""Qiana980"", LAST: ""Okuneva707""}, {BIRTH_PLACE: 1, _id: 0})",2.6990039348602295
+What is the most promising procedure for a patient with Mold (organism)?,"db.procedures.aggregate([ { $match: { ""PROCEDURE_DIAGNOSIS"": ""Mold (organism)"" } }, { $project: { _id: 0, PROCEDURE_NAME: 1, EFFECTIVENESS: 1 } }, { $sort: { EFFECTIVENESS: -1 } }, { $limit: 1 } ]);",2.835226535797119
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"db.patients.find({ PATIENT_ID: ""f07f2e96-d323-1db8-c28f-9d06b112f557"" }, { FIRST: 1, _id: 0 })",2.984308958053589
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"db.imaging_studies.aggregate([ { $match: { ""SERIES_UID"": ""1.2.840.99999999.1.60733233.1559399876087"" } }, { $project: { _id: 0, BODY_SITE_DESCRIPTION: 1 } } ]);",2.8977763652801514
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,"db.encounters.aggregate([ { $unwind: ""$IMMUNIZATIONS"" }, { $match: { ""IMMUNIZATIONS.IMMUNIZATION_NAME"": ""Influenza seasonal injectable preservative free"" } }, { $project: { _id: 0, ENCOUNTER_ID: 1, ENCOUNTER_DATE: 1 } } ]);",3.176868200302124
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"db.encounters.aggregate([ { $match: { ENCOUNTER_ID: ""40c90d37-a246-601a-7edf-983a88a0936d"" } }, { $project: { _id: 0, ENCOUNTER_TYPE: 1 } } ]);",1.7946007251739502
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"db.imaging_studies.aggregate([ { $match: { ""_id"": ""ca21a429-bec9-35a5-17ba-0d012491d4c4"" } }, { $project: { _id: 0, MODALITY_DESCRIPTION: 1 } } ]);",2.8557190895080566
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"db.patients.aggregate([ { $match: { FIRST: ""Wilfred787"", LAST: ""Schamberger479"" } }, { $project: { _id: 0, HEALTH_CARE_COVERAGE_STATUS: 1 } } ]);",3.0281128883361816
+When was the observation with the code 72514-3 recorded?,"db.observations.aggregate([ { $match: { ""OBSERVATION_CODE"": ""72514-3"" } }, { $project: { _id: 0, EFFECTIVE_DATE: 1 } } ]);",2.8069112300872803
+How many patients have or had the allergy with the code 419199007?,"db.patients.aggregate([{ $unwind: ""$ALLERGIES"" }, { $match: { ""ALLERGIES.CODE"": ""419199007"" } }, { $group: { _id: null, count: { $sum: 1 } } }, { $project: { _id: 0, count: 1 } }])",2.830029010772705
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.SUPPLIES.SUPPLY_NAME"": ""Blood glucose testing strips"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",4.949933052062988
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"db.claims.aggregate([ { $match: { PAYER_ID: ""8fa6c185-e44e-3e34-8bd8-39be8694f4ce"", CLAIM_STATUS: ""UNCOVERED"" } }, { $unwind: ""$CLAIM_ITEMS"" }, { $match: { ""CLAIM_ITEMS.SERVICE_CODE"": ""IMMUNIZATION"" } }, { $count: ""UNCOVERED_IMMUNIZATIONS"" } ]);",1.2741384506225586
+What encounter is associated with the supply with the code 419343004?,"db.supplies.aggregate([ { $match: { CODE: ""419343004"" } }, { $unwind: ""$ENCOUNTERS"" }, { $project: { _id: 0, ENCOUNTER: ""$ENCOUNTERS.ENCOUNTER_ID"" } }, { $group: { _id: ""$ENCOUNTER"" } }, { $project: { _id: 0, ENCOUNTER: ""$_id"" } } ]);",3.946476936340332
+What is the description of the device with code 706180003?,"db.devices.find({ DEVICE_CODE: ""706180003"" }, { DESCRIPTION: 1, _id: 0 })",0.5897533893585205
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"db.patients.aggregate([ 
+    { $unwind: ""$CLAIMS"" }, 
+    { $unwind: ""$CLAIMS.CLAIM_TRANSACTIONS"" }, 
+    { $match: { ""CLAIMS.CLAIM_TRANSACTIONS.TRANSACTION_ID"": ""fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2"" } }, 
+    { $project: { _id: 0, FIRST: 1, LAST: 1 } }, 
+    { $group: { _id: { FIRST: ""$FIRST"", LAST: ""$LAST"" } } }, 
+    { $project: { _id: 0, FIRST: ""$_id.FIRST"", LAST: ""$_id.LAST"" } } ]);",3.787231683731079
+What is the type of the allergy with the code 256277009?,"db.allergies.find({ CODE: ""256277009"" }, { TYPE: 1, _id: 0 })",2.2624170780181885
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,"db.encounters.aggregate([ 
+    { $unwind: ""$IMAGING_STUDIES"" }, 
+    { $unwind: ""$IMAGING_STUDIES.SERIES"" }, 
+    { $match: { ""IMAGING_STUDIES.SERIES.SERIES_UID"": ""1.2.840.99999999.1.94906246.1703949012410"" } }, 
+    { $project: { _id: 0, ENCOUNTER_ID: 1 } } ]);",1.9605278968811035
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"db.codes.aggregate([ { $match: { CODE: ""Influenza seasonal injectable preservative free"" } }, { $project: { _id: 0, BASE_COST: 1 } } ]);",3.2702581882476807

@@ -1,0 +1,17 @@
+MATCH (d:Device {{code: '$device_code'}}) RETURN DISTINCT d.description;
+MATCH (d:Device {{code: '$device_code'}}) RETURN d.start;
+MATCH (d:Device {{code: '$device_code'}}) RETURN d.udi;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(d:Device {{code: '$device_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:IS_MEASURED_BY]->(d:Device {{code: '$device_code'}}) RETURN p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(d:Device {{code: '$device_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:IS_MEASURED_BY]->(d:Device {{code: '$device_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (d:Device {{code: '$device_code'}}) RETURN d.udi;
+MATCH (d:Device {{description: '$device_name'}}) RETURN d.start;
+MATCH (d:Device {{description: '$device_name'}}) RETURN d.udi;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(d:Device {{description: '$device_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:IS_MEASURED_BY]->(d:Device {{description: '$device_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_ORDERED]->(d:Device {{description: '$device_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:IS_MEASURED_BY]->(d:Device {{description: '$device_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (d:Device {{description: '$device_name'}}) RETURN d.udi;
+MATCH (d:Device {{udi: '$device_udi'}}) RETURN d.description;
+MATCH (d:Device {{udi: '$device_udi'}}) RETURN d.code;

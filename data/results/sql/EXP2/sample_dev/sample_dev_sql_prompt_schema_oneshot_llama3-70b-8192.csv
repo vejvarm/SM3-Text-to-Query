@@ -1,0 +1,521 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,4.514178037643433
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.0238842964172363
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"Based on the provided schema, I'll help you create a syntactically correct Postgres SQL query to answer the question.
+
+[Q]: 'Who has received the immunization Influenza seasonal injectable preservative free?'
+
+To answer this question, we need to join the `patients` table with the `immunizations` table, as the immunization information is stored in the `immunizations` table, and we need to filter the results to only include the specific immunization mentioned in the question.
+
+[SQL]:
+```sql
+SELECT DISTINCT p.first, p.last 
+FROM immunizations i 
+JOIN patients p ON i.patient = p.id 
+WHERE i.description = 'Influenza seasonal injectable preservative free';
+```
+This query joins the `immunizations` table with the `patients` table on the `patient` column, and then filters the results to only include the patients who have received the specific immunization mentioned in the question. The `DISTINCT` keyword is used to remove duplicates, and the `SELECT` statement only retrieves the `first` and `last` names of the patients.",1.988478422164917
+What is the description of the device with code 170615005?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.5248115062713623
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.4715747833251953
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3281819820404053
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"Based on the provided schema and notes, I'll help you create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a."", the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN payers py ON e.payer = py.id 
+WHERE py.id = '0133f751-9229-3cfd-815f-b6d4979bdd6a';
+```
+
+This query joins the `patients`, `encounters`, and `payers` tables based on their respective foreign keys, and then filters the results to only include patients associated with the payer having the specified ID.",2.6821811199188232
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.4201862812042236
+Which patient had the allergy House dust mite (organism)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.8233728408813477
+Please provide me the patients treated with the procedure of code 710841007.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.2179791927337646
+What kind of allergy has the code 84489001?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.554098606109619
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"I'd be happy to help you with that. 
+
+For the question ""Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4,"" the SQL query would be:
+
+```
+SELECT COUNT(DISTINCT p.id) 
+FROM payers py 
+JOIN encounters e ON py.id = e.payer 
+JOIN patients p ON e.patient = p.id 
+WHERE py.id = 'b046940f-1664-3047-bca7-dfa76be352a4';
+```
+
+This query joins the `payers`, `encounters`, and `patients` tables based on their respective foreign keys, and then counts the number of unique patients (`COUNT(DISTINCT p.id)`) associated with the payer having the specified ID.",3.2409660816192627
+What code does observation Body Height have?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.0211615562438965
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.412985324859619
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,5.597691059112549
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.0526835918426514
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"I'd be happy to help you with that. Based on the schema provided, I'll do my best to craft a SQL query that answers your question.
+
+For the question ""How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?"", I came up with the following SQL query:
+
+```
+SELECT COUNT(DISTINCT p.code)
+FROM procedures p
+JOIN encounters e ON p.encounter = e.id
+JOIN payers py ON e.payer = py.id
+WHERE py.id = 'd31fccc3-1767-390d-966a-22a5156f4219';
+```
+
+This query joins the `procedures` table with the `encounters` table on the `encounter` column, and then joins the `encounters` table with the `payers` table on the `payer` column. It then filters the results to only include procedures covered by the payer with the specified ID, and finally counts the distinct procedure codes.
+
+Please let me know if this query meets your requirements or if you need further assistance!",1.6651787757873535
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+Please provide the question you'd like me to answer, and I'll create the corresponding SQL query.",2.3432836532592773
+What is the state of residence of the patient named Carin553 Jerde200?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,4.929367542266846
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,I'm ready to help. What is the question you'd like me to create a SQL query for?,3.6548893451690674
+Please provide me the patient with the supply with the code 972002.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3297245502471924
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.4406132698059082
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.818528652191162
+When did the allergy with the code 84489001 end?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.9112138748168945
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.681950092315674
+What is the marital status of Kermit56 Rutherford999?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.4445719718933105
+In which encounter was a procedure with code 10383002 performed?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3397629261016846
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.6046159267425537
+What is the address of the patient named Stefania815 West559?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.305299997329712
+What is the base cost of the medication with the code 197604?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.432720899581909
+Please provide me the patient with the supply with the code 409534002.,"I'd be happy to help you with that.
+
+For the question ""Please provide me the patient with the supply with the code 409534002,"" the correct SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM supplies s 
+LEFT JOIN patients p ON s.patient = p.id 
+WHERE s.code = 409534002;
+```
+
+This query joins the `supplies` table with the `patients` table on the `patient` column, and then filters the results to only include rows where the `code` column in the `supplies` table is equal to 409534002. The `SELECT DISTINCT` clause is used to ensure that we only get unique patient names.",2.72659969329834
+Can you tell me when the observation with the code QALY was recorded?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.447413682937622
+What is the address of the patient named Margie619 Strosin214?,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",2.7541990280151367
+Who is the patient associated with the supply with the code 463659001?,"I'd be happy to help you with that.
+
+For the question ""Who is the patient associated with the supply with the code 463659001?"", the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM supplies s 
+LEFT JOIN patients p ON s.patient = p.id 
+WHERE s.code = 463659001;
+```
+
+This query joins the `supplies` table with the `patients` table on the `patient` column, and then filters the results to only include the patient associated with the supply with the code 463659001.",4.364567756652832
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,I'm ready to help. What is the question you'd like me to create a SQL query for?,4.623872518539429
+Which encounter is related to the allergy with the code 84489001?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.4683287143707275
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.0529310703277588
+Who has been treated for the condition with code 706893006?,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""Who has been treated for the condition with code 706893006?"", I'll create the following query:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM conditions c 
+LEFT JOIN patients p ON c.patient = p.id 
+WHERE c.code = 706893006;
+```
+
+This query joins the `conditions` table with the `patients` table on the `patient` column, and then selects the distinct first and last names of patients who have been treated for the condition with code 706893006.",2.529042959213257
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"I'm happy to help! Please provide the question you'd like me to create a SQL query for, and I'll do my best to craft a syntactically correct query based on the provided schema and notes.",2.4662938117980957
+Please provide me the encounters which are related to the observation DALY.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.967707395553589
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.688373565673828
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.210965633392334
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3523192405700684
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3227593898773193
+Can you tell me when the allergy with the code 419199007 was recorded?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.240100622177124
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6523985862731934
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2077863216400146
+What are the typical symptoms of the allergy described as House dust mite (organism)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.6547250747680664
+How many procedures are covered by the payer Aetna?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.4559214115142822
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,4.825380802154541
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.043576717376709
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.0898385047912598
+Please provide me the patients receiving aid under the care plan with code 225358003.,"I'm happy to help! Based on the provided schema and notes, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+Please provide the question you'd like me to answer, and I'll respond with the corresponding SQL query.",2.457712411880493
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2375125885009766
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"Based on the provided schema, I can help you with the SQL query.
+
+For the question: ""Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.""
+
+Here is the SQL query:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM encounters e 
+JOIN patients p ON e.patient = p.id 
+JOIN organizations o ON e.organization = o.id 
+WHERE o.id = '8e3ca57f-6f74-3d61-9803-ab1424290216';
+```
+
+This query joins the `encounters`, `patients`, and `organizations` tables based on their respective IDs, and then filters the results to only include patients linked to the specified organization ID.",2.706052541732788
+Give me the encounters that are related to the immunization Hep B  adult.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.7227842807769775
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.598060369491577
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.0518100261688232
+What procedures did the patient named Margot418 Rolfson709 undergo?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.200373649597168
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.5061416625976562
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",2.4358532428741455
+Please provide me the number of medications uncovered by the payer Humana.,"I'd be happy to help you with that. Based on the schema provided, I'll do my best to craft a SQL query that answers your question.
+
+For the question ""Please provide me the number of medications uncovered by the payer Humana,"" here's a possible SQL query:
+
+```sql
+SELECT COUNT(m.code) 
+FROM medications m 
+JOIN payers p ON m.payer = p.id 
+WHERE p.name = 'Humana' AND m.payer_coverage = 0;
+```
+
+This query joins the `medications` table with the `payers` table on the `payer` column, filters the results to only include medications from the payer 'Humana', and then counts the number of medications where the `payer_coverage` is 0, indicating that they are uncovered.",2.6568338871002197
+In which encounter was a procedure with code 428211000124100 performed?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.89444637298584
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,0.9515140056610107
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"I'm happy to help! Based on the provided schema and notes, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?"", the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM claims cl 
+LEFT JOIN patients p ON cl.patientid = p.id 
+WHERE cl.id='cca769d0-09e0-72f9-23aa-e6ddb2200792';
+```
+
+This query joins the `claims` table with the `patients` table on the `patientid` column, and then selects the `first` and `last` names of the patient associated with the claim ID `cca769d0-09e0-72f9-23aa-e6ddb2200792`.",2.7129733562469482
+What is the description of the allergy with the code 3718001?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.663433790206909
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"Based on the provided schema, I can help you with the query.
+
+[Q]: 'Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?'
+
+[SQL]: 
+SELECT p.first, p.last 
+FROM providers pr 
+JOIN organizations o ON pr.organization = o.id 
+JOIN encounters e ON pr.id = e.provider 
+JOIN patients p ON e.patient = p.id 
+WHERE o.id = '844a8cb2-4164-35b2-88b8-dffa2889a738';",4.094720125198364
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""Please provide me the number of medications uncovered by the payer NO_INSURANCE,"" here is the SQL query:
+
+```
+SELECT COUNT(m.code) 
+FROM medications m 
+JOIN payers p ON m.payer = p.id 
+WHERE p.name = 'NO_INSURANCE' AND m.payer_coverage = 0;
+```
+
+This query joins the `medications` table with the `payers` table on the `payer` column, filters the results to only include medications with a payer named 'NO_INSURANCE', and then counts the number of medications where the `payer_coverage` is 0, indicating that they are uncovered.",1.810523271560669
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.30153489112854
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.2718517780303955
+Please provide me a reason for the use of the care plan with code 134435003.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.4885823726654053
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"Based on the provided schema and notes, I'll help you create a syntactically correct Postgres SQL query for the given question.
+
+[Q]: 'Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.'
+
+To answer this question, we need to join the `patients` table with the `encounters` table, and then with the `organizations` table. We'll use the foreign keys to establish the relationships between the tables.
+
+[SQL]:
+```sql
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN organizations o ON e.organization = o.id 
+WHERE o.id = '2befa435-3070-3350-a15c-e43ac1e84b24';
+```
+This query will return the first and last names of patients linked to the organization with the specified ID.",3.1149790287017822
+In which city is the provider named Lynsey2 Lemke654 located?,"I'm happy to help! Based on the provided schema, I can assist in creating SQL queries to answer various questions.
+
+Please provide the question you'd like me to answer, and I'll do my best to craft a syntactically correct Postgres SQL query leveraging the provided schema, notes, and examples.",2.331132411956787
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.4664292335510254
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"I'm happy to help! Based on the provided schema, I can assist in generating SQL queries to answer various questions.
+
+Please provide the question you'd like me to answer, and I'll do my best to craft a syntactically correct Postgres SQL query leveraging the provided schema, notes, and examples.",2.4127421379089355
+What encounter is associated with the supply with the code 713779008?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.2978241443634033
+What is the name of allergy with the code 782576004?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3210391998291016
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.1552751064300537
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.4968481063842773
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.1182494163513184
+When was the patient named Micah422 Buckridge80 born?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.434093713760376
+Please provide me the number of immunizations uncovered by the payer Anthem.,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",3.5710248947143555
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.6958227157592773
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.4821882247924805
+What kind of allergy has the code 5640?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.059062957763672
+What is the address of the provider named Katelynn452 Ledner144?,"I'm happy to help! Based on the provided schema, I can assist in creating a Postgres SQL query to answer the question.
+
+Please provide the question you'd like me to answer, and I'll do my best to craft a syntactically correct SQL query using the given schema and notes.",4.481300354003906
+Please provide me the encounters that were related to the allergy Mold (organism).,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.9692940711975098
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.873694658279419
+What is the description of the allergy with the code 419199007?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.0013062953948975
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.273764133453369
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"I'd be happy to help you with that. 
+
+For the question ""Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496."", the SQL query would be:
+
+```
+SELECT REVENUE 
+FROM payers 
+WHERE Id='e03e23c9-4df1-3eb6-a62d-f70f02301496';
+```
+
+This query directly selects the revenue from the payers table where the ID matches the given ID.",2.552955150604248
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,"I'm happy to help! Based on the provided schema, I can assist in creating SQL queries to answer various questions.
+
+Please provide the question you'd like me to answer, and I'll do my best to craft a syntactically correct Postgres SQL query leveraging the provided schema, notes, and examples.",2.5831854343414307
+What is the reason for using the care plan with code 53950000?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3226165771484375
+What is the marital status of Tabatha105 Fisher429?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2094202041625977
+Which ethnicity does patient Marcie463 have?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.722012519836426
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.428316593170166
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"Based on the provided schema, I'll answer the question:
+
+[Q]: 'Who is associated with the organization SERENITY HILL NURSING CENTER?'
+
+To answer this question, we need to find the patients associated with the organization 'SERENITY HILL NURSING CENTER'. We can do this by joining the 'organizations', 'encounters', and 'patients' tables.
+
+[SQL]: 
+SELECT DISTINCT p.first, p.last 
+FROM organizations o 
+JOIN encounters e ON o.id = e.organization 
+JOIN patients p ON e.patient = p.id 
+WHERE o.name = 'SERENITY HILL NURSING CENTER';",2.5356125831604004
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",2.7091660499572754
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2286722660064697
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.5640599727630615
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3390488624572754
+What is the start date of the care plan with code 385691007?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.7594199180603027
+What is the stop date of the condition with code 73595000?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2966904640197754
+What is the type of the allergy with the code 264287008?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.396685838699341
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.262221574783325
+Please provide me the type of an observation with the code 89204-2.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,9.69501519203186
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.0801770687103271
+What is the health care coverage status of the patient named Ora550 Luettgen772?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,7.823379039764404
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,0.9595544338226318
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"Based on the provided schema, I can help you with the SQL query.
+
+For the question ""Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER."", the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN organizations o ON e.organization = o.id 
+WHERE o.name = 'LEOMINSTER COMUNITY HEALTH CENTER';
+```
+
+This query joins the `patients`, `encounters`, and `organizations` tables based on their respective foreign keys, and then filters the results to only include patients linked to the specified organization.",1.3805937767028809
+How many immunizations are covered by the payer NO_INSURANCE?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.1059565544128418
+In which encounter is the medication with the code 313782 administered?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.1163818836212158
+What is the udi code for the device with code 336621006?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.217712163925171
+Please provide me the encounters that are related to the medication with the code 314076.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6205501556396484
+What is the type of the observation with the code 8867-4?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.5780954360961914
+What is the total number of member months of the payer Medicaid?,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""What is the total number of member months of the payer Medicaid?"", I'll assume that Medicaid is one of the payer names. Here's the query:
+
+```sql
+SELECT SUM(p.member_months) 
+FROM payers p 
+WHERE p.name = 'Medicaid';
+```
+
+This query selects the sum of the `member_months` column from the `payers` table where the `name` column is 'Medicaid'.",2.7397866249084473
+What is the encounter associated with the immunization with code 140?,I'm ready to help. What is the question you'd like me to create a SQL query for?,4.070818901062012
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,0.9879856109619141
+Which ethnicity does the patient named Zboncak558 have?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6697144508361816
+What is the reason for using the care plan with code 384758001?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.287731170654297
+Where was the patient named Isaac321 Rempel203 born?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.436807632446289
+Please provide me the patients with the condition Part-time employment (finding).,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",1.269822359085083
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",2.3768813610076904
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+Please provide the question you'd like me to answer, and I'll create the corresponding SQL query.",2.454690456390381
+Please provide me the encounters that were related to the allergy Lisinopril.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3834707736968994
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.4937222003936768
+What is the reason for using the care plan with code 443402002?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,4.111346006393433
+Can you tell me when the observation Heart rate was recorded?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.5726816654205322
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.477843999862671
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.405113458633423
+What is the reaction code of the allergy with the code 84489001?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.61482572555542
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.35005521774292
+In which encounter was a procedure with code 713106006 performed?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.1764743328094482
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.7320449352264404
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.753943920135498
+When was the care plan Head injury rehabilitation used?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.71653413772583
+Please provide me the udi code related to the device Home nebulizer (physical object).,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.2880032062530518
+Please provide me the encounters that are related to the observation with the code 785-6.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.2178564071655273
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.647674083709717
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"For the question ""What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?"", the SQL query would be:
+
+```
+SELECT address FROM organizations WHERE id='34f0b10a-5e29-31de-a75e-e0bb03c0c0d4';
+```
+
+This query directly selects the address from the organizations table where the ID matches the given ID.",3.2881970405578613
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.0067787170410156
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,"For the question ""What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?"", the SQL query would be:
+
+```
+SELECT address FROM organizations WHERE id='880fad59-9c38-3a21-a39f-ccc801502ab3';
+```
+
+This query directly selects the address from the organizations table where the ID matches the given ID.",2.4695332050323486
+Please provide me the udi code related to the device with code 702172008.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.749859571456909
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.221104383468628
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.275193214416504
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"Based on the provided schema and notes, I'll help you create a syntactically correct Postgres SQL query to answer the question.
+
+[Q]: 'What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?'
+
+[SQL]: 
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN payers py ON e.payer = py.id 
+WHERE py.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625';",3.9781997203826904
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"I'd be happy to help you with that. 
+
+For the question ""Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811"", the SQL query would be:
+
+```
+SELECT COUNT(e.id) 
+FROM encounters e 
+JOIN payers p ON e.payer = p.id 
+WHERE p.id = 'df166300-5a78-3502-a46a-832842197811';
+```
+
+This query joins the `encounters` table with the `payers` table on the `payer` column, and then counts the number of encounters for the payer with the specified ID.",1.7972378730773926
+Please provide me the udi code related to the device with code 337414009.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6643638610839844
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.5755093097686768
+Please provide me the encounters that are related to the device with code 91537007.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,6.338719844818115
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.3546643257141113
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,I'm ready to help. What is the question you'd like me to create a SQL query for?,0.995826244354248
+Please provide me the encounters that are related to the allergy with the code 264287008.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.8843729496002197
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.598970413208008
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3409247398376465
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.681964159011841
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"Based on the provided schema and notes, I'll help you create a syntactically correct Postgres SQL query for the given question.
+
+[Q]: 'Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.'
+
+[SQL]: 
+SELECT DISTINCT p.first, p.last 
+FROM patients p 
+JOIN encounters e ON p.id = e.patient 
+JOIN payers py ON e.payer = py.id 
+WHERE py.id = 'b046940f-1664-3047-bca7-dfa76be352a4';",1.2450110912322998
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"I'd be happy to help you with that. 
+
+For the question ""Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c,"" the SQL query would be:
+
+```
+SELECT COUNT(i.code) 
+FROM immunizations i 
+JOIN patients p ON i.patient = p.id 
+JOIN encounters e ON i.encounter = e.id 
+JOIN payers py ON e.payer = py.id 
+WHERE py.id = '26aab0cd-6aba-3e1b-ac5b-05c8867e762c';
+```
+
+This query joins the immunizations table with the patients, encounters, and payers tables based on their respective IDs, and then counts the number of immunizations (identified by their code) covered by the payer with the specified ID.",3.5193028450012207
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.1008119583129883
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.469820737838745
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.399947166442871
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.793133020401001
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.448432683944702
+What kind of allergy is described as Mold (organism)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.2160277366638184
+How many patients have the allergy described as Fish (substance)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3370070457458496
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.9399569034576416
+What procedures did the patient named Caleb651 Dickinson688 undergo?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.9966726303100586
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.3052172660827637
+Can you provide the count of patients suffering from Allergy to substance (finding)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,4.936101198196411
+What are the survival chances of allgery House dust mite (organism)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.511998414993286
+Please provide me the encounters that are related to the observation with the code 9279-1.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.2802097797393799
+Please provide me the patients treated with the procedure of code 866148006.,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.241997718811035
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6338698863983154
+What is the base cost of the immunization with code 133?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2447400093078613
+Please provide me the patients treated with the procedure Colonoscopy.,"I'm happy to help! Please provide the question you'd like me to answer, and I'll do my best to create a syntactically correct Postgres SQL query based on the provided schema and notes.",3.0928683280944824
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.281639575958252
+Who has been treated with the procedure of code 710841007?,"Based on the provided schema, I can help you with the SQL query.
+
+[Q]: 'Who has been treated with the procedure of code 710841007?'
+
+[SQL]: 
+SELECT DISTINCT p.first, p.last 
+FROM procedures pr 
+LEFT JOIN encounters e ON pr.encounter = e.id 
+LEFT JOIN patients p ON e.patient = p.id 
+WHERE pr.code = 710841007;",2.961212158203125
+Who has been treated with the procedure of code 430193006?,"Based on the provided schema, I can help you with the SQL query.
+
+For the question ""Who has been treated with the procedure of code 430193006?"", the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM procedures pr 
+JOIN encounters e ON pr.encounter = e.id 
+JOIN patients p ON e.patient = p.id 
+WHERE pr.code = 430193006;
+```
+
+This query joins the `procedures` table with the `encounters` table on the `encounter` column, and then joins the `encounters` table with the `patients` table on the `patient` column. It then selects the distinct first and last names of patients who have undergone a procedure with the code 430193006.",2.58412504196167
+When did the allergy with the code 3718001 start?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.2723114490509033
+Please provide me the number of encounters uncovered by the payer Medicare.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.63474440574646
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.1689095497131348
+What is the type of allergy has the description Latex (substance)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.5185434818267822
+Where was the patient named Qiana980 Okuneva707 born?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.205217123031616
+What is the most promising procedure for a patient with Mold (organism)?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.4476966857910156
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,I'm ready to help. What is the question you'd like me to create a SQL query for?,3.296640396118164
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,I'm ready to help. What is the question you'd like me to create a SQL query for?,0.9778690338134766
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.2464523315429688
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.1466217041015625
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.26015305519104
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.0687403678894043
+When was the observation with the code 72514-3 recorded?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,3.2265031337738037
+How many patients have or had the allergy with the code 419199007?,"I'm happy to help! Based on the provided schema, I'll do my best to create a syntactically correct Postgres SQL query for the given question.
+
+For the question ""How many patients have or had the allergy with the code 419199007?"", the correct SQL query would be:
+
+```
+SELECT COUNT(DISTINCT a.patient) 
+FROM allergies a 
+WHERE a.code = 419199007;
+```
+
+This query joins the `allergies` table and counts the distinct patients who have or had an allergy with the code 419199007.",1.3674037456512451
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"I'd be happy to help you with that.
+
+For the question ""Please provide me the patients associated with the supply named Blood glucose testing strips (physical object)."", the correct SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM supplies s 
+LEFT JOIN patients p ON s.patient = p.id 
+WHERE s.description = 'Blood glucose testing strips (physical object)';
+```
+
+This query joins the `supplies` table with the `patients` table on the `patient` column, and then filters the results to only include rows where the `description` column in the `supplies` table matches the specified supply name. The `DISTINCT` keyword is used to ensure that each patient is only listed once, even if they have multiple associations with the specified supply.",3.5806329250335693
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,1.9860751628875732
+What encounter is associated with the supply with the code 419343004?,I'm ready to help. What is the question you'd like me to create a SQL query for?,1.83748459815979
+What is the description of the device with code 706180003?,I'm ready to help. What is the question you'd like me to create a SQL query for?,2.4585859775543213
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,"I'd be happy to help you with that. 
+
+For the question ""Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2,"" the SQL query would be:
+
+```
+SELECT DISTINCT p.first, p.last 
+FROM claims_transactions ct 
+LEFT JOIN claims cl ON ct.claimid = cl.id 
+LEFT JOIN patients p ON cl.patientid = p.id 
+WHERE ct.id='fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2';
+```
+
+This query joins the `claims_transactions` table with the `claims` table on the `claimid` column, and then joins the `claims` table with the `patients` table on the `patientid` column. It then selects the `first` and `last` names of the patient associated with the claim transaction with the specified ID.",3.3113701343536377
+What is the type of the allergy with the code 256277009?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.6945016384124756
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.418870687484741
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,I'm ready to help. What is the question you'd like me to create a Postgres SQL query for?,2.3685898780822754

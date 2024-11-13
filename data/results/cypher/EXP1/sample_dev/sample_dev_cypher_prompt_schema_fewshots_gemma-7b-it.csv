@@ -1,0 +1,211 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,Provide the Cypher query based on the given input question.,5.0751237869262695
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,Provide the Cypher query based on the given input question.,3.315891742706299
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,Provide the Cypher query based on the given input question.,2.5562479496002197
+What is the description of the device with code 170615005?,Provide the Cypher query based on the given input question.,2.260439157485962
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,Provide the Cypher query based on the given input question.,3.9888415336608887
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"Provide the claim ID of the claim associated with the patient with ID 555555.
+```
+MATCH (p:Patient {id: '555555'})-[:HAS_CLAIM]->(c:Claim) RETURN c.id;
+```",2.858430862426758
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,Provide the Cypher query based on the given input question.,4.652393341064453
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,Provide the Cypher query based on the given input question.,11.404936790466309
+Which patient had the allergy House dust mite (organism)?,Provide the Cypher query based on the given input question.,10.456888437271118
+Please provide me the patients treated with the procedure of code 710841007.,Provide the Cypher query based on the given input question.,11.472155332565308
+What kind of allergy has the code 84489001?,Provide the Cypher query based on the given input question.,10.371475219726562
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,Provide the Cypher query based on the given input question.,11.825480461120605
+What code does observation Body Height have?,Provide the Cypher query based on the given input question.,10.870940208435059
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,Provide the Cypher query based on the given input question.,11.573338508605957
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,Provide the Cypher query based on the given input question.,10.498690366744995
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,Provide the Cypher query based on the given input question.,12.07981824874878
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,Provide the Cypher query based on the given input question.,11.131814002990723
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,Provide the Cypher query based on the given input question.,11.616389274597168
+What is the state of residence of the patient named Carin553 Jerde200?,Provide the Cypher query based on the given input question.,9.201707601547241
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,Provide the Cypher query based on the given input question.,11.831637620925903
+Please provide me the patient with the supply with the code 972002.,Provide the Cypher query based on the given input question.,10.37374997138977
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,Provide the Cypher query based on the given input question.,11.495272159576416
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,Provide the Cypher query based on the given input question.,11.910842418670654
+When did the allergy with the code 84489001 end?,Provide the Cypher query based on the given input question.,10.530835151672363
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,Provide the Cypher query based on the given input question.,11.443538188934326
+What is the marital status of Kermit56 Rutherford999?,Provide the Cypher query based on the given input question.,10.27569031715393
+In which encounter was a procedure with code 10383002 performed?,Provide the Cypher query based on the given input question.,11.807477474212646
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,Provide the Cypher query based on the given input question.,10.376909017562866
+What is the address of the patient named Stefania815 West559?,Provide the Cypher query based on the given input question.,12.085705757141113
+What is the base cost of the medication with the code 197604?,Provide the Cypher query based on the given input question.,10.45789885520935
+Please provide me the patient with the supply with the code 409534002.,Provide the Cypher query based on the given input question.,12.041675567626953
+Can you tell me when the observation with the code QALY was recorded?,Provide the Cypher query based on the given input question.,10.700741052627563
+What is the address of the patient named Margie619 Strosin214?,Provide the Cypher query based on the given input question.,11.095619440078735
+Who is the patient associated with the supply with the code 463659001?,Provide the Cypher query based on the given input question.,12.642315149307251
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,Provide the Cypher query based on the given input question.,10.221141576766968
+Which encounter is related to the allergy with the code 84489001?,Provide the Cypher query based on the given input question.,9.701034307479858
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,Provide the Cypher query based on the given input question.,11.788119316101074
+Who has been treated for the condition with code 706893006?,Provide the Cypher query based on the given input question.,10.42009949684143
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,Provide the Cypher query based on the given input question.,11.280744552612305
+Please provide me the encounters which are related to the observation DALY.,Provide the Cypher query based on the given input question.,11.85679006576538
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,Provide the Cypher query based on the given input question.,10.96843934059143
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,Provide the Cypher query based on the given input question.,11.917380809783936
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,Provide the Cypher query based on the given input question.,9.516776323318481
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,Provide the Cypher query based on the given input question.,11.880720853805542
+Can you tell me when the allergy with the code 419199007 was recorded?,Provide the Cypher query based on the given input question.,11.544268369674683
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,Provide the Cypher query based on the given input question.,11.236098766326904
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,Provide the Cypher query based on the given input question.,9.328500509262085
+What are the typical symptoms of the allergy described as House dust mite (organism)?,Provide the Cypher query based on the given input question.,11.995496034622192
+How many procedures are covered by the payer Aetna?,Provide the Cypher query based on the given input question.,12.140027284622192
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,Provide the Cypher query based on the given input question.,9.400450944900513
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,Provide the Cypher query based on the given input question.,11.290379762649536
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,Provide the Cypher query based on the given input question.,12.5047128200531
+Please provide me the patients receiving aid under the care plan with code 225358003.,Provide the Cypher query based on the given input question.,10.122408628463745
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,Provide the Cypher query based on the given input question.,10.846850395202637
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,Provide the Cypher query based on the given input question.,10.304900884628296
+Give me the encounters that are related to the immunization Hep B  adult.,Provide the Cypher query based on the given input question.,11.845901489257812
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,Provide the Cypher query based on the given input question.,10.360864877700806
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,Provide the Cypher query based on the given input question.,12.088768005371094
+What procedures did the patient named Margot418 Rolfson709 undergo?,Provide the Cypher query based on the given input question.,10.253484010696411
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,Provide the Cypher query based on the given input question.,11.230526208877563
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,Provide the Cypher query based on the given input question.,12.468017578125
+Please provide me the number of medications uncovered by the payer Humana.,Provide the Cypher query based on the given input question.,10.504494905471802
+In which encounter was a procedure with code 428211000124100 performed?,Provide the Cypher query based on the given input.,10.519696950912476
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,Provide the Cypher query based on the given input question.,11.912612676620483
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,Provide the Cypher query based on the given input.,11.463279008865356
+What is the description of the allergy with the code 3718001?,Provide the Cypher query based on the given input question.,10.730010271072388
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,Provide the Cypher query based on the given input question.,10.389230966567993
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,Provide the Cypher query based on the given input question.,11.447625875473022
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,Provide the Cypher query based on the given input question.,10.447946786880493
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,Provide the Cypher query based on the given input question.,11.361277103424072
+Please provide me a reason for the use of the care plan with code 134435003.,Provide the Cypher query based on the given input question.,11.24176549911499
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,Provide the Cypher query based on the given input question.,11.828264474868774
+In which city is the provider named Lynsey2 Lemke654 located?,Provide the Cypher query based on the given input question.,10.538664817810059
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,Provide the Cypher query based on the given input question.,11.26660442352295
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,Provide the Cypher query based on the given input question.,13.120352029800415
+What encounter is associated with the supply with the code 713779008?,Provide the Cypher query based on the given input question.,10.752550601959229
+What is the name of allergy with the code 782576004?,Provide the Cypher query based on the given input question.,9.948237895965576
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,Provide the Cypher query based on the given input question.,10.382412910461426
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,Provide the Cypher query based on the given input question.,11.76335620880127
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,Provide the Cypher query based on the given input.,10.754438877105713
+When was the patient named Micah422 Buckridge80 born?,Provide the Cypher query based on the given input question.,11.05834674835205
+Please provide me the number of immunizations uncovered by the payer Anthem.,Provide the Cypher query based on the given input question.,10.366165399551392
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,Provide the Cypher query based on the given input question.,11.093974828720093
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,Provide the Cypher query based on the given input question.,11.39849853515625
+What kind of allergy has the code 5640?,Provide the Cypher query based on the given input question.,11.104300498962402
+What is the address of the provider named Katelynn452 Ledner144?,Provide the Cypher query based on the given input question.,13.047332763671875
+Please provide me the encounters that were related to the allergy Mold (organism).,Provide the Cypher query based on the given input question.,10.70724368095398
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"Provide the claim ID of the claim associated with the patient with ID 555555.
+```
+MATCH (p:Patient {id: '555555'})-[:HAS_CLAIM]->(c:Claim) RETURN c.id;
+```",9.84986662864685
+What is the description of the allergy with the code 419199007?,Provide the Cypher query based on the given input question.,11.733495950698853
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,Provide the Cypher query based on the given input question.,10.737393856048584
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,Provide the Cypher query based on the given input question.,11.820273399353027
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,Provide the Cypher query based on the given input.,10.851540327072144
+What is the reason for using the care plan with code 53950000?,Provide the Cypher query based on the given input question.,10.517598867416382
+What is the marital status of Tabatha105 Fisher429?,Provide the Cypher query based on the given input question.,12.297863721847534
+Which ethnicity does patient Marcie463 have?,Provide the Cypher query based on the given input question.,9.72422194480896
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,Provide the Cypher query based on the given input question.,11.547595262527466
+Who is associated with the organization SERENITY HILL NURSING CENTER?,Provide the Cypher query based on the given input question.,10.261297702789307
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,Provide the Cypher query based on the given input question.,11.948391437530518
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,Provide the Cypher query based on the given input question.,10.25800609588623
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,Provide the Cypher query based on the given input question.,11.580785274505615
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,Provide the Cypher query based on the given input question.,10.12495756149292
+What is the start date of the care plan with code 385691007?,Provide the Cypher query based on the given input question.,11.262509107589722
+What is the stop date of the condition with code 73595000?,Provide the Cypher query based on the given input question.,11.946801662445068
+What is the type of the allergy with the code 264287008?,Provide the Cypher query based on the given input question.,10.881210565567017
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,Provide the Cypher query based on the given input question.,12.032279014587402
+Please provide me the type of an observation with the code 89204-2.,Provide the Cypher query based on the given input question.,10.357019424438477
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,Provide the Cypher query based on the given input.,10.783250331878662
+What is the health care coverage status of the patient named Ora550 Luettgen772?,Provide the Cypher query based on the given input question.,11.142058372497559
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,Provide the Cypher query based on the given input question.,11.164478302001953
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,Provide the Cypher query based on the given input question.,11.309005975723267
+How many immunizations are covered by the payer NO_INSURANCE?,Provide the Cypher query based on the given input question.,10.91791033744812
+In which encounter is the medication with the code 313782 administered?,Provide the Cypher query based on the given input question.,10.94168996810913
+What is the udi code for the device with code 336621006?,Provide the Cypher query based on the given input question.,11.333734512329102
+Please provide me the encounters that are related to the medication with the code 314076.,Provide the Cypher query based on the given input question.,10.362496376037598
+What is the type of the observation with the code 8867-4?,Provide the Cypher query based on the given input question.,11.529552698135376
+What is the total number of member months of the payer Medicaid?,Provide the Cypher query based on the given input question.,10.172076940536499
+What is the encounter associated with the immunization with code 140?,Provide the Cypher query based on the given input question.,11.160018682479858
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,Provide the Cypher query based on the given input question.,11.400484800338745
+Which ethnicity does the patient named Zboncak558 have?,Provide the Cypher query based on the given input question.,11.70466661453247
+What is the reason for using the care plan with code 384758001?,Provide the Cypher query based on the given input question.,11.53044605255127
+Where was the patient named Isaac321 Rempel203 born?,Provide the Cypher query based on the given input question.,10.218982934951782
+Please provide me the patients with the condition Part-time employment (finding).,Provide the Cypher query based on the given input question.,12.09354019165039
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,Provide the Cypher query based on the given input question.,10.303014039993286
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,Provide the Cypher query based on the given input question.,10.187938213348389
+Please provide me the encounters that were related to the allergy Lisinopril.,Provide the Cypher query based on the given input question.,12.838792085647583
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,Provide the Cypher query based on the given input question.,9.350474119186401
+What is the reason for using the care plan with code 443402002?,Provide the Cypher query based on the given input question.,11.14203667640686
+Can you tell me when the observation Heart rate was recorded?,Provide the Cypher query based on the given input question.,11.48707365989685
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,Provide the Cypher query based on the given input question.,11.94172477722168
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,Provide the Cypher query based on the given input question.,10.876508235931396
+What is the reaction code of the allergy with the code 84489001?,Provide the Cypher query based on the given input question.,10.582422018051147
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,Provide the Cypher query based on the given input question.,11.247761487960815
+In which encounter was a procedure with code 713106006 performed?,Provide the Cypher query based on the given input question.,10.277902841567993
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,Provide the Cypher query based on the given input question.,11.323161602020264
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"Provide the claim ID of the claim associated with the patient with the ID 3456789.
+
+```
+MATCH (p:Patient {id: '3456789'})-[:HAS_CLAIM]->(c:Claim) RETURN c.id;
+```",11.146705627441406
+When was the care plan Head injury rehabilitation used?,Provide the Cypher query based on the given input question.,11.518095254898071
+Please provide me the udi code related to the device Home nebulizer (physical object).,Provide the Cypher query based on the given input question.,11.613059759140015
+Please provide me the encounters that are related to the observation with the code 785-6.,Provide the Cypher query based on the given input question.,10.09027361869812
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,Provide the Cypher query based on the given input question.,11.085779428482056
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,Provide the Cypher query based on the given input question.,11.372037410736084
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,Provide the Cypher query based on the given input question.,11.580055475234985
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,Provide the Cypher query based on the given input question.,11.713395357131958
+Please provide me the udi code related to the device with code 702172008.,Provide the Cypher query based on the given input question.,10.523488283157349
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,Provide the Cypher query based on the given input question.,11.522980690002441
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,Provide the Cypher query based on the given input question.,10.977315664291382
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,Provide the Cypher query based on the given input question.,10.256510257720947
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,Provide the Cypher query based on the given input question.,11.397984504699707
+Please provide me the udi code related to the device with code 337414009.,Provide the Cypher query based on the given input question.,11.43052864074707
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,Provide the Cypher query based on the given input question.,11.2650625705719
+Please provide me the encounters that are related to the device with code 91537007.,Provide the Cypher query based on the given input question.,11.32891297340393
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,Provide the Cypher query based on the given input question.,10.411157369613647
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,Provide the Cypher query based on the given input question.,11.746235132217407
+Please provide me the encounters that are related to the allergy with the code 264287008.,Provide the Cypher query based on the given input question.,11.437495231628418
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,Provide the Cypher query based on the given input question.,11.401751518249512
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,Provide the Cypher query based on the given input question.,10.332303047180176
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,Provide the Cypher query based on the given input question.,11.40808653831482
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,Provide the Cypher query based on the given input question.,10.423499584197998
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,Provide the Cypher query based on the given input question.,11.700066804885864
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,Provide the Cypher query based on the given input question.,11.273340225219727
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,Provide the Cypher query based on the given input question.,10.62345814704895
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,Provide the Cypher query based on the given input question.,11.773301362991333
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,Provide the Cypher query based on the given input question.,10.287887334823608
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,Provide the Cypher query based on the given input question.,11.949884176254272
+What kind of allergy is described as Mold (organism)?,Provide the Cypher query based on the given input.,10.195370435714722
+How many patients have the allergy described as Fish (substance)?,Provide the Cypher query based on the given input.,11.897191524505615
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,Provide the Cypher query based on the given input question.,10.57544755935669
+What procedures did the patient named Caleb651 Dickinson688 undergo?,Provide the Cypher query based on the given input question.,12.167725324630737
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,Provide the Cypher query based on the given input question.,10.504024982452393
+Can you provide the count of patients suffering from Allergy to substance (finding)?,Provide the Cypher query based on the given input question.,10.97267484664917
+What are the survival chances of allgery House dust mite (organism)?,Provide the Cypher query based on the given input question.,10.914318561553955
+Please provide me the encounters that are related to the observation with the code 9279-1.,Provide the Cypher query based on the given input question.,11.416781663894653
+Please provide me the patients treated with the procedure of code 866148006.,Provide the Cypher query based on the given input question.,10.818570613861084
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,Provide the Cypher query based on the given input question.,10.488800764083862
+What is the base cost of the immunization with code 133?,Provide the Cypher query based on the given input question.,11.314056634902954
+Please provide me the patients treated with the procedure Colonoscopy.,Provide the Cypher query based on the given input question.,11.628777027130127
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,Provide the Cypher query based on the given input question.,10.185143947601318
+Who has been treated with the procedure of code 710841007?,Provide the Cypher query based on the given input question.,11.557687759399414
+Who has been treated with the procedure of code 430193006?,Provide the Cypher query based on the given input question.,11.830204725265503
+When did the allergy with the code 3718001 start?,Provide the Cypher query based on the given input question.,10.641330003738403
+Please provide me the number of encounters uncovered by the payer Medicare.,Provide the Cypher query based on the given input question.,10.238795757293701
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,Provide the Cypher query based on the given input question.,12.359888553619385
+What is the type of allergy has the description Latex (substance)?,Provide the Cypher query based on the given input question.,10.242151975631714
+Where was the patient named Qiana980 Okuneva707 born?,Provide the Cypher query based on the given input question.,11.306505680084229
+What is the most promising procedure for a patient with Mold (organism)?,Provide the Cypher query based on the given input question.,10.158027410507202
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,Provide the Cypher query based on the given input question.,11.58794903755188
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,Provide the Cypher query based on the given input question.,11.597829818725586
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,Provide the Cypher query based on the given input question.,11.345094203948975
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,Provide the Cypher query based on the given input question.,10.5224027633667
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,Provide the Cypher query based on the given input question.,11.603720664978027
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,Provide the Cypher query based on the given input question.,10.96753740310669
+When was the observation with the code 72514-3 recorded?,Provide the Cypher query based on the given input question.,12.452321290969849
+How many patients have or had the allergy with the code 419199007?,Provide the Cypher query based on the given input question.,9.624200105667114
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,Provide the Cypher query based on the given input question.,11.338479280471802
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,Provide the Cypher query based on the given input question.,10.508694887161255
+What encounter is associated with the supply with the code 419343004?,Provide the Cypher query based on the given input question.,11.230820655822754
+What is the description of the device with code 706180003?,Provide the Cypher query based on the given input question.,11.71340012550354
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,Provide the Cypher query based on the given input question.,10.277320623397827
+What is the type of the allergy with the code 256277009?,Provide the Cypher query based on the given input question.,11.227115392684937
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,Provide the Cypher query based on the given input question.,11.426125049591064
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,Provide the Cypher query based on the given input question.,11.912646770477295

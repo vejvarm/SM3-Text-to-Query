@@ -1,0 +1,313 @@
+question,answers,time_taken
+What is the specialty of the provider named Crystle668 McCullough561?,"MATCH (p:Provider {name: 'Crystle668 McCullough561'})
+RETURN p.specialty",9.144128561019897
+Please provide me the body site code and description of the imaging study with the ID ee88b224-1f91-8c6a-493a-46e8004c4331.,"MATCH (study:ImagingStudy {id: 'ee88b224-1f91-8c6a-493a-46e8004c4331'})
+RETURN study.bodySiteCode, study.bodySiteDescription",9.455201148986816
+Who has received the immunization Influenza  seasonal  injectable  preservative free?,"MATCH (p:Patient)<-[:HAS_PRESCRIBED_FOR]-(i:Immunization) WHERE i.code = 'Influenza  seasonal  injectable  preservative free' RETURN p.firstName, p.lastName",11.525310039520264
+What is the description of the device with code 170615005?,MATCH (d:Device) WHERE d.code = '170615005' RETURN d.description,7.002602815628052
+What is the code of the supply named Continuous positive airway pressure nasal oxygen cannula (physical object)?,MATCH (s:Supply) WHERE s.description = 'Continuous positive airway pressure nasal oxygen cannula (physical object)' RETURN s.code,9.946185827255249
+Please provide the reason code and description for the encounter 79942d67-05c5-5c61-336d-4be332d76720.,"MATCH (e:Encounter {id: '79942d67-05c5-5c61-336d-4be332d76720'})
+RETURN e.reasonCode, e.reasonDescription",10.481037139892578
+Please provide me a list of patients associated with the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a.,"MATCH (p:Patient)-[:HAS_INSURANCE_START]->(i:INSURANCE_START)<-[:HAS_PAYER]-(payer:Payer {id: '0133f751-9229-3cfd-815f-b6d4979bdd6a'})
+RETURN p.firstName, p.lastName",9.588911533355713
+What is the successrate of medication Simvastatin 10 MG Oral Tablet?,"MATCH (m:Medication) WHERE m.code = 'SIMVASTATIN_10MG_OR' AND m.description = 'Simvastatin 10 MG Oral Tablet'
+RETURN COUNT(m) / COUNT(DISTINCT(m.id)) * 100",10.027106285095215
+Which patient had the allergy House dust mite (organism)?,"MATCH (p:Patient)-[:HAS_ALLERGY]->(a:Allergy) WHERE a.code = 'House dust mite' RETURN p.firstName, p.lastName",9.098193407058716
+Please provide me the patients treated with the procedure of code 710841007.,MATCH (e:Encounter)<-[:HAS_PROVIDER]-(p:Provider) WHERE p.code = '710841007' RETURN e,9.044233560562134
+What kind of allergy has the code 84489001?,MATCH (a:Allergy) WHERE a.code = '84489001' RETURN a.description,11.457667112350464
+Please provide me the number of unique customers covered under the payer with ID b046940f-1664-3047-bca7-dfa76be352a4.,"MATCH (p:Payer {id: ""b046940f-1664-3047-bca7-dfa76be352a4""})
+RETURN COUNT(p.unique_customers)",9.38158917427063
+What code does observation Body Height have?,MATCH (o:Observation) WHERE o.category = 'Body Height' RETURN o.code,9.281450986862183
+Please provide me the speciality of the provider with the ID 301f9141-3dbc-38f3-bca9-7c909a84caa9.,MATCH (p:Provider {id: '301f9141-3dbc-38f3-bca9-7c909a84caa9'}) RETURN p.speciality,8.873131275177002
+Please provide me the cost of the medication Warfarin Sodium 5 MG Oral Tablet.,MATCH (m:Medication) WHERE m.code = 'Warfarin Sodium 5 MG Oral Tablet' RETURN m.baseCost,9.122408151626587
+Can you provide information about the birth location of the patient with the ID c17a5539-74aa-4805-e623-fdaf4a31dfd9?,"MATCH (p:Patient {id: 'c17a5539-74aa-4805-e623-fdaf4a31dfd9'})
+RETURN p.birthplace",11.23896336555481
+How many procedures are covered by the payer with the ID d31fccc3-1767-390d-966a-22a5156f4219?,"MATCH (p:Patient {id: ""d31fccc3-1767-390d-966a-22a5156f4219""})-[:HAS_CLAIM]->(c:Claim)-[:IS_COVERED_BY]->(p2:Payer)
+RETURN COUNT(p2)",8.915574312210083
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"MATCH (e:Encounter)<-[:IS_COVERED_BY]-(p:Payer {name: 'NO_INSURANCE'})
+RETURN COUNT(e)",9.621262073516846
+What is the state of residence of the patient named Carin553 Jerde200?,"MATCH (p:Patient {firstName: 'Carin553', lastName: 'Jerde200'}) RETURN p.state
+```",9.35962986946106
+What is the modality code of the imaging study with the ID 7d52afa5-9282-64ef-e08c-c66f1a53e7f2?,MATCH (study:ImagingStudy {id: '7d52afa5-9282-64ef-e08c-c66f1a53e7f2'}) RETURN study.modalityCode,8.937252759933472
+Please provide me the patient with the supply with the code 972002.,"MATCH (p:Patient)-[r:HAS_ORDERED]->(s:Supply) WHERE s.code = '972002' RETURN p.firstName, p.lastName",10.037400007247925
+What is the date of the imaging study with series UID 1.2.840.99999999.1.97267088.1424332927924?,MATCH (study:ImagingStudy) WHERE study.seriesUid = '1.2.840.99999999.1.97267088.1424332927924' RETURN study.date,9.419218301773071
+What is the date of the imaging study with series UID 1.2.840.99999999.1.93465008.1702305862410?,MATCH (study:ImagingStudy) WHERE study.seriesUid = '1.2.840.99999999.1.93465008.1702305862410' RETURN study.date,10.725958824157715
+When did the allergy with the code 84489001 end?,MATCH (a:Allergy) WHERE a.code = '84489001' RETURN a.stop,9.200992822647095
+Who is the patient associated with the imaging study with series UID 1.2.840.99999999.1.30162925.1683721997276?,"MATCH (study)<-[:IS_ORDERED_DURING]-(encounter)<-[:HAS_PATIENT]-(patient) WHERE study.seriesUid = '1.2.840.99999999.1.30162925.1683721997276' RETURN patient.firstName, patient.lastName",9.809366941452026
+What is the marital status of Kermit56 Rutherford999?,"MATCH (p:Patient {firstName: 'Kermit56', lastName: 'Rutherford999'}) RETURN p.marital",9.948396921157837
+In which encounter was a procedure with code 10383002 performed?,MATCH (e:Encounter)<-[:HAS_ORDERED_DURING]-(p:Procedure) WHERE p.code = '10383002' RETURN e,10.27417278289795
+Please provide me the modality description of the imaging study with the ID 8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa.,"MATCH (study:ImagingStudy {id: ""8ce0d83f-9db0-dfd2-d1d2-5f7b9b20effa""})
+RETURN study.modalityDescription",9.104358911514282
+What is the address of the patient named Stefania815 West559?,"MATCH (p:Patient {firstName: 'Stefania815', lastName: 'West559'}) RETURN p.address",9.111438512802124
+What is the base cost of the medication with the code 197604?,MATCH (m:Medication) WHERE m.code = '197604' RETURN m.baseCost,9.3749840259552
+Please provide me the patient with the supply with the code 409534002.,"MATCH (p:Patient)-[r:HAS_ORDERED]->(s:Supply) WHERE s.code = '409534002' RETURN p.firstName, p.lastName",9.192504405975342
+Can you tell me when the observation with the code QALY was recorded?,MATCH (obs:Observation) WHERE obs.code = 'QALY' RETURN obs.date,10.01402473449707
+What is the address of the patient named Margie619 Strosin214?,"MATCH (p:Patient {firstName: 'Margie', lastName: 'Strosin', address: '214'}) RETURN p.address",8.984700679779053
+Who is the patient associated with the supply with the code 463659001?,"MATCH (supply)<-[:IS_ORDERED_FOR]-(patient) WHERE supply.code = '463659001' RETURN patient.firstName, patient.lastName",9.990309000015259
+Please provide me the procedure code of the claim transaction 576550eb-d73b-1996-b14a-f68254146bf8.,"MATCH (claimTransaction:ClaimTransaction {id: '576550eb-d73b-1996-b14a-f68254146bf8'})
+RETURN claimTransaction.procedureCode",9.329137802124023
+Which encounter is related to the allergy with the code 84489001?,"MATCH (a:Allergy) WHERE a.code = '84489001'
+MATCH (e:Encounter)-[:HAS_DIAGNOSED]->(a)
+RETURN e",10.082096338272095
+Which payer paid for the medication Digoxin 0.125 MG Oral Tablet?,MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(m:Medication) WHERE m.code = 'Digoxin 0.125 MG Oral Tablet' RETURN e.patientId,9.023637771606445
+Who has been treated for the condition with code 706893006?,MATCH (e:Encounter)<-[:HAS_DIAGNOSED]-(c:Condition) WHERE c.code = '706893006' RETURN e,10.169000625610352
+Which patient was prescribed the medication amLODIPine 2.5 MG Oral Tablet?,"MATCH (p:Patient)-[r:HAS_PRESCRIBED_FOR]->(m:Medication) WHERE m.code = 'amLODIPine 2.5 MG Oral Tablet' RETURN p.firstName, p.lastName",8.93971037864685
+Please provide me the encounters which are related to the observation DALY.,"MATCH (o:Observation {code: 'DALY'})-[:HAS_ORDERED]->(e:Encounter)
+RETURN e",10.079232692718506
+Please provide me the diagnosis of the claim with ID 68140758-17f3-541c-8d04-e2d06b91e442.,"MATCH (claim:Claim {id: '68140758-17f3-541c-8d04-e2d06b91e442'})-[:HAS_DIAGNOSED]->(diagnosis)
+RETURN diagnosis.code",9.090731382369995
+What encounter is associated with the supply named CPAP/BPAP oral mask (physical object)?,MATCH (supply)<-[:IS_ORDERED_DURING]-(encounter) WHERE supply.description = 'CPAP/BPAP oral mask (physical object)' RETURN encounter.id,10.55343747138977
+What is the body site code of the imaging study with the ID 781242f7-dd9c-8a26-181a-65898eb64eb4?,"MATCH (study:ImagingStudy {id: '781242f7-dd9c-8a26-181a-65898eb64eb4'})
+RETURN study.bodySiteCode",9.204499244689941
+Which payer is linked to the encounter 148005b7-cfc4-feb7-9860-3d2afde95c82?,"MATCH (e:Encounter {id: '148005b7-cfc4-feb7-9860-3d2afde95c82'})-[:IS_COVERED_BY]->(p:Payer)
+RETURN p.name",10.79853892326355
+Can you tell me when the allergy with the code 419199007 was recorded?,MATCH (a:Allergy) WHERE a.code = '419199007' RETURN a.start,12.244872570037842
+Please provide me the encounters that are related to the care plan Musculoskeletal care.,"MATCH (carePlan:CarePlan {code: 'Musculoskeletal care'})-[:HAS_ORDERED]->(encounter)
+RETURN encounter.id",7.102604866027832
+Please provide me the service date of the claim with ID e964b40d-7106-0a64-69b5-8c18493de4f2.,"MATCH (claim:Claim {id: ""e964b40d-7106-0a64-69b5-8c18493de4f2""})
+RETURN claim.serviceDate",8.577836990356445
+What are the typical symptoms of the allergy described as House dust mite (organism)?,MATCH (a:Allergy) WHERE a.code = '004.9' RETURN a.description,9.96150827407837
+How many procedures are covered by the payer Aetna?,MATCH (e:Encounter)-[:IS_COVERED_BY]->(p:Payer) WHERE p.name = 'Aetna' COUNT(e),10.187766551971436
+What is the successrate of medication NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector?,"MATCH (m:Medication {code: 'NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector'})
+RETURN COUNT(m) / COUNT(DISTINCT(m.patientId)) * 100",9.011491775512695
+What is the total claim cost encounter eeb3c5ce-d328-49a1-1abb-9396da4163fd?,MATCH (e:Encounter {id: 'eeb3c5ce-d328-49a1-1abb-9396da4163fd'}) RETURN e.claimCost,9.860392808914185
+Please provide me the address of the organization BAYADA HOME HEALTH CARE  INC.,"MATCH (o:Organization {name: 'BAYADA HOME HEALTH CARE  INC.'})
+RETURN o.address",9.58443021774292
+Please provide me the patients receiving aid under the care plan with code 225358003.,MATCH (e:Encounter)-[:HAS_CAREPLAN]->(cp:CarePlan) WHERE cp.code = '225358003' RETURN e.id,9.264894008636475
+Where was the patient with the ID a8c144a7-9e79-fccc-1f57-4035b2aa9fea born?,"MATCH (p:Patient {id: 'a8c144a7-9e79-fccc-1f57-4035b2aa9fea'})
+RETURN p.city
+```",9.716092586517334
+Please provide the names of the patients that are linked with the organization with the ID 8e3ca57f-6f74-3d61-9803-ab1424290216.,"MATCH (p:Patient)-[:HAS_ENCOUNTER]->(e:Encounter)<-[:HAS_PROVIDER]-(pr:Provider) WHERE pr.id = '8e3ca57f-6f74-3d61-9803-ab1424290216' RETURN p.firstName, p.lastName",9.751685619354248
+Give me the encounters that are related to the immunization Hep B  adult.,"MATCH (i:Immunization {code: 'Hep B adult'})-[:IS_PRESCRIBED_FOR]->(e:Encounter)
+RETURN e",9.687029123306274
+What is the first name of the patient with the ID 8d636878-c54c-3fcf-6300-b65c2a9e0dc9?,MATCH (p:Patient {id: '8d636878-c54c-3fcf-6300-b65c2a9e0dc9'}) RETURN p.firstName,9.125292539596558
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.54352820.1609167132933 conducted?,"MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.54352820.1609167132933'})
+MATCH (encounter)<-[:IS_ORDERED_DURING]-(study)
+RETURN encounter",11.17202377319336
+What procedures did the patient named Margot418 Rolfson709 undergo?,"MATCH (p:Patient {firstName: 'Margot', lastName: 'Rolfson', id: 'Margot418'})-[:HAS_HISTORY_OF]->(p2:Procedure)
+RETURN p2.code
+```",8.367189168930054
+How many unique customers does the payer with ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce have?,"MATCH (p:Payer {id: '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'})
+RETURN COUNT(p.unique_customers)",9.971067667007446
+Where was the patient with the ID 51c2d782-1f36-657d-5618-42df22e39681 born?,"MATCH (p:Patient {id: '51c2d782-1f36-657d-5618-42df22e39681'})
+RETURN p.birthDate",9.739486932754517
+Please provide me the number of medications uncovered by the payer Humana.,MATCH (e:Encounter)-[:IS_COVERED_BY]->(p:Payer) WHERE p.name = 'Humana' AND e.claimCost > 0 RETURN COUNT(e),9.276578426361084
+In which encounter was a procedure with code 428211000124100 performed?,MATCH (e:Encounter)<-[:HAS_ORDERED_DURING]-(p:Procedure) WHERE p.code = '428211000124100' RETURN e,10.428886651992798
+What is the state of residence of the patient with the ID c4d58109-7898-dd23-c4e9-b1ea0a6fe79a?,"MATCH (p:Patient {id: 'c4d58109-7898-dd23-c4e9-b1ea0a6fe79a'}) RETURN p.state
+```",9.612385511398315
+Who is the patient associated with the claim cca769d0-09e0-72f9-23aa-e6ddb2200792?,"MATCH (claim {id: 'cca769d0-09e0-72f9-23aa-e6ddb2200792'})-[:HAS_PATIENT]->(patient) RETURN patient.firstName, patient.lastName",9.671263694763184
+What is the description of the allergy with the code 3718001?,MATCH (a:Allergy) WHERE a.code = '3718001' RETURN a.description,9.16421890258789
+Who is associated with the organization with the ID 844a8cb2-4164-35b2-88b8-dffa2889a738?,"MATCH (o:Organization {id: '844a8cb2-4164-35b2-88b8-dffa2889a738'})-[:IS_PERFORMED_AT]->(p)
+RETURN p.name",10.026394844055176
+Please provide me the number of medications uncovered by the payer NO_INSURANCE.,MATCH (e:Encounter)<-[:IS_COVERED_BY]-(p:Payer) WHERE p.name = 'NO_INSURANCE' AND e.claimCost > 0 RETURN COUNT(e),9.878205299377441
+Please provide me the payer that paid for the medication Alendronic acid 10 MG Oral Tablet.,MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(m:Medication) WHERE m.code = 'Alendronic acid 10 MG Oral Tablet' RETURN e.payerId,9.176273822784424
+What is the SOP code for the imaging study with series UID 1.2.840.99999999.1.57895833.1595237299924?,"MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.57895833.1595237299924'})
+RETURN study.sopCode",9.10055136680603
+Please provide me a reason for the use of the care plan with code 134435003.,"MATCH (e:Encounter {code: '134435003'})-[:HAS_DIAGNOSED]->(c:Condition)<-[:IS_DIAGNOSED_DURING]-(p:Patient)
+RETURN c.description",10.047943353652954
+Please provide the names of the patients that are linked with the organization with the ID 2befa435-3070-3350-a15c-e43ac1e84b24.,"MATCH (p:Patient)-[:HAS_ENCOUNTER]->(e:Encounter)<-[:HAS_PROVIDER]-(pr:Provider) WHERE pr.id = '2befa435-3070-3350-a15c-e43ac1e84b24' RETURN p.firstName, p.lastName",10.205455541610718
+In which city is the provider named Lynsey2 Lemke654 located?,MATCH (p:Provider {name: 'Lynsey2 Lemke654'}) RETURN p.city,9.50705623626709
+What is the birthdate of the patient with the ID cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d?,MATCH (p:Patient {id: 'cd2f5b22-9a6a-cda8-9d6f-1b01b7b7f50d'}) RETURN p.birthdate,9.377086877822876
+Please provide me the name of the payer associated with the encounter 707c24b4-b715-02aa-5f9b-1712d336b98e.,"MATCH (e:Encounter {id: '707c24b4-b715-02aa-5f9b-1712d336b98e'})-[:IS_COVERED_BY]->(p:Payer)
+RETURN p.name",11.508518934249878
+What encounter is associated with the supply with the code 713779008?,MATCH (supply)<-[:IS_ORDERED_DURING]-(encounter) WHERE supply.code = '713779008' RETURN encounter.id,9.051329612731934
+What is the name of allergy with the code 782576004?,MATCH (a:Allergy) WHERE a.code = '782576004' RETURN a.description,9.409183740615845
+Please provide me the body site code of the imaging study with the ID 5ad9a317-b195-585e-c638-29e057061c9e.,"MATCH (study:ImagingStudy {id: ""5ad9a317-b195-585e-c638-29e057061c9e""})
+RETURN study.bodySiteCode",9.95852279663086
+How many encounters are uncovered by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"MATCH (p:Payer {id: 'e03e23c9-4df1-3eb6-a62d-f70f02301496'})-[:HAS_COVERED]->(e:Encounter)
+RETURN COUNT(e)",10.112375974655151
+What city is the organization NANTUCKET COTTAGE HOSPITAL located in?,MATCH (o:Organization {name: 'NANTUCKET COTTAGE HOSPITAL'}) RETURN o.city,8.38246464729309
+When was the patient named Micah422 Buckridge80 born?,"MATCH (p:Patient {firstName: 'Micah422', lastName: 'Buckridge80'})
+RETURN p.birthDate",9.64723253250122
+Please provide me the number of immunizations uncovered by the payer Anthem.,MATCH (e:Encounter)-[:IS_COVERED_BY]->(p:Payer) WHERE p.name = 'Anthem' AND e.immunizations > 0 RETURN COUNT(e),9.13304877281189
+Which payer is linked to the encounter d9415cfe-d6b7-b89d-b0f8-a763566d7c88?,"MATCH (e:Encounter {id: ""d9415cfe-d6b7-b89d-b0f8-a763566d7c88""})-[:IS_COVERED_BY]->(p:Payer)
+RETURN p.name",10.991586923599243
+What type of encounter is encounter 669895f1-6552-f541-6faf-4a89f43b429d?,"MATCH (e:Encounter {id: '669895f1-6552-f541-6faf-4a89f43b429d'})
+RETURN e.code",8.075192928314209
+What kind of allergy has the code 5640?,MATCH (a:Allergy) WHERE a.code = '5640' RETURN a.description,9.924412727355957
+What is the address of the provider named Katelynn452 Ledner144?,MATCH (p:Provider {name: 'Katelynn452 Ledner144'}) RETURN p.address,9.979982137680054
+Please provide me the encounters that were related to the allergy Mold (organism).,"MATCH (a:Allergy {code: 'Mold'})-[:IS_DIAGNOSED_DURING]->(e:Encounter)
+RETURN e",9.58501672744751
+Please provide the reason code and description for the encounter 10a48862-79c6-036e-e572-f80160131cd0.,"MATCH (e:Encounter {id: '10a48862-79c6-036e-e572-f80160131cd0'})
+RETURN e.reasonCode, e.reasonDescription",9.622950315475464
+What is the description of the allergy with the code 419199007?,MATCH (a:Allergy) WHERE a.code = '419199007' RETURN a.description,9.725471258163452
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.60733233.1559399876087 conducted?,"MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.60733233.1559399876087'})
+MATCH (encounter)<-[:IS_ORDERED_DURING]-(study)
+RETURN encounter",9.853241205215454
+Please provide me the revenue of generated by the payer with the ID e03e23c9-4df1-3eb6-a62d-f70f02301496.,"MATCH (p:Payer {id: 'e03e23c9-4df1-3eb6-a62d-f70f02301496'})
+RETURN p.revenue
+```",9.494333744049072
+What is the address of the organization MIDDLETON FAMILY MEDICINE URGENT CARE  LLC?,MATCH (o:Organization {name: 'MIDDLESTON FAMILY MEDICINE URGENT CARE  LLC'}) RETURN o.address,9.299250841140747
+What is the reason for using the care plan with code 53950000?,"MATCH (e:Encounter {code: '53950000'})-[:HAS_DIAGNOSED]->(c:Condition)
+RETURN c.description
+```",11.22205662727356
+What is the marital status of Tabatha105 Fisher429?,"MATCH (p:Patient {firstName: 'Tabatha105', lastName: 'Fisher429'}) RETURN p.marital",9.446278095245361
+Which ethnicity does patient Marcie463 have?,MATCH (p:Patient {lastName: 'Marcie463'}) RETURN p.ethnicity,8.411977529525757
+How many medications are uncovered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c?,"MATCH (p:Payer {id: '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'})-[:HAS_COVERED]->(m:Medication)
+RETURN COUNT(m)",9.862159013748169
+Who is associated with the organization SERENITY HILL NURSING CENTER?,"MATCH (o:Organization {name: 'SERENITY HILL NURSING CENTER'})-[:IS_PERFORMED_AT]->(p)
+RETURN p.name",9.063634157180786
+What is the address of the organization with the ID 9d0e702d-50a0-3f4c-9126-0951d560fd4b?,"MATCH (o:Organization {id: ""9d0e702d-50a0-3f4c-9126-0951d560fd4b""})
+RETURN o.address",9.272325277328491
+What city is the organization ARBOUR-FULLER HOSPITAL located in?,MATCH (o:Organization {name: 'ARBOUR-FULLER HOSPITAL'}) RETURN o.city,11.246774196624756
+What is the date of the immunization Influenza  seasonal  injectable  preservative free?,"MATCH (i:Immunization) WHERE i.code = 'Influenza, seasonal, injectable, preservative free' RETURN i.date",8.68996262550354
+What type of encounter is encounter 8602cd94-fcbe-0506-b4c0-f25e5e6619de?,"MATCH (e:Encounter {id: '8602cd94-fcbe-0506-b4c0-f25e5e6619de'})
+RETURN e.code",10.223847150802612
+What is the start date of the care plan with code 385691007?,"MATCH (carePlan:CarePlan) WHERE carePlan.code = '385691007' RETURN carePlan.start
+```",8.491585493087769
+What is the stop date of the condition with code 73595000?,MATCH (c:Condition) WHERE c.code = '73595000' RETURN c.stopDate,10.084754705429077
+What is the type of the allergy with the code 264287008?,MATCH (a:Allergy) WHERE a.code = '264287008' RETURN a.description,9.098904609680176
+Please provide me the name of the organization associated with encounter 1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689.,MATCH (encounter)<-[:IS_RESPONSIBLE_FOR]-(organization) WHERE encounter.id = '1fc5c2dd-8778-d3ae-0b9a-90bf6d07f689' RETURN organization.name,9.203356266021729
+Please provide me the type of an observation with the code 89204-2.,MATCH (obs:Observation) WHERE obs.code = '89204-2' RETURN type(obs),10.086749076843262
+What is the cost of the immunization Td (adult)  5 Lf tetanus toxoid  preservative free  adsorbed?,"MATCH (i:Immunization)
+WHERE i.code = 'Td (adult)  5 Lf tetanus toxoid preservative free  adsorbed'
+RETURN i.baseCost",9.542323350906372
+What is the health care coverage status of the patient named Ora550 Luettgen772?,"MATCH (p:Patient {firstName: 'Ora550', lastName: 'Luettgen772'}) RETURN p.healthcareCoverage",10.397603750228882
+Please provide me the encounters that are related to the procedure Assessment of health and social care needs (procedure).,MATCH (e:Encounter)-[:HAS_ORDERED]->(p:Procedure) WHERE p.code = 'Assessment of health and social care needs' RETURN e,9.023489475250244
+Please provide names of the patients that are linked with the organization LEOMINSTER COMUNITY HEALTH CENTER.,"MATCH (p:Patient)-[:HAS_INSURANCE_START]->(i:INSURANCE_START)<-[:HAS_PROVIDER]-(o:Organization {name: 'LEOMINSTER COMUNITY HEALTH CENTER'})
+RETURN p.firstName, p.lastName",10.199546575546265
+How many immunizations are covered by the payer NO_INSURANCE?,MATCH (p:Patient)-[:HAS_INSURANCE]->(i:Payer) WHERE i.name = 'NO_INSURANCE' AND i.covered_immunizations > 0 RETURN COUNT(i),9.15989089012146
+In which encounter is the medication with the code 313782 administered?,"MATCH (e:Encounter)<-[:HAS_PRESCRIBED]-(m:Medication{code: '313782'})
+RETURN e.id",9.135807752609253
+What is the udi code for the device with code 336621006?,MATCH (d:Device) WHERE d.code = '336621006' RETURN d.udi,9.807181596755981
+Please provide me the encounters that are related to the medication with the code 314076.,"MATCH (med:Medication) WHERE med.code = '314076'
+MATCH (enc)-[:HAS_PRESCRIBED_DURING]->(med)
+RETURN enc",9.058337211608887
+What is the type of the observation with the code 8867-4?,MATCH (o:Observation) WHERE o.code = '8867-4' RETURN o.type,10.973151922225952
+What is the total number of member months of the payer Medicaid?,MATCH (p:Payer) WHERE p.name = 'Medicaid' RETURN SUM(p.member_months),8.198922872543335
+What is the encounter associated with the immunization with code 140?,"MATCH (i:Immunization) WHERE i.code = '140'
+MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i)
+RETURN e",9.917769432067871
+What is the reason for encounter 6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783?,MATCH (e:Encounter {id: '6d4b2a5d-6877-92ac-21c6-9f6ba4f9d783'}) RETURN e.reasonDescription,8.972527742385864
+Which ethnicity does the patient named Zboncak558 have?,MATCH (p:Patient {firstName: 'Zboncak558'}) RETURN p.ethnicity,11.082309007644653
+What is the reason for using the care plan with code 384758001?,MATCH (e:Encounter)<-[:HAS_DIAGNOSED]-(c:Condition) WHERE e.code = '384758001' RETURN c.description,9.104185581207275
+Where was the patient named Isaac321 Rempel203 born?,"MATCH (p:Patient {firstName: 'Isaac321', lastName: 'Rempel203'})
+RETURN p.birthCity",8.898671388626099
+Please provide me the patients with the condition Part-time employment (finding).,"MATCH (p:Patient)
+WHERE p.condition CONTAINS 'Part-time employment'
+RETURN p.firstName, p.lastName",44.423285722732544
+Please provide me the number of procedures covered by the payer UnitedHealthcare.,"MATCH (e:Encounter)-[:IS_COVERED_BY]->(p:Payer)
+WHERE p.name = 'UnitedHealthcare'
+RETURN COUNT(e)",2.800257682800293
+Please provide me the number of encounters covered by the payer NO_INSURANCE.,"MATCH (e:Encounter)<-[:IS_COVERED_BY]-(p:Payer {name: 'NO_INSURANCE'})
+RETURN COUNT(e)",2.02829647064209
+Please provide me the encounters that were related to the allergy Lisinopril.,MATCH (a:Encounter)-[:HAS_DIAGNOSED]->(b:Allergy) WHERE b.code = 'Lisinopril' RETURN a,2.299433708190918
+What is the total number of months being a member for the payer with ID e03e23c9-4df1-3eb6-a62d-f70f02301496?,"MATCH (p:Payer {id: 'e03e23c9-4df1-3eb6-a62d-f70f02301496'})
+RETURN p.member_months",1.895697832107544
+What is the reason for using the care plan with code 443402002?,"MATCH (e:Encounter {code: '443402002'})-[:HAS_DIAGNOSED]->(c:Condition)
+RETURN c.description
+```",5.104623556137085
+Can you tell me when the observation Heart rate was recorded?,"MATCH (e:Encounter)<-[:HAS_ORDERED_DURING]-(o:Observation) WHERE o.code = 'Heart rate' RETURN e.date
+```",9.108194351196289
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"MATCH (i:Immunization)
+WHERE i.code = 'Influenza, seasonal, injectable, preservative free'
+RETURN i.baseCost",9.832165718078613
+Please provide me the payer that paid for the medication Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet.,MATCH (e:Encounter)<-[:HAS_PRESCRIBED]-(p:Medication) WHERE p.code = 'Acetaminophen 300 MG / Hydrocodone Bitartrate 5 MG Oral Tablet' RETURN p.payerCoverage,9.249529838562012
+What is the reaction code of the allergy with the code 84489001?,MATCH (a:Allergy) WHERE a.code = '84489001' RETURN a.reactionCode,9.3775053024292
+Please provide me the department id of the claim with ID 2bbdb236-5c11-f4e9-9a40-33fb408555f6.,"MATCH (claim:Claim {id: ""2bbdb236-5c11-f4e9-9a40-33fb408555f6""})
+RETURN claim.departmentId",9.603789329528809
+In which encounter was a procedure with code 713106006 performed?,MATCH (e:Encounter)<-[:HAS_ORDERED_DURING]-(p:Procedure) WHERE p.code = '713106006' RETURN e,9.249918937683105
+Please provide me the procedure code of the claim transaction a3dedfb9-4a55-2c3f-0690-371a8af4a966.,"MATCH (claimTransaction:ClaimTransaction {id: 'a3dedfb9-4a55-2c3f-0690-371a8af4a966'})
+RETURN claimTransaction.procedureCode",9.973613023757935
+Please provide the reason code and description for the encounter 867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb.,"MATCH (e:Encounter {id: '867ffbbe-fc34-ceb5-a1b5-54b3fe9492eb'})
+RETURN e.reasonCode, e.reasonDescription",8.974215745925903
+When was the care plan Head injury rehabilitation used?,"MATCH (e:Encounter)<-[:HAS_PRESCRIBED]-(p:Procedure) WHERE p.code = 'H04.9' AND e.class = 'Head Injury' RETURN e.date
+```",10.05122184753418
+Please provide me the udi code related to the device Home nebulizer (physical object).,MATCH (d:Device) WHERE d.description = 'Home nebulizer' RETURN d.udi,12.006712675094604
+Please provide me the encounters that are related to the observation with the code 785-6.,MATCH (obs:Observation)<-[:HAS_ORDERED]-(enc:Encounter) WHERE obs.code = '785-6' RETURN enc,7.790101051330566
+Please provide me the procedure code of the claim transaction f4595e16-3adb-0e82-19f3-62cb0a7638ed.,"MATCH (claimTransaction:ClaimTransaction {id: 'f4595e16-3adb-0e82-19f3-62cb0a7638ed'})
+RETURN claimTransaction.procedureCode",9.004335403442383
+What is the address of the organization with the ID 34f0b10a-5e29-31de-a75e-e0bb03c0c0d4?,"MATCH (o:Organization {id: ""34f0b10a-5e29-31de-a75e-e0bb03c0c0d4""})
+RETURN o.address",10.517030239105225
+What is the state of residence of the patient with the ID 96d6e446-5d05-8df3-eff5-b4af55d138bb?,"MATCH (p:Patient {id: '96d6e446-5d05-8df3-eff5-b4af55d138bb'}) RETURN p.state
+```",9.761418342590332
+What is the address of the organization with the ID 880fad59-9c38-3a21-a39f-ccc801502ab3?,MATCH (o:Organization {id: '880fad59-9c38-3a21-a39f-ccc801502ab3'}) RETURN o.address,9.405333995819092
+Please provide me the udi code related to the device with code 702172008.,MATCH (d:Device) WHERE d.code = '702172008' RETURN d.udi,9.993945360183716
+What is the average quality of life score for customers under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"MATCH (p:Patient)-[:HAS_INSURANCE]->(i:Payer) WHERE i.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625' WITH p, AVG(p.qualityOfLifeScore) AS avgQualityOfLife RETURN avgQualityOfLife",9.195548057556152
+Which organization is linked to the encounter ea22dd39-a110-c7cd-5903-071327281613?,MATCH (encounter)<-[:IS_ORDERED_DURING]-(p:Provider)<-[:HAS_AFFILIATED_WITH]-(org:Organization) WHERE encounter.id = 'ea22dd39-a110-c7cd-5903-071327281613' RETURN org.name,8.985570430755615
+What patients are covered under the payer with ID d18ef2e6-ef40-324c-be54-34a5ee865625?,"MATCH (p:Patient)-[:HAS_INSURANCE]->(ins:Payer) WHERE ins.id = 'd18ef2e6-ef40-324c-be54-34a5ee865625' RETURN p.firstName, p.lastName",10.30390739440918
+Please provide me the number of encounters covered by the payer with the ID df166300-5a78-3502-a46a-832842197811.,"MATCH (p:Payer {id: ""df166300-5a78-3502-a46a-832842197811""})-[:HAS_COVERED]->(e:Encounter)
+RETURN COUNT(e)",10.417584657669067
+Please provide me the udi code related to the device with code 337414009.,MATCH (d:Device) WHERE d.code = '337414009' RETURN d.udi,9.039157390594482
+Please provide me the udi code related to the device Oxygen concentrator (physical object).,MATCH (d:Device) WHERE d.code = 'Oxygen concentrator' RETURN d.udi,10.71674132347107
+Please provide me the encounters that are related to the device with code 91537007.,"MATCH (d:Device {code: '91537007'})-[:IS_ORDERED_DURING]->(e:Encounter)
+RETURN e",8.024789810180664
+Can you give me the SNOMED code for the allergy with the description Allergy to substance (finding)?,MATCH (a:Allergy) WHERE a.description = 'Allergy to substance (finding)' RETURN a.code,10.891730308532715
+What is the series UID of the imaging study with the ID 71ee50dd-ea7c-3415-e8d9-8b3a950cf731?,MATCH (study:ImagingStudy {id: '71ee50dd-ea7c-3415-e8d9-8b3a950cf731'}) RETURN study.seriesUid,8.93095874786377
+Please provide me the encounters that are related to the allergy with the code 264287008.,MATCH (a:Allergy)<-[:IS_DIAGNOSED_DURING]-(e:Encounter) WHERE a.code = '264287008' RETURN e,9.708397150039673
+How many encounters are uncovered by the payer with the ID 0133f751-9229-3cfd-815f-b6d4979bdd6a?,"MATCH (p:Payer {id: '0133f751-9229-3cfd-815f-b6d4979bdd6a'})-[:HAS_COVERED]->(e:Encounter)
+RETURN COUNT(e)",9.569692373275757
+What is the last name of the patient with the ID 35a38de9-c363-17a5-b2c4-c28f3b1c2ac0?,MATCH (p:Patient {id: '35a38de9-c363-17a5-b2c4-c28f3b1c2ac0'}) RETURN p.lastName,10.61644983291626
+What is the department id of the claim with the ID e9434fb3-0c47-4b84-ca56-c55fb315b772?,"MATCH (claim:Claim {id: ""e9434fb3-0c47-4b84-ca56-c55fb315b772""})
+RETURN claim.departmentId",9.195154190063477
+Please provide me a list of patients associated with the payer with the ID b046940f-1664-3047-bca7-dfa76be352a4.,"MATCH (p:Patient)-[:HAS_INSURANCE_START]->(i:Insurance)<-[:HAS_PAYER]-(payer:Payer {id: 'b046940f-1664-3047-bca7-dfa76be352a4'})
+RETURN p.firstName, p.lastName",11.400282144546509
+Please provide me the number of immunizations covered by the payer with the ID 26aab0cd-6aba-3e1b-ac5b-05c8867e762c.,"MATCH (p:Patient {id: '26aab0cd-6aba-3e1b-ac5b-05c8867e762c'})-[:HAS_INSURANCE]->(i:Insurance)-[:HAS_COVERED]->(e:Encounter)
+RETURN COUNT(e)",8.409527063369751
+What is the ethnicity of the patient named Argelia29 Altenwerth646?,"MATCH (p:Patient {firstName: 'Argelia29', lastName: 'Altenwerth646'})
+RETURN p.ethnicity",9.046277523040771
+Can you tell me the birthdate of the patient named Rebeca548 Hansen121?,"MATCH (p:Patient {firstName: 'Rebeca548', lastName: 'Hansen121'}) RETURN p.birthdate",10.402317523956299
+Please provide me the series UID of the imaging study with the ID d3fa7d2e-1bca-65f1-74ae-d326343ab849.,"MATCH (study:ImagingStudy {id: ""d3fa7d2e-1bca-65f1-74ae-d326343ab849""})
+RETURN study.seriesUid",10.643630027770996
+Please provide me the modality description of the imaging study with the ID 820778b8-5a19-9acf-9dbd-a3be1a1b4a47.,"MATCH (study:ImagingStudy {id: ""820778b8-5a19-9acf-9dbd-a3be1a1b4a47""})
+RETURN study.modalityDescription",7.976275682449341
+Please provide me the body site description of the imaging study with the ID 9bda6d29-00c0-24ea-6d31-09c04803fff4.,"MATCH (study:ImagingStudy {id: '9bda6d29-00c0-24ea-6d31-09c04803fff4'})
+RETURN study.bodySiteDescription",10.300517082214355
+What kind of allergy is described as Mold (organism)?,MATCH (a:Allergy) WHERE a.description1 = 'Mold' RETURN a.code,9.911320686340332
+How many patients have the allergy described as Fish (substance)?,MATCH (a:Allergy) WHERE a.description = 'Fish (substance)' COUNT(a),8.907027959823608
+Please provide me the SOP code of the imaging study with the ID 65ff28ac-082f-ef59-ca11-baacc7302868.,"MATCH (study:ImagingStudy {id: ""65ff28ac-082f-ef59-ca11-baacc7302868""})
+RETURN study.sopCode",9.015904903411865
+What procedures did the patient named Caleb651 Dickinson688 undergo?,"MATCH (p:Patient {firstName: 'Caleb', lastName: 'Dickinson', id: 'Caleb651 Dickinson688'})-[:HAS_HISTORY_OF]->(p2:Procedure)
+RETURN p2.code
+```",10.171563386917114
+Please provide me the patient associated with the imaging study entailing series UID 1.2.840.99999999.1.63663889.1660767155882.,MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.63663889.1660767155882'})-[:IS_ORDERED_DURING]->(patient) RETURN patient,9.359497785568237
+Can you provide the count of patients suffering from Allergy to substance (finding)?,MATCH (a:Allergy) WHERE a.code = 'substances' RETURN COUNT(a),11.093465805053711
+What are the survival chances of allgery House dust mite (organism)?,No answer possible based on given input. The provided schema does not include any information regarding survival chances or allergies related to house dust mites.,8.739729642868042
+Please provide me the encounters that are related to the observation with the code 9279-1.,MATCH (obs:Observation)<-[:HAS_ORDERED]-(enc:Encounter) WHERE obs.code = '9279-1' RETURN enc,9.429996490478516
+Please provide me the patients treated with the procedure of code 866148006.,MATCH (e:Encounter)<-[:HAS_PROVIDER]-(p:Provider) WHERE p.code = '866148006' RETURN e,8.963805913925171
+What is the total number of months being a member for the payer with ID d31fccc3-1767-390d-966a-22a5156f4219?,"MATCH (p:Payer {id: ""d31fccc3-1767-390d-966a-22a5156f4219""})
+RETURN p.member_months",9.943279504776001
+What is the base cost of the immunization with code 133?,MATCH (i:Immunization) WHERE i.code = '133' RETURN i.baseCost,8.897185802459717
+Please provide me the patients treated with the procedure Colonoscopy.,"MATCH (e:Encounter)<-[:HAS_PATIENT]-(p:Patient) WHERE e.procedureCode = 'Colonoscopy' RETURN p.firstName, p.lastName",10.184231996536255
+What is the body site code for the imaging study with series UID 1.2.840.99999999.1.30413319.1650275698924?,"MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.30413319.1650275698924'})
+RETURN study.bodySiteCode",9.178690195083618
+Who has been treated with the procedure of code 710841007?,MATCH (e:Encounter)<-[:HAS_ORDERED]-(p:Procedure) WHERE p.code = '710841007' RETURN e,10.442889928817749
+Who has been treated with the procedure of code 430193006?,MATCH (e:Encounter)<-[:HAS_ORDERED]-(p:Procedure) WHERE p.code = '430193006' RETURN e,9.559987545013428
+When did the allergy with the code 3718001 start?,MATCH (a:Allergy) WHERE a.code = '3718001' RETURN a.start,10.106258392333984
+Please provide me the number of encounters uncovered by the payer Medicare.,MATCH (e:Encounter)<-[:IS_COVERED_BY]-(p:Payer) WHERE p.name = 'Medicare' RETURN COUNT(e),10.156883716583252
+What is the address of the organization with the ID 7f32dd7d-5c35-3ddb-839b-8fbbb930d412?,MATCH (o:Organization {id: '7f32dd7d-5c35-3ddb-839b-8fbbb930d412'}) RETURN o.address,8.563194990158081
+What is the type of allergy has the description Latex (substance)?,MATCH (a:Allergy) WHERE a.description = 'Latex (substance)' RETURN a.code,9.351889371871948
+Where was the patient named Qiana980 Okuneva707 born?,"MATCH (p:Patient {firstName: 'Qiana980', lastName: 'Okuneva707'})
+RETURN p.city
+```",9.23758316040039
+What is the most promising procedure for a patient with Mold (organism)?,"MATCH (p:Patient)-[:HAS_HISTORY_OF]->(c:Condition{code='M00.1'}),
+(p)-[:HAS_ENCOUNTER]->(e:Encounter)-[:HAS_ORDERED_DURING]->(p:Procedure)
+WITH p, e, count(p) AS count
+ORDER BY count DESC
+LIMIT 1
+RETURN e.code",9.990731477737427
+What is the first name of the patient with the ID f07f2e96-d323-1db8-c28f-9d06b112f557?,"MATCH (p:Patient {id: ""f07f2e96-d323-1db8-c28f-9d06b112f557""}) RETURN p.firstName",9.54017162322998
+What is the body site description for the imaging study with series UID 1.2.840.99999999.1.60733233.1559399876087?,"MATCH (study:ImagingStudy {seriesUid: '1.2.840.99999999.1.60733233.1559399876087'})
+RETURN study.bodySiteDescription",10.498809337615967
+What is the encounter associated with the immunization Influenza  seasonal  injectable  preservative free?,MATCH (e:Encounter)-[:HAS_PRESCRIBED]->(i:Immunization) WHERE i.code = 'Influenza  seasonal  injectable  preservative free' RETURN e,9.648567914962769
+What type of encounter is encounter 40c90d37-a246-601a-7edf-983a88a0936d?,"MATCH (e:Encounter {id: '40c90d37-a246-601a-7edf-983a88a0936d'})
+RETURN e.code",9.009675025939941
+What is the modality description of the imaging study with the ID ca21a429-bec9-35a5-17ba-0d012491d4c4?,"MATCH (study:ImagingStudy {id: 'ca21a429-bec9-35a5-17ba-0d012491d4c4'})
+RETURN study.modalityDescription",10.086950063705444
+What is the health care coverage status of the patient named Wilfred787 Schamberger479?,"MATCH (p:Patient {firstName: 'Wilfred', lastName: 'Schamberger'})
+RETURN p.healthcareCoverage",9.383330345153809
+When was the observation with the code 72514-3 recorded?,MATCH (obs:Observation) WHERE obs.code = '72514-3' RETURN obs.date,9.353868246078491
+How many patients have or had the allergy with the code 419199007?,MATCH (a:Patient)-[:HAS_ALLERGY]->(b:Allergy) WHERE b.code = '419199007' COUNT(a),9.527500629425049
+Please provide me the patients associated with the supply named Blood glucose testing strips (physical object).,"MATCH (supply:Supply {code: 'Blood glucose testing strips'})<-[:IS_ORDERED_FOR]-(patient)
+RETURN patient.firstName, patient.lastName",10.613700866699219
+How many immunizations are uncovered by the payer with the ID 8fa6c185-e44e-3e34-8bd8-39be8694f4ce?,"MATCH (p:Payer {id: '8fa6c185-e44e-3e34-8bd8-39be8694f4ce'})-[:HAS_COVERED]->(e:Encounter)
+WHERE e.isCoveredBy = false
+RETURN COUNT(e)",9.759639263153076
+What encounter is associated with the supply with the code 419343004?,MATCH (supply)<-[:IS_ORDERED_DURING]-(encounter) WHERE supply.code = '419343004' RETURN encounter.id,9.359200954437256
+What is the description of the device with code 706180003?,MATCH (d:Device {code: '706180003'}) RETURN d.description,9.184618473052979
+Please provide me the patient associated with the claim transaction fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2.,MATCH (claimTransaction {id: 'fdb84e8a-3e20-b3a8-0cf1-cea85c87cfd2'})-[:HAS_PATIENT]->(patient) RETURN patient,9.449074029922485
+What is the type of the allergy with the code 256277009?,MATCH (a:Allergy) WHERE a.code = '256277009' RETURN a.description,10.164233922958374
+In which encounter was the imaging study with the series UID 1.2.840.99999999.1.94906246.1703949012410 conducted?,MATCH (e:Encounter)<-[:HAS_ORDERED_DURING]-(is:ImagingStudy {seriesUid: '1.2.840.99999999.1.94906246.1703949012410'}) RETURN e,9.625864028930664
+Give me the base cost of the immunization Influenza  seasonal  injectable  preservative free.,"MATCH (i:Immunization)
+WHERE i.code = 'Influenza, seasonal, injectable, preservative free'
+RETURN i.baseCost",9.078105926513672

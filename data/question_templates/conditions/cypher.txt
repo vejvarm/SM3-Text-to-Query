@@ -1,0 +1,13 @@
+MATCH (c:Condition {{code: '$condition_code'}}) RETURN DISTINCT c.description;
+MATCH (c:Condition {{code: '$condition_code'}}) RETURN c.start;
+MATCH (c:Condition {{code: '$condition_code'}}) RETURN c.stop;
+MATCH (e:Encounter)-[:HAS_DIAGNOSED]->(c:Condition {{code: '$condition_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(c:Condition {{code: '$condition_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_DIAGNOSED]->(c:Condition {{code: '$condition_code'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(c:Condition {{code: '$condition_code'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (c:Condition {{description: '$condition_name'}}) RETURN c.start;
+MATCH (c:Condition {{description: '$condition_name'}}) RETURN c.stop;
+MATCH (e:Encounter)-[:HAS_DIAGNOSED]->(c:Condition {{description: '$condition_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(c:Condition {{description: '$condition_name'}}) RETURN DISTINCT p.firstName, p.lastName;
+MATCH (e:Encounter)-[:HAS_DIAGNOSED]->(c:Condition {{description: '$condition_name'}}) RETURN DISTINCT e.description;
+MATCH (p:Patient)-[:HAS_HISTORY_OF]->(c:Condition {{description: '$condition_name'}}) RETURN DISTINCT p.firstName, p.lastName;

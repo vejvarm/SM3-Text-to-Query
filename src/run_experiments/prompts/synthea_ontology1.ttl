@@ -1,0 +1,358 @@
+@prefix syn: <https://knacc.umbc.edu/dae-young/kim/ontologies/synthea#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+syn:startYear rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf syn:payerTransitionDataProperty ;
+              rdfs:domain syn:PayerTransition ;
+              rdfs:range xsd:date .
+
+syn:state rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf syn:patientDataProperty ;
+          rdfs:domain syn:Patient ;
+          rdfs:range rdf:PlainLiteral .
+
+syn:supplyDataProperty rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf syn:syntheaDataProperty .
+
+syn:syntheaDataProperty rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty .
+
+syn:system rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf syn:allergyDataProperty ;
+           rdfs:domain syn:Allergy ;
+           rdfs:range rdf:PlainLiteral ;
+           rdfs:comment "Terminology system of the Allergy code. RxNorm if this is a medication allergy, otherwise SNOMED-CT." .
+
+syn:totalClaimCost rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf syn:encounterDataProperty ;
+                   rdfs:domain syn:Encounter ;
+                   rdfs:range xsd:float .
+
+syn:totalCost rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf syn:medicationDataProperty ;
+              rdfs:domain syn:Medication ;
+              rdfs:range xsd:float .
+
+syn:type rdf:type owl:DatatypeProperty ;
+         rdfs:subPropertyOf syn:observationDataProperty ;
+         rdfs:domain syn:Observation ;
+         rdfs:range rdf:PlainLiteral .
+
+syn:udi rdf:type owl:DatatypeProperty ;
+        rdfs:subPropertyOf syn:deviceDataProperty ;
+        rdfs:domain syn:Device ;
+        rdfs:range syn:fda:UDI .
+
+syn:uncoveredEncounters rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf syn:payerDataProperty ;
+                        rdfs:domain syn:Payer ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "The number of Encounters not paid for by this Payer, and paid out of pocket by patients." .
+
+syn:uncoveredImmunizations rdf:type owl:DatatypeProperty ;
+                           rdfs:subPropertyOf syn:payerDataProperty ;
+                           rdfs:domain syn:Payer ;
+                           rdfs:range xsd:integer ;
+                           rdfs:comment "The number of Immunizations not paid for by this Payer, and paid out of pocket by patients." .
+
+syn:uncoveredMedications rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf syn:payerDataProperty ;
+                         rdfs:domain syn:Payer ;
+                         rdfs:range xsd:integer ;
+                         rdfs:comment "The number of Medications not paid for by this Payer, and paid out of pocket by patients." .
+
+syn:uncoveredProcedures rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf syn:payerDataProperty ;
+                        rdfs:domain syn:Payer ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "The number of Procedures not paid for by this Payer, and paid out of pocket by patients." .
+
+syn:uniqueCustomers rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf syn:payerDataProperty ;
+                    rdfs:domain syn:Payer ;
+                    rdfs:range xsd:integer ;
+                    rdfs:comment "The number of unique patients enrolled with this Payer during the entire simulation." .
+
+syn:utilization rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf syn:organizationDataProperty ,
+                                   syn:providerDataProperty ;
+                rdfs:domain [ rdf:type owl:Class ;
+                              owl:unionOf ( syn:Organization
+                                            syn:Provider
+                                          )
+                            ] ;
+                rdfs:range xsd:integer .
+
+syn:value rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf syn:observationDataProperty ;
+          rdfs:domain syn:Observation ;
+          rdfs:range rdf:PlainLiteral .
+
+syn:Allergy rdf:type owl:Class ;
+            rdfs:subClassOf syn:Synthea ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty syn:code ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange [ rdf:type rdfs:Datatype ;
+                                                owl:unionOf ( syn:snomed:SNOMED-CT
+                                                              syn:umls:RxNorm
+                                                            )
+                                              ]
+                            ] ;
+            rdfs:comment "Patient allergy data." .
+
+syn:CarePlan rdf:type owl:Class ;
+             rdfs:subClassOf syn:Synthea ,
+                             [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                      owl:onProperty syn:code ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange syn:snomed:SNOMED-CT
+                                                    ]
+                                                    [ rdf:type owl:Restriction ;
+                                                      owl:onProperty syn:reasonCode ;
+                                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                      owl:onDataRange syn:snomed:SNOMED-CT
+                                                    ]
+                                                  ) ;
+                               rdf:type owl:Class
+                             ] ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty syn:reasonCode ;
+                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                               owl:onDataRange syn:snomed:SNOMED-CT
+                             ] ;
+             rdfs:comment "Patient care plan data, including goals." .
+
+syn:Claim rdf:type owl:Class ;
+          rdfs:subClassOf syn:Synthea ;
+          rdfs:comment "Patient claim data." .
+
+syn:ClaimTransaction rdf:type owl:Class ;
+                     rdfs:subClassOf syn:Synthea ,
+                                     [ rdf:type owl:Class ;
+                                       owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                       owl:onProperty syn:claimTransactionType ;
+                                                       owl:hasValue "ADJUSTMENT"
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty syn:claimTransactionType ;
+                                                       owl:hasValue "CHARGE"
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty syn:claimTransactionType ;
+                                                       owl:hasValue "PAYMENT"
+                                                     ]
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty syn:claimTransactionType ;
+                                                       owl:hasValue "TRANSFERIN"
+                                                     ]
+                                                     [ rdf:type owl:
+
+Restriction ;
+                                                       owl:onProperty syn:claimTransactionType ;
+                                                       owl:hasValue "TRANSFEROUT"
+                                                     ]
+                                                   )
+                                     ] ;
+                     rdfs:comment "Transactions per line item per claim." .
+
+syn:Condition rdf:type owl:Class ;
+              rdfs:subClassOf syn:Synthea ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty syn:code ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange syn:snomed:SNOMED-CT
+                              ] ;
+              rdfs:comment "Patient conditions or diagnoses." .
+
+syn:Device rdf:type owl:Class ;
+           rdfs:subClassOf syn:Synthea ,
+                           [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                    owl:onProperty syn:code ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onDataRange syn:snomed:SNOMED-CT
+                                                  ]
+                                                  [ rdf:type owl:Restriction ;
+                                                    owl:onProperty syn:udi ;
+                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                    owl:onDataRange syn:fda:UDI
+                                                  ]
+                                                ) ;
+                             rdf:type owl:Class
+                           ] ;
+           rdfs:comment "Patient-affixed permanent and semi-permanent devices." .
+
+syn:Encounter rdf:type owl:Class ;
+              rdfs:subClassOf syn:Synthea ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty syn:code ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange syn:snomed:SNOMED-CT
+                              ] ;
+              rdfs:comment "Patient encounter data." .
+
+syn:ImagingStudy rdf:type owl:Class ;
+                 rdfs:subClassOf syn:Synthea ,
+                                 [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:bodySiteCode ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:snomed:SNOMED-CT
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:instanceUid ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:dicom:UID
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:modalityCode ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:dicom:DICOM-DCM
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:procedureCode ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:snomed:SNOMED-CT
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:seriesUid ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:dicom:UID
+                                                        ]
+                                                        [ rdf:type owl:Restriction ;
+                                                          owl:onProperty syn:sopCode ;
+                                                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                          owl:onDataRange syn:dicom:DICOM-SOP
+                                                        ]
+                                                      ) ;
+                                   rdf:type owl:Class
+                                 ] ;
+                 rdfs:comment "Patient imaging metadata." .
+
+syn:Immunization rdf:type owl:Class ;
+                 rdfs:subClassOf syn:Synthea ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty syn:code ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                   owl:onDataRange syn:hl7:CVX
+                                 ] ;
+                 rdfs:comment "Patient immunization data." .
+
+syn:Medication rdf:type owl:Class ;
+               rdfs:subClassOf syn:Synthea ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty syn:code ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange syn:umls:RxNorm
+                               ] ;
+               rdfs:comment "Patient medication data." .
+
+syn:Observation rdf:type owl:Class ;
+                rdfs:subClassOf syn:Synthea ,
+                                [ owl:intersectionOf ( [ rdf:type owl:Class ;
+                                                         owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty syn:code ;
+                                                                         owl:hasValue "numeric"
+                                                                       ]
+                                                                       [ rdf:type owl:Restriction ;
+                                                                         owl:onProperty syn:code ;
+                                                                         owl:hasValue "text"
+                                                                       ]
+                                                                     )
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty syn:code ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                         owl:onDataRange syn:loinc:LOINC
+                                                       ]
+                                                     ) ;
+                                  rdf:type owl:Class
+                                ] ;
+                rdfs:comment "Patient observations including vital signs and lab reports." .
+
+syn:Organization rdf:type owl:Class ;
+                 rdfs:subClassOf syn:Synthea ;
+                 rdfs:comment "Provider organizations including hospitals." .
+
+syn:Patient rdf:type owl:Class ;
+            rdfs:subClassOf syn:Synthea ;
+            rdfs:comment "Patient demographic data." .
+
+syn:Payer rdf:type owl:Class ;
+          rdfs:subClassOf syn:Synthea ;
+          rdfs:comment "Payer organization data." .
+
+syn:PayerTransition rdf:type owl:Class ;
+                    rdfs:subClassOf syn:Synthea ;
+                    rdfs:comment "Payer Transition data (i.e. changes in health insurance)." .
+
+syn:Procedure rdf:type owl:Class ;
+              rdfs:subClassOf syn:Synthea ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty syn:code ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange syn:snomed:SNOMED-CT
+                              ] ;
+              rdfs:comment "Patient procedure data including surgeries." .
+
+syn:Provider rdf:type owl:Class ;
+             rdfs:subClassOf syn:Synthea ;
+             rdfs:comment "Clinicians that provide patient care." .
+
+syn:Supply rdf:type owl:Class ;
+           rdfs:subClassOf syn:Synthea ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty syn:code ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange syn:snomed:SNOMED-CT
+                           ] ;
+           rdfs:comment "Supplies used in the provision of care." .
+
+syn:Synthea rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Class ;
+                                  owl:unionOf ( syn:Allergy
+                                                syn:CarePlan
+                                                syn:Claim
+                                                syn:ClaimTransaction
+                                                syn:Condition
+                                                syn:Device
+                                                syn:Encounter
+                                                syn:ImagingStudy
+                                                syn:Immunization
+                                                syn:Medication
+                                                syn:Observation
+                                                syn:Organization
+                                                syn:Patient
+
+
+                                                syn:Payer
+                                                syn:PayerTransition
+                                                syn:Procedure
+                                                syn:Provider
+                                                syn:Supply
+                                              )
+                                ] .
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( syn:Allergy
+                syn:CarePlan
+                syn:Claim
+                syn:ClaimTransaction
+                syn:Condition
+                syn:Device
+                syn:Encounter
+                syn:ImagingStudy
+                syn:Immunization
+                syn:Medication
+                syn:Observation
+                syn:Organization
+                syn:Patient
+                syn:Payer
+                syn:PayerTransition
+                syn:Procedure
+                syn:Provider
+                syn:Supply
+              )
+] .  
