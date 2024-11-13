@@ -1,30 +1,17 @@
 # Database Setup Instructions
 
 SM3-Text-to-Query contains four different database systems: PostgreSQL, Neo4j, Graph, and MongoDB. The following instructions will guide you through setting up each of these databases.
+Use the provided environment.yml file to make sure that the appropriate dependencies are installed.
+
+**Note: This will be heavily updated and improved during the next couple of weeks.**
 
 
 ## PostgreSQL
 
 1. **Install PostgreSQL**
    - Install PostgreSQL for your system according to the instructions [here](https://www.postgresql.org/download/).
-   - Make sure to remember the password you set for the `postgres` user.
-2. Run the data ingestion script
-3. 
+2. Run the `setup-postgres.py` script with the appropriate parameters.
 
-
-
-## Prerequisites
-- Python 3
-- Pip
-- psycopg2
-- sqlalchemy
-
-1. **Modify Configuration**
-   - Modify the `RelationalDB.py` file in the setup_dbs folder to specify your Postgres connection information and the location of the CSV files from Synthea.
-
-
-2. **Run the Python Script**
-   - `python3 setup-postgres.py`
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Neo4j DB Instructions
 
