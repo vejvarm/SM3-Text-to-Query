@@ -2,12 +2,12 @@
 
 This repository contains both the data and code for:
 
-**SM3-Text-to-Query: Synthetic Multi-Model Medical Text-to-Query Benchmark**
-**Authors: Sithursan Sivasubramaniam, Cedric Osei-Akoto, Yi Zhang, Kurt Stockinger, Jonathan Fürst**
+**SM3-Text-to-Query: Synthetic Multi-Model Medical Text-to-Query Benchmark**   
+Authors: Sithursan Sivasubramaniam, Cedric Osei-Akoto, Yi Zhang, Kurt Stockinger, Jonathan Fürst   
 **Contact: jonathan.fuerst@zhaw.ch**
 
-This work will be presented at NeurIPS 2024.
-Please cite our work if you use our data or code.
+This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/poster/97708).
+**Please cite our work if you use our data or code.**
 
 ```
 @misc{sivasubramaniam2024sm3texttoquerysyntheticmultimodelmedical,
@@ -21,6 +21,7 @@ Please cite our work if you use our data or code.
 }
 ```
 
+**Note: This repository will be updated further during the next week to make it easier to set up and use the four different databases.**
 
 ## Data
 
