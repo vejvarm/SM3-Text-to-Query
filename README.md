@@ -24,27 +24,15 @@ This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/po
 **Note: This repository will be updated further during the next week to make it easier to set up and use the four different databases.**
 
 ## Data
+The `./data` directory contains various used templates, synthea data, train and dev data and the compoted results.
 
-- `./data/synthea_database` contains the Synthea data used as the basis for PostgreSQL, Graph DB (RDF), Neo4j, and MongoDB.
-- `./data/dataset/train_dev`contains the annotated
-  train and dev splits for all four query languages: SQL, SPARQL, Cypher, and
-  MQL
-- `./data/dataset/processed_data` contains different data splits, including the responses from the respective databases.
-- `./data/dataset/question_templates` contains the 408 question templates used to construct SM3-Text-to-Query.
-- `./data/results` contains the results for each of the
-  evaluated database systems and query languages for each of the five prompts,
-the four LLMs for dev (results on test are not published to not expose the questions)
+For detailed information about the data presented in this project, please refer to the README in the `./data` directory. 
 
 ## Code
+The `./src` directory contains the code to reproduce the results presented in SM3-Text-to-Query research.
 
-- `./src/setup_dbs` contains the code to set up the four different database systems (PostgreSQL, GraphDB, Neo4j, and MongoDB) and populate them with Synthea data.
-- `./src/run_experiments` contains the code to
-  replicate our experiments for all database models, LLMs, prompts, and few-shot
-  sampling (repetitions).
-- `./src/evaluation` contains the code to evaluate the
-  results obtained by the LLMs for our four databases, including the necessary
-  data-cleaning logic. It computes Execution Accuracy (EA) and Valid Efficiency
-  Score (VES) for each combination of LLM, database model, and prompt-setting.
+A more elaborate description of the code components can be found in the README of the `./src` directory.
+
 
 ## Croissant Metadata
 
