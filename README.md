@@ -24,12 +24,12 @@ This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/po
 **Note: This repository will be updated further during the next week to make it easier to set up and use the four different databases.**
 
 ## Data
-The `./data` directory contains various used templates, synthea data, train and dev data and the compoted results.
+The `./data` directory contains our template questions, the Synthea data, train and dev data, and the Text-to-Query results of our evaluated LLMs for all databases.
 
 For detailed information about the data presented in this project, please refer to the README in the `./data` directory. 
 
 ## Code
-The `./src` directory contains the code to reproduce the results presented in SM3-Text-to-Query research.
+The `./src` directory contains the code to reproduce the results presented in SM3-Text-to-Query.
 
 A more elaborate description of the code components can be found in the README of the `./src` directory.
 
