@@ -1,4 +1,4 @@
-# Data
+# Data Directory
 
 The following directory contains a variety of data used in the SM3-Text-to-Query project. 
 
