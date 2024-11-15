@@ -1,5 +1,9 @@
 # SM3-Text-to-Query: <ins>S</ins>ynthetic <ins>M</ins>ulti-<ins>M</ins>odel <ins>M</ins>edical Text-to-Query Benchmark
 
+
+![Differences across query languages and database systems for the same user request](./docs/assets/querydifference.png)
+
+
 This repository contains both the data and code for:
 
 **SM3-Text-to-Query: Synthetic Multi-Model Medical Text-to-Query Benchmark**   
