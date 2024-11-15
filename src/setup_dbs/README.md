@@ -1,9 +1,11 @@
 # Database Setup Instructions
 
-SM3-Text-to-Query contains four different database systems: PostgreSQL, Neo4j, Graph, and MongoDB. The following instructions will guide you through setting up each of these databases.
-Use the provided environment.yml file to make sure that the appropriate dependencies are installed.
+SM3-Text-to-Query contains four database systems: PostgreSQL, Neo4j, Graph, and MongoDB. The following instructions will guide you through setting up each of these databases.
+Use the provided `environment.yml` file to ensure the appropriate dependencies are installed.
 
-**Note: This will be heavily updated and improved during the next couple of weeks.**
+![Database construction from Synthetic Patient Data](../../docs/assets/database-construction.png)
+
+**Note: These instructions will be heavily updated and improved during the next couple of weeks.**
 
 
 ## PostgreSQL
