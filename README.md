@@ -10,6 +10,9 @@ This repository contains both the data and code for:
 Authors: Sithursan Sivasubramaniam, Cedric Osei-Akoto, Yi Zhang, Kurt Stockinger, Jonathan Fürst   
 **Contact: jonathan.fuerst@zhaw.ch**
 
+[**Paper arXiv Link**](https://arxiv.org/abs/2411.05521)
+
+
 This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/poster/97708).
 **Please cite our work if you use our data or code.**
 
