@@ -1,10 +1,17 @@
 # SM3-Text-to-Query: <ins>S</ins>ynthetic <ins>M</ins>ulti-<ins>M</ins>odel <ins>M</ins>edical Text-to-Query Benchmark
 
+
+![Differences across query languages and database systems for the same user request](./docs/assets/querydifference.png)
+
+
 This repository contains both the data and code for:
 
 **SM3-Text-to-Query: Synthetic Multi-Model Medical Text-to-Query Benchmark**   
 Authors: Sithursan Sivasubramaniam, Cedric Osei-Akoto, Yi Zhang, Kurt Stockinger, Jonathan Fürst   
 **Contact: jonathan.fuerst@zhaw.ch**
+
+[**Paper arXiv Link**](https://arxiv.org/abs/2411.05521)
+
 
 This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/poster/97708).
 **Please cite our work if you use our data or code.**
@@ -24,11 +31,13 @@ This work will be presented at [NeurIPS 2024](https://neurips.cc/virtual/2024/po
 **Note: This repository will be updated further during the next week to make it easier to set up and use the four different databases.**
 
 ## Data
+
 The `./data` directory contains our template questions, the Synthea data, train and dev data, and the Text-to-Query results of our evaluated LLMs for all databases.
 
 For detailed information about the data presented in this project, please refer to the README in the `./data` directory. 
 
 ## Code
+
 The `./src` directory contains the code to reproduce the results presented in SM3-Text-to-Query.
 
 A more elaborate description of the code components can be found in the README of the `./src` directory.
@@ -84,69 +93,44 @@ A more elaborate description of the code components can be found in the README o
     "transform": "cr:transform"
   },
   "@type": "sc:Dataset",
-  "name": "SM3-text-to-query",
-  "description": "Dataset used in project SM3-text-to-query",
+  "name": "SM3-Text-to-Query",
+  "description": "This dataset contains examples of text-to-query mappings for multiple query languages including SQL, SPARQL, MQL, and Cypher. It includes question type and class information.",
   "conformsTo": "http://mlcommons.org/croissant/1.0",
+  "citeAs": "SM3-Text-to-Query Dataset",
   "url": "https://github.com/jf87/SM3-Text-to-Query",
   "distribution": [
     {
       "@type": "cr:FileObject",
-      "@id": "sm3-text-to-query-train",
-      "name": "sm3-text-to-query-train",
-      "description": "SM3-Text-to-Query training data on GitHub.",
-      "contentUrl": "https://github.com/jf87/SM3-Text-to-Query/blob/main/data/dataset/train_dev/train.csv",
-      "encodingFormat": "text/csv",
-      "sha256": "sha256"
-    },
-    {
-      "@type": "cr:FileObject",
-      "@id": "sm3-text-to-query-val",
-      "name": "sm3-text-to-query-val",
-      "description": "SM3-Text-to-Query validation data on GitHub.",
-      "contentUrl": "https://github.com/jf87/SM3-Text-to-Query/blob/main/data/dataset/train_dev/dev.csv",
-      "encodingFormat": "text/csv",
-      "sha256": "sha256"
-    },
-    {
-      "@type": "cr:FileObject",
-      "@id": "sm3-text-to-query-sample-val",
-      "name": "sm3-text-to-query-sample-val",
-      "description": "SM3-Text-to-Query sampled validation data on GitHub.",
-      "contentUrl": "https://github.com/jf87/SM3-Text-to-Query/blob/main/data/dataset/train_dev/sample_dev.csv",
-      "encodingFormat": "text/csv",
-      "sha256": "sha256"
+      "@id": "github-repository",
+      "name": "github-repository",
+      "description": "Repository hosting the SM3-Text-to-Query dataset.",
+      "contentUrl": "https://github.com/jf87/SM3-Text-to-Query",
+      "encodingFormat": "git+https",
+      "sha256": "main"
     },
     {
       "@type": "cr:FileSet",
       "@id": "csv-files",
       "name": "csv-files",
-      "description": "All data in csv format",
-      "containedIn": [
-        {
-          "@id": "sm3-text-to-query-train"
-        },
-        {
-          "@id": "sm3-text-to-query-val"
-        },
-        {
-          "@id": "sm3-text-to-query-sample-val"
-        }
-      ],
+      "description": "CSV files hosted in the GitHub repository.",
+      "containedIn": {
+        "@id": "github-repository"
+      },
       "encodingFormat": "text/csv",
-      "includes": "*.csv"
+      "includes": "data/train_dev/*.csv"
     }
   ],
   "recordSet": [
     {
       "@type": "cr:RecordSet",
-      "@id": "sql",
-      "name": "sql",
+      "@id": "csv",
+      "name": "csv",
       "field": [
         {
           "@type": "cr:Field",
-          "@id": "csv-files/question",
+          "@id": "csv/question",
           "name": "question",
-          "description": "Questions of data",
+          "description": "The natural language question.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -159,9 +143,9 @@ A more elaborate description of the code components can be found in the README o
         },
         {
           "@type": "cr:Field",
-          "@id": "csv-files/sql",
+          "@id": "csv/sql",
           "name": "sql",
-          "description": "SQL queries of data",
+          "description": "The SQL query.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -174,9 +158,9 @@ A more elaborate description of the code components can be found in the README o
         },
         {
           "@type": "cr:Field",
-          "@id": "csv-files/sparql",
+          "@id": "csv/sparql",
           "name": "sparql",
-          "description": "SPAQL queries of data",
+          "description": "The SPARQL query.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -189,24 +173,9 @@ A more elaborate description of the code components can be found in the README o
         },
         {
           "@type": "cr:Field",
-          "@id": "csv-files/cypher",
-          "name": "cypher",
-          "description": "Cypher queries of data",
-          "dataType": "sc:Text",
-          "source": {
-            "fileSet": {
-              "@id": "csv-files"
-            },
-            "extract": {
-              "column": "cypher"
-            }
-          }
-        },
-        {
-          "@type": "cr:Field",
-          "@id": "csv-files/mql",
+          "@id": "csv/mql",
           "name": "mql",
-          "description": "MongoDB queries of data",
+          "description": "The MQL query.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -219,9 +188,24 @@ A more elaborate description of the code components can be found in the README o
         },
         {
           "@type": "cr:Field",
-          "@id": "data/question_type",
+          "@id": "csv/cypher",
+          "name": "cypher",
+          "description": "The Cypher query.",
+          "dataType": "sc:Text",
+          "source": {
+            "fileSet": {
+              "@id": "csv-files"
+            },
+            "extract": {
+              "column": "cypher"
+            }
+          }
+        },
+        {
+          "@type": "cr:Field",
+          "@id": "csv/question_type",
           "name": "question_type",
-          "description": "Question types of data",
+          "description": "The type of the question.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
@@ -234,9 +218,9 @@ A more elaborate description of the code components can be found in the README o
         },
         {
           "@type": "cr:Field",
-          "@id": "data/class",
+          "@id": "csv/class",
           "name": "class",
-          "description": "Question classes of data",
+          "description": "The class of the query or question.",
           "dataType": "sc:Text",
           "source": {
             "fileSet": {
