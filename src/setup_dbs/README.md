@@ -11,22 +11,11 @@ Use the provided environment.yml file to make sure that the appropriate dependen
    - Install miniconda for your system based on the official documentation [here.](https://docs.anaconda.com/miniconda/)
 2. **Creating virtual environment**
    - Run the following command to create virtual environment based on project specifications
-     - For Mac: (checked works)
      
      ```conda env create -f ./src/environment.yml```
      
      ```conda activate sm3```
-     - For Windows: (To verify on thinkpad) 
-     
-     ```conda env create -f ./src/environment.yml```
-     
-     ```conda activate sm3```
-     - For Linux: (To verify on thinkpad)
-     
-     ```conda env create -f ./src/environment.yml```
-     
-     ```conda activate sm3```
-   
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # PostgreSQL DB Instructions
 
