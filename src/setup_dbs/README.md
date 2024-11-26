@@ -37,44 +37,52 @@ Install PostgreSQL for your system according to the instructions provided [here]
 ![img_1.png](instruction_screenshots/postgresql_installation_page_screenshot.png)
 ## Steps to Ingest Synthea Data in PostgreSQL
 ### Ingestion with custom file:
-1. Run the `setup-postgres.py` script with the appropriate parameters.
+1. Run the `./postgres/setup-postgres.py` script with the appropriate parameters.
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Neo4j DB Instructions
 
 ## Prerequisites
 ### Installation of Neo4j Desktop
-Install Neo4j Desktop for your system according to the instructions provided [here](https://neo4j.com/deployment-center/?desktop-gdb).
-
+1. Install Neo4j Desktop for your system according to the instructions provided [here](https://neo4j.com/deployment-center/?desktop-gdb).
 ![img.png](instruction_screenshots/neo4j_installation_page_screenshot.png)
+
+2. Open Neo4j Desktop Create a new Project.
+3. Add Local DBMS system to project
+![img.png](instruction_screenshots/img.png)
+4. Create DBMS system 
+- Name:SM3 
+- Password: password
+5. Update Settings File
+- Add the following lines: to the settings file: 
+
+server.memory.heap.initial_size=1G
+
+server.memory.heap.max_size=4G
+
+server.memory.pagecache.size=2G
+
+dbms.memory.transaction.total.max=5G
+
+- Press Apply and then close settings
+![img_2.png](instruction_screenshots/img_2.png)
+
+6. Install APOC plugin
+- Change to the Plugin Tab of the database
+- Install and Restart the Neo4j database with the button "Install and Restart"
+![img_3.png](instruction_screenshots/img_3.png)
+
 ## Steps to Ingest Synthea Data in Neo4j
 ### Ingestion with custom file: 
+1. Run the `./neo4j/ingest.py` script with the appropriate parameters.
 
 
-### Ingestion with pyingest: 
-1. **Clone or Download the Pyingest Project**
-   - Clone or download the pyingest project from GitHub [here](https://github.com/neo4j-field/pyingest).
-
-2. **Obtain Dependencies**
-   - Run the following command to install the necessary dependencies:
-     ```bash
-     pip3 install -r requirements.txt
-     ```
-
-3. **Modify Configuration**
-   - Modify the `config.yml` file in the setup_dbs folder to specify your Neo4j connection information and the location of the CSV files from Synthea.
-
-4. **Run the Ingestion Script**
-   - From the root folder of your pyingest checkout, run the following command:
-     ```bash
-     python3 src/main/ingest.py $YOURPATH/SM3-Text-to-Query/src/setup_dbs/config_neo4j.yml
-     ```
-   - Replace `$YOURPATH` with the path to the root of this project.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Graph DB Instructions
 
 ## Prerequisites
 ### Installation of GraphDB
+1. Install GraphDB Desktop for your system according to the instructions provided [here](https://graphdb.ontotext.com/documentation/10.7/graphdb-desktop-installation.html)
 
 ### Steps to Ingest Synthea Data in GraphDB 
 

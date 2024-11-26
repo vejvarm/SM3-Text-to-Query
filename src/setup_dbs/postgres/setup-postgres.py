@@ -368,7 +368,7 @@ def extract_filename(filepath: str):
     return file_name
 
 
-# Function to load the synthea csv data directly into the database
+# Function to load the Synthea csv data directly into the database
 def load_data(conn, data_path, engine):
     # with conn.cursor() as cursor:
     # List of tables to load (in order of dependencies)
@@ -398,7 +398,6 @@ def load_data(conn, data_path, engine):
     # Path to postgres datafile:
     try:
         for table in tables:
-            # TODO: checkpoint for the respective data already existing
             # IF true-> skip/ false -> execute addition
             csv_file = os.path.join(data_path, f"{table}.csv")
             sample_string = f"SELECT COUNT(*) from {table}"
@@ -477,7 +476,7 @@ def main():
 
     parser.add_argument(
         "--synthea-data",
-        default=os.getenv("SYNTHEA_DATA", "../../data/synthea_data"),
+        default=os.getenv("SYNTHEA_DATA", "../../../data/synthea_data"),
         help="Synthea data folder",
     )
     args = parser.parse_args()

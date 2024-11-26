@@ -20,7 +20,26 @@ dependencies:
   # Mongo db dependencies
   - pymongo
 
-# graph db
+  # neo4j db dependencies
+  - neo4j
+  - pyyaml
+  - DateTime
+  - zipfile36
+  - urllib3
+  - boto3
+  - smart-open
+  - pathlib
+  - ijson
+  - botocore
+  - pathlib
+  - jmespath
+  - numpy
+  - python-dateutil
+  - pytz
+  - s3transfer
+  - six
+
+  # graph db
   - synthea-rdf
   - pathlib
   - rdflib>=6.3.2
