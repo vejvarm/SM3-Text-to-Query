@@ -27,6 +27,15 @@ Install PostgreSQL for your system according to the instructions provided [here]
 ## Steps to Ingest Synthea Data in PostgreSQL
 ### Ingestion with custom file:
 1. Run the `./postgres/setup-postgres.py` script with the appropriate parameters.
+- Using SM3 Synthea data:
+
+Run the `./postgres/setup-postgres.py` file without further configuration. 
+
+- Using custom Synthea data: 
+
+Replace the Synthea csv data in the `../../data/synthea_data` folder.
+
+Run the `./postgres/setup-postgres.py` file without further configuration. 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Neo4j DB Instructions
@@ -64,8 +73,14 @@ dbms.memory.transaction.total.max=5G
 ## Steps to Ingest Synthea Data in Neo4j
 ### Ingestion with custom file: 
 1. Run the `./neo4j/ingest.py` script with the appropriate parameters.
+- Using SM3 Synthea data:
 
+Run the `./neo4j/ingest.py` file without further configuration.
 
+- Using custom Synthea data:
+
+Adjust the url of each  such that it represents  `./neo4j/ingest.py` script without further configuration.
+Run the `./neo4j/ingest.py` file without further configuration.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Graph DB Instructions
 
