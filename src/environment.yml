@@ -19,6 +19,7 @@ dependencies:
 
   # Mongo db dependencies
   - pymongo
+  - tqdm
 
   # neo4j db dependencies
   - neo4j

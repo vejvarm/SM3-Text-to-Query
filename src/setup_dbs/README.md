@@ -49,7 +49,7 @@ Run the `./postgres/setup-postgres.py` file without further configuration.
 
 2. Open Neo4j Desktop Create a new Project.
 3. Add Local DBMS system to project
-![img.png](instruction_screenshots/img.png)
+![img.png](instruction_screenshots/local_neo4j_dbms.png)
 4. Create DBMS system 
 - Name:SM3 
 - Password: password
@@ -65,12 +65,12 @@ server.memory.pagecache.size=2G
 dbms.memory.transaction.total.max=5G
 
 - Press Apply and then close settings
-![img_2.png](instruction_screenshots/img_2.png)
+![img_2.png](instruction_screenshots/sm3_settings_definition.png)
 
 6. Install APOC plugin
 - Change to the Plugin Tab of the database
 - Install and Restart the Neo4j database with the button "Install and Restart"
-![img_3.png](instruction_screenshots/img_3.png)
+![img_3.png](instruction_screenshots/apoc_installation.png)
 
 ## Steps to Ingest Synthea Data in Neo4j
 ### Ingestion with custom file: 
@@ -81,7 +81,7 @@ Run the `./neo4j/ingest.py` file without further configuration.
 
 - Using custom Synthea data:
 
-Adjust the url of each  such that it represents  `./neo4j/ingest.py` script without further configuration.
+Replace the Synthea csv data in the `../../data/synthea_data` folder.
 Run the `./neo4j/ingest.py` file without further configuration.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Graph DB Instructions
@@ -99,8 +99,20 @@ Run the `./neo4j/ingest.py` file without further configuration.
 
 ## Prerequisites
 ### Installation of MongoDB
-1. Install MongoDB for your system according to https://www.mongodb.com/docs/manual/installation/
+1. Install MongoDB for your system according to the instructions provided [here](https://www.mongodb.com/try/download/compass).
+![img.png](instruction_screenshots/mongodb_compass_download.png)
 
-### Steps to Ingest Synthea Data in MongoDB
-2. Follow the instructions in the `setup-mongodb.ipynb` notebook and execute it. 
+2. Connect to the mongodb database
+![img_1.png](img_1.png)
+## Steps to Ingest Synthea Data in MongoDB
+### Ingestion with custom file:
+1. Run the `./mongodb/setup-mongodb.py` file without further configuration. 
+- Using SM3 Synthea data:
+
+Run the `./mongodb/setup-mongodb.py` file without further configuration.
+
+- Using custom Synthea data:
+
+Replace the Synthea csv data in the `../../data/synthea_data` folder.
+Run the `./mongodb/setup-mongodb.py` file without further configuration.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------

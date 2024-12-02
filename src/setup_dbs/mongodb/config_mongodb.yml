@@ -1,0 +1,3 @@
+server_uri: mongodb://localhost:27017/
+database: sm3
+basepath: ../../../data/synthea_data/

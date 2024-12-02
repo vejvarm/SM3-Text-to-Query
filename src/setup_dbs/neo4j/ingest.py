@@ -307,7 +307,7 @@ def main():
     else:
         #print(server.check_sm3_database_existence())
         if not server.create_sm3_neo4j_database():
-            print(f"Failed to created database {server.database}")
+            print(f"Failed to create database {server.database}")
             server.close()
             return
     # Wait for 3s SM3 to be available
