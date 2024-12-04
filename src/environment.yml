@@ -19,6 +19,7 @@ dependencies:
 
   # Mongo db dependencies
   - pymongo
+  - tqdm
 
   # neo4j db dependencies
   - neo4j
@@ -45,3 +46,4 @@ dependencies:
   - rdflib>=6.3.2
   - rdflib-jsonld>=0.6.2
   - requests.auth
+  - tqdm
