@@ -1095,11 +1095,5 @@ def main():
         # both database and data have to be loaded::
         server.run_mongodb_test()
 
-
-
-    # Connection to the respective client
-    #client = pymongo.MongoClient("mongodb://localhost:27017/")
-    #db = client['sm3']
-
 if __name__ == "__main__":
     main()
