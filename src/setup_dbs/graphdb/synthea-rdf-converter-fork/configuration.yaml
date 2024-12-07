@@ -1,0 +1,8 @@
+model_path: ./synthea_ontology/synthea_ontology.ttl
+synthea_csv_path: ../../../../data/synthea_data
+output_path: ./temporary_ttl_files
+chunk_size: 300000
+include_dua: False
+include_trustscore: False
+skip: []
+do_shutdown: False

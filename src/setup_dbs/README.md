@@ -85,15 +85,22 @@ Replace the Synthea csv data in the `../../data/synthea_data` folder.
 Run the `./neo4j/ingest.py` file without further configuration.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Graph DB Instructions
-
 ## Prerequisites
 ### Installation of GraphDB
 1. Install GraphDB Desktop for your system according to the instructions provided [here](https://graphdb.ontotext.com/documentation/10.7/graphdb-desktop-installation.html)
 
 ### Steps to Ingest Synthea Data in GraphDB 
+1. **Conversion of Synthea CSV files to TTL files**\
+In order for the Synthea CSV data to be inserted into the GrapgDB database the files have to be converted into a compatible format.
+This is done by following the command below.
+- Run the `./graphdb/synthea-rdf-converter-fork/conversion.py` file.
+2. **Upload of Synthea TLL files to GraphDB database**
+- Run the `./graphdb/setup-graphdb.py` file.
 
-1. **Syntha RDF setup**
-   - Follow instruction from [synthea-rdf](https://github.com/SithursanS/synthea-rdf)
+####Alert: THESE FACTS NEED TO BE TAKEN INTO CONSIDERATION COMPUTING Extract transform and Load for GraphDB 
+- GraphDB needs a large amount of disk space to both convert and upload data for the experiments (>10GB) 
+- GraphDB query execution time is slow due to there being a large amount of single entities!
+
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 # MongoDB Instructions
 
